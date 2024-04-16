@@ -1,0 +1,1875 @@
+[{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6acf"
+  },
+  "MaKho": "KLV01",
+  "DiaChi": "253 Lê Lợi, TT. An Châu, Châu Thành, An Giang, Việt Nam",
+  "Tinh": "An Giang",
+  "KhuVuc": "Tây Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545481",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV20",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV14",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV34",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ad0"
+  },
+  "MaKho": "KLV02",
+  "DiaChi": "213 Nguyễn An Ninh, Phường 6, Thành phố Vũng Tầu, Bà Rịa - Vũng Tàu, Việt Nam",
+  "Tinh": "Bà Rịa-Vũng Tàu",
+  "KhuVuc": "Đông Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545482",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV19",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV11",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV30",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ad1"
+  },
+  "MaKho": "KLV03",
+  "DiaChi": "346 Cao Văn Lầu, Phường 2, Bạc Liêu, Việt Nam",
+  "Tinh": "Bạc Liêu",
+  "KhuVuc": "Tây Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545483",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV12",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV52",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV34",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV31",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ad2"
+  },
+  "MaKho": "KLV04",
+  "DiaChi": "4RWQ+R5Q, Phùng Chí Kiên, Bắc Kạn, Việt Nam",
+  "Tinh": "Bắc Cạn",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545484",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV38",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV13",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV61",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV56",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ad3"
+  },
+  "MaKho": "KLV05",
+  "DiaChi": "217 Lê Lợi, Phường Hoàng Văn Thụ, Bắc Giang, Việt Nam",
+  "Tinh": "Bắc Giang",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545485",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV56",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV38",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV50",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV27",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV06",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV24",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ad4"
+  },
+  "MaKho": "KLV06",
+  "DiaChi": "420, Nghiêm Xá, Yên Phong, Bắc Ninh, Việt Nam",
+  "Tinh": "Bắc Ninh",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545486",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV05",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV27",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV32",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV24",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ad5"
+  },
+  "MaKho": "KLV07",
+  "DiaChi": "68 Đồng Văn Cống, Bình Phú, Bến Tre, Việt Nam",
+  "Tinh": "Bến Tre",
+  "KhuVuc": "Tây Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545487",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV59",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV60",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV62",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ad6"
+  },
+  "MaKho": "KLV08",
+  "DiaChi": "77 Đ. Hoàng Hoa Thám, Hiệp Thành, Thủ Dầu Một, Bình Dương, Việt Nam",
+  "Tinh": "Bình Dương",
+  "KhuVuc": "Đông Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545488",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV10",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV19",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV30",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV54",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ad7"
+  },
+  "MaKho": "KLV09",
+  "DiaChi": "468 Trần Hưng Đạo, Lê Hồng Phong, Thành Phố, Bình Định, Việt Nam",
+  "Tinh": "Bình Định",
+  "KhuVuc": "Duyên hải Nam Trung Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545489",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV49",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV46",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV21",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ad8"
+  },
+  "MaKho": "KLV10",
+  "DiaChi": "57 Lê Duẩn, Tân Phú, Đồng Xoài, Bình Phước, Việt Nam",
+  "Tinh": "Bình Phước",
+  "KhuVuc": "Đông Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545491",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV54",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV08",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV19",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV39",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV17",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ad9"
+  },
+  "MaKho": "KLV11",
+  "DiaChi": "154 Trương Hán Siêu, Phú Thuỷ, Thành phố Phan Thiết, Bình Thuận, Việt Nam",
+  "Tinh": "Bình Thuận",
+  "KhuVuc": "Duyên hải Nam Trung Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545492",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV19",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV39",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV44",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV02",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ada"
+  },
+  "MaKho": "KLV12",
+  "DiaChi": "298 Đ. Trần Hưng Đạo, Phường 5, Thành phố Cà Mau, Cà Mau, Việt Nam",
+  "Tinh": "Cà Mau",
+  "KhuVuc": "Tây Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545493",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV03",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV34",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6adb"
+  },
+  "MaKho": "KLV13",
+  "DiaChi": "Sn18 Tổ 1 Phố Giữa, Hòa An, Cao Bằng, Việt Nam",
+  "Tinh": "Cao Bằng",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545494",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV38",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV04",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV22",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV61",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6adc"
+  },
+  "MaKho": "KLV14",
+  "DiaChi": "55 Đ. Ngô Tất Tố, Phường An Khánh, Ninh Kiều, Cần Thơ, Việt Nam",
+  "Tinh": "Cần Thơ",
+  "KhuVuc": "Tây Nam Bộ",
+  "LoaiKho": "Kho chính",
+  "SDT": "1900545495",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV31",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV34",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV52",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV01",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV20",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6add"
+  },
+  "MaKho": "KLV15",
+  "DiaChi": "Nguyễn Phước Tần, Hoà Phát, Cẩm Lệ, Đà Nẵng, Việt Nam",
+  "Tinh": "Đà Nẵng",
+  "KhuVuc": "Duyên hải Nam Trung Bộ",
+  "LoaiKho": "Kho chính",
+  "SDT": "1900545496",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV58",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV48",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ade"
+  },
+  "MaKho": "KLV16",
+  "DiaChi": "J46M+HMC, Ea tur, Cư Kuin, Đắk Lắk, Việt Nam",
+  "Tinh": "Đắk Lắk",
+  "KhuVuc": "Tây Nguyên",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545497",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV17",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV21",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV39",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV46",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV33",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6adf"
+  },
+  "MaKho": "KLV17",
+  "DiaChi": "448 Tôn Đức Thắng, Phường Nghĩa Thành, Gia Nghĩa, Đắk Nông, Việt Nam",
+  "Tinh": "Đắk Nông",
+  "KhuVuc": "Tây Nguyên",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545498",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV16",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV10",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV39",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ae0"
+  },
+  "MaKho": "KLV18",
+  "DiaChi": "Số 565, tổ 11, Thành phố Điện Biên Phủ, Điện Biên, Việt Nam",
+  "Tinh": "Điện Biên",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545499",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV36",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV53",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ae1"
+  },
+  "MaKho": "KLV19",
+  "DiaChi": "201-203 QL1A ,Ấp, Hố Nai 3, Trảng Bom, Đồng Nai, Việt Nam",
+  "Tinh": "Đồng Nai",
+  "KhuVuc": "Đông Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545500",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV08",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV10",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV11",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV39",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV02",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV30",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ae2"
+  },
+  "MaKho": "KLV20",
+  "DiaChi": "267 Ngô Thì Nhậm, Phường 1, TP. Cao Lãnh, Đồng Tháp, Việt Nam",
+  "Tinh": "Đồng Tháp",
+  "KhuVuc": "Tây Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545501",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV01",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV14",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV62",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV40",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV07",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV59",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ae3"
+  },
+  "MaKho": "KLV21",
+  "DiaChi": "67 Hoàng Văn Thụ, P.Tây Sơn, Thành phố Pleiku, Gia Lai, Việt Nam",
+  "Tinh": "Gia Lai",
+  "KhuVuc": "Tây Nguyên",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545502",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV35",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV16",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV09",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV46",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV49",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ae4"
+  },
+  "MaKho": "KLV22",
+  "DiaChi": "SỐ 522 ĐƯỜNG QUANG TRUNG, TỔ 5, THỊ TRẤN, Hà Giang, Việt Nam",
+  "Tinh": "Hà Giang",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545502",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV37",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV13",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV61",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV64",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ae5"
+  },
+  "MaKho": "KLV23",
+  "DiaChi": "294 Nguyễn Hữu Tiến, Đồng Văn, Duy Tiên, Hà Nam, Việt Nam",
+  "Tinh": "Hà Nam",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545503",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV24",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV32",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV43",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV55",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV29",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV41",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ae6"
+  },
+  "MaKho": "KLV24",
+  "DiaChi": "THANH OAI, SỐ 147, Cao Dương, HÀ NỘI, Hà Nội, Việt Nam",
+  "Tinh": "Hà Nội",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho chính",
+  "SDT": "1900545504",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV23",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV29",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV32",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV06",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV63",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV45",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV56",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV05",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ae7"
+  },
+  "MaKho": "KLV26",
+  "DiaChi": "6 Trần Phú, Bắc Hà, Hà Tĩnh, Việt Nam",
+  "Tinh": "Hà Tĩnh",
+  "KhuVuc": "Bắc Trung Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545505",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV42",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV47",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ae8"
+  },
+  "MaKho": "KLV27",
+  "DiaChi": "169 Bạch Đằng, P. Trần Phú, Thành phố Hải Dương, Hải Dương, Việt Nam",
+  "Tinh": "Hải Dương",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545506",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV28",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV55",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV32",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV06",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV05",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV50",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6ae9"
+  },
+  "MaKho": "KLV28",
+  "DiaChi": "771 Nguyễn Bỉnh Khiêm, Đông Hải 1, Hải An, Hải Phòng, Việt Nam",
+  "Tinh": "Hải Phòng",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545507",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV55",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV27",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV50",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6aea"
+  },
+  "MaKho": "KLV29",
+  "DiaChi": "22 Ngõ 38 Phố Trần Quý Kiên, Dịch Vọng, Cầu Giấy, Hà Nội, Việt Nam",
+  "Tinh": "Hòa Bình",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545508",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV24",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV45",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV53",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV23",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV43",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV57",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6aeb"
+  },
+  "MaKho": "KLV30",
+  "DiaChi": "161 đường Nguyễn Đình Chiểu, Phường 6, Quận 3, Thành phố Hồ Chí Minh, Việt Nam",
+  "Tinh": "TP Hồ Chí Minh",
+  "KhuVuc": "Đông Nam Bộ",
+  "LoaiKho": "Kho chính",
+  "SDT": "1900545509",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV40",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV54",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV08",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV02",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV19",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6aec"
+  },
+  "MaKho": "KLV31",
+  "DiaChi": "38 Ba Mươi Tháng Tư, Phường 1, Vị Thanh, Hậu Giang, Việt Nam",
+  "Tinh": "Hậu Giang",
+  "KhuVuc": "Tây Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545510",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV52",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV03",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV34",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV14",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV62",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6aed"
+  },
+  "MaKho": "KLV32",
+  "DiaChi": "65 Lê Thanh Nghị, P. Hiền Nam, Hưng Yên, Việt Nam",
+  "Tinh": "Hưng Yên",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545511",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV27",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV06",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV24",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV23",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV55",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6aee"
+  },
+  "MaKho": "KLV33",
+  "DiaChi": "254 Trường Chinh, Cam Đức, Cam Lâm, Khánh Hòa, Việt Nam",
+  "Tinh": "Khánh Hòa",
+  "KhuVuc": "Duyên hải Nam Trung Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545512",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV46",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV16",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV39",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV44",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6aef"
+  },
+  "MaKho": "KLV34",
+  "DiaChi": "237 Đông An, TT. Tân Hiệp, Tân Hịêp, Kiên Giang, Việt Nam",
+  "Tinh": "Kiên Giang",
+  "KhuVuc": "Tây Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545513",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV12",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV03",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV31",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV14",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV01",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6af0"
+  },
+  "MaKho": "KLV35",
+  "DiaChi": "191 Phan Chu Trinh, Phường Quyết Thắng, Kon Tum, Việt Nam",
+  "Tinh": "Kon Tum",
+  "KhuVuc": "Tây Nguyên",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545514",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV48",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV49",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV21",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6af1"
+  },
+  "MaKho": "KLV36",
+  "DiaChi": "TỔ 12, Tp. Lai Châu, Lai Châu, Việt Nam",
+  "Tinh": "Lai Châu",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545515",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV37",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV64",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV53",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV18",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6af2"
+  },
+  "MaKho": "KLV37",
+  "DiaChi": "224 Nguyễn Huệ, Phố Mới, Lào Cai, Việt Nam",
+  "Tinh": "Lào Cai",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545516",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV36",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV64",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV22",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6af3"
+  },
+  "MaKho": "KLV38",
+  "DiaChi": "422 Hùng Vương, Mai Pha, Thành phố Lạng Sơn, Lạng Sơn, Việt Nam",
+  "Tinh": "Lạng Sơn",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545517",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV50",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV05",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV56",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV04",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV13",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6af4"
+  },
+  "MaKho": "KLV39",
+  "DiaChi": "151 Nguyễn Công Trứ, Phường 8, Thành phố Đà Lạt, Lâm Đồng, Việt Nam",
+  "Tinh": "Lâm Đồng",
+  "KhuVuc": "Tây Nguyên",
+  "LoaiKho": "Kho chính",
+  "SDT": "1900545518",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV44",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV11",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV33",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV17",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV16",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6af5"
+  },
+  "MaKho": "KLV40",
+  "DiaChi": "Số 30 ấp Phước Toàn, Long Hiệp, Bến Lức, Long An, Việt Nam",
+  "Tinh": "Long An",
+  "KhuVuc": "Tây Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545519",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV30",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV59",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV20",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV54",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6af6"
+  },
+  "MaKho": "KLV41",
+  "DiaChi": "192 Quán Chiền, Nam Dương, Nam Trực, Nam Định, Việt Nam",
+  "Tinh": "Nam Định",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545520",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV55",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV23",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV43",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6af7"
+  },
+  "MaKho": "KLV42",
+  "DiaChi": "96 Lý Thường Kiệt, Lê Lợi, Thành phố Vinh, Nghệ An, Việt Nam",
+  "Tinh": "Nghệ An",
+  "KhuVuc": "Bắc Trung Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545521",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV57",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV26",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6af8"
+  },
+  "MaKho": "KLV43",
+  "DiaChi": "120 Xuân Thành, Tân Thành, Ninh Bình, Việt Nam",
+  "Tinh": "Ninh Bình",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545522",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV41",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV23",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV29",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV57",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6af9"
+  },
+  "MaKho": "KLV44",
+  "DiaChi": "90A Trần Phú, Phủ Hà, Phan Rang-Tháp Chàm, Ninh Thuận, Việt Nam",
+  "Tinh": "Ninh Thuận",
+  "KhuVuc": "Duyên hải Nam Trung Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545523",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV39",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV33",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV11",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6afa"
+  },
+  "MaKho": "KLV45",
+  "DiaChi": "8C4J+26W, Đ. Hùng Vương, Ph. Thanh Miếu, Thành phố Việt Trì, Phú Thọ, Việt Nam",
+  "Tinh": "Phú Thọ",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545524",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV63",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV24",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV29",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV53",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV64",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV61",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6afb"
+  },
+  "MaKho": "KLV46",
+  "DiaChi": "42 Đ. Trần Bình Trọng, Phường 4, Tuy Hòa, Phú Yên, Việt Nam",
+  "Tinh": "Phú Yên",
+  "KhuVuc": "Duyên hải Nam Trung Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545525",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV09",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV21",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV16",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV33",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6afc"
+  },
+  "MaKho": "KLV47",
+  "DiaChi": "145 Lý Thái Tổ, Đồng Sơn, Đồng Hới, Quảng Bình, Việt Nam",
+  "Tinh": "Quảng Bình",
+  "KhuVuc": "Bắc Trung Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545526",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV26",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV51",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6afd"
+  },
+  "MaKho": "KLV48",
+  "DiaChi": "140 Quang Trung, Khu 5, Đại Lộc, Quảng Nam, Việt Nam",
+  "Tinh": "Quảng Nam",
+  "KhuVuc": "Duyên hải Nam Trung Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545527",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV49",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV35",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6afe"
+  },
+  "MaKho": "KLV49",
+  "DiaChi": "336 Đ. Nguyễn Huệ, La Hà, Tư Nghĩa, Quảng Ngãi, Việt Nam",
+  "Tinh": "Quảng Ngãi",
+  "KhuVuc": "Duyên hải Nam Trung Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545528",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV48",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV35",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV21",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV09",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6aff"
+  },
+  "MaKho": "KLV50",
+  "DiaChi": "8 Đ Thanh Niên, Cẩm Thành, Cẩm Phả, Quảng Ninh, Việt Nam",
+  "Tinh": "Quảng Ninh",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545529",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV38",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV05",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV27",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV28",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b00"
+  },
+  "MaKho": "KLV51",
+  "DiaChi": "Kiệt 125, QL9, Phường 5, Đông Hà, Quảng Trị, Việt Nam",
+  "Tinh": "Quảng Trị",
+  "KhuVuc": "Bắc Trung Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545530",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV47",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV58",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b01"
+  },
+  "MaKho": "KLV52",
+  "DiaChi": "98 Nguyễn Huệ, K1P1, Ngã Năm, Sóc Trăng, Việt Nam",
+  "Tinh": "Sóc Trăng",
+  "KhuVuc": "Tây Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545531",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV60",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV62",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV14",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV03",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b02"
+  },
+  "MaKho": "KLV53",
+  "DiaChi": "Số 61 Đường Hương Xoài, TT. Yên Châu, Yên Châu, Sơn La, Việt Nam",
+  "Tinh": "Sơn La",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545532",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV18",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV36",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV64",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV45",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV29",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV57",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b03"
+  },
+  "MaKho": "KLV54",
+  "DiaChi": "250 Nguyễn Chí Thanh, Phường 3, Tây Ninh, Việt Nam",
+  "Tinh": "Tây Ninh",
+  "KhuVuc": "Đông Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545533",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV10",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV08",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV30",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV40",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b04"
+  },
+  "MaKho": "KLV55",
+  "DiaChi": "218 Long Hưng, Hoàn Diệu, Thái Bình, 411004, Việt Nam",
+  "Tinh": "Thái Bình",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545534",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV28",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV27",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV32",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV23",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV41",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b05"
+  },
+  "MaKho": "KLV56",
+  "DiaChi": "262 đường Phan Đình Phùng, Thành phố Thái Nguyên, Thái Nguyên, Việt Nam",
+  "Tinh": "Thái Nguyên",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545535",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV61",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV04",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV38",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV05",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV24",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV63",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b06"
+  },
+  "MaKho": "KLV57",
+  "DiaChi": "360A Đ. Trần Phú, P. Ba Đình, Thành phố Thanh Hóa, Thanh Hoá, Việt Nam",
+  "Tinh": "Thanh Hóa",
+  "KhuVuc": "Bắc Trung Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545536",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV43",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV29",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV53",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV42",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b07"
+  },
+  "MaKho": "KLV58",
+  "DiaChi": "193 Điện Biên Phủ, Trường An, Thành phố Huế, Thừa Thiên Huế, Việt Nam",
+  "Tinh": "Thừa Thiên – Huế",
+  "KhuVuc": "Bắc Trung Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545537",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV51",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV15",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV48",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b08"
+  },
+  "MaKho": "KLV59",
+  "DiaChi": "559A Lý Thường Kiệt, Phường 5, Thành phố Mỹ Tho, Tiền Giang, Việt Nam",
+  "Tinh": "Tiền Giang",
+  "KhuVuc": "Tây Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545538",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV07",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV62",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV20",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV40",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b09"
+  },
+  "MaKho": "KLV60",
+  "DiaChi": "156 Đ. Nguyễn Đáng, Phường 7, Trà Vinh, Việt Nam",
+  "Tinh": "Trà Vinh",
+  "KhuVuc": "Tây Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545539",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV62",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV07",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV52",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b0a"
+  },
+  "MaKho": "KLV61",
+  "DiaChi": "R626+X3W, Phạm Văn Đồng, Hưng Thành, Tp. Tuyên Quang, Tuyên Quang, Việt Nam",
+  "Tinh": "Tuyên Quang",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545540",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV04",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV56",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV63",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV45",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV64",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV37",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV22",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV13",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b0b"
+  },
+  "MaKho": "KLV62",
+  "DiaChi": "55E Phạm Thái Bường, Phường 4, Vĩnh Long, Việt Nam",
+  "Tinh": "Vĩnh Long",
+  "KhuVuc": "Tây Nam Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545541",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV60",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV07",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV59",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV20",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV14",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV52",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b0c"
+  },
+  "MaKho": "KLV63",
+  "DiaChi": "31 Ng. 376 Đ. Thụy Khuê, Bưởi, Tây Hồ, Hà Nội, Việt Nam",
+  "Tinh": "Vĩnh Phúc",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545542",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV24",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV45",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV61",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV56",
+      "KhoangCach": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "661eaeaa8730846d3c9b6b0d"
+  },
+  "MaKho": "KLV64",
+  "DiaChi": "318 đường Kim Đồng, phường Minh Tân, Thành phố Yên Bái, Yên Bái, Việt Nam",
+  "Tinh": "Yên Bái",
+  "KhuVuc": "Bắc Bộ",
+  "LoaiKho": "Kho thường",
+  "SDT": "1900545543",
+  "KhoLanCan": [
+    {
+      "MaKho": "KLV53",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV36",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV37,KLV22",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV61",
+      "KhoangCach": 0
+    },
+    {
+      "MaKho": "KLV45",
+      "KhoangCach": 0
+    }
+  ]
+}]
