@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chi tiết kho</title>
+</head>
+<body>
+<h1>Chi tiết kho</h1>
+<!-- Hiển thị thông tin kho -->
+<p>ID: <span th:text="${kho.id}"></span></p>
+<p>Mã kho: <span th:text="${kho.maKho}"></span></p>
+<p>Địa chỉ: <span th:text="${kho.diaChi}"></span></p>
+<p>Tỉnh: <span th:text="${kho.tinh}"></span></p>
+<p>Khu vực: <span th:text="${kho.khuVuc}"></span></p>
+<p>Loại kho: <span th:text="${kho.loaiKho}"></span></p>
+<p>Số điện thoại: <span th:text="${kho.sdt}"></span></p>
+
+<!-- Hiển thị danh sách các kho lân cận -->
+<h2>Kho lân cận</h2>
+<ul>
+    <li th:each="khoLanCan : ${kho.khoLanCan}">
+        Mã kho: <span th:text="${khoLanCan.maKho}"></span>, Khoảng cách: <span th:text="${khoLanCan.khoangCach}"></span>
+    </li>
+</ul>
+
+<a href="/kho">Trở lại danh sách kho</a>
+</body>
+</html>

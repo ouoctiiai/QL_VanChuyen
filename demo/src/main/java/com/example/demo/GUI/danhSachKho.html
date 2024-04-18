@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách kho</title>
+</head>
+<body>
+<h1>Danh sách kho</h1>
+<ul>
+    <!-- Lặp qua danh sách các kho và hiển thị thông tin -->
+    <li th:each="kho : ${danhSachKho}">
+        <a th:href="@{/kho/{id}(id=${kho.id})}">
+            <!-- Hiển thị mã kho và địa chỉ -->
+            <span th:text="${kho.maKho}"></span> - <span th:text="${kho.diaChi}"></span>
+        </a>
+    </li>
+</ul>
+</body>
+</html>
