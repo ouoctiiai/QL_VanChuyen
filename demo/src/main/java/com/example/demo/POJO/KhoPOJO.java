@@ -4,11 +4,11 @@ import java.util.List;
 
 public class KhoPOJO {
     private String id;           // ID của kho
-    private String maKho;        // Mã kho
-    private String diaChi;       // Địa chỉ của kho
-    private String tinh;         // Tỉnh của kho
-    private String khuVuc;       // Khu vực của kho
-    private String loaiKho;      // Loại kho
+    private String MaKho;        // Mã kho
+    private String DiaChi;       // Địa chỉ của kho
+    private String Tinh;         // Tỉnh của kho
+    private String KhuVuc;       // Khu vực của kho
+    private String LoaiKho;      // Loại kho
     private String sdt;          // Số điện thoại của kho
 
     // Kho lân cận là một mảng các kho xung quanh bao gồm thông tin mã kho và khoảng cách giữa chúng
@@ -24,43 +24,43 @@ public class KhoPOJO {
     }
 
     public String getMaKho() {
-        return maKho;
+        return MaKho;
     }
 
     public void setMaKho(String maKho) {
-        this.maKho = maKho;
+        this.MaKho = maKho;
     }
 
     public String getDiaChi() {
-        return diaChi;
+        return DiaChi;
     }
 
     public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
+        this.DiaChi = diaChi;
     }
 
     public String getTinh() {
-        return tinh;
+        return Tinh;
     }
 
     public void setTinh(String tinh) {
-        this.tinh = tinh;
+        this.Tinh = tinh;
     }
 
     public String getKhuVuc() {
-        return khuVuc;
+        return KhuVuc;
     }
 
     public void setKhuVuc(String khuVuc) {
-        this.khuVuc = khuVuc;
+        this.KhuVuc = khuVuc;
     }
 
     public String getLoaiKho() {
-        return loaiKho;
+        return LoaiKho;
     }
 
     public void setLoaiKho(String loaiKho) {
-        this.loaiKho = loaiKho;
+        this.LoaiKho = loaiKho;
     }
 
     public String getSdt() {

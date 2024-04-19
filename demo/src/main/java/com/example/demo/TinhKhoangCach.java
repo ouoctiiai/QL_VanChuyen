@@ -1,9 +1,9 @@
 package com.example.demo;
-import com.google.maps.DirectionsApi;
-import com.google.maps.DirectionsResult;
-import com.google.maps.GeoApiContext;
+import com.google.maps.*;
 import com.google.maps.model.Distance;
+import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.LatLng;
+import com.google.maps.model.TravelMode;
 
 public class TinhKhoangCach {
 
@@ -17,15 +17,22 @@ public class TinhKhoangCach {
         String origin = "1600 Amphitheatre Pkwy, Mountain View, CA 94043";
         String destination = "201 Spear St, San Francisco, CA 94105";
 
-        DirectionsResult result = DirectionsApi.newRequest(context)
-                .origin(origin)
-                .destination(destination)
-                .result();
+        DistanceMatrixApiRequest req = DistanceMatrixApi.newRequest(new GeoApiContext.Builder()
+                .apiKey(API_KEY)
+                .build());
 
-        if (result.getRoutes().size() > 0) {
-            Distance distance = result.getRoutes().get(0).getLegs().get(0).getDistance();
-            System.out.println(f"Khoảng cách giữa {origin} và {destination} là: {distance.getMeters()} mét");
-        } else {
+        DistanceMatrix query = req.origins(origin)
+                .destinations(destination)
+                .mode(TravelMode.DRIVING)
+                .avoid(DirectionsApi.RouteRestriction.TOLLS)
+                .language("en-US")
+                .awaitIgnoreError();
+
+        if (query != null && query.rows.length > 0)
+        {
+            System.out.println("Khoảng cách giữa {origin} và {destination} là: {distance.getMeters()} mét");
+        } else
+        {
             System.out.println("Không tìm thấy tuyến đường nào.");
         }
 
