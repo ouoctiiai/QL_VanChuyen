@@ -1,18 +1,35 @@
+
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Danh sách kho</title>
+    <meta charset="UTF-8">
+    <title>Danh Sách Kho</title>
 </head>
 <body>
-<h1>Danh sách kho</h1>
-<ul>
-    <!-- Lặp qua danh sách các kho và hiển thị thông tin -->
-    <li th:each="kho : ${danhSachKho}">
-        <a th:href="@{/kho/{id}(id=${kho.id})}">
-            <!-- Hiển thị mã kho và địa chỉ -->
-            <span th:text="${kho.maKho}"></span> - <span th:text="${kho.diaChi}"></span>
-        </a>
-    </li>
-</ul>
+<h1>Danh Sách Kho</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Mã Kho</th>
+        <th>Địa Chỉ</th>
+        <th>Tỉnh</th>
+        <th>Khu Vực</th>
+        <th>Loại Kho</th>
+        <th>SĐT</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="kho : ${danhSachKho}">
+        <td th:text="${kho.id}"></td>
+        <td th:text="${kho.maKho}"></td>
+        <td th:text="${kho.diaChi}"></td>
+        <td th:text="${kho.tinh}"></td>
+        <td th:text="${kho.khuVuc}"></td>
+        <td th:text="${kho.loaiKho}"></td>
+        <td th:text="${kho.sdt}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
