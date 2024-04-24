@@ -1310,4 +1310,20 @@
     "TenNganHang": "Techcombank",
     "SoTaiKhoan": "387186661"
   }
+},
+{
+  "_id": {
+    "$oid": "6628a300ce3f13a6e3f520cf"
+  },
+  "loaiTaiKhoan": "Kho",
+  "tenTaiKhoan": "ql_klv",
+  "matKhau": "kho_mk"
+},
+{
+  "_id": {
+    "$oid": "6628a300ce3f13a6e3f520d0"
+  },
+  "loaiTaiKhoan": "QuanLy",
+  "tenTaiKhoan": "qltt_dvvc",
+  "matKhau": "ql_mk"
 }]
