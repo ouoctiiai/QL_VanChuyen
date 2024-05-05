@@ -1,7 +1,11 @@
 package com.example.demo.POJO;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 import java.util.List;
 
+@JsonNaming(PropertyNamingStrategy.UpperCamelCaseStrategy.class)
 public class KhoPOJO {
     private String id;           // ID của kho
     private String MaKho;        // Mã kho
@@ -80,6 +84,7 @@ public class KhoPOJO {
     }
 
     // Class KhoLanCan là lớp con để đại diện cho thông tin mã kho và khoảng cách giữa chúng
+    @JsonNaming(PropertyNamingStrategy.UpperCamelCaseStrategy.class)
     public static class KhoLanCan {
         private String maKho;    // Mã kho lân cận
         private double khoangCach;  // Khoảng cách giữa kho hiện tại và kho lân cận
