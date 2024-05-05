@@ -1,0 +1,63 @@
+// .form-control:focus {
+//     color: var(--bs-body-color);
+//     background-color: var(--bs-body-bg);
+//     border-color: #86b7fe;
+//     outline: 0;
+//     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+// }
+
+.form-control :active{
+    border: none;
+}
+
+.form-control{
+    border-color: #86b7fe;
+    border-radius: 3px;
+}
+
+.login_container{
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 1);
+    border-radius: 20px;
+    margin-top: 30px;
+    background: linear-gradient(to right, #ffdde1, #A7BFE8);
+    margin-bottom: 20px;
+    padding: 15px;
+    width: 70%;
+}
+
+.form-outline{
+    position: relative;
+    width: 100%;
+    // border: solid 2px #86A8E7;
+    // border-radius: 8px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: inset 8px 8px 8px rgb(203, 206, 209, 0.5), inset -8px -8px 8px rgb(255, 255, 255, 0.5);
+}
+
+.form-outline input {
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.2rem;
+    color: #666;
+    padding: 10px 15px 10px 10px;
+    /* border: 1px solid red; */
+}
+
+.btn {
+    width: 100%;
+    height: 40px;
+    letter-spacing: 1.3px;
+}
+
+.nav-link{
+    box-shadow: 3px 3px 3px #cbced1, -3px -3px 3px #fff;
+}
+
+form label{
+    padding-left: 5px;
+}
