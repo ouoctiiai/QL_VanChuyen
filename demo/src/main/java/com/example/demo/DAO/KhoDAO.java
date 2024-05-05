@@ -5,10 +5,12 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class KhoDAO {
     private final Connection connection;
 
@@ -60,21 +62,21 @@ public class KhoDAO {
     // Phương thức để chuyển đổi Document thành KhoPOJO
     private KhoPOJO convertToKhoPOJO(Document doc) {
         KhoPOJO kho = new KhoPOJO();
-        kho.setId(doc.getString("id"));
-        kho.setMaKho(doc.getString("maKho"));
-        kho.setDiaChi(doc.getString("diaChi"));
-        kho.setTinh(doc.getString("tinh"));
-        kho.setKhuVuc(doc.getString("khuVuc"));
-        kho.setLoaiKho(doc.getString("loaiKho"));
-        kho.setSdt(doc.getString("sdt"));
+        kho.setId(doc.getObjectId("_id").toString());
+        kho.setMaKho(doc.getString("MaKho"));
+        kho.setDiaChi(doc.getString("DiaChi"));
+        kho.setTinh(doc.getString("Tinh"));
+        kho.setKhuVuc(doc.getString("KhuVuc"));
+        kho.setLoaiKho(doc.getString("LoaiKho"));
+        kho.setSdt(doc.getString("SDT"));
 
         // Chuyển đổi danh sách kho lân cận
-        List<Document> listKhoLanCanDoc = doc.getList("khoLanCan", Document.class);
+        List<Document> listKhoLanCanDoc = doc.getList("KhoLanCan", Document.class);
         List<KhoLanCan> listKhoLanCan = new ArrayList<>();
         for (Document khoLanCanDoc : listKhoLanCanDoc) {
             KhoLanCan khoLanCan = new KhoLanCan(
-                    khoLanCanDoc.getString("maKho"),
-                    khoLanCanDoc.getDouble("khoangCach")
+                    khoLanCanDoc.getString("MaKho"),
+                    khoLanCanDoc.getDouble("KhoangCach")
             );
             listKhoLanCan.add(khoLanCan);
         }
