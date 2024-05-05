@@ -87,13 +87,13 @@ const Login = (props) => {
                     {/* <!-- Email input --> */}
                     <div data-mdb-input-init className='form-outline mb-4'>
                         <input type="text" id="loginName" name='phone' value={formState.phone} onChange={handleChange}  className={`form-control ${isActivePhone ? 'active' : ''}`} />
-                        <label className="form-label" for="loginName">Số điện thoại</label>
+                        <label className="form-label" htmlFor="loginName">Số điện thoại</label>
                     </div>
 
                     {/* <!-- Password input --> */}
                     <div data-mdb-input-init className="form-outline mb-4">
                         <input type="password" id="loginPassword" name='password' value={formState.password} onChange={handleChange}  className={`form-control ${isActivePassword ? 'active' : ''}`} />
-                        <label className="form-label" for="loginPassword">Mật khẩu</label>
+                        <label className="form-label" htmlFor="loginPassword">Mật khẩu</label>
                     </div>
 
                     {/* <!-- 2 column grid layout --> */}
@@ -103,7 +103,7 @@ const Login = (props) => {
                             <div className="form-check mb-3 mb-md-0">
                                 <input className="form-check-input" type="checkbox" value="" id="loginCheck" onChange={handleCheckboxChange}/>
                                 {isChecked}
-                                <label className="form-check-label" for="loginCheck"> Remember me </label> 
+                                <label className="form-check-label" htmlFor="loginCheck"> Remember me </label> 
                             </div>
                         </div>
 
