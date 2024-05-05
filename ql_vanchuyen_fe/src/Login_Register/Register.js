@@ -97,7 +97,7 @@ const Register = (props) => {
                             </button>
                         </div>
 
-                        <p className="text-center">or:</p>
+                        <p className="text-center">hoặc:</p>
 
                         {/* <!-- Name input --> */}
                         <div data-mdb-input-init className="form-outline mb-4">

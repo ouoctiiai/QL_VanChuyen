@@ -7,7 +7,7 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 
-function TrangKhachHang(props) {
+function Customer(props) {
 
     const history = useHistory();
     const handleLogout = () =>{
@@ -68,4 +68,4 @@ function TrangKhachHang(props) {
     );
 }
 
-export default TrangKhachHang;
+export default Customer;

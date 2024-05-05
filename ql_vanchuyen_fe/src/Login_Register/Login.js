@@ -82,7 +82,7 @@ const Login = (props) => {
                         </button>
                     </div>
 
-                    <p className="text-center">or:</p>
+                    <p className="text-center">hoặc:</p>
 
                     {/* <!-- Email input --> */}
                     <div data-mdb-input-init className='form-outline mb-4'>

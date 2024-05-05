@@ -7,9 +7,9 @@ import {
   Routes
 } from "react-router-dom";
 import Register from './Login_Register/Register';
-import TrangKhachHang from './KhachHang/TrangKhachHang';
 import { render } from '@testing-library/react';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom';
+import Customer from './KhachHang/Customer';
 
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
               <Register />
             </Route>
             <Route path="/customer" render={() => {
-                return localStorage.getItem("accessToken") ? <TrangKhachHang /> : <Redirect to="/login" />
+                return localStorage.getItem("accessToken") ? <Customer /> : <Redirect to="/login" />
             }}>
             </Route>
             <Route path="*">
