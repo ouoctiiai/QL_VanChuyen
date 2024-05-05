@@ -12,6 +12,9 @@ import { Redirect } from 'react-router-dom/cjs/react-router-dom';
 import Customer from './KhachHang/Customer';
 import ProfileCustomer from './KhachHang/ProfileCustomer';
 import OrderDetails from './KhachHang/OrderDetails';
+import DSDonCho from './Shipper/Pages/SP_Home';
+import DSDonHang from './NhanVien/DSDonHang';
+import OrderList from './KhachHang/OrderList';
 
 
 function App() {
@@ -47,6 +50,15 @@ function App() {
           </Route>
           <Route path="/order-details">
             <OrderDetails />
+          </Route>
+          <Route path="/danhsachdoncho">
+            <DSDonCho />
+          </Route>
+          <Route path="/danhsachdonhang">
+            <DSDonHang />
+          </Route>
+          <Route path="/order-list">
+            <OrderList />
           </Route>
           <Route path="*">
             404 not found

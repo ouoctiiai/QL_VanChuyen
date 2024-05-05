@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 import './ProfileCustomer.scss';
 
@@ -7,6 +7,14 @@ import './ProfileCustomer.scss';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function ProfileCustomer(props) {
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+
     return (
         <div className='profile_container'>
             <div className="row profile">
@@ -63,7 +71,34 @@ function ProfileCustomer(props) {
                 </div>
                 <div className="col-md-9">
                     <div className="profile-content">
-                        Some user related content goes here...
+                        <h2>Thông tin cá nhân</h2>
+                        <div className='row'>
+                            <p className='title fw-bold col-4'>Tên đầy đủ: </p>
+                            <p className='content col-6'>Nguyễn Phan Như Quỳnh</p>
+                        </div>
+                        <div className='row'>
+                            <p className='title fw-bold col-4'>Tên đăng nhập: </p>
+                            <p className='content col-6'>npnq</p>
+                        </div>
+                        <div className='row'>
+                            <p className='title fw-bold col-4'>Số điện thoại: </p>
+                            <p className='content col-6'>0913630913</p>
+                        </div>
+                        <div className='row'>
+                            <p className='title fw-bold col-4'>Email: </p>
+                            <p className='content col-6'>npnq.anime@gmail.com</p>
+                        </div>
+                        <div className='row'>
+                            <p className='title fw-bold col-4'>Địa chỉ: </p>
+                            <p className='content col-6'>140 Lê Trọng Tấn, Tây Thạnh, Tân Phú, TP.HCM</p>
+                        </div>
+                        <div className='row'>
+                            <p className='title fw-bold col-4'>Mật khẩu: </p>
+                            <p className='content col-6'>
+                                {showPassword ? '21122003nhuquynh ' : '***'}
+                                </p>
+                                <i onClick={togglePasswordVisibility} className={`fa-solid ${showPassword ? 'fa-eye-slash' : 'fa-eye'} col-2`}></i>
+                        </div>
                     </div>
                 </div>
             </div>
