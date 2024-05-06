@@ -15,6 +15,8 @@ import OrderDetails from './KhachHang/OrderDetails';
 import DSDonCho from './Shipper/Pages/SP_Home';
 import DSDonHang from './NhanVien/DSDonHang';
 import OrderList from './KhachHang/OrderList';
+import TrangChu_Admin from './Admin/TrangChu_Admin';
+import AdminRouter from './Admin/AdminRouter';
 
 
 function App() {
@@ -59,6 +61,9 @@ function App() {
           </Route>
           <Route path="/order-list">
             <OrderList />
+          </Route>
+          <Route path="/trangchuadmin">
+            <AdminRouter/>
           </Route>
           <Route path="*">
             404 not found
