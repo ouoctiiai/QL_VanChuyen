@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="966c67c8-dc7a-4f50-b9d0-e91073c526dd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ql_vanchuyen_fe/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ql_vanchuyen_fe/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ql_vanchuyen_fe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ql_vanchuyen_fe/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ql_vanchuyen_fe/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/ql_vanchuyen_fe/src/App.js" afterDir="false" />
-    </list>
+    <list default="true" id="966c67c8-dc7a-4f50-b9d0-e91073c526dd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +27,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/STUDY/HK6/Java/NhomSpringBTJava/Chuong4",
+    "last_opened_file_path": "C:/QL_VanChuyen/QL_VanChuyen/demo",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -54,6 +50,7 @@
       <updated>1713451805827</updated>
       <workItem from="1713451807181" duration="10000" />
       <workItem from="1713937308166" duration="46000" />
+      <workItem from="1715090814376" duration="21000" />
     </task>
     <servers />
   </component>

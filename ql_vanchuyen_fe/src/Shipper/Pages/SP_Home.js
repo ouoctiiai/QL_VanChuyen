@@ -4,7 +4,7 @@ import ShipperRouter from "./ShipperRouter";
 
 const SP_Home = () => {
     return (
-        <div className="Shipper">
+        <div>
             <ShipperRouter />
         </div>
     );

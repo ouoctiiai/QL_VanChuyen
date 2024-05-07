@@ -6,16 +6,20 @@ import ListDonCho  from "./ListDonCho";
 import Dashboard  from "./Dashboard";
 import { Switch } from "react-router-dom/cjs/react-router-dom.min";
 import { Route , Router} from "react-router-dom";
+import UpdateProfile from './UpdateProfile';
 
 function ShipperRouter() {
   return (
     <div>
       <Navbar />
+      {/* <ListDonCho /> */}
+      {/* <Dashboard /> */}
+      <UpdateProfile />
         <Switch>
-            <Route path="/shipper_home/" element={<ListDonCho />} />
-            <Route path="/shipper_home/history" element={<History />} />
-            <Route path="/shipper_home/dashboard" element={<Dashboard />} />
-            <Route path="/shipper_home/profile" element={<Profile />} />
+            <Route path="/" element={<ListDonCho />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="*"> 404 not found </Route>
         </Switch>
     </div>

@@ -23,7 +23,7 @@ import { Margin, Padding } from '@mui/icons-material';
 function App() {
   return (
     <Router>
-      <div className='container' style={{ display: 'flex', justifyContent: 'center' }}>
+      <div>
         <Switch>
           <Route exact path="/">
             Home

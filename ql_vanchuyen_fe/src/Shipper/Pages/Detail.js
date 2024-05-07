@@ -1,5 +1,5 @@
 import React from "react";
 
 export const Details = () => {
-  return <h1>sde</h1>;
+  return <h1>sde</h1>
 };
