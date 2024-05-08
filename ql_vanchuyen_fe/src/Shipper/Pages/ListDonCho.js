@@ -61,6 +61,7 @@ const list = [
 
 const ListDonCho = () => {
   return (
+    <div className='container'>
     <div className='orderlistcard'>
       <div class="row">
         <div class="col-lg-12">
@@ -123,6 +124,7 @@ const ListDonCho = () => {
               </div>
           </div>
       </div>
+  </div>
   </div>
   </div>
   )

@@ -14,7 +14,9 @@ function ShipperRouter() {
       <Navbar />
       {/* <ListDonCho /> */}
       {/* <Dashboard /> */}
-      <UpdateProfile />
+      {/* <UpdateProfile /> */}
+      {/* <History /> */}
+      <Profile />
         <Switch>
             <Route path="/" element={<ListDonCho />} />
             <Route path="/history" element={<History />} />
