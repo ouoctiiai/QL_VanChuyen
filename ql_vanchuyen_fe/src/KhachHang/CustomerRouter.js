@@ -21,15 +21,15 @@ const renderCustomerRouter = () => {
         },
         {
             path: ROUTERS.CUSTOMER.CREATE_ORDER,
-            component: <CreateOrder />
+            component: CreateOrder
         },
         {
             path: ROUTERS.CUSTOMER.ORDER_LIST,
-            component: <OrderList />
+            component: OrderList
         },
         {
             path: ROUTERS.CUSTOMER.ORDER_DETAILS,
-            component: <OrderDetails />
+            component: OrderDetails
         }
     ];
 

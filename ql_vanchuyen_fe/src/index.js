@@ -4,17 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
-import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom';
-import CustomerRouter from './KhachHang/CustomerRouter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <CustomerRouter />
-  </BrowserRouter>
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
