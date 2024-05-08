@@ -7,16 +7,21 @@ import Dashboard  from "./Dashboard";
 import { Switch } from "react-router-dom/cjs/react-router-dom.min";
 import { Route , Router} from "react-router-dom";
 import UpdateProfile from './UpdateProfile';
+import DetailOrder from './DetailOrder';
 
 function ShipperRouter() {
   return (
     <div>
       <Navbar />
-      {/* <ListDonCho /> */}
-      {/* <Dashboard /> */}
-      {/* <UpdateProfile /> */}
-      {/* <History /> */}
-      <Profile />
+      {/* <ListDonCho />
+      <Dashboard /> 
+      <UpdateProfile /> 
+      <History />
+      <Profile /> */}
+
+
+      <DetailOrder />
+
         <Switch>
             <Route path="/" element={<ListDonCho />} />
             <Route path="/history" element={<History />} />

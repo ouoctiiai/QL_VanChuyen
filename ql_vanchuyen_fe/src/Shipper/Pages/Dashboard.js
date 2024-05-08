@@ -3,10 +3,10 @@ import '../Styles/Dashboard.css'
 
 const Dashboard = () => {
   return (
-    <div class="DBcontainer">
+    <div class="container">
       <div class="row">
         <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-blue order-card">
+            <div class="card order-card">
                 <div class="card-block">
                     <h6 class="m-b-20">Số đơn trong tuần</h6>
                     <h2 class="text-right"><span>29</span></h2>
@@ -16,7 +16,7 @@ const Dashboard = () => {
         </div>
         
         <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-green order-card">
+            <div class="card order-card">
                 <div class="card-block">
                     <h6 class="m-b-20">Số đơn trong tháng</h6>
                     <h2 class="text-right"><span>486</span></h2>
@@ -26,7 +26,7 @@ const Dashboard = () => {
         </div>
         
         <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-yellow order-card">
+            <div class="card  order-card">
                 <div class="card-block">
                     <h6 class="m-b-20">Số đơn đã hủy</h6>
                     <h2 class="text-right"><span>486</span></h2>
@@ -36,7 +36,7 @@ const Dashboard = () => {
         </div>
         
         <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-pink order-card">
+            <div class="card order-card">
                 <div class="card-block">
                     <h6 class="m-b-20">Tổng đơn đã chạy</h6>
                     <h2 class="text-right"><span>926</span></h2>

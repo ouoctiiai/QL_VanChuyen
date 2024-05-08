@@ -3,7 +3,7 @@ import '../Styles/UpdateProfile.css'
 
 const UpdateProfile = () => {
   return (
-    <div class="UDPFcontainer">
+    <div class="container">
         <div class="row gutters">
             <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                 <div class="card h-100">

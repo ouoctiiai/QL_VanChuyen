@@ -1,24 +1,6 @@
-
-.DBcontainer{
-    margin: 20px; 
+.container{
+  margin-top: 20px;
 }
-
-.bg-c-blue {
-    background: linear-gradient(45deg,#4099ff,#73b4ff);
-}
-
-.bg-c-green {
-    background: linear-gradient(45deg,#2ed8b6,#59e0c5);
-}
-
-.bg-c-yellow {
-    background: linear-gradient(45deg,#944dff,#aa80ff);
-}
-
-.bg-c-pink {
-    background: linear-gradient(45deg,#53ffda,#86fff1);
-}
-
 
 .card {
     border-radius: 5px;
@@ -46,7 +28,7 @@
     float: right;
 }
 .pricing-table {
-    background: #e9f0f4;
+    background: #272E48;
     text-align: center;
     margin: 15px 0;
   }
