@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom/cjs/react-router-dom';
+import { memo } from 'react';
 
 const OrderList = () => {
     return (
@@ -65,4 +66,4 @@ const OrderList = () => {
     );
 };
 
-export default OrderList;
+export default memo(OrderList);

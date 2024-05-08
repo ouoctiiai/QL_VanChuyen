@@ -1,0 +1,144 @@
+.container{
+  margin-top: 20px;
+}
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    border: none;
+    margin-bottom: 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.card .card-block {
+    padding: 25px;
+}
+
+.order-card i {
+    font-size: 26px;
+}
+
+.f-left {
+    float: left;
+}
+
+.f-right {
+    float: right;
+}
+.pricing-table {
+    background: #272E48;
+    text-align: center;
+    margin: 15px 0;
+  }
+  
+  .pricing-table ul, .pricing-table ol {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+  
+  .pricing-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 30px;
+    margin-bottom: 0;
+  }
+  
+  .pricing-table-price {
+    background: #cdd4d8;
+    font-weight: 700;
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .pricing-table-price.w-rounded-price {
+    display: table;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 30px auto;
+    padding: 0;
+  }
+  
+  .rounded-price {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .rounded-price .pricing-price {
+    font-size: 1.75rem;
+  }
+  
+  .rounded-price .pricing-currency {
+    vertical-align: 10px;
+  }
+  
+  .pricing-table-price p {
+    color: #000;
+    margin-bottom: 0;
+  }
+  
+  .pricing-currency {
+    font-size: 1rem;
+    font-weight: 700;
+    vertical-align: 25px;
+  }
+  
+  .pricing-price {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  
+  .pricing-period {
+    font-weight: 700;
+  }
+  
+  .pricing-table-content li {
+    margin-bottom: 15px;
+  }
+  
+  .pricing-table-button {
+    padding: 15px 0 35px;
+  }
+  
+  .featured.pricing-table {
+    background: #9c64b8;
+  }
+  
+  .featured.pricing-table .pricing-title {
+    color: #fff;
+  }
+  
+  .featured.pricing-table .pricing-table-content ul li {
+    color: #eee;
+  }
+  
+  .featured.pricing-table .pricing-table-price {
+    background: #8853a1;
+  }
+  
+  .featured.pricing-table .pricing-table-price p {
+    color: #fff;
+  }
+  ul {
+      list-style: none;
+      padding: 0;
+  }
+  .bg-info-hover {
+      background-color: #1397af !important;
+  }
+  .bg-info {
+      background-color: #21b9d5 !important;
+  }
+  
+  .bg-primary-hover {
+      background-color: #8853a1 !important;
+  }
+  .bg-primary {
+      background-color: #9c64b8 !important;
+  }
+  .text-white {
+      color: #fff !important;
+  }

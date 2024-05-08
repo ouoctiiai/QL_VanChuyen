@@ -21,8 +21,6 @@ public class KhoController {
     @GetMapping("/danh-sach")
     public ResponseEntity danhSachKho(Model model) {
         List<KhoPOJO> danhSachKho = KhoDAO.layTatCaKho();
-//        model.addAttribute("danhSachKho", danhSachKho);
-//        return "danhSachKho"; // Assuming the view template name is "danh-sach-kho.html"
         return new ResponseEntity<>(danhSachKho, HttpStatus.OK);
     }
 }

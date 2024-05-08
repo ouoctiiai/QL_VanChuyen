@@ -5,8 +5,9 @@ import './ProfileCustomer.scss';
 // import 'bootstrap/dist/css/bootstrap.css';
 // import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { memo } from 'react';
 
-function ProfileCustomer(props) {
+const ProfileCustomer = () => {
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -106,4 +107,4 @@ function ProfileCustomer(props) {
     );
 }
 
-export default ProfileCustomer;
+export default memo(ProfileCustomer);
