@@ -1,0 +1,4 @@
+.containerShip {
+  display: flex;
+  flex-direction: column; /* Stack components vertically */
+}

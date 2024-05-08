@@ -1,9 +1,11 @@
-import React from 'react';
+import "../Styles/Home.css";
+import ShipperRouter from "./ShipperRouter";
+
 
 const SP_Home = () => {
     return (
         <div>
-            Danh sách đơn chờ
+            <ShipperRouter />
         </div>
     );
 };
