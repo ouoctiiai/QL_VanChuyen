@@ -1,6 +1,5 @@
 import { useState } from "react";
-// Đảm bảo rằng bạn nhập khẩu ProSidebar, Menu, MenuItem từ 'react-pro-sidebar'
-import { ProSidebar, Menu, MenuItem } from 'react-pro-sidebar';
+import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
@@ -36,7 +35,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-const AdminSidebar = () => {
+const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -97,7 +96,7 @@ const AdminSidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/user.png`}
+                  src={`../admin/assets/avatar.gif`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -108,10 +107,10 @@ const AdminSidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Ed Roh
+                  Bảo Ngọc
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  VP Fancy Admin
+                  Admin
                 </Typography>
               </Box>
             </Box>
@@ -134,7 +133,7 @@ const AdminSidebar = () => {
               Data
             </Typography>
             <Item
-              title="Manage Team"
+              title="Quản lí tài khoản"
               to="/team"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
@@ -154,6 +153,7 @@ const AdminSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            
 
             <Typography
               variant="h6"
@@ -226,4 +226,4 @@ const AdminSidebar = () => {
   );
 };
 
-export default AdminSidebar;
+export default Sidebar;
