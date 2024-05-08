@@ -3,6 +3,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { memo } from 'react';
 
 const OrderDetails = () => {
     return (
@@ -34,4 +35,4 @@ const OrderDetails = () => {
     );
 };
 
-export default OrderDetails;
+export default memo(OrderDetails);
