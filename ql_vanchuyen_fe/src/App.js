@@ -11,6 +11,7 @@ import { Redirect } from 'react-router-dom/cjs/react-router-dom';
 import ShipperHome from './Shipper/Pages/SP_Home';
 import DSDonHang from './NhanVien/DSDonHang';
 import AdminRouter from './Admin/AdminRouter';
+import "./Admin/index.css";
 import { Margin, Padding } from '@mui/icons-material';
 import { render } from '@testing-library/react';
 import Customer from './KhachHang/Home/Customer';
@@ -51,5 +52,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;

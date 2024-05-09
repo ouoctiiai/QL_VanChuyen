@@ -17,7 +17,7 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 
-const Item = ({ title, to, icon, selected, setSelected }) => {
+const Item =({title, to, icon, selected, setSelected}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -26,22 +26,22 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       style={{
         color: colors.grey[100],
       }}
-      onClick={() => setSelected(title)}
+      onClick={() => setSelected=(title)}
       icon={icon}
-    >
+      >
       <Typography>{title}</Typography>
-      <Link to={to} />
-    </MenuItem>
+      <Link to = {to} />
+      </MenuItem>
   );
 };
 
-const Sidebar = () => {
+const Sidebar = () =>{
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
 
-  return (
+  return(
     <Box
       sx={{
         "& .pro-sidebar-inner": {
@@ -58,9 +58,10 @@ const Sidebar = () => {
         },
         "& .pro-menu-item.active": {
           color: "#6870fa !important",
-        },
+        }
+
       }}
-    >
+      >
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
@@ -88,7 +89,7 @@ const Sidebar = () => {
               </Box>
             )}
           </MenuItem>
-
+          
           {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
@@ -96,7 +97,7 @@ const Sidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../admin/assets/avatar.gif`}
+                  src={`../../admin/assets/avatar.gif`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -110,7 +111,7 @@ const Sidebar = () => {
                   Bảo Ngọc
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  Admin
+                  Amin
                 </Typography>
               </Box>
             </Box>
@@ -133,7 +134,7 @@ const Sidebar = () => {
               Data
             </Typography>
             <Item
-              title="Quản lí tài khoản"
+              title="Manage Team"
               to="/team"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
@@ -153,7 +154,6 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            
 
             <Typography
               variant="h6"
@@ -222,8 +222,7 @@ const Sidebar = () => {
           </Box>
         </Menu>
       </ProSidebar>
-    </Box>
+      </Box>
   );
 };
-
 export default Sidebar;
