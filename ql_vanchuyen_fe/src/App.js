@@ -12,8 +12,8 @@ import ShipperHome from './Shipper/Pages/SP_Home';
 import DSDonHang from './NhanVien/DSDonHang';
 import AdminRouter from './Admin/AdminRouter';
 import { Margin, Padding } from '@mui/icons-material';
-import CustomerRouter from './KhachHang/CustomerRouter';
 import { render } from '@testing-library/react';
+import Customer from './KhachHang/Home/Customer';
 
 
 function App() {
@@ -27,18 +27,12 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
-
           {/* <Route path="/customer" render={() => {
             return localStorage.getItem("accessToken") ? <Customer /> : <Redirect to="/login" />
           }}>
-          </Route>
-          <Route path="/customer-profile" render={() => {
-            return localStorage.getItem("accessToken") ? <ProfileCustomer /> : <Redirect to="/login" />
-          }}>
           </Route> */}
-          <Route path="/customer" render={() => {
-            return localStorage.getItem("accessToken") ? <CustomerRouter /> : <Redirect to="/login" />
-          }}>
+          <Route path="/customer">
+              <Customer />
           </Route>
           <Route path="/shipper_home">
               <ShipperHome />
@@ -46,9 +40,9 @@ function App() {
           <Route path="/danhsachdonhang">
             <DSDonHang />
           </Route>
-          {/* <Route path="/trangchuadmin">
+          <Route path="/trangchuadmin">
             <AdminRouter/>
-          </Route> */}
+          </Route>
           <Route path="*">
             404 not found
           </Route>

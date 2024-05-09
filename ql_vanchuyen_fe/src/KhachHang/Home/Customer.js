@@ -9,6 +9,7 @@ import './Customer.scss';
 import OrderDetails from '../OrderDetails/OrderDetails';
 import CreateOrder from '../CreateOrder/CreateOrder';
 import { memo } from 'react';
+import CustomerRouter from './../CustomerRouter';
 
 
 const Customer = () => {
@@ -21,14 +22,15 @@ const Customer = () => {
 
     return (
         <div>
-            Home Customer
+            {/* Home Customer
             <button onClick={handleLogout}>Logout</button>
             <Link to="/create-order">
                 <button >Create Order</button>
             </Link>
             <Link to="/order-details">
                 <button >Order Details</button>
-            </Link>
+            </Link> */}
+            <CustomerRouter />
         </div>
     );
 }
