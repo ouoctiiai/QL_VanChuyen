@@ -13,11 +13,11 @@ function ShipperRouter() {
   return (
     <div>
       <Navbar />
-      {/* <ListDonCho />
+      <ListDonCho />
       <Dashboard /> 
       <UpdateProfile /> 
       <History />
-      <Profile /> */}
+      <Profile /> 
 
 
       <DetailOrder />
