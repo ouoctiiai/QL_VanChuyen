@@ -3,8 +3,8 @@ import '../Styles/History.css'
 
 
 const History = () => {
-  return (
-    <div class="container">
+  return (   
+     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="main-box clearfix">
