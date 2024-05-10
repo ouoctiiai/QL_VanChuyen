@@ -17,12 +17,12 @@ const CustomerRouter = () => {
                 </div>
                 <div className='col-md-9'>
                     <Switch>
-                        <Route path="/" component={<CreateOrder />}/>
-                            {/* <CreateOrder />
-                        </Route> */}
-                        <Route path="/profile-customer" element={<ProfileCustomer />}/>
-                            {/* <ProfileCustomer /> */}
-                        {/* </Route> */}
+                        <Route path="/">
+                            <CreateOrder />
+                        </Route>
+                        <Route path="/profile-customer">
+                            <ProfileCustomer />
+                        </Route>
                         <Route path="/order-details">
                             <OrderDetails />
                         </Route>

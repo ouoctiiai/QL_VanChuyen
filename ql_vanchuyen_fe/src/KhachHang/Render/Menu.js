@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom/cjs/react-router-dom';
-import { Button } from '@mui/material';
 
 const Menu = () => {
 
@@ -12,7 +11,7 @@ const Menu = () => {
     return (
         <div className="profile-usermenu">
             <ul className="menu">
-                <li className="">
+                <li>
                     <NavLink to="/customer">
                         <div>
                             <i class="fa-solid fa-plus"></i>
