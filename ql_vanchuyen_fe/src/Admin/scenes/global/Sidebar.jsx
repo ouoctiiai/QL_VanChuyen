@@ -16,6 +16,8 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import { CarCrashOutlined, CarRentalOutlined, CarRepairOutlined, CardTravelOutlined, ReceiptLongOutlined } from "@mui/icons-material";
+import ReceiptOutlined from "@mui/icons-material/ReceiptOutlined";
 
 const Item =({title, to, icon, selected, setSelected}) => {
   const theme = useTheme();
@@ -134,23 +136,16 @@ const Sidebar = () =>{
               Data
             </Typography>
             <Item
-              title="Manage Team"
+              title="Quản lí tài khoản"
               to="/team"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Contacts Information"
-              to="/contacts"
+              title="Tạo tài khoản"
+              to="/"
               icon={<ContactsOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Invoices Balances"
-              to="/invoices"
-              icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -163,13 +158,35 @@ const Sidebar = () =>{
               Pages
             </Typography>
             <Item
-              title="Profile Form"
-              to="/form"
+              title="Quản lí hoá đơn"
+              to="/"
+              icon={<ReceiptOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Quản lí phiếu chi"
+              to="/"
+              icon={<ReceiptLongOutlined />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Quản lí tài xế"
+              to="/"
               icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
+              title="Quản lí xe"
+              to="/"
+              icon={<CarRentalOutlined/>}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            
+            {/* <Item
               title="Calendar"
               to="/calendar"
               icon={<CalendarTodayOutlinedIcon />}
@@ -182,7 +199,7 @@ const Sidebar = () =>{
               icon={<HelpOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
 
             <Typography
               variant="h6"
@@ -193,28 +210,28 @@ const Sidebar = () =>{
             </Typography>
             <Item
               title="Bar Chart"
-              to="/bar"
+              to="/"
               icon={<BarChartOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Pie Chart"
-              to="/pie"
+              to="/"
               icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Line Chart"
-              to="/line"
+              to="/"
               icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Geography Chart"
-              to="/geography"
+              to="/"
               icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
