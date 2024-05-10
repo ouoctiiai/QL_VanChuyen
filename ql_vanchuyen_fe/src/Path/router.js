@@ -6,6 +6,11 @@ export const ROUTERS ={
         CREATE_ORDER:"/create-order",
         ORDER_LIST:"/order-list",
         ORDER_DETAILS:"/order-details"
+    },
+
+    LOGIN:{
+        LOGIN: "/login",
+        REGISTER: "/register"
     }
     
 }
