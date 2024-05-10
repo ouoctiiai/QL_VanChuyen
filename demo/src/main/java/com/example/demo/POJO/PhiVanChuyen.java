@@ -5,7 +5,11 @@ public class PhiVanChuyen {
     private Integer vat;
     private Integer phiNang;
     private Integer phiHa;
+    private Integer phiCoc;
+    private Integer thuongShipper;
+    private Integer phiKhac;
     private Integer tongPhi;
+
 
     // Getter methods
     public Integer getPhiCoDinh() {
@@ -28,6 +32,16 @@ public class PhiVanChuyen {
         return tongPhi;
     }
 
+    public Integer getPhiCoc() {return phiCoc;}
+
+    public Integer getPhiKhac() {
+        return phiKhac;
+    }
+
+    public Integer getThuongShipper() {
+        return thuongShipper;
+    }
+
     // Setter methods
     public void setPhiCoDinh(Integer phiCoDinh) {
         this.phiCoDinh = phiCoDinh;
@@ -44,6 +58,15 @@ public class PhiVanChuyen {
     public void setPhiHa(Integer phiHa) {
         this.phiHa = phiHa;
     }
+
+    public void setTongPhi(Integer tongPhi) { this.tongPhi = tongPhi; }
+
+    public void setPhiCoc(Integer phiCoc) { this.phiCoc = phiCoc; }
+
+    public void setPhiKhac(Integer phiKhac) {this.phiKhac = phiKhac; }
+
+    public void setThuongShipper(Integer thuongShipper) {this.thuongShipper = thuongShipper; }
+
 
     // Consider adding a method to calculate the total cost if needed
     public void tinhTongPhi() {

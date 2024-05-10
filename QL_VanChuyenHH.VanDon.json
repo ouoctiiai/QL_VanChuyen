@@ -274,7 +274,7 @@
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
     "TenHang": "Đồ gia dụng",
-    "TrongLuong": 3,
+    "TrongLuong": 3.6,
     "KichCo": {
       "Dai": 23.4,
       "Rong": 18.2
@@ -1227,7 +1227,7 @@
     "TrongLuong": 38.4,
     "KichCo": {
       "Dai": 37.5,
-      "Rong": 167
+      "Rong": 167.1
     },
     "SoLuong": 1
   },
@@ -1868,7 +1868,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Điện - điện tử",
-    "TrongLuong": "2.2",
+    "TrongLuong": 2.2,
     "SoLuong": 1
   },
   "Tinh": "",
@@ -1908,7 +1908,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
-    "TrongLuong": "Dưới 5kg",
+    "TrongLuong": 5.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -1948,7 +1948,7 @@
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
     "TenHang": "Túi xách",
-    "TrongLuong": "Dưới 5kg",
+    "TrongLuong": 5.1,
     "SoLuong": 1
   },
   "Tinh": "Đà Nẵng",
@@ -1988,7 +1988,7 @@
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
     "TenHang": "Hoa",
-    "TrongLuong": "Dưới 10kg",
+    "TrongLuong": 10.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2028,7 +2028,7 @@
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
     "TenHang": "Dây sạc",
-    "TrongLuong": "Dưới 1kg",
+    "TrongLuong": 1.1,
     "SoLuong": 1
   },
   "Tinh": "Hà Nội",
@@ -2067,7 +2067,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Thư từ",
-    "TrongLuong": "",
+    "TrongLuong": 1.2,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2106,7 +2106,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
-    "TrongLuong": "Dưới 5kg",
+    "TrongLuong": 5.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2145,7 +2145,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Điện - điện tử",
-    "TrongLuong": "Dưới 50kg",
+    "TrongLuong": 50.1,
     "SoLuong": 1
   },
   "Tinh": "Đà Nẵng",
@@ -2186,7 +2186,7 @@
   "ThongTinHangHoa": {
     "LoaiHang": "Thuốc & hóa chất",
     "TenHang": "Thuốc nhuộm tóc",
-    "TrongLuong": "Dưới 10kg",
+    "TrongLuong": 10.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2225,7 +2225,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
-    "TrongLuong": "Dưới 10kg",
+    "TrongLuong": 10.1,
     "SoLuong": 1
   },
   "Tinh": "Hà Nội",
@@ -2264,7 +2264,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Thư từ",
-    "TrongLuong": "",
+    "TrongLuong": 1.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2303,7 +2303,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
-    "TrongLuong": "Dưới 1kg",
+    "TrongLuong": 1.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2345,7 +2345,7 @@
   "ThongTinHangHoa": {
     "LoaiHang": "Thực phẩm",
     "TenHang": "Bia",
-    "TrongLuong": "Dưới 50kg",
+    "TrongLuong": 50.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2385,7 +2385,7 @@
   "ThongTinHangHoa": {
     "LoaiHang": "Điện - điện tử",
     "TenHang": "Nồi cơm điện",
-    "TrongLuong": "Dưới 10kg",
+    "TrongLuong": 10.1,
     "SoLuong": 1
   },
   "Tinh": "Đà Nẵng",
@@ -2425,7 +2425,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
-    "TrongLuong": "Trên 50kg",
+    "TrongLuong": 50.1,
     "SoLuong": 1
   },
   "Tinh": "Hà Nội",
@@ -2465,7 +2465,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Điện - điện tử",
-    "TrongLuong": "Dưới 10kg",
+    "TrongLuong": 10.1,
     "SoLuong": 1
   },
   "Tinh": "Đà Nẵng",
@@ -2505,7 +2505,7 @@
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
     "TenHang": "Bình nước",
-    "TrongLuong": "Trên 50kg",
+    "TrongLuong": 50.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2544,7 +2544,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Hàng dễ vỡ",
-    "TrongLuong": "Dưới 5kg",
+    "TrongLuong": 5.1,
     "SoLuong": 1
   },
   "Tinh": "Hà Nội",
@@ -2583,7 +2583,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
-    "TrongLuong": "Dưới 1kg",
+    "TrongLuong": 1.1,
     "SoLuong": 1
   },
   "Tinh": "Đà Nẵng",
@@ -2622,7 +2622,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Thực phẩm",
-    "TrongLuong": "Dưới 5kg",
+    "TrongLuong": 5.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2662,7 +2662,7 @@
   "ThongTinHangHoa": {
     "LoaiHang": "Thư từ",
     "TenHang": "Biên lai",
-    "TrongLuong": "",
+    "TrongLuong": 1.1,
     "SoLuong": 1
   },
   "Tinh": "Hà Nội",
@@ -2702,7 +2702,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
-    "TrongLuong": "Trên 50kg",
+    "TrongLuong": 50.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2742,7 +2742,7 @@
   "ThongTinHangHoa": {
     "LoaiHang": "Thực phẩm",
     "TenHang": "Cơm hộp",
-    "TrongLuong": "Dưới 5kg",
+    "TrongLuong": 5.1,
     "SoLuong": 1
   },
   "Tinh": "Hà Nội",
@@ -2782,7 +2782,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Hàng dễ vỡ",
-    "TrongLuong": "Dưới 10kg",
+    "TrongLuong": 10.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2821,7 +2821,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Hàng dễ vỡ",
-    "TrongLuong": "Dưới 10kg",
+    "TrongLuong": 10.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2861,7 +2861,7 @@
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
     "TenHang": "Chăn gối",
-    "TrongLuong": "Dưới 10kg",
+    "TrongLuong": 10.1,
     "SoLuong": 1
   },
   "Tinh": "Đà Nẵng",
@@ -2900,7 +2900,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Điện - điện tử",
-    "TrongLuong": "Dưới 5kg",
+    "TrongLuong": 5.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2941,7 +2941,7 @@
   "ThongTinHangHoa": {
     "LoaiHang": "Hàng dễ vỡ",
     "TenHang": "Gương",
-    "TrongLuong": "Dưới 10kg",
+    "TrongLuong": 10.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -2980,7 +2980,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Khác",
-    "TrongLuong": "",
+    "TrongLuong": 1.1,
     "SoLuong": 1
   },
   "Tinh": "Hà Nội",
@@ -3020,7 +3020,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Thực phẩm",
-    "TrongLuong": "Dưới 50kg",
+    "TrongLuong": 50.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
@@ -3059,7 +3059,7 @@
   },
   "ThongTinHangHoa": {
     "LoaiHang": "Điện - điện tử",
-    "TrongLuong": "Dưới 10kg",
+    "TrongLuong": 10.1,
     "SoLuong": 1
   },
   "Tinh": "TP Hồ Chí Minh",
