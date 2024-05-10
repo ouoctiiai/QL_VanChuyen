@@ -2,9 +2,8 @@ package com.example.demo.DAO;
 import com.example.demo.POJO.*;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.bson.types.ObjectId;
+
 
 import java.util.*;
 
@@ -44,6 +43,20 @@ public class VanDonService {
         vanDon.setTinh(doc.getString("Tinh"));
         vanDon.setTrangThai(doc.getString("TrangThai"));
 
+        convertToThongTinNguoiGui(doc, vanDon);
+        convertToThongTinNguoiNhan(doc, vanDon);
+        convertToPhiVanChuyen(doc, vanDon);
+        convertToThongTinShipper(doc, vanDon);
+        convertToThongTinTaiXe(doc, vanDon);
+        convertToThongTinXe(doc, vanDon);
+        convertToThongTuyenDuong(doc, vanDon);
+        convertToThongTinHangHoa(doc, vanDon);
+
+        return vanDon;
+    }
+
+
+    public void convertToThongTinNguoiGui(Document doc, VanDonPOJO vanDon) {
         Document ttng = doc.getEmbedded(Collections.singletonList("ThongTinNguoiGui"), Document.class);
         if (ttng != null) {
             ThongTinNguoiGui tt = new ThongTinNguoiGui();
@@ -52,7 +65,9 @@ public class VanDonService {
             tt.setDiaChiNguoiGui(ttng.getString("DiaChiNguoiGui"));
             vanDon.setThongTinNguoiGui(tt);
         }
+    }
 
+    public void convertToThongTinNguoiNhan(Document doc, VanDonPOJO vanDon) {
         Document ttnn = doc.getEmbedded(Collections.singletonList("ThongTinNguoiNhan"), Document.class);
         if (ttnn != null) {
             ThongTinNguoiNhan tt = new ThongTinNguoiNhan();
@@ -61,7 +76,9 @@ public class VanDonService {
             tt.setDiaChiNguoiNhan(ttnn.getString("DiaChiNguoiNhan"));
             vanDon.setThongTinNguoiNhan(tt);
         }
+    }
 
+    public void convertToThongTinTaiXe(Document doc, VanDonPOJO vanDon) {
         Document tttx = doc.getEmbedded(Collections.singletonList("ThongTinTaiXe"), Document.class);
         if (tttx != null) {
             ThongTinTaiXe tt = new ThongTinTaiXe();
@@ -70,91 +87,81 @@ public class VanDonService {
             tt.setSdtTaiXe(tttx.getString("SDTTaiXe"));
             vanDon.setThongTinTaiXe(tt);
         }
-
-        return vanDon;
     }
 
-    private ThongTinTaiXe convertToThongTinTaiXe(Document doc) {
-
-        if (doc == null) {
-            return null;
+    public void convertToThongTinXe(Document doc, VanDonPOJO vanDon) {
+        Document ttx = doc.getEmbedded(Collections.singletonList("ThongTinXe"), Document.class);
+        if (ttx != null) {
+            ThongTinXe tt = new ThongTinXe();
+            tt.setTenXe(ttx.getString("TenXe"));
+            tt.setLoaiXe(ttx.getString("LoaiXe"));
+            tt.setHangXe(ttx.getString("HangXe"));
+            tt.setBienSo(ttx.getString("BienSo"));
+            vanDon.setThongTinXe(tt);
         }
-
-        ThongTinTaiXe thongTinTaiXe = new ThongTinTaiXe();
-
-        thongTinTaiXe.setMaTaiXe(doc.getString("MaTaiXe"));
-        thongTinTaiXe.setTenTaiXe(doc.getString("TenTaiXe"));
-        thongTinTaiXe.setSdtTaiXe(doc.getString("SDTTaiXe"));
-
-        return thongTinTaiXe;
     }
 
-    private ThongTinXe convertToThongTinXe(Document doc) {
-
-        if (doc == null) {
-            return null;
+    public void convertToThongTuyenDuong(Document doc, VanDonPOJO vanDon) {
+        Document tuyenduong = doc.getEmbedded(Collections.singletonList("TuyenDuong"), Document.class);
+        if (tuyenduong != null) {
+            TuyenDuong td = new TuyenDuong();
+            td.setDuongDi(tuyenduong.getString("DuongDi"));
+            td.setKhoangCach(tuyenduong.getDouble("KhoangCach"));
+            vanDon.setTuyenDuong(td);
         }
-        ThongTinXe thongTinXe = new ThongTinXe();
-
-        thongTinXe.setBienSo(doc.getString("BienSo"));
-        thongTinXe.setTenXe(doc.getString("TenXe"));
-        thongTinXe.setLoaiXe(doc.getString("LoaiXe"));
-        thongTinXe.setHangXe(doc.getString("HangXe"));
-
-        return thongTinXe;
     }
 
-    private ThongTinHangHoa convertToThongTinHangHoa(Document doc) {
-
-        ThongTinHangHoa thongTinHangHoa = new ThongTinHangHoa();
-
-        thongTinHangHoa.setLoaiHang(doc.getString("LoaiHang"));
-        thongTinHangHoa.setTenHang(doc.getString("TenHang"));
-
-        // Handle nested document for KichCo
-        Document kichCoDoc = doc.getEmbedded(Collections.singletonList("KichCo"), Document.class);
-        if (kichCoDoc != null) {
-            KichCo kichCo = new KichCo();
-            kichCo.setDai(Objects.requireNonNullElse(kichCoDoc.getDouble("Dai"), 0.0));
-            kichCo.setRong(Objects.requireNonNullElse(kichCoDoc.getDouble("Rong"), 0.0));
-            thongTinHangHoa.setKichCo(kichCo);
+    public void convertToPhiVanChuyen(Document doc, VanDonPOJO vanDon) {
+        Document phi = doc.getEmbedded(Collections.singletonList("PhiVanChuyen"), Document.class);
+        if (phi != null) {
+            PhiVanChuyen p = new PhiVanChuyen();
+            p.setPhiCoDinh(phi.getInteger("PhiCoDinh"));
+            p.setVat(phi.getInteger("VAT"));
+            p.setPhiHa(phi.getInteger("PhiHa"));
+            p.setPhiNang(phi.getInteger("PhiNang"));
+            p.setPhiKhac(phi.getInteger("PhiKhac"));
+            p.setThuongShipper(phi.getInteger("ThuongShipper"));
+            p.setTongPhi(phi.getInteger("TongPhi"));
+            p.setPhiCoc(phi.getInteger("PhiCoc"));
+            vanDon.setPhiVanChuyen(p);
         }
-
-        thongTinHangHoa.setSoLuong(doc.getInteger("SoLuong"));
-
-        return thongTinHangHoa;
     }
 
-    private TuyenDuong convertToTuyenDuong(Document doc) {
-        if (doc == null) {
-            return null;
+    public void convertToThongTinShipper(Document doc, VanDonPOJO vanDon) {
+        Document ttsp = doc.getEmbedded(Collections.singletonList("ThongTinShipper"), Document.class);
+        if (ttsp != null) {
+            ThongTinShipper tt = new ThongTinShipper();
+            tt.setMaShipper(ttsp.getString("MaShipper"));
+            tt.setTenShipper(ttsp.getString("TenShipper"));
+            tt.setSdtShipper(ttsp.getString("SDTShipper"));
+            vanDon.setThongTinShipper(tt);
         }
-        TuyenDuong tuyenDuong = new TuyenDuong();
-
-        tuyenDuong.setDuongDi(doc.getString("DuongDi"));
-
-        return tuyenDuong;
     }
 
-    private PhiVanChuyen convertToPhiVanChuyen(Document doc) {
-        PhiVanChuyen phiVanChuyen = new PhiVanChuyen();
+    public void convertToThongTinHangHoa(Document doc, VanDonPOJO vanDon) {
+        Document tthh = doc.getEmbedded(Collections.singletonList("ThongTinHangHoa"), Document.class);
+        if (tthh != null) {
+            ThongTinHangHoa tt = new ThongTinHangHoa();
+            tt.setLoaiHang(tthh.getString("LoaiHang"));
+            tt.setTenHang(tthh.getString("TenHang"));
 
-        phiVanChuyen.setPhiCoDinh(Objects.requireNonNullElse(doc.getInteger("PhiCoDinh"), 0));
-        phiVanChuyen.setVat(Objects.requireNonNullElse(doc.getInteger("VAT"), 0));
-        phiVanChuyen.setPhiNang(Objects.requireNonNullElse(doc.getInteger("PhiNang"), 0));
-        phiVanChuyen.setPhiHa(Objects.requireNonNullElse(doc.getInteger("PhiHa"), 0));
-        // Consider calculating the total cost if needed (already defined in PhiVanChuyen class)
-        // phiVanChuyen.tinhTongPhi();
-        return phiVanChuyen;
-    }
+            Object trongLuongValue = tthh.get("TrongLuong");
+            if(trongLuongValue != null) {
+                tt.setTrongLuong((Double)trongLuongValue);
+            }
+            else {
+                tt.setTrongLuong(0.0);
+            }
 
-    private ThongTinShipper convertToThongTinShipper(Document doc) {
-        ThongTinShipper thongTinShipper = new ThongTinShipper();
-
-        thongTinShipper.setMaShipper(doc.getString("MaShipper"));
-        thongTinShipper.setTenShipper(doc.getString("TenShipper"));
-        thongTinShipper.setSdtShipper(doc.getString("SDTShipper"));
-
-        return thongTinShipper;
+            Document kichco = tthh.getEmbedded(Collections.singletonList("KichCo"), Document.class);
+            if (kichco != null) {
+                KichCo kc = new KichCo();
+                kc.setDai(kichco.getDouble("Dai"));
+                kc.setRong(kichco.getDouble("Rong"));
+                tt.setKichCo(kc);
+            }
+            tt.setSoLuong(tthh.getInteger("SoLuong"));
+            vanDon.setThongTinHangHoa(tt);
+        }
     }
 }
