@@ -10,6 +10,11 @@ body,
   font-family: "Source Sans Pro", sans-serif;
 }
 
+.sidebar{
+  display: flex;
+  width: 20%;
+}
+
 .app {
   display: flex;
   position: relative;

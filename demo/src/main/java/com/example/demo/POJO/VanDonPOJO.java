@@ -28,7 +28,7 @@ public class VanDonPOJO {
     private String diemXuatPhat;
     private String diemDen;
     private String tinh;
-    private double khoangCach;
+    private Double khoangCach;
     private TuyenDuong tuyenDuong;
     private PhiVanChuyen phiVanChuyen;
     private ThongTinShipper thongTinShipper;

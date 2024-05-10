@@ -2,11 +2,21 @@ package com.example.demo.POJO;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+@Document(collection = "TaiKhoan")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @JsonNaming(PropertyNamingStrategy.UpperCamelCaseStrategy.class)
 public class KhoPOJO {
+    @Id
     private String id;           // ID của kho
     private String MaKho;        // Mã kho
     private String DiaChi;       // Địa chỉ của kho
@@ -14,8 +24,6 @@ public class KhoPOJO {
     private String KhuVuc;       // Khu vực của kho
     private String LoaiKho;      // Loại kho
     private String sdt;          // Số điện thoại của kho
-
-    // Kho lân cận là một mảng các kho xung quanh bao gồm thông tin mã kho và khoảng cách giữa chúng
     private List<KhoLanCan> khoLanCan;
 
     // Getter và Setter cho các trường

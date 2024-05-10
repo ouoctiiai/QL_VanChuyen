@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.bson.types.ObjectId;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class VanDonService {
     private final Connection connection;
+    private java.util.Objects Objects;
 
     public VanDonService() {
         connection = new Connection("VanDon");
@@ -41,48 +40,46 @@ public class VanDonService {
         vanDon.setNguoiThanhToan(doc.getString("NguoiThanhToan"));
         vanDon.setDiemXuatPhat(doc.getString("DiemXuatPhat"));
         vanDon.setDiemDen(doc.getString("DiemDen"));
+        vanDon.setKhoangCach(doc.getDouble("KhoangCach"));
         vanDon.setTinh(doc.getString("Tinh"));
         vanDon.setTrangThai(doc.getString("TrangThai"));
 
-        // Get the Double value directly
-        vanDon.setKhoangCach(doc.getDouble("KhoangCach"));
+        Document ttng = doc.getEmbedded(Collections.singletonList("ThongTinNguoiGui"), Document.class);
+        if (ttng != null) {
+            ThongTinNguoiGui tt = new ThongTinNguoiGui();
+            tt.setTenNguoiGui(ttng.getString("TenNguoiGui"));
+            tt.setSdtNguoiGui(ttng.getString("SDTNguoiGui"));
+            tt.setDiaChiNguoiGui(ttng.getString("DiaChiNguoiGui"));
+            vanDon.setThongTinNguoiGui(tt);
+        }
 
-        // Convert sub-documents to their respective classes
-        vanDon.setThongTinNguoiGui(convertToThongTinNguoiGui(doc.getEmbedded(Collections.singletonList("ThongTinNguoiGui"), Document.class)));
-        vanDon.setThongTinNguoiNhan(convertToThongTinNguoiNhan(doc.getEmbedded(Collections.singletonList("ThongTinNguoiNhan"), Document.class)));
-        vanDon.setThongTinTaiXe(convertToThongTinTaiXe(doc.getEmbedded(Collections.singletonList("ThongTinTaiXe"), Document.class)));
-        vanDon.setThongTinXe(convertToThongTinXe(doc.getEmbedded(Collections.singletonList("ThongTinXe"), Document.class)));
-        vanDon.setThongTinHangHoa(convertToThongTinHangHoa(doc.getEmbedded(Collections.singletonList("ThongTinHangHoa"), Document.class)));
-        vanDon.setTuyenDuong(convertToTuyenDuong(doc.getEmbedded(Collections.singletonList("TuyenDuong"), Document.class)));
-        vanDon.setPhiVanChuyen(convertToPhiVanChuyen(doc.getEmbedded(Collections.singletonList("PhiVanChuyen"), Document.class)));
-        vanDon.setThongTinShipper(convertToThongTinShipper(doc.getEmbedded(Collections.singletonList("ThongTinShipper"), Document.class)));
+        Document ttnn = doc.getEmbedded(Collections.singletonList("ThongTinNguoiNhan"), Document.class);
+        if (ttnn != null) {
+            ThongTinNguoiNhan tt = new ThongTinNguoiNhan();
+            tt.setTenNguoiNhan(ttnn.getString("TenNguoiNhan"));
+            tt.setSdtNguoiNhan(ttnn.getString("SDTNguoiNhan"));
+            tt.setDiaChiNguoiNhan(ttnn.getString("DiaChiNguoiNhan"));
+            vanDon.setThongTinNguoiNhan(tt);
+        }
+
+        Document tttx = doc.getEmbedded(Collections.singletonList("ThongTinTaiXe"), Document.class);
+        if (tttx != null) {
+            ThongTinTaiXe tt = new ThongTinTaiXe();
+            tt.setMaTaiXe(tttx.getString("MaTaiXe"));
+            tt.setTenTaiXe(tttx.getString("TenTaiXe"));
+            tt.setSdtTaiXe(tttx.getString("SDTTaiXe"));
+            vanDon.setThongTinTaiXe(tt);
+        }
 
         return vanDon;
     }
 
-    private ThongTinNguoiGui convertToThongTinNguoiGui(Document doc) {
-        ThongTinNguoiGui thongTinNguoiGui = new ThongTinNguoiGui();
-
-        // Get the String values directly
-        thongTinNguoiGui.setTenNguoiGui(doc.getString("TenNguoiGui"));
-        thongTinNguoiGui.setSdtNguoiGui(doc.getString("SDTNguoiGui"));
-        thongTinNguoiGui.setDiaChiNguoiGui(doc.getString("DiaChiNguoiGui"));
-
-        return thongTinNguoiGui;
-    }
-
-    private ThongTinNguoiNhan convertToThongTinNguoiNhan(Document doc) {
-        ThongTinNguoiNhan thongTinNguoiNhan = new ThongTinNguoiNhan();
-
-        // Get the String values directly
-        thongTinNguoiNhan.setTenNguoiNhan(doc.getString("TenNguoiNhan"));
-        thongTinNguoiNhan.setSdtNguoiNhan(doc.getString("SDTNguoiNhan"));
-        thongTinNguoiNhan.setDiaChiNguoiNhan(doc.getString("DiaChiNguoiNhan"));
-
-        return thongTinNguoiNhan;
-    }
-
     private ThongTinTaiXe convertToThongTinTaiXe(Document doc) {
+
+        if (doc == null) {
+            return null;
+        }
+
         ThongTinTaiXe thongTinTaiXe = new ThongTinTaiXe();
 
         thongTinTaiXe.setMaTaiXe(doc.getString("MaTaiXe"));
@@ -93,6 +90,10 @@ public class VanDonService {
     }
 
     private ThongTinXe convertToThongTinXe(Document doc) {
+
+        if (doc == null) {
+            return null;
+        }
         ThongTinXe thongTinXe = new ThongTinXe();
 
         thongTinXe.setBienSo(doc.getString("BienSo"));
@@ -104,18 +105,18 @@ public class VanDonService {
     }
 
     private ThongTinHangHoa convertToThongTinHangHoa(Document doc) {
+
         ThongTinHangHoa thongTinHangHoa = new ThongTinHangHoa();
 
         thongTinHangHoa.setLoaiHang(doc.getString("LoaiHang"));
         thongTinHangHoa.setTenHang(doc.getString("TenHang"));
-        thongTinHangHoa.setTrongLuong(doc.getDouble("TrongLuong"));
 
         // Handle nested document for KichCo
         Document kichCoDoc = doc.getEmbedded(Collections.singletonList("KichCo"), Document.class);
         if (kichCoDoc != null) {
             KichCo kichCo = new KichCo();
-            kichCo.setDai(kichCoDoc.getDouble("Dai"));
-            kichCo.setRong(kichCoDoc.getDouble("Rong"));
+            kichCo.setDai(Objects.requireNonNullElse(kichCoDoc.getDouble("Dai"), 0.0));
+            kichCo.setRong(Objects.requireNonNullElse(kichCoDoc.getDouble("Rong"), 0.0));
             thongTinHangHoa.setKichCo(kichCo);
         }
 
@@ -125,10 +126,12 @@ public class VanDonService {
     }
 
     private TuyenDuong convertToTuyenDuong(Document doc) {
+        if (doc == null) {
+            return null;
+        }
         TuyenDuong tuyenDuong = new TuyenDuong();
 
         tuyenDuong.setDuongDi(doc.getString("DuongDi"));
-        tuyenDuong.setKhoangCach(doc.getDouble("KhoangCach"));
 
         return tuyenDuong;
     }
@@ -136,10 +139,10 @@ public class VanDonService {
     private PhiVanChuyen convertToPhiVanChuyen(Document doc) {
         PhiVanChuyen phiVanChuyen = new PhiVanChuyen();
 
-        phiVanChuyen.setPhiCoDinh(doc.getDouble("PhiCoDinh"));
-        phiVanChuyen.setVat(doc.getDouble("VAT"));
-        phiVanChuyen.setPhiNang(doc.getDouble("PhiNang"));
-        phiVanChuyen.setPhiHa(doc.getDouble("PhiHa"));
+        phiVanChuyen.setPhiCoDinh(Objects.requireNonNullElse(doc.getInteger("PhiCoDinh"), 0));
+        phiVanChuyen.setVat(Objects.requireNonNullElse(doc.getInteger("VAT"), 0));
+        phiVanChuyen.setPhiNang(Objects.requireNonNullElse(doc.getInteger("PhiNang"), 0));
+        phiVanChuyen.setPhiHa(Objects.requireNonNullElse(doc.getInteger("PhiHa"), 0));
         // Consider calculating the total cost if needed (already defined in PhiVanChuyen class)
         // phiVanChuyen.tinhTongPhi();
         return phiVanChuyen;
@@ -153,11 +156,5 @@ public class VanDonService {
         thongTinShipper.setSdtShipper(doc.getString("SDTShipper"));
 
         return thongTinShipper;
-    }
-
-    @Autowired
-    private VanDonRepository vanDonRepository;
-    public List<VanDonPOJO> allVanDons(){
-        return vanDonRepository.findAll();
     }
 }

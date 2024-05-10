@@ -1,47 +1,47 @@
 package com.example.demo.POJO;
 
 public class PhiVanChuyen {
-    private double phiCoDinh;
-    private double vat;
-    private double phiNang;
-    private double phiHa;
-    private double tongPhi;
+    private Integer phiCoDinh;
+    private Integer vat;
+    private Integer phiNang;
+    private Integer phiHa;
+    private Integer tongPhi;
 
     // Getter methods
-    public double getPhiCoDinh() {
+    public Integer getPhiCoDinh() {
         return phiCoDinh;
     }
 
-    public double getVat() {
+    public Integer getVat() {
         return vat;
     }
 
-    public double getPhiNang() {
+    public Integer getPhiNang() {
         return phiNang;
     }
 
-    public double getPhiHa() {
+    public Integer getPhiHa() {
         return phiHa;
     }
 
-    public double getTongPhi() {
+    public Integer getTongPhi() {
         return tongPhi;
     }
 
     // Setter methods
-    public void setPhiCoDinh(double phiCoDinh) {
+    public void setPhiCoDinh(Integer phiCoDinh) {
         this.phiCoDinh = phiCoDinh;
     }
 
-    public void setVat(double vat) {
+    public void setVat(Integer vat) {
         this.vat = vat;
     }
 
-    public void setPhiNang(double phiNang) {
+    public void setPhiNang(Integer phiNang) {
         this.phiNang = phiNang;
     }
 
-    public void setPhiHa(double phiHa) {
+    public void setPhiHa(Integer phiHa) {
         this.phiHa = phiHa;
     }
 

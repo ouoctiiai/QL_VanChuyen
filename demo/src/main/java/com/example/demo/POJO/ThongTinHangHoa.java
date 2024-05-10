@@ -3,7 +3,7 @@ package com.example.demo.POJO;
 public class ThongTinHangHoa {
     private String loaiHang;
     private String tenHang;
-    private double trongLuong;
+    private Object trongLuong;
     private KichCo kichCo;
     private int soLuong;
 
@@ -16,8 +16,20 @@ public class ThongTinHangHoa {
         return tenHang;
     }
 
-    public double getTrongLuong() {
-        return trongLuong;
+    public String getStringTrongLuong() {
+        if (trongLuong instanceof String) {
+            return (String) trongLuong;
+        } else {
+            throw new ClassCastException("Cannot convert weight to String");
+        }
+    }
+
+    public double getDoubleTrongLuong() {
+        if (trongLuong instanceof Double) {
+            return (double) trongLuong;
+        } else {
+            throw new ClassCastException("Cannot convert weight to double");
+        }
     }
 
     public KichCo getKichCo() {
@@ -37,8 +49,12 @@ public class ThongTinHangHoa {
         this.tenHang = tenHang;
     }
 
-    public void setTrongLuong(double trongLuong) {
-        this.trongLuong = trongLuong;
+    public void setStringTrongLuong(String value) {
+        this.trongLuong = value;
+    }
+
+    public void setDoubleTrongLuong(double value) {
+        this.trongLuong = value;
     }
 
     public void setKichCo(KichCo kichCo) {

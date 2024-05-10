@@ -65,6 +65,8 @@ const Sidebar = () =>{
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
+
+          <Box paddingLeft={isCollapsed ? undefined : "10%"}>
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
@@ -116,8 +118,6 @@ const Sidebar = () =>{
               </Box>
             </Box>
           )}
-
-          <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
               to="/"

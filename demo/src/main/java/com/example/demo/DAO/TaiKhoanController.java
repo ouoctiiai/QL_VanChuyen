@@ -1,6 +1,7 @@
 package com.example.demo.DAO;
 
 import com.example.demo.POJO.KhoPOJO;
+import com.example.demo.POJO.TaiKhoanPOJO;
 import com.example.demo.POJO.VanDonPOJO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/vandon")
-public class VanDonCotroller {
+@RequestMapping("/taikhoan")
+public class TaiKhoanController {
     @Autowired
-    private VanDonService vanDonService;
+    private TaiKhoanService taiKhoanService;
 
     @GetMapping("/danh-sach")
-    public ResponseEntity ds(Model model) {
-        List<VanDonPOJO> dsvd = vanDonService.allVanDon();
-        return new ResponseEntity<>(dsvd, HttpStatus.OK);
+    public ResponseEntity dsTaiKhoan(Model model) {
+        List<TaiKhoanPOJO> dstk = taiKhoanService.layTatCaTaiKhoan();
+        return new ResponseEntity<>(dstk, HttpStatus.OK);
     }
 }
