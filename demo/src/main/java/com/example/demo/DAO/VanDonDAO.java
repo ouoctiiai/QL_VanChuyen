@@ -1,5 +1,6 @@
 package com.example.demo.DAO;
 import com.example.demo.POJO.*;
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.springframework.stereotype.Service;
@@ -8,11 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class VanDonService {
+public class VanDonDAO {
     private final Connection connection;
     private java.util.Objects Objects;
 
-    public VanDonService() {
+    public VanDonDAO() {
         connection = new Connection("VanDon");
     }
 
@@ -23,6 +24,36 @@ public class VanDonService {
             VanDonPOJO vd = convertToVanDonPOJO(doc);
             dsVanDon.add(vd);
         }
+        return dsVanDon;
+    }
+
+    public List<VanDonPOJO> danhSachDonNoiTinh() {
+        List<VanDonPOJO> dsVanDon = new ArrayList<>();
+
+        MongoCollection<Document> collection = connection.getCollection();
+
+        BasicDBObject query = new BasicDBObject("LoaiVanChuyen", "Nội tỉnh");
+
+        for (Document doc : collection.find(query)) {
+            VanDonPOJO vd = convertToVanDonPOJO(doc);
+            dsVanDon.add(vd);
+        }
+
+        return dsVanDon;
+    }
+
+    public List<VanDonPOJO> danhSachDonLienTinh() {
+        List<VanDonPOJO> dsVanDon = new ArrayList<>();
+
+        MongoCollection<Document> collection = connection.getCollection();
+
+        BasicDBObject query = new BasicDBObject("LoaiVanChuyen", "Liên tỉnh");
+
+        for (Document doc : collection.find(query)) {
+            VanDonPOJO vd = convertToVanDonPOJO(doc);
+            dsVanDon.add(vd);
+        }
+
         return dsVanDon;
     }
 

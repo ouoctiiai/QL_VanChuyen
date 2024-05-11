@@ -1,22 +1,18 @@
 package com.example.demo.DAO;
 import com.example.demo.POJO.*;
-import com.example.demo.POJO.KhoPOJO.KhoLanCan;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.Filters;
 import org.bson.Document;
-import org.bson.conversions.Bson;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 @Repository
-public class TaiKhoanService {
+public class TaiKhoanDAO {
     private Connection connection;
 
-    public TaiKhoanService() {
+    public TaiKhoanDAO() {
         connection = new Connection("TaiKhoan");
     }
 

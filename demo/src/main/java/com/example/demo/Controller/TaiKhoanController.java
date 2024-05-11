@@ -1,8 +1,7 @@
-package com.example.demo.DAO;
+package com.example.demo.Controller;
 
-import com.example.demo.POJO.KhoPOJO;
+import com.example.demo.DAO.TaiKhoanDAO;
 import com.example.demo.POJO.TaiKhoanPOJO;
-import com.example.demo.POJO.VanDonPOJO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,7 @@ import java.util.List;
 @RequestMapping("/taikhoan")
 public class TaiKhoanController {
     @Autowired
-    private TaiKhoanService taiKhoanService;
+    private TaiKhoanDAO taiKhoanService;
 
     @GetMapping("/danh-sach")
     public ResponseEntity dsTaiKhoan(Model model) {
