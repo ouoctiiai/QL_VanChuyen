@@ -23,7 +23,7 @@ import ProgressCircle from "./components/ProgressCircle";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import { Switch } from "react-router-dom/cjs/react-router-dom";
-import Team from './scenes/team/index';
+import Team from './scenes/team/QLTeam';
 // import Calendar from './scenes/calendar/calendar';
 import StatBox from "./components/StatBox";
 

@@ -25,6 +25,7 @@ import Profile from './Shipper/Pages/Profile';
 import SP_Home from './Shipper/Pages/SP_Home';
 import DetailOrder from './Shipper/Pages/DetailOrder';
 import UpdateProfile from './Shipper/Pages/UpdateProfile';
+import Team from './Admin/scenes/team/QLTeam';
 
 const renderMasterRouter = () => {
     const masterRouter = [
@@ -80,7 +81,13 @@ const renderMasterRouter = () => {
         {
             path: ROUTERS.SHIPPER.UPDATEPEOFILE,
             component: UpdateProfile
-        }
+        },
+
+        {
+            path: ROUTERS.ADMIN.AdminRouter,
+            component: AdminRouter
+        },
+        
     ];
 
     return (

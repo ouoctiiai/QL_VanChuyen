@@ -1,4 +1,5 @@
 package com.example.demo.DAO;
+
 import com.example.demo.POJO.*;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
@@ -9,6 +10,24 @@ import java.util.*;
 
 @Service
 public class VanDonService {
+
+    private class DoanhThuTheoNam{
+        public int nam;
+        public double tongTien;
+
+        public DoanhThuTheoNam(){
+            nam= 0;
+            tongTien = 0;
+        }
+        public DoanhThuTheoNam(int nam){
+            this.nam = nam;
+        }
+        public DoanhThuTheoNam(int nam, double tongTien){
+            this.nam = nam;
+            this.tongTien = tongTien;
+        }
+    }
+
     private final Connection connection;
     private java.util.Objects Objects;
 
@@ -26,6 +45,69 @@ public class VanDonService {
         return dsVanDon;
     }
 
+    public double tinhPhiVanChyen(VanDonPOJO vanDon) {
+        PhiVanChuyen phiVanChuyen = vanDon.getPhiVanChuyen();
+        ThongTinHangHoa thongTinHangHoa = vanDon.getThongTinHangHoa();
+        double tongPhi = phiVanChuyen.getPhiCoDinh();
+
+        double khoiLuong = thongTinHangHoa.getTrongLuong();
+        KichCo kichCo = thongTinHangHoa.getKichCo();
+        String loaiHang = thongTinHangHoa.getLoaiHang();
+
+        if (vanDon.getLoaiVanChuyen().equalsIgnoreCase("liên tỉnh")) {
+            tongPhi += vanDon.getKhoangCach() * 2000;
+
+            if (khoiLuong > 50)
+                tongPhi += 20000 + 2000 * (khoiLuong - 50);
+            else if (khoiLuong > 10)
+                tongPhi += 20000;
+            else if (khoiLuong > 5)
+                tongPhi += 10000;
+            else if (khoiLuong > 1)
+                tongPhi += 5000;
+
+            if (kichCo.getDai() + kichCo.getRong() > 150)
+                tongPhi += 10000;
+
+            if (loaiHang.equalsIgnoreCase("hàng điện tử"))
+                tongPhi += 5000;
+            else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
+                tongPhi += 5000;
+            else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
+                tongPhi += 10000;
+        } else {
+            tongPhi += vanDon.getKhoangCach() % 10 * 2000;
+
+            if (khoiLuong > 50)
+                tongPhi += 10000 + 2000 * (khoiLuong - 50);
+            else if (khoiLuong > 5)
+                tongPhi += 10000;
+
+            if (kichCo.getDai() + kichCo.getRong() > 100)
+                tongPhi += 10000;
+
+            if (loaiHang.equalsIgnoreCase("hàng điện tử"))
+                tongPhi += 5000;
+            else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
+                tongPhi += 5000;
+            else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
+                tongPhi += 10000;
+        }
+        return tongPhi;
+    }
+
+    public List<Map<Integer, Double>> tinhDoanhThuTheoNam(){
+        List<VanDonPOJO> danhSach = allVanDon();
+        List<Map<Integer, Double>> doanhThuTheoNam = new ArrayList<>();
+        Map<Integer, Double> tongTien1Nam = new HashMap<>();
+        for(VanDonPOJO vanDon : danhSach){
+            int nam = vanDon.getThoiGianLap().getYear();
+            int tongPhi = vanDon.getPhiVanChuyen().getTongPhi();
+            tongTien1Nam.put(nam, tongTien1Nam.getOrDefault(nam, 0.0) + tongPhi);
+        }
+
+        return doanhThuTheoNam;
+    }
 
     public VanDonPOJO convertToVanDonPOJO(Document doc) {
         VanDonPOJO vanDon = new VanDonPOJO();
@@ -146,10 +228,9 @@ public class VanDonService {
             tt.setTenHang(tthh.getString("TenHang"));
 
             Object trongLuongValue = tthh.get("TrongLuong");
-            if(trongLuongValue != null) {
-                tt.setTrongLuong((Double)trongLuongValue);
-            }
-            else {
+            if (trongLuongValue != null) {
+                tt.setTrongLuong((Double) trongLuongValue);
+            } else {
                 tt.setTrongLuong(0.0);
             }
 

@@ -20,6 +20,11 @@ export const ROUTERS ={
         DASHBOARD: "/dashboard",
         DETAILORDER: "/detailorder",
         UPDATEPEOFILE: "/UpdateProfile"
-    }
+    },
     
+    ADMIN:{
+        DASHBOARD: "/dashboard_admin",
+        HOME: "/trangchuadmin",
+        TEAM: "/qltaikhoan";
+    }
 }

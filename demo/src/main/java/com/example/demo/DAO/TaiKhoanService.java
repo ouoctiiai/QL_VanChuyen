@@ -30,6 +30,30 @@ public class TaiKhoanService {
         return danhSachTK;
     }
 
+    public void themTaiKhoanMoi(TaiKhoanPOJO taiKhoanMoi) {
+        MongoCollection<Document> collection = connection.getCollection();
+        Document doc = new Document();
+        doc.append("LoaiTaiKhoan", taiKhoanMoi.getLoaiTaiKhoan());
+        doc.append("TenTaiKhoan", taiKhoanMoi.getTenTaiKhoan());
+        doc.append("TenChuTaiKhoan", taiKhoanMoi.getTenChuTaiKhoan());
+        doc.append("SDT", taiKhoanMoi.getSdt());
+        doc.append("Email", taiKhoanMoi.getEmail());
+        doc.append("SoCCCD", taiKhoanMoi.getSoCCCD());
+        doc.append("MatKhau", taiKhoanMoi.getMatKhau());
+        doc.append("DiaChi", taiKhoanMoi.getDiaChi());
+        doc.append("MaShipper", taiKhoanMoi.getMaShipper());
+        doc.append("TongTienCong", taiKhoanMoi.getTongTienCong());
+
+        ThongTinTaiKhoan tt = taiKhoanMoi.getThongTinTaiKhoan();
+        if (tt != null) {
+            Document ttttk = new Document();
+            ttttk.append("TenNganHang", tt.getTenNganHang());
+            ttttk.append("SoTaiKhoan", tt.getSoTaiKhoan());
+            doc.append("TKNganHang", ttttk);
+        }
+
+        collection.insertOne(doc);
+    }
 
 
     // Phương thức để chuyển đổi Document thành KhoPOJO

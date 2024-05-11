@@ -67,9 +67,4 @@ public class PhiVanChuyen {
 
     public void setThuongShipper(Integer thuongShipper) {this.thuongShipper = thuongShipper; }
 
-
-    // Consider adding a method to calculate the total cost if needed
-    public void tinhTongPhi() {
-        tongPhi = phiCoDinh + phiNang + phiHa + (phiCoDinh + phiNang + phiHa) * vat;
-    }
 }
