@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom/cjs/react-router-dom';
 import ShipperHome from './Shipper/Pages/SP_Home';
 import DSDonHang from './NhanVien/DSDonHang';
 import AdminRouter from './Admin/AdminRouter';
+import Team from './Admin/scenes/QLTaiKhoan';
 import "./Admin/index.css";
 import { Margin, Padding } from '@mui/icons-material';
 import { render } from '@testing-library/react';
@@ -25,7 +26,6 @@ import Profile from './Shipper/Pages/Profile';
 import SP_Home from './Shipper/Pages/SP_Home';
 import DetailOrder from './Shipper/Pages/DetailOrder';
 import UpdateProfile from './Shipper/Pages/UpdateProfile';
-import Team from './Admin/scenes/team/QLTeam';
 
 const renderMasterRouter = () => {
     const masterRouter = [
@@ -89,10 +89,13 @@ const renderMasterRouter = () => {
         },
 
         {
-            path: ROUTERS.ADMIN.AdminRouter,
+            path: ROUTERS.ADMIN.TRANGCHUADMIN,
             component: AdminRouter
         },
-        
+        {
+            path: ROUTERS.ADMIN.QLTAIKHOAN,
+            component: Team
+        },
     ];
 
     return (

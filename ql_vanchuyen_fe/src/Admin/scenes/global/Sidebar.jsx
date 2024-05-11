@@ -137,7 +137,7 @@ const Sidebar = () =>{
             </Typography>
             <Item
               title="Quản lí tài khoản"
-              to="/team"
+              to="/qltaikhoan"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
