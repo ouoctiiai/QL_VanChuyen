@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class VanDonService {
+public class VanDonDAO {
 
     private class DoanhThuTheoNam{
         public int nam;
@@ -29,7 +29,6 @@ public class VanDonService {
         }
     }
 
-public class VanDonDAO {
     private final Connection connection;
     private java.util.Objects Objects;
 
@@ -98,17 +97,19 @@ public class VanDonDAO {
         return tongPhi;
     }
 
-    public List<Map<Integer, Double>> tinhDoanhThuTheoNam(){
+    public List<Map<Integer, Double>> tinhDoanhThuTheoNam() {
         List<VanDonPOJO> danhSach = allVanDon();
         List<Map<Integer, Double>> doanhThuTheoNam = new ArrayList<>();
         Map<Integer, Double> tongTien1Nam = new HashMap<>();
-        for(VanDonPOJO vanDon : danhSach){
+        for (VanDonPOJO vanDon : danhSach) {
             int nam = vanDon.getThoiGianLap().getYear();
             int tongPhi = vanDon.getPhiVanChuyen().getTongPhi();
             tongTien1Nam.put(nam, tongTien1Nam.getOrDefault(nam, 0.0) + tongPhi);
         }
 
         return doanhThuTheoNam;
+    }
+
     public List<VanDonPOJO> danhSachDonNoiTinh() {
         List<VanDonPOJO> dsVanDon = new ArrayList<>();
 
