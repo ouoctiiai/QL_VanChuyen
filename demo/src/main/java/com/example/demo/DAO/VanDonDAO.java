@@ -3,7 +3,10 @@ package com.example.demo.DAO;
 import com.example.demo.POJO.*;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
 import org.bson.Document;
+import org.bson.conversions.Bson;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 
@@ -138,6 +141,13 @@ public class VanDonDAO {
         }
 
         return dsVanDon;
+    }
+
+    public VanDonPOJO timVanDonTheoId(ObjectId id) {
+        MongoCollection<Document> collection = connection.getCollection();
+        Bson filter = Filters.eq("_id", id);
+        Document doc = collection.find(filter).first();
+        return convertToVanDonPOJO(doc);
     }
 
     public VanDonPOJO convertToVanDonPOJO(Document doc) {

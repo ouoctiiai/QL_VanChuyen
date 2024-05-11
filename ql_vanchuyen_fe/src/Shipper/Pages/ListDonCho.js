@@ -15,6 +15,7 @@ const ListDonCho = () => {
       })
   }, [])
 
+
   return (
     <>
     <Navbar />
@@ -29,7 +30,11 @@ const ListDonCho = () => {
               <div class="col-lg-2">
                 <div class="candidate-list-widgets">
                     <div class="selection-widget">
-                        <select class="form-select" data-trigger="true" name="choices-single-filter-orderby" id="choices-single-filter-orderby" aria-label="Default select example">
+                        <select class="form-select" 
+                                data-trigger="true" 
+                                name="choices-single-filter-orderby" 
+                                id="choices-single-filter-orderby" 
+                                aria-label="Default select example">
                             <option value="tphcm">TPHCM</option>
                             <option value="hn">Hà Nội</option>
                             <option value="dn">Đà Nẵng</option>
@@ -58,8 +63,18 @@ const ListDonCho = () => {
 
                               <td>
                                   <ul class="list-unstyled ps-0 mb-0">
-                                      <li><p class="text-muted mb-1 text-truncate"><i class="mdi mdi-circle-medium align-middle text-primary me-1">-</i> Điểm nhận: {item.thongTinNguoiGui.diaChiNguoiGui} </p></li>
-                                      <li><p class="text-muted mb-1 text-truncate"><i class="mdi mdi-circle-medium align-middle text-primary me-1">-</i> Điểm giao: {item.thongTinNguoiNhan.diaChiNguoiNhan} </p></li>
+                                        <li>
+                                            <p class="text-muted mb-1 text-truncate">
+                                                <i class="mdi mdi-circle-medium align-middle text-primary me-1">-</i>
+                                                Điểm nhận: {item.thongTinNguoiGui.diaChiNguoiGui} 
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="text-muted mb-1 text-truncate">
+                                                <i class="mdi mdi-circle-medium align-middle text-primary me-1">-</i> 
+                                                Điểm giao: {item.thongTinNguoiNhan.diaChiNguoiNhan} 
+                                            </p>
+                                        </li>
                                   </ul>
                               </td>
 
@@ -72,7 +87,10 @@ const ListDonCho = () => {
                               </td>
 
                               <td>
-                                  <button type="button" class="btn btn-primary waves-effect waves-light"><i class="bx bx-cart me-2 font-size-10 align-middle"></i>Nhận</button>
+                                  <button type="button" 
+                                        class="btn btn-primary waves-effect waves-light">
+                                            <a className='text-light' href={`/detailorder/${item.id}`}>Nhận</a>
+                                    </button>
                               </td>
                           </tr>
                           ))}

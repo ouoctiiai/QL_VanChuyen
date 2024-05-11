@@ -84,6 +84,11 @@ const renderMasterRouter = () => {
         },
 
         {
+            path: ROUTERS.SHIPPER.DETAILORDER,
+            component: DetailOrder
+        },
+
+        {
             path: ROUTERS.ADMIN.AdminRouter,
             component: AdminRouter
         },
