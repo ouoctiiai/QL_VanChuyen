@@ -23,8 +23,7 @@ export const ROUTERS ={
     },
     
     ADMIN:{
-        DASHBOARD: "/dashboard_admin",
-        HOME: "/trangchuadmin",
-        TEAM: "/qltaikhoan";
+        TRANGCHUADMIN : "/trangchuadmin",
+        QLTAIKHOAN: "/qltaikhoan"
     }
 }

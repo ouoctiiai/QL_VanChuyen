@@ -23,9 +23,9 @@ import ProgressCircle from "./components/ProgressCircle";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import { Switch } from "react-router-dom/cjs/react-router-dom";
-import Team from './scenes/team/QLTeam';
 // import Calendar from './scenes/calendar/calendar';
 import StatBox from "./components/StatBox";
+import QLTaiKhoan from "./scenes/QLTaiKhoan";
 
 
 function AdminRouter() {
@@ -42,7 +42,7 @@ function AdminRouter() {
           <Topbar setIsSidebar={setIsSidebar} />
           <Switch>
             <Route path="/dashboad" element={<Dashboard />} />
-            <Route path="/team" element={<Team />} />
+            <Route path="/qltaikhoan" element={<QLTaiKhoan />} />
             {/* <Route path="/contacts" element={<Contacts />} />
             <Route path="/invoices" element={<Invoices />} />
             <Route path="/form" element={<Form />} />
