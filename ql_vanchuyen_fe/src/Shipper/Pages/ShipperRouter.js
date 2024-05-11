@@ -12,19 +12,11 @@ import DetailOrder from './DetailOrder';
 function ShipperRouter() {
   return (
     <div>
-      <Navbar />
-      <ListDonCho />
-      <Dashboard /> 
-      <UpdateProfile /> 
-      <History />
-      <Profile /> 
-
-
-      <DetailOrder />
-
         <Switch>
-            <Route path="/" element={<ListDonCho />} />
-            <Route path="/history" element={<History />} />
+            <Route path="/">
+              <ListDonCho />
+            </Route>
+            <Route path="/history" element={<History />} ></Route>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="*"> 404 not found </Route>

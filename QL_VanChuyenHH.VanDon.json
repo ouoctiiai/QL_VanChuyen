@@ -40,7 +40,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Hà Nội",
+  "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Long An",
   "TuyenDuong": {
     "DuongDi": null,
@@ -101,7 +101,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "TP Hồ Chí Minh",
+  "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Lâm Đồng",
   "TuyenDuong": {
     "DuongDi": null,
@@ -161,7 +161,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Lai Châu",
+  "DiemXuatPhat": "Lai Châu",
   "DiemDen": "Long An",
   "TuyenDuong": {
     "DuongDi": null,
@@ -220,7 +220,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Lào Cai",
+  "DiemXuatPhat": "Lào Cai",
   "DiemDen": "Nam Định",
   "TuyenDuong": {
     "DuongDi": null,
@@ -281,7 +281,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Đà Nẵng",
+  "DiemXuatPhat": "Đà Nẵng",
   "DiemDen": "Nghệ An",
   "TuyenDuong": {
     "DuongDi": null,
@@ -341,7 +341,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Hà Nội",
+  "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Ninh Bình",
   "TuyenDuong": {
     "DuongDi": null,
@@ -396,7 +396,7 @@
     "LoaiHang": "Thư từ",
     "SoLuong": 1
   },
-  "DienXuatPhat": "Long An",
+  "DiemXuatPhat": "Long An",
   "DiemDen": "Ninh Thuận",
   "TuyenDuong": {
     "DuongDi": null,
@@ -455,7 +455,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Nam Định",
+  "DiemXuatPhat": "Nam Định",
   "DiemDen": "Phú Thọ",
   "TuyenDuong": {
     "DuongDi": null,
@@ -515,7 +515,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Đà Nẵng",
+  "DiemXuatPhat": "Đà Nẵng",
   "DiemDen": "Phú Yên",
   "TuyenDuong": {
     "DuongDi": null,
@@ -575,7 +575,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Hà Nội",
+  "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Quảng Bình",
   "TuyenDuong": {
     "DuongDi": null,
@@ -635,7 +635,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Hà Nội",
+  "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Quảng Nam",
   "TuyenDuong": {
     "DuongDi": null,
@@ -697,7 +697,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Phú Thọ",
+  "DiemXuatPhat": "Phú Thọ",
   "DiemDen": "Quảng Ngãi",
   "TuyenDuong": {
     "DuongDi": null,
@@ -757,7 +757,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "TP Hồ Chí Minh",
+  "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Quảng Ninh",
   "TuyenDuong": {
     "DuongDi": null,
@@ -817,7 +817,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "TP Hồ Chí Minh",
+  "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Hòa Bình",
   "TuyenDuong": {
     "DuongDi": null,
@@ -871,7 +871,7 @@
     "LoaiHang": "Thư từ",
     "SoLuong": 1
   },
-  "DienXuatPhat": "TP Hồ Chí Minh",
+  "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Tây Ninh",
   "TuyenDuong": {
     "DuongDi": null,
@@ -930,7 +930,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Quảng Ngãi",
+  "DiemXuatPhat": "Quảng Ngãi",
   "DiemDen": "Thái Bình",
   "TuyenDuong": {
     "DuongDi": null,
@@ -990,7 +990,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "TP Hồ Chí Minh",
+  "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Thái Nguyên",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1050,7 +1050,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Quảng Trị",
+  "DiemXuatPhat": "Quảng Trị",
   "DiemDen": "Thanh Hóa",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1110,7 +1110,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Đắk Lắk",
+  "DiemXuatPhat": "Đắk Lắk",
   "DiemDen": "Thừa Thiên – Huế",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1170,7 +1170,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Hà Nội",
+  "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Tiền Giang",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1231,7 +1231,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Đà Nắng",
+  "DiemXuatPhat": "Đà Nắng",
   "DiemDen": "Trà Vinh",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1290,7 +1290,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Hà Nội",
+  "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Tuyên Quang",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1350,7 +1350,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Đồng Tháp",
+  "DiemXuatPhat": "Đồng Tháp",
   "DiemDen": "Vĩnh Long",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1409,7 +1409,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "TP Hồ Chí Minh",
+  "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Vĩnh Phúc",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1469,7 +1469,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Hà Giang",
+  "DiemXuatPhat": "Hà Giang",
   "DiemDen": "Yên Bái",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1529,7 +1529,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Hà Nội",
+  "DiemXuatPhat": "Hà Nội",
   "DiemDen": "An Giang",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1588,7 +1588,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Hà Nội",
+  "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Bến Tre",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1648,7 +1648,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Đà Nẵng",
+  "DiemXuatPhat": "Đà Nẵng",
   "DiemDen": "Bình Dương",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1707,7 +1707,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "TP Hồ Chí Minh",
+  "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Bình Định",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1769,7 +1769,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "Hải Dương",
+  "DiemXuatPhat": "Hải Dương",
   "DiemDen": "Bình Phước",
   "TuyenDuong": {
     "DuongDi": null,
@@ -1828,7 +1828,7 @@
     },
     "SoLuong": 1
   },
-  "DienXuatPhat": "TP Hồ Chí Minh",
+  "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Bình Thuận",
   "TuyenDuong": {
     "DuongDi": null,

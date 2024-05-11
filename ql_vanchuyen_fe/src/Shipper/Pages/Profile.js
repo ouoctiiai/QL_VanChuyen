@@ -1,9 +1,12 @@
 import React from 'react'
 import '../Styles/Profile.css'
+import Navbar from'../Components/Navbar'
 
 
 const Profile = () => {
   return (
+    <>
+    <Navbar/>
     <div class="container">
       <div class="main-body">
           <div class="row gutters-sm">
@@ -91,7 +94,7 @@ const Profile = () => {
                   <hr />
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class=" " target="__blank" href="">Edit</a>
+                      <a class=" " href="/UpdateProfile">Edit</a>
                     </div>
                   </div>
                 </div>
@@ -129,6 +132,7 @@ const Profile = () => {
           </div>
         </div>
     </div>
+    </>
   )
 }
 

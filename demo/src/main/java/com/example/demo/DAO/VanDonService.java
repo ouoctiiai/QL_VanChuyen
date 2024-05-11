@@ -55,7 +55,6 @@ public class VanDonService {
         return vanDon;
     }
 
-
     public void convertToThongTinNguoiGui(Document doc, VanDonPOJO vanDon) {
         Document ttng = doc.getEmbedded(Collections.singletonList("ThongTinNguoiGui"), Document.class);
         if (ttng != null) {

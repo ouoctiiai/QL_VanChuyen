@@ -1,8 +1,11 @@
 import React from 'react'
 import '../Styles/UpdateProfile.css'
+import Navbar from '../Components/Navbar';
 
 const UpdateProfile = () => {
   return (
+    <>
+    <Navbar />
     <div class="container">
         <div class="row gutters">
             <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -98,6 +101,7 @@ const UpdateProfile = () => {
             </div>
         </div>
     </div>
+    </>
   )
 }
 

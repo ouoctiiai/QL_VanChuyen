@@ -11,6 +11,15 @@ export const ROUTERS ={
     LOGIN:{
         LOGIN: "/login",
         REGISTER: "/register"
+    },
+    
+    SHIPPER:{
+        HOME: "/shipper_home",
+        PROFILE: "/profile",
+        HISTORY: "/history",
+        DASHBOARD: "/dashboard",
+        DETAILORDER: "/detailorder",
+        UPDATEPEOFILE: "/UpdateProfile"
     }
     
 }

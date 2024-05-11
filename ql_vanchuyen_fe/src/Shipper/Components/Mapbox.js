@@ -8,7 +8,7 @@ function Mapbox() {
     height: '100vh',
     latitude: 21.0286,
     longitude: 105.8012,
-    zoom: 10
+    zoom: 15
   });
   
   const addressa ={
