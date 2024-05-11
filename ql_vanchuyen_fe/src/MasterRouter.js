@@ -2,15 +2,6 @@ import React, { Component } from 'react';
 import { Route, Router, Switch } from 'react-router-dom/cjs/react-router-dom';
 import { memo } from 'react';
 
-import Login from './Login_Register/Login';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link,
-//   Routes
-// } from "react-router-dom";
-import Register from './Login_Register/Register';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom';
 import ShipperHome from './Shipper/Pages/SP_Home';
 import DSDonHang from './NhanVien/DSDonHang';
@@ -25,6 +16,15 @@ import MasterLayout from './MasterLayout';
 import { ROUTERS } from './Path/router';
 import CreateOrder from './KhachHang/CreateOrder/CreateOrder';
 import OrderDetails from './KhachHang/OrderDetails/OrderDetails';
+import Login from './Login_Register/Login';
+import Register from './Login_Register/Register';
+import ListDonCho from './Shipper/Pages/ListDonCho';
+import History from './Shipper/Pages/History';
+import Dashboard from './Shipper/Pages/Dashboard';
+import Profile from './Shipper/Pages/Profile';
+import SP_Home from './Shipper/Pages/SP_Home';
+import DetailOrder from './Shipper/Pages/DetailOrder';
+import UpdateProfile from './Shipper/Pages/UpdateProfile';
 
 const renderMasterRouter = () => {
     const masterRouter = [
@@ -47,6 +47,39 @@ const renderMasterRouter = () => {
         {
             path: ROUTERS.CUSTOMER.ORDER_DETAILS,
             component: OrderDetails
+        },
+        {
+            path: ROUTERS.LOGIN.LOGIN,
+            component: Login
+        },
+        {
+            path: ROUTERS.LOGIN.REGISTER,
+            component: Register
+        },
+        {
+            path: ROUTERS.SHIPPER.HOME,
+            component: SP_Home
+        },
+        {
+            path: ROUTERS.SHIPPER.HISTORY,
+            component: History
+        },
+        {
+            path: ROUTERS.SHIPPER.DASHBOARD,
+            component: Dashboard
+        },
+        {
+            path: ROUTERS.SHIPPER.PROFILE,
+            component: Profile
+        },
+        {
+            path: ROUTERS.SHIPPER.DETAILORDER,
+            component: DetailOrder
+        },
+        
+        {
+            path: ROUTERS.SHIPPER.UPDATEPEOFILE,
+            component: UpdateProfile
         }
     ];
 

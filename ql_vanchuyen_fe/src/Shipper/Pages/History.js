@@ -1,9 +1,12 @@
 import React from 'react'
 import '../Styles/History.css'
+import Navbar from '../Components/Navbar';
 
 
 const History = () => {
   return (   
+    <>
+    <Navbar />
      <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -396,6 +399,7 @@ const History = () => {
         </div>
       </div>
       </div>
+      </>
   )
 }
 

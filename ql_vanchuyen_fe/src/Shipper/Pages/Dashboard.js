@@ -1,8 +1,11 @@
 import React from 'react'
 import '../Styles/Dashboard.css'
+import Navbar from '../Components/Navbar';
 
 const Dashboard = () => {
   return (
+    <>
+    <Navbar />
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-xl-3">
@@ -114,6 +117,7 @@ const Dashboard = () => {
             </div>
     </section>
 </div>
+</>
   )
 }
 

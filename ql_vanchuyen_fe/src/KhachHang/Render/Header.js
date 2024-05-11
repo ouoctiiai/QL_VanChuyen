@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './Header.scss'
+
 
 const Header = () => {
     return (
-        <div>
-            Header
+        <div className='header_container'>
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand">Logo</a>
+                    <div class="d-flex">
+                        <button class="btn btn-outline-success mx-3" type="submit">Home</button>
+                        <button class="btn btn-outline-success mx-3" type="submit">News</button>
+                        <button class="btn btn-outline-success mx-3" type="submit">About us</button>
+                        <button class="btn btn-outline-success mx-3" type="submit">Contact us</button>
+                    </div>
+                </div>
+            </nav>
         </div>
     );
 };

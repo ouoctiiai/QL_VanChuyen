@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import "../Styles/Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({children, ...props}) => {
     const [menuOpen, setMenuOpen] = useState(false);
   return (
+    <div {...props}>
     <nav>
       <Link to="/shipper_home" className="title">
         Don cho
@@ -17,16 +18,18 @@ const Navbar = () => {
       </div>
       <ul className={menuOpen ? "open" : ""}>
         <li>
-          <NavLink to="/shipper_home/history">History</NavLink>
+          <NavLink to="/history">History</NavLink>
         </li>
         <li>
-          <NavLink to="/shipper_home/dashboard">Dashboard</NavLink>
+          <NavLink to="/dashboard">Dashboard</NavLink>
         </li>
         <li>
-          <NavLink to="/shipper_home/profile">ProFile</NavLink>
+          <NavLink to="/profile">ProFile</NavLink>
         </li>
       </ul>
     </nav>
+    {children}
+    </div>
   )
 }
 

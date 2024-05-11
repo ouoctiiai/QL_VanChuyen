@@ -1,39 +1,51 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom/cjs/react-router-dom';
-import CreateOrder from './CreateOrder/CreateOrder';
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Router, Switch } from 'react-router-dom/cjs/react-router-dom';
+import { memo } from 'react';
+import { ROUTERS } from '../Path/router';
+import Customer from './Home/Customer';
 import ProfileCustomer from './Profile/ProfileCustomer';
-import Menu from './Render/Menu';
-import Header from './Render/Header';
-import OrderDetails from './OrderDetails/OrderDetails';
+import CreateOrder from './CreateOrder/CreateOrder';
 import OrderList from './OrderList/OrderList';
+import OrderDetails from './OrderDetails/OrderDetails';
+import CustomerLayout from './CustomerLayout';
 
-const CustomerRouter = () => {
+const renderCustomerRouter = () => {
+    const customerRouter = [
+        {
+            path: ROUTERS.CUSTOMER.PROFILE,
+            component: ProfileCustomer
+        },
+        {
+            path: ROUTERS.CUSTOMER.CREATE_ORDER,
+            component: CreateOrder
+        },
+        {
+            path: ROUTERS.CUSTOMER.ORDER_LIST,
+            component: OrderList
+        },
+        {
+            path: ROUTERS.CUSTOMER.ORDER_DETAILS,
+            component: OrderDetails
+        }
+    ];
+
     return (
-        <div className='customer_container'>
-            <Header />
-            <div className='row'>
-                <div className='col-md-3' style={{paddingLeft: '50px'}}>
-                    <Menu />
-                </div>
-                <div className='col-md-9'>
-                    <Switch>
-                        <Route path="/">
-                            <CreateOrder />
-                        </Route>
-                        <Route path="/profile-customer">
-                            <ProfileCustomer />
-                        </Route>
-                        <Route path="/order-details">
-                            <OrderDetails />
-                        </Route>
-                        <Route path="/order-list">
-                            <OrderList />
-                        </Route>
-                    </Switch>
-                </div>
-            </div>
-        </div>
+        <BrowserRouter>
+            <CustomerLayout>
+                <Switch>
+                    {
+                        customerRouter.map((item, key) => {
+                            return <Route key={key} path={item.path} component={item.component} />
+                        })
+                    }
+                </Switch>
+            </CustomerLayout>
+        </BrowserRouter>
     );
 };
 
-export default CustomerRouter;
+const CustomerRouter = () => {
+    return renderCustomerRouter();
+};
+
+export default memo(CustomerRouter);
