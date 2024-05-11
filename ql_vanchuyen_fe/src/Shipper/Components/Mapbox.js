@@ -1,8 +1,20 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactMapGL from "react-map-gl"
+import { listVanDon } from '../../Api/axiosConfig';
 
 function Mapbox() {
+  const [vandons, setVanDons] = useState([])
+
+  useEffect(() => {
+      listVanDon().then((Response) =>{
+        setVanDons(Response.data);
+      }).catch(error => {
+        console.error(error);
+      })
+  }, [])
+
+
   const [viewport, setViewport] = React.useState({
     width: '100vw',
     height: '100vh',
@@ -25,7 +37,6 @@ function Mapbox() {
   const [distance, setDistance] = useState(null);
   const MAPBOX_TOKEN = 'pk.eyJ1IjoiYnBibiIsImEiOiJjbHZ4cGVkNWwyZm41MmltZ2lpam1oZXE4In0.81EqtEQcONtNnO_l4iwBhQ';
 
-  // Code from the image
   const getLocate = (address) => {
     axios
       .get(
