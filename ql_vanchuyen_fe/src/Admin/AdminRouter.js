@@ -28,6 +28,7 @@ import StatBox from "./components/StatBox";
 import QLTaiKhoan from "./scenes/QLTaiKhoan";
 
 
+
 function AdminRouter() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
@@ -36,7 +37,7 @@ function AdminRouter() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className="app">
+      <div className="app"> 
         <Sidebar isSidebar={isSidebar} />
         <main className="content">
           <Topbar setIsSidebar={setIsSidebar} />
