@@ -135,7 +135,7 @@ const DetailOrder = () => {
 						<div class="col-sm-12">
 							<div class="card">
 								<div class="card-body">
-									<Mapbox diemLay={thongTinNguoiGui.diaChiNguoiGui} diemGiao={thongTinNguoiNhan.diaChiNguoiNhan} />
+									<Mapbox from={thongTinNguoiGui.diaChiNguoiGui} to={thongTinNguoiNhan.diaChiNguoiNhan} />
 								</div>
 							</div>
 						</div>

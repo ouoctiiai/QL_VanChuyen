@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import ReactMapGL from "react-map-gl"
 import { listVanDon } from '../../Api/axiosConfig';
 
-function Mapbox({diemLay, diemGiao}) {
+function Mapbox({from, to}) {
 
   const getLocate = async (address) => {
     try {
@@ -57,10 +57,10 @@ function Mapbox({diemLay, diemGiao}) {
   useEffect(() => {
     const fetchLocations = async () => {
       try {
-        const responseLocatea = await getLocate(diemLay);
+        const responseLocatea = await getLocate(from);
         setLocatea(responseLocatea);
 
-        const responseLocateb = await getLocate(diemGiao);
+        const responseLocateb = await getLocate(to);
         setLocateb(responseLocateb);
 
         if (locatea) {
@@ -80,7 +80,7 @@ function Mapbox({diemLay, diemGiao}) {
     };
 
     fetchLocations();
-  }, [diemLay, diemGiao, getLocate]);
+  }, [from, to, getLocate]);
 
   return (
     <ReactMapGL

@@ -1,10 +1,12 @@
 package com.example.demo.DAO;
 import com.example.demo.POJO.KhoPOJO;
 import com.example.demo.POJO.KhoPOJO.KhoLanCan;
+import com.example.demo.POJO.VanDonPOJO;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -41,9 +43,9 @@ public class KhoDAO {
     }
 
     // Phương thức để tìm kho theo ID
-    public KhoPOJO timKhoTheoId(String id) {
+    public KhoPOJO timKhoTheoId(ObjectId id) {
         MongoCollection<Document> collection = connection.getCollection();
-        Bson filter = Filters.eq("id", id);
+        Bson filter = Filters.eq("_id", id);
         Document doc = collection.find(filter).first();
         return convertToKhoPOJO(doc);
     }
