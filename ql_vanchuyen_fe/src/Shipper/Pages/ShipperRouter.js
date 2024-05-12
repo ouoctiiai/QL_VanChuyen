@@ -19,6 +19,7 @@ function ShipperRouter() {
             <Route path="/history" element={<History />} ></Route>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/detailorder/:id" element= { <DetailOrder /> }/>
             <Route path="*"> 404 not found </Route>
         </Switch>
     </div>

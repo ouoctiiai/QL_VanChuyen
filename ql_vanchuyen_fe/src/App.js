@@ -15,6 +15,7 @@ import "./Admin/index.css";
 import { Margin, Padding } from '@mui/icons-material';
 import { render } from '@testing-library/react';
 import Customer from './KhachHang/Home/Customer';
+import NV_Home from './NhanVien/NV_Home';
 
 
 function App() {
@@ -38,8 +39,8 @@ function App() {
           <Route path="/shipper_home">
               <ShipperHome />
           </Route>
-          <Route path="/danhsachdonhang">
-            <DSDonHang />
+          <Route path="/nv_home">
+              <NV_Home/>
           </Route>
           <Route path="/trangchuadmin">
             <AdminRouter/>

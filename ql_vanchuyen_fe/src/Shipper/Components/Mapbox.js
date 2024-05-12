@@ -3,54 +3,26 @@ import React, { useState, useEffect } from 'react'
 import ReactMapGL from "react-map-gl"
 import { listVanDon } from '../../Api/axiosConfig';
 
-function Mapbox() {
-  const [vandons, setVanDons] = useState([])
+function Mapbox({from, to}) {
 
-  useEffect(() => {
-      listVanDon().then((Response) =>{
-        setVanDons(Response.data);
-      }).catch(error => {
-        console.error(error);
-      })
-  }, [])
-
-
-  const [viewport, setViewport] = React.useState({
-    width: '100vw',
-    height: '100vh',
-    latitude: 21.0286,
-    longitude: 105.8012,
-    zoom: 15
-  });
-  
-  const addressa ={
-    latitude: 10.7795,
-    longitude: 106.6917
-  }
-  
-  const addressb ={
-    latitude: 21.0286,
-    longitude: 105.8012
-  }
-
-  const [locateb, setLocateb] = useState();
-  const [distance, setDistance] = useState(null);
-  const MAPBOX_TOKEN = 'pk.eyJ1IjoiYnBibiIsImEiOiJjbHZ4cGVkNWwyZm41MmltZ2lpam1oZXE4In0.81EqtEQcONtNnO_l4iwBhQ';
-
-  const getLocate = (address) => {
-    axios
-      .get(
+  const getLocate = async (address) => {
+    try {
+      const responseLocate = await axios.get(
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${MAPBOX_TOKEN}`
-      )
-      .then(function (responseLocate) {
-        setLocateb({
-          latitude: responseLocate.data.features[0].center[1],
-          longitude: responseLocate.data.features[0].center[0],
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      );
+  
+      if (responseLocate.data.features.length === 0) {
+        throw new Error('No location found for the provided address');
+      }
+  
+      return {
+        latitude: responseLocate.data.features[0].center[1],
+        longitude: responseLocate.data.features[0].center[0],
+      };
+    } catch (error) {
+      console.error('Error fetching location:', error);
+      throw error;
+    }
   };
 
   const getDirections = (origin, destination) => {
@@ -68,6 +40,48 @@ function Mapbox() {
       });
   };
 
+  const [viewport, setViewport] = React.useState({
+    width: '100vw',
+    height: '100vh',
+    latitude: null,
+    longitude: null,
+    zoom: 14
+  });
+
+  const [locatea, setLocatea] = useState(null); 
+  const [locateb, setLocateb] = useState(null);
+  const[distance, setDistance] = useState('');
+  const [error, setError] = useState(null);
+  const MAPBOX_TOKEN = 'pk.eyJ1IjoiYnBibiIsImEiOiJjbHZ4cGVkNWwyZm41MmltZ2lpam1oZXE4In0.81EqtEQcONtNnO_l4iwBhQ';
+
+  useEffect(() => {
+    const fetchLocations = async () => {
+      try {
+        const responseLocatea = await getLocate(from);
+        setLocatea(responseLocatea);
+
+        const responseLocateb = await getLocate(to);
+        setLocateb(responseLocateb);
+
+        if (locatea) {
+          setViewport({
+            ...viewport,
+            latitude: locatea.latitude,
+            longitude: locatea.longitude
+          });
+        }
+
+        if (locatea && locateb) {
+          getDirections(locatea, locateb); 
+        }
+      } catch (error) {
+        setError(error);
+      }
+    };
+
+    fetchLocations();
+  }, [from, to, getLocate]);
+
   return (
     <ReactMapGL
       {...viewport}
@@ -75,18 +89,9 @@ function Mapbox() {
       onViewportChange={(viewport) => setViewport(viewport)}
       mapboxAccessToken = {MAPBOX_TOKEN}
     >
-      {getLocate("Ha Noi, Vietnam")}
-      {getDirections(addressa, addressb)}
-
       {distance && (
         <div>
           Khoảng cách: {distance.toFixed(2)} km
-        </div>
-      )}
-
-      {locateb && (
-        <div>
-          Địa chỉ: {locateb.latitude}, {locateb.longitude}
         </div>
       )}
     </ReactMapGL>
