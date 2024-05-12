@@ -4,6 +4,7 @@ import com.example.demo.POJO.*;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
@@ -45,6 +46,12 @@ public class VanDonDAO {
         for (Document doc : collection.find()) {
             VanDonPOJO vd = convertToVanDonPOJO(doc);
             dsVanDon.add(vd);
+            double totalShippingFee = tinhPhiVanChyen(vd);
+            vd.getPhiVanChuyen().setTongPhi((int)totalShippingFee); // Cập nhật tổng phí vận chuyển
+            // Cập nhật đối tượng VanDonPOJO vào cơ sở dữ liệu
+            String id = doc.getObjectId("_id").toString();
+            collection.updateOne(Filters.eq("_id", new ObjectId(id)),
+                    Updates.set("tongPhi", vd.getPhiVanChuyen().getTongPhi()));
         }
         return dsVanDon;
     }
@@ -53,49 +60,56 @@ public class VanDonDAO {
         PhiVanChuyen phiVanChuyen = vanDon.getPhiVanChuyen();
         ThongTinHangHoa thongTinHangHoa = vanDon.getThongTinHangHoa();
         double tongPhi = phiVanChuyen.getPhiCoDinh();
-
+        double vat = phiVanChuyen.getVat();
+        double nang = phiVanChuyen.getPhiNang();
+        double ha = phiVanChuyen.getPhiHa();
         double khoiLuong = thongTinHangHoa.getTrongLuong();
         KichCo kichCo = thongTinHangHoa.getKichCo();
         String loaiHang = thongTinHangHoa.getLoaiHang();
 
-        if (vanDon.getLoaiVanChuyen().equalsIgnoreCase("liên tỉnh")) {
-            tongPhi += vanDon.getKhoangCach() * 2000;
+        if(kichCo != null)
+        {
+            double chieuDai = kichCo.getDai();
+            double chieuRong = kichCo.getDai();
+            if (vanDon.getLoaiVanChuyen().equalsIgnoreCase("liên tỉnh")) {
+//            tongPhi += vanDon.getKhoangCach() * 2000;
 
-            if (khoiLuong > 50)
-                tongPhi += 20000 + 2000 * (khoiLuong - 50);
-            else if (khoiLuong > 10)
-                tongPhi += 20000;
-            else if (khoiLuong > 5)
-                tongPhi += 10000;
-            else if (khoiLuong > 1)
-                tongPhi += 5000;
+                if (khoiLuong > 50)
+                    tongPhi += 20000 + 2000 * (khoiLuong - 50);
+                else if (khoiLuong > 10)
+                    tongPhi += 20000;
+                else if (khoiLuong > 5)
+                    tongPhi += 10000;
+                else if (khoiLuong > 1)
+                    tongPhi += 5000;
 
-            if (kichCo.getDai() + kichCo.getRong() > 150)
-                tongPhi += 10000;
+                if (chieuDai + chieuRong > 150)
+                    tongPhi += 10000;
 
-            if (loaiHang.equalsIgnoreCase("hàng điện tử"))
-                tongPhi += 5000;
-            else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
-                tongPhi += 5000;
-            else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
-                tongPhi += 10000;
-        } else {
-            tongPhi += vanDon.getKhoangCach() % 10 * 2000;
+                if (loaiHang.equalsIgnoreCase("hàng điện tử"))
+                    tongPhi += 5000;
+                else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
+                    tongPhi += 5000;
+                else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
+                    tongPhi += 10000;
+            } else {
+//            tongPhi += vanDon.getKhoangCach() % 10 * 2000;
 
-            if (khoiLuong > 50)
-                tongPhi += 10000 + 2000 * (khoiLuong - 50);
-            else if (khoiLuong > 5)
-                tongPhi += 10000;
+                if (khoiLuong > 50)
+                    tongPhi += 10000 + 2000 * (khoiLuong - 50);
+                else if (khoiLuong > 5)
+                    tongPhi += 10000;
 
-            if (kichCo.getDai() + kichCo.getRong() > 100)
-                tongPhi += 10000;
+                if (chieuDai + chieuRong > 100)
+                    tongPhi += 10000;
 
-            if (loaiHang.equalsIgnoreCase("hàng điện tử"))
-                tongPhi += 5000;
-            else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
-                tongPhi += 5000;
-            else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
-                tongPhi += 10000;
+                if (loaiHang.equalsIgnoreCase("hàng điện tử"))
+                    tongPhi += 5000;
+                else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
+                    tongPhi += 5000;
+                else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
+                    tongPhi += 10000;
+            }
         }
         return tongPhi;
     }
