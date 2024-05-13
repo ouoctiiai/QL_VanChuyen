@@ -150,6 +150,13 @@ public class VanDonDAO {
         return convertToVanDonPOJO(doc);
     }
 
+    public Double tinhKhoangCachDonLienTinh(VanDonPOJO vd){
+        KhoDAO khodao = new KhoDAO();
+        KhoPOJO khodi = khodao.timKhoTheoTinh(vd.getDiemXuatPhat());
+        KhoPOJO khoden = khodao.timKhoTheoTinh(vd.getDiemDen());
+        return 0.0;
+    }
+
     public VanDonPOJO convertToVanDonPOJO(Document doc) {
         VanDonPOJO vanDon = new VanDonPOJO();
 

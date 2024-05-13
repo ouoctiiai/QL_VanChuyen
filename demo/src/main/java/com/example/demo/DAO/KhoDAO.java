@@ -50,6 +50,14 @@ public class KhoDAO {
         return convertToKhoPOJO(doc);
     }
 
+    // Phương thức để tìm kho theo ID
+    public KhoPOJO timKhoTheoTinh(String tinh) {
+        MongoCollection<Document> collection = connection.getCollection();
+        Bson filter = Filters.eq("Tinh", tinh);
+        Document doc = collection.find(filter).first();
+        return convertToKhoPOJO(doc);
+    }
+
     // Phương thức để lấy danh sách tất cả các kho
     public List<KhoPOJO> layTatCaKho() {
         List<KhoPOJO> danhSachKho = new ArrayList<>();
