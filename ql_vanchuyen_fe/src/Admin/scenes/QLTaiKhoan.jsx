@@ -21,12 +21,12 @@ const Team = () => {
       .then((data) => setTaiKhoans(data))
       .catch((error) => console.error(error));
   }, []);
-
   const columns = [
     { field: "id", headerName: "ID" },
-    { field: "TenTaiKhoan", headerName: "Tên tài khoản", flex: 1 },
-    { field: "TenChuTaiKhoan", headerName: "Tên chủ tài khoản", flex: 1 },
-    { field: "SDT", headerName: "Số điện thoại", flex: 1 },
+    { field: "tenTaiKhoan", headerName: "Tên tài khoản", flex: 1 },
+    { field: "tenChuTaiKhoan", headerName: "Tên chủ tài khoản", flex: 1 },
+    { field: "sdt", headerName: "Số điện thoại", flex: 1 },
+    { field: "loaiTaiKhoan", headerName: "Loại Tài Khoản", flex: 1 },
     // Thêm các trường khác nếu cần
   ];
   

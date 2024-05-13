@@ -29,5 +29,12 @@ export const ROUTERS ={
         TEAM: "/qltaikhoan",
         TRANGCHUADMIN : "/trangchuadmin",
         QLTAIKHOAN: "/qltaikhoan"
-    }
+    },
+
+    EMPLOYEE:{
+        HOME: "/nv_home",
+        LIST: "/dsdonhang",
+        CREATE: "/taodonhang",
+        DETAIL: "/chitietdh"
+    },
 }
