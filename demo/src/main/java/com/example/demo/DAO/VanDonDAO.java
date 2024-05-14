@@ -1,5 +1,6 @@
 package com.example.demo.DAO;
 
+import com.example.demo.AI.Dijkstra;
 import com.example.demo.POJO.*;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
@@ -35,6 +36,13 @@ public class VanDonDAO {
 
     private final Connection connection;
     private java.util.Objects Objects;
+//
+//    public void capNhatDonLienTinh(KhoPOJO kho) {
+//        MongoCollection<Document> collection = connection.getCollection();
+//        Bson filter = Filters.eq("id", kho.getId());
+//        Document updatedDocument = convertToDocument(kho);
+//        collection.replaceOne(filter, updatedDocument);
+//    }
 
     public VanDonDAO() {
         connection = new Connection("VanDon");
@@ -61,8 +69,8 @@ public class VanDonDAO {
         ThongTinHangHoa thongTinHangHoa = vanDon.getThongTinHangHoa();
         double tongPhi = phiVanChuyen.getPhiCoDinh();
         double vat = phiVanChuyen.getVat();
-        double nang = phiVanChuyen.getPhiNang();
-        double ha = phiVanChuyen.getPhiHa();
+//        double nang = phiVanChuyen.getPhiNang();
+//        double ha = phiVanChuyen.getPhiHa();
         double khoiLuong = thongTinHangHoa.getTrongLuong();
         KichCo kichCo = thongTinHangHoa.getKichCo();
         String loaiHang = thongTinHangHoa.getLoaiHang();
@@ -165,10 +173,49 @@ public class VanDonDAO {
     }
 
     public Double tinhKhoangCachDonLienTinh(VanDonPOJO vd){
+        Double khoangCach = 0.0;
         KhoDAO khodao = new KhoDAO();
-        KhoPOJO khodi = khodao.timKhoTheoTinh(vd.getDiemXuatPhat());
-        KhoPOJO khoden = khodao.timKhoTheoTinh(vd.getDiemDen());
-        return 0.0;
+        Dijkstra dijkstra = new Dijkstra();
+        KhoPOJO k1 = khodao.timKhoTheoTinh(vd.getDiemXuatPhat());
+        KhoPOJO k2 = khodao.timKhoTheoTinh(vd.getDiemDen());
+        if(!java.util.Objects.equals(k1.getKhuVuc(), k2.getKhuVuc())){
+            KhoPOJO kchinh1 = khodao.timKhoChinhTheoKhuVuc(k1.getKhuVuc());
+            KhoPOJO kchinh2 = khodao.timKhoChinhTheoKhuVuc(k2.getKhuVuc());
+            khoangCach += dijkstra.findDistance(vd.getDiemXuatPhat(), kchinh1.getTinh())
+                    + dijkstra.findDistance(kchinh1.getTinh(), kchinh2.getTinh())
+                    + dijkstra.findDistance(kchinh2.getTinh(), vd.getDiemDen());
+
+        }
+        else {
+            khoangCach += dijkstra.findDistance(vd.getDiemXuatPhat(), vd.getDiemDen());
+        }
+        return khoangCach;
+    }
+
+    public String timDuongDiNganNhat(VanDonPOJO vd){
+        String path = "";
+        KhoDAO khodao = new KhoDAO();
+        Dijkstra dijkstra = new Dijkstra();
+        KhoPOJO k1 = khodao.timKhoTheoTinh(vd.getDiemXuatPhat());
+        KhoPOJO k2 = khodao.timKhoTheoTinh(vd.getDiemDen());
+        if(!java.util.Objects.equals(k1.getKhuVuc(), k2.getKhuVuc())){
+            KhoPOJO kchinh1 = khodao.timKhoChinhTheoKhuVuc(k1.getKhuVuc());
+            KhoPOJO kchinh2 = khodao.timKhoChinhTheoKhuVuc(k2.getKhuVuc());
+            if(!java.util.Objects.equals(vd.getDiemXuatPhat(), kchinh1.getTinh()))
+            {
+                path += dijkstra.findShortedPath(vd.getDiemXuatPhat(), kchinh1.getTinh());
+            }
+            else path += vd.getDiemXuatPhat();
+            if(!java.util.Objects.equals(vd.getDiemDen(), kchinh2.getTinh()))
+            {
+                path += ", " + dijkstra.findShortedPath(kchinh2.getTinh(), vd.getDiemDen());
+            }
+            else path += ", " + vd.getDiemDen();
+        }
+        else {
+            path += dijkstra.findShortedPath(vd.getDiemXuatPhat(), vd.getDiemDen());
+        }
+        return path;
     }
 
     public VanDonPOJO convertToVanDonPOJO(Document doc) {
