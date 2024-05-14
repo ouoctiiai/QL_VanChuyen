@@ -67,9 +67,6 @@ public class VanDonDAO {
         PhiVanChuyen phiVanChuyen = vanDon.getPhiVanChuyen();
         ThongTinHangHoa thongTinHangHoa = vanDon.getThongTinHangHoa();
         double tongPhi = phiVanChuyen.getPhiCoDinh();
-        double vat = phiVanChuyen.getVat();
-//        double nang = phiVanChuyen.getPhiNang();
-//        double ha = phiVanChuyen.getPhiHa();
         double khoiLuong = thongTinHangHoa.getTrongLuong();
         KichCo kichCo = thongTinHangHoa.getKichCo();
         String loaiHang = thongTinHangHoa.getLoaiHang();
@@ -124,8 +121,9 @@ public class VanDonDAO {
             tongPhi += coc;
         }
 
-        if (vanDon.getLoaiVanChuyen().equalsIgnoreCase("liên tỉnh")) {
-//            tongPhi += vanDon.getKhoangCach() * 2000;
+        if (vanDon.getLoaiVanChuyen().equalsIgnoreCase("Liên tỉnh") ) {
+            TuyenDuong tuyenDuong = vanDon.getTuyenDuong();
+            tongPhi += tuyenDuong.getKhoangCach() % 10;
 
             if (khoiLuong > 50)
                 tongPhi += 20000 + 2000 * (khoiLuong - 50);
@@ -137,8 +135,8 @@ public class VanDonDAO {
                 tongPhi += 5000;
 
         } else {
-//            tongPhi += vanDon.getKhoangCach() % 10 * 2000;
 
+            tongPhi += vanDon.getKhoangCach() % 10 * 2000;
             if (khoiLuong > 50)
                 tongPhi += 10000 + 2000 * (khoiLuong - 50);
             else if (khoiLuong > 5)
