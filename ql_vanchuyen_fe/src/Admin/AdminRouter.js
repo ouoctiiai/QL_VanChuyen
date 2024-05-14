@@ -26,6 +26,8 @@ import { Switch } from "react-router-dom/cjs/react-router-dom";
 // import Calendar from './scenes/calendar/calendar';
 import StatBox from "./components/StatBox";
 import QLTaiKhoan from "./scenes/QLTaiKhoan";
+import QLTaiXe from './scenes/QLTaiXe';
+
 
 
 
@@ -44,8 +46,8 @@ function AdminRouter() {
           <Switch>
             <Route path="/dashboad" element={<Dashboard />} />
             <Route path="/qltaikhoan" element={<QLTaiKhoan />} />
-            {/* <Route path="/contacts" element={<Contacts />} />
-            <Route path="/invoices" element={<Invoices />} />
+            <Route path="/qltaixe" element={<QLTaiXe/>} />
+             {/* <Route path="/invoices" element={<Invoices />} />
             <Route path="/form" element={<Form />} />
             <Route path="/bar" element={<Bar />} />
             <Route path="/pie" element={<Pie />} />
