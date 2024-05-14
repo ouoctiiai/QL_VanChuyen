@@ -1202,7 +1202,7 @@
   "DiaChi": "96 Lý Thường Kiệt, Lê Lợi, Thành phố Vinh, Nghệ An, Việt Nam",
   "Tinh": "Nghệ An",
   "KhuVuc": "Bắc Trung Bộ",
-  "LoaiKho": "Kho thường",
+  "LoaiKho": "Kho chính",
   "SDT": "1900545521",
   "KhoLanCan": [
     {
@@ -1370,6 +1370,10 @@
     {
       "MaKho": "KLV49",
       "KhoangCach": 134.12
+    },
+    {
+      "MaKho": "KLV15",
+      "KhoangCach": 90.2
     },
     {
       "MaKho": "KLV35",
