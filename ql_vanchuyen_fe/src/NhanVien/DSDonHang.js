@@ -20,7 +20,7 @@ const DSDonHang = () => {
     return (
         <div className='row-md-1 bg-white rounded' style={{marginTop: '15px'}}>
             <div className='col overflow-scroll' style={{maxHeight: '500px'}}>
-                <table className='table text-left align-middle table-fixed table-bordered table-light' style={{fontSize: '18px'}}>
+                <table className='table text-left align-middle table-fixed table-bordered table-light' style={{fontSize: '18px', color:'white'}}>
                     <thead className= 'table-success' style={{position: 'sticky', top: '0', textAlign: 'center', zIndex: '1'}}>
                         <tr>
                             <th>Mã vận đơn</th>
@@ -40,7 +40,7 @@ const DSDonHang = () => {
                                 <td>{donHang.thongTinNguoiGui.tenNguoiGui}</td>
                                 <td>{donHang.thongTinNguoiNhan.tenNguoiNhan}</td>
                                 <td>{donHang.thoiGianLap}</td>
-                                <td>250000</td>
+                                <td>{donHang.phiVanChuyen.tongPhi}</td>
                                 <td>{donHang.trangThai}</td>
                                 <td className='text-center'>
                                     <NavLink to = '/chitietdh'>
@@ -53,7 +53,6 @@ const DSDonHang = () => {
                                 </td>
                             </tr>
                         ))}
-                        
                     </tbody>
                 </table>
             </div>

@@ -1,5 +1,6 @@
 body{  
-        background: #1A233A;
+        /* background: #1A233A; */
+		background-color: white;
     }
 
 .user-list tbody td > img {

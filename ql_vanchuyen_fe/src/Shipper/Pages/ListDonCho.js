@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../Styles/ListDonCho.css';
 import Navbar from '../Components/Navbar';
-import { listVanDon } from '../../Api/axiosConfig';
+import { listVanDon } from '../../Api/DataVanDon';
 
 const ListDonCho = () => {
 
