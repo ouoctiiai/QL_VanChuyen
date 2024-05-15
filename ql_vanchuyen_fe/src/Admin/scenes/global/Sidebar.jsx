@@ -180,7 +180,7 @@ const Sidebar = () =>{
             />
             <Item
               title="Quản lí xe"
-              to="/"
+              to="/qlxe"
               icon={<CarRentalOutlined/>}
               selected={selected}
               setSelected={setSelected}
