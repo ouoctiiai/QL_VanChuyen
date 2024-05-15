@@ -24,10 +24,15 @@ export const ROUTERS ={
     },
     
     ADMIN:{
-        DASHBOARD: "/dashboard_admin",
-        HOME: "/trangchuadmin",
-        TEAM: "/qltaikhoan",
         TRANGCHUADMIN : "/trangchuadmin",
-        QLTAIKHOAN: "/qltaikhoan"
-    }
+        QLTAIKHOAN: "/qltaikhoan",
+        QLTAIXE: "/qltaixe"
+    },
+
+    EMPLOYEE:{
+        HOME: "/nv_home",
+        LIST: "/dsdonhang",
+        CREATE: "/taodonhang",
+        DETAIL: "/chitietdh"
+    },
 }

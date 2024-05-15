@@ -26,6 +26,8 @@ import Profile from './Shipper/Pages/Profile';
 import SP_Home from './Shipper/Pages/SP_Home';
 import DetailOrder from './Shipper/Pages/DetailOrder';
 import UpdateProfile from './Shipper/Pages/UpdateProfile';
+import NV_Home from './NhanVien/NV_Home';
+import DSTaiXe from './Admin/scenes/QLTaiXe';
 
 const renderMasterRouter = () => {
     const masterRouter = [
@@ -92,9 +94,25 @@ const renderMasterRouter = () => {
             path: ROUTERS.ADMIN.TRANGCHUADMIN,
             component: AdminRouter
         },
+
         {
             path: ROUTERS.ADMIN.QLTAIKHOAN,
             component: Team
+        },
+
+        {
+            path: ROUTERS.ADMIN.QLTAIXE,
+            component: DSTaiXe
+        },
+
+        {
+            path: ROUTERS.EMPLOYEE.HOME,
+            component: NV_Home
+        }, 
+
+        {
+            path: ROUTERS.EMPLOYEE.LIST,
+            component: DSDonHang
         },
     ];
 

@@ -9,7 +9,7 @@ import OrderList from './OrderList/OrderList';
 
 const CustomerLayout = ({children, ...props}) => {
     return (
-        <div className='customer_container' {...props}>
+        <div className='customer_container' style={{backgroundColor: 'white', minHeight:'610px'}} {...props}>
             <Header />
             <div className='row'>
                 <div className='col-md-2' style={{paddingLeft: '50px', paddingTop: '30px'}}>

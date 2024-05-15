@@ -28,6 +28,7 @@
     "mdb-react-ui-kit": "^8.0.0",
     "mdb-ui-kit": "^7.2.0",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
     "react-map-gl": "^7.1.7",
     "react-pro-sidebar": "^0.7.1",

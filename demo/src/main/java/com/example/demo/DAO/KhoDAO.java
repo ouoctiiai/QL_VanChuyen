@@ -50,6 +50,21 @@ public class KhoDAO {
         return convertToKhoPOJO(doc);
     }
 
+    // Phương thức để tìm kho theo ID
+    public KhoPOJO timKhoTheoTinh(String tinh) {
+        MongoCollection<Document> collection = connection.getCollection();
+        Bson filter = Filters.eq("Tinh", tinh);
+        Document doc = collection.find(filter).first();
+        return convertToKhoPOJO(doc);
+    }
+
+    public KhoPOJO timKhoTheoMaKho(String maKho) {
+        MongoCollection<Document> collection = connection.getCollection();
+        Bson filter = Filters.eq("MaKho", maKho);
+        Document doc = collection.find(filter).first();
+        return convertToKhoPOJO(doc);
+    }
+
     // Phương thức để lấy danh sách tất cả các kho
     public List<KhoPOJO> layTatCaKho() {
         List<KhoPOJO> danhSachKho = new ArrayList<>();
@@ -60,6 +75,18 @@ public class KhoDAO {
         }
         return danhSachKho;
     }
+
+    public KhoPOJO timKhoChinhTheoKhuVuc(String khuVuc) {
+        MongoCollection<Document> collection = connection.getCollection();
+        Bson filter = Filters.and(Filters.eq("KhuVuc", khuVuc), Filters.eq("LoaiKho", "Kho chính"));
+        Document doc = collection.find(filter).limit(1).first();
+        if (doc != null) {
+            return convertToKhoPOJO(doc);
+        } else {
+            return null;
+        }
+    }
+
 
     // Phương thức để chuyển đổi Document thành KhoPOJO
     private KhoPOJO convertToKhoPOJO(Document doc) {

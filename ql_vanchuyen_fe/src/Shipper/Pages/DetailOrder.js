@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Mapbox from '../Components/Mapbox'
 import Navbar from '../Components/Navbar';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { getVanDonById } from '../../Api/axiosConfig';
+import { getVanDonById } from '../../Api/DataVanDon';
 
 const DetailOrder = () => {
   const{ id } = useParams();

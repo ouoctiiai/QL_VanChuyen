@@ -43,8 +43,8 @@
   "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Long An",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1728.36
+    "DuongDi": "Hà Nội, Cần Thơ, Đồng Tháp, Long An",
+    "KhoangCach": 2127.13
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -58,7 +58,8 @@
     "TenShipper": "Đặng Hoàng Anh",
     "SDTShipper": "0329457652"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 70600
 },
 {
   "_id": {
@@ -104,8 +105,8 @@
   "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Lâm Đồng",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 314.96
+    "DuongDi": "TP Hồ Chí Minh, Lâm Đồng",
+    "KhoangCach": 342.71
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -117,7 +118,8 @@
     "TenShipper": "Nguyễn Duy Hưng",
     "SDTShipper": "0329296673"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 65000
 },
 {
   "_id": {
@@ -164,8 +166,8 @@
   "DiemXuatPhat": "Lai Châu",
   "DiemDen": "Long An",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 2115.25
+    "DuongDi": "Lai Châu, Yên Bái, Phú Thọ, Hà Nội, Cần Thơ, Đồng Tháp, Long An",
+    "KhoangCach": 2547.01
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -177,7 +179,8 @@
     "TenShipper": "Phạm Kim Thành",
     "SDTShipper": "0963666831"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 45000
 },
 {
   "_id": {
@@ -223,8 +226,8 @@
   "DiemXuatPhat": "Lào Cai",
   "DiemDen": "Nam Định",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 379.2
+    "DuongDi": "Lào Cai, Yên Bái, Phú Thọ, Hòa Bình, Hà Nam, Nam Định",
+    "KhoangCach": 429.04
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -237,7 +240,8 @@
     "TenShipper": "Nguyễn Hà Trang",
     "SDTShipper": "0563043312"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 40000
 },
 {
   "_id": {
@@ -284,8 +288,8 @@
   "DiemXuatPhat": "Đà Nẵng",
   "DiemDen": "Nghệ An",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 477.18
+    "DuongDi": "Đà Nẵng, Nghệ An",
+    "KhoangCach": 488.17
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -297,7 +301,8 @@
     "TenShipper": "Trịnh Mạnh Cường",
     "SDTShipper": "0904476300"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 35000
 },
 {
   "_id": {
@@ -344,8 +349,8 @@
   "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Ninh Bình",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 94.66
+    "DuongDi": "Hà Nội, Hà Nam, Ninh Bình",
+    "KhoangCach": 108.2
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -358,7 +363,8 @@
     "TenShipper": "Nguyễn Đức Linh Kiệt",
     "SDTShipper": "0835264446"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 35000
 },
 {
   "_id": {
@@ -399,8 +405,8 @@
   "DiemXuatPhat": "Long An",
   "DiemDen": "Ninh Thuận",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 351.31
+    "DuongDi": "Long An, Tiền Giang, Bến Tre, Vĩnh Long, Cần Thơ, Đà Nẵng, Quảng Nam, Quảng Ngãi, Bình Định, Phú Yên, Khánh Hòa, Ninh Thuận",
+    "KhoangCach": 2043.94
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -412,7 +418,8 @@
     "TenShipper": "Phạm Bá Tuấn Linh",
     "SDTShipper": "0399968559"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 30000
 },
 {
   "_id": {
@@ -458,8 +465,8 @@
   "DiemXuatPhat": "Nam Định",
   "DiemDen": "Phú Thọ",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Nam Định, Hà Nam, Hòa Bình, Phú Thọ",
+    "KhoangCach": 173.09
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -471,7 +478,8 @@
     "TenShipper": "Nguyễn Đức Minh",
     "SDTShipper": "0373220264"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 40000
 },
 {
   "_id": {
@@ -518,8 +526,8 @@
   "DiemXuatPhat": "Đà Nẵng",
   "DiemDen": "Phú Yên",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Đà Nẵng, Quảng Nam, Quảng Ngãi, Bình Định, Phú Yên",
+    "KhoangCach": 433.32
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -531,7 +539,8 @@
     "TenShipper": "Phạm Bình Nam",
     "SDTShipper": "0868191908"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 60000
 },
 {
   "_id": {
@@ -578,8 +587,8 @@
   "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Quảng Bình",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Hà Nội, Nghệ An, Hà Tĩnh, Quảng Bình",
+    "KhoangCach": 532.26
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -592,7 +601,8 @@
     "TenShipper": "Hồ Xuân Thái",
     "SDTShipper": "0339882065"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 30000
 },
 {
   "_id": {
@@ -638,8 +648,8 @@
   "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Quảng Nam",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Hà Nội, Đà Nẵng, Quảng Nam",
+    "KhoangCach": 835.34
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -653,7 +663,8 @@
     "TenShipper": "Nguyễn Khánh Toàn",
     "SDTShipper": "0339882066"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 35000
 },
 {
   "_id": {
@@ -700,8 +711,8 @@
   "DiemXuatPhat": "Phú Thọ",
   "DiemDen": "Quảng Ngãi",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Phú Thọ, Hà Nội, Đà Nẵng, Quảng Nam, Quảng Ngãi",
+    "KhoangCach": 1039.86
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -713,7 +724,8 @@
     "TenShipper": "Lê Thị Vân",
     "SDTShipper": "0869917732"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 45000
 },
 {
   "_id": {
@@ -760,8 +772,8 @@
   "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Quảng Ninh",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "TP Hồ Chí Minh, Hà Nội, Bắc Giang, Quảng Ninh",
+    "KhoangCach": 1989.5
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -773,7 +785,8 @@
     "TenShipper": "Nguyễn Nhật An",
     "SDTShipper": "0978961065"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 45000
 },
 {
   "_id": {
@@ -820,8 +833,8 @@
   "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Hòa Bình",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "TP Hồ Chí Minh, Hà Nội, Hòa Bình",
+    "KhoangCach": 1807.97
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -833,7 +846,8 @@
     "TenShipper": "Đỗ Nam Anh",
     "SDTShipper": "0966832889"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 45000
 },
 {
   "_id": {
@@ -874,8 +888,8 @@
   "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Tây Ninh",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "TP Hồ Chí Minh, Tây Ninh",
+    "KhoangCach": 96.63
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -887,7 +901,8 @@
     "TenShipper": "Phạm Như Ba",
     "SDTShipper": "0963211328"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 30000
 },
 {
   "_id": {
@@ -933,8 +948,8 @@
   "DiemXuatPhat": "Quảng Ngãi",
   "DiemDen": "Thái Bình",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Quảng Ngãi, Quảng Nam, Đà Nẵng, Hà Nội, Hưng Yên, Thái Bình",
+    "KhoangCach": 1143.84
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -946,7 +961,8 @@
     "TenShipper": "Ngô Lan Chinh",
     "SDTShipper": "0916169135"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 35000
 },
 {
   "_id": {
@@ -993,8 +1009,8 @@
   "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Thái Nguyên",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "TP Hồ Chí Minh, Hà Nội, Thái Nguyên",
+    "KhoangCach": 1852.95
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1007,7 +1023,8 @@
     "TenShipper": "Nguyễn Long Hải",
     "SDTShipper": "0393369300"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 35000
 },
 {
   "_id": {
@@ -1053,8 +1070,8 @@
   "DiemXuatPhat": "Quảng Trị",
   "DiemDen": "Thanh Hóa",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Quảng Trị, Quảng Bình, Hà Tĩnh, Nghệ An, Thanh Hóa",
+    "KhoangCach": 456.44
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1067,7 +1084,8 @@
     "TenShipper": "Thái Hoàng Khải",
     "SDTShipper": "0961738166"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 73400
 },
 {
   "_id": {
@@ -1113,8 +1131,8 @@
   "DiemXuatPhat": "Đắk Lắk",
   "DiemDen": "Thừa Thiên – Huế",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Đắk Lắk, Lâm Đồng, Nghệ An, Hà Tĩnh, Quảng Bình, Quảng Trị, Thừa Thiên – Huế",
+    "KhoangCach": 1849.44
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1126,7 +1144,8 @@
     "TenShipper": "Hoàng Trung Kiên",
     "SDTShipper": "0346097698"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 65600
 },
 {
   "_id": {
@@ -1173,8 +1192,8 @@
   "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Tiền Giang",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Hà Nội, Cần Thơ, Đồng Tháp, Tiền Giang",
+    "KhoangCach": 2099.35
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1188,7 +1207,8 @@
     "TenShipper": "Đào Nguyễn Mai Lan",
     "SDTShipper": "0971571230"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 35000
 },
 {
   "_id": {
@@ -1231,11 +1251,11 @@
     },
     "SoLuong": 1
   },
-  "DiemXuatPhat": "Đà Nắng",
+  "DiemXuatPhat": "Đà Nẵng",
   "DiemDen": "Trà Vinh",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Đà Nẵng, Cần Thơ, Đồng Tháp, Vĩnh Long, Trà Vinh",
+    "KhoangCach": 1311.73
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1247,7 +1267,8 @@
     "TenShipper": "Đào Doãn Linh",
     "SDTShipper": "0973281930"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 50000
 },
 {
   "_id": {
@@ -1293,8 +1314,8 @@
   "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Tuyên Quang",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Hà Nội, Phú Thọ, Tuyên Quang",
+    "KhoangCach": 148.73
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1306,7 +1327,8 @@
     "TenShipper": "Nguyễn Tuấn Long",
     "SDTShipper": "0819912142"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 40000
 },
 {
   "_id": {
@@ -1353,8 +1375,8 @@
   "DiemXuatPhat": "Đồng Tháp",
   "DiemDen": "Vĩnh Long",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Đồng Tháp, Vĩnh Long",
+    "KhoangCach": 51.83
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1366,7 +1388,8 @@
     "TenShipper": "Nguyễn Minh Nghĩa",
     "SDTShipper": "0971295745"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 45000
 },
 {
   "_id": {
@@ -1412,8 +1435,8 @@
   "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Vĩnh Phúc",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "TP Hồ Chí Minh, Hà Nội, Vĩnh Phúc",
+    "KhoangCach": 1796.77
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1426,7 +1449,8 @@
     "TenShipper": "Hoàng Minh Nguyệt",
     "SDTShipper": "0968862811"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 79600
 },
 {
   "_id": {
@@ -1472,8 +1496,8 @@
   "DiemXuatPhat": "Hà Giang",
   "DiemDen": "Yên Bái",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Hà Giang, Yên Bái",
+    "KhoangCach": 205.05
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1485,7 +1509,8 @@
     "TenShipper": "Dương Mạnh Quý",
     "SDTShipper": "0979420564"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 65000
 },
 {
   "_id": {
@@ -1532,8 +1557,8 @@
   "DiemXuatPhat": "Hà Nội",
   "DiemDen": "An Giang",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Hà Nội, Cần Thơ, An Giang",
+    "KhoangCach": 1995.13
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1545,7 +1570,8 @@
     "TenShipper": "Nguyễn Hương Quỳnh",
     "SDTShipper": "0942487655"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 50000
 },
 {
   "_id": {
@@ -1591,8 +1617,8 @@
   "DiemXuatPhat": "Hà Nội",
   "DiemDen": "Bến Tre",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Hà Nội, Cần Thơ, Đồng Tháp, Vĩnh Long, Bến Tre",
+    "KhoangCach": 2111.88
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1604,7 +1630,8 @@
     "TenShipper": "Trần Xuân Thái",
     "SDTShipper": "0397723289"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 50000
 },
 {
   "_id": {
@@ -1651,8 +1678,8 @@
   "DiemXuatPhat": "Đà Nẵng",
   "DiemDen": "Bình Dương",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Đà Nẵng, TP Hồ Chí Minh, Bình Dương",
+    "KhoangCach": 925.51
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1664,7 +1691,8 @@
     "TenShipper": "Ngô Ngọc Thắng",
     "SDTShipper": "0988185627"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 35000
 },
 {
   "_id": {
@@ -1710,8 +1738,8 @@
   "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Bình Định",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "TP Hồ Chí Minh, Đà Nẵng, Quảng Nam, Quảng Ngãi, Bình Định",
+    "KhoangCach": 1304.34
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1725,7 +1753,8 @@
     "TenShipper": "Trần Đức Thắng",
     "SDTShipper": "0339122978"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 60000
 },
 {
   "_id": {
@@ -1772,8 +1801,8 @@
   "DiemXuatPhat": "Hải Dương",
   "DiemDen": "Bình Phước",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "Hải Dương, Bắc Ninh, Hà Nội, TP Hồ Chí Minh, Bình Dương, Bình Phước",
+    "KhoangCach": 1896.98
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1785,7 +1814,8 @@
     "TenShipper": "Phạm Bá Thành",
     "SDTShipper": "0394142645"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 40000
 },
 {
   "_id": {
@@ -1831,8 +1861,8 @@
   "DiemXuatPhat": "TP Hồ Chí Minh",
   "DiemDen": "Bình Thuận",
   "TuyenDuong": {
-    "DuongDi": null,
-    "KhoangCach": 1.1
+    "DuongDi": "TP Hồ Chí Minh, Đà Nẵng, Quảng Nam, Quảng Ngãi, Bình Định, Phú Yên, Khánh Hòa, Ninh Thuận, Bình Thuận",
+    "KhoangCach": 1770.96
   },
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
@@ -1844,7 +1874,8 @@
     "TenShipper": "Lê Thị Phương Thảo",
     "SDTShipper": "0972645796"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 50000
 },
 {
   "_id": {
@@ -1884,7 +1915,8 @@
     "TenShipper": "Hồ Thị Trang",
     "SDTShipper": "0396026639"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 30000
 },
 {
   "_id": {
@@ -1923,7 +1955,8 @@
     "TenShipper": "Nông Việt Hoàng",
     "SDTShipper": "0336658942"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -1963,7 +1996,8 @@
     "TenShipper": "Tô Thị Hiểu",
     "SDTShipper": "0868777587"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2003,7 +2037,8 @@
     "TenShipper": "Đỗ Mai Anh",
     "SDTShipper": "0962447592"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2043,7 +2078,8 @@
     "TenShipper": "Nguyễn Đức Anh",
     "SDTShipper": "0947551710"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2082,7 +2118,8 @@
     "TenShipper": "Nguyễn Linh Đan",
     "SDTShipper": "0973830290"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2121,7 +2158,8 @@
     "TenShipper": "Nguyễn Nam Hưng",
     "SDTShipper": "0965759524"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2161,7 +2199,8 @@
     "TenShipper": "Nguyễn Nhật Huy",
     "SDTShipper": "0346231811"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2201,7 +2240,8 @@
     "TenShipper": "Nguyễn Long Khải",
     "SDTShipper": "0989307148"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2240,7 +2280,8 @@
     "TenShipper": "Lê Thị Hoa Lê",
     "SDTShipper": "0981610816"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2279,7 +2320,8 @@
     "TenShipper": "Nguyễn Mai Linh",
     "SDTShipper": "0988902888"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2320,7 +2362,8 @@
     "TenShipper": "Nguyễn Bá Minh",
     "SDTShipper": "0387186661"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2360,7 +2403,8 @@
     "TenShipper": "Ngô Ngọc Thắng",
     "SDTShipper": "0988185627"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2401,7 +2445,8 @@
     "TenShipper": "Đỗ Mai Anh",
     "SDTShipper": "0962447592"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2441,7 +2486,8 @@
     "TenShipper": "Hồ Xuân Thái",
     "SDTShipper": "0339882065"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2480,7 +2526,8 @@
     "TenShipper": "Đào Doãn Linh",
     "SDTShipper": "0973281930"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2520,7 +2567,8 @@
     "TenShipper": "Trần Đức Thắng",
     "SDTShipper": "0339122978"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2559,7 +2607,8 @@
     "TenShipper": "Phạm Bá Thành",
     "SDTShipper": "0394142645"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2598,7 +2647,8 @@
     "TenShipper": "Đào Nguyễn Mai Lan",
     "SDTShipper": "0971571230"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2637,7 +2687,8 @@
     "TenShipper": "Dương Mạnh Quý",
     "SDTShipper": "0979420564"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2678,7 +2729,8 @@
     "TenShipper": "Phạm Bá Tuấn Linh",
     "SDTShipper": "0399968559"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2717,7 +2769,8 @@
     "TenShipper": "Nguyễn Đức Minh",
     "SDTShipper": "0373220264"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2758,7 +2811,8 @@
     "TenShipper": "Nguyễn Tuấn Long",
     "SDTShipper": "0819912142"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2797,7 +2851,8 @@
     "TenShipper": "Lê Thị Hoa Lê",
     "SDTShipper": "0981610816"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2836,7 +2891,8 @@
     "TenShipper": "Tô Thị Hiểu",
     "SDTShipper": "0868777587"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2876,7 +2932,8 @@
     "TenShipper": "Trần Đức Thắng",
     "SDTShipper": "0339122978"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2916,7 +2973,8 @@
     "TenShipper": "Nguyễn Nhật Huy",
     "SDTShipper": "0346231811"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2956,7 +3014,8 @@
     "TenShipper": "Nguyễn Long Hải",
     "SDTShipper": "0393369300"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -2996,7 +3055,8 @@
     "TenShipper": "Nguyễn Linh Đan",
     "SDTShipper": "0973830290"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -3035,7 +3095,8 @@
     "TenShipper": "Phạm Bá Thành",
     "SDTShipper": "0394142645"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 },
 {
   "_id": {
@@ -3075,5 +3136,6 @@
     "TenShipper": "Hồ Thị Trang",
     "SDTShipper": "0396026639"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Giao hàng thành công",
+  "tongPhi": 10000
 }]

@@ -1,9 +1,11 @@
 package com.example.demo.DAO;
 
+import com.example.demo.AI.Dijkstra;
 import com.example.demo.POJO.*;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
@@ -34,17 +36,58 @@ public class VanDonDAO {
 
     private final Connection connection;
     private java.util.Objects Objects;
+//
+//    public void capNhatDonLienTinh(KhoPOJO kho) {
+//        MongoCollection<Document> collection = connection.getCollection();
+//        Bson filter = Filters.eq("id", kho.getId());
+//        Document updatedDocument = convertToDocument(kho);
+//        collection.replaceOne(filter, updatedDocument);
+//    }
 
     public VanDonDAO() {
         connection = new Connection("VanDon");
     }
 
+
+    public List<ThongTinTaiXe> danhSachTaiXe() {
+        List<ThongTinTaiXe> dsTaiXe = new ArrayList<>();
+        MongoCollection<Document> collection = connection.getCollection();
+        List<ThongTinTaiXe> lsTaiXe = new ArrayList<>();
+        VanDonDAO vandon = new VanDonDAO();
+        List<VanDonPOJO> lsVanDon = vandon.danhSachDonLienTinh();
+        for(VanDonPOJO v : lsVanDon)
+        {
+            ThongTinTaiXe tt = v.getThongTinTaiXe();
+            if(!kiemTraTaiXeTonTai(tt,lsTaiXe))
+            {
+                lsTaiXe.add(tt);
+            }
+        }
+        return dsTaiXe;
+    }
+
+    public boolean kiemTraTaiXeTonTai(ThongTinTaiXe tx, List<ThongTinTaiXe> lsTX)
+    {
+        for (ThongTinTaiXe i : lsTX)
+        {
+            if(Objects.equals(i.getMaTaiXe(), tx.getMaTaiXe()))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     public List<VanDonPOJO> allVanDon() {
         List<VanDonPOJO> dsVanDon = new ArrayList<>();
         MongoCollection<Document> collection = connection.getCollection();
         for (Document doc : collection.find()) {
             VanDonPOJO vd = convertToVanDonPOJO(doc);
             dsVanDon.add(vd);
+            double totalShippingFee = tinhPhiVanChyen(vd);
+            vd.getPhiVanChuyen().setTongPhi((int)totalShippingFee);
+            String id = doc.getObjectId("_id").toString();
+            collection.updateOne(Filters.eq("_id", new ObjectId(id)),
+                    Updates.set("tongPhi", vd.getPhiVanChuyen().getTongPhi()));
         }
         return dsVanDon;
     }
@@ -53,13 +96,63 @@ public class VanDonDAO {
         PhiVanChuyen phiVanChuyen = vanDon.getPhiVanChuyen();
         ThongTinHangHoa thongTinHangHoa = vanDon.getThongTinHangHoa();
         double tongPhi = phiVanChuyen.getPhiCoDinh();
-
         double khoiLuong = thongTinHangHoa.getTrongLuong();
         KichCo kichCo = thongTinHangHoa.getKichCo();
         String loaiHang = thongTinHangHoa.getLoaiHang();
 
-        if (vanDon.getLoaiVanChuyen().equalsIgnoreCase("liên tỉnh")) {
-            tongPhi += vanDon.getKhoangCach() * 2000;
+        if (loaiHang.equalsIgnoreCase("hàng điện tử"))
+            tongPhi += 5000;
+        else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
+            tongPhi += 5000;
+        else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
+            tongPhi += 10000;
+
+        if(kichCo != null){
+            double chieuDai = kichCo.getDai();
+            double chieuRong = kichCo.getDai();
+            if (chieuDai + chieuRong > 150)
+                tongPhi += 10000;
+        }
+
+        if(phiVanChuyen.getPhiHa() != null)
+        {
+            double ha = phiVanChuyen.getPhiHa();
+            tongPhi += ha;
+        }
+
+        if(phiVanChuyen.getVat() != null)
+        {
+            double vat = phiVanChuyen.getVat();
+            tongPhi += vat;
+        }
+
+        if(phiVanChuyen.getPhiNang() != null)
+        {
+            double nang = phiVanChuyen.getPhiNang();
+            tongPhi += nang;
+        }
+
+        if(phiVanChuyen.getThuongShipper() != null)
+        {
+            double thuong = phiVanChuyen.getThuongShipper();
+            tongPhi += thuong;
+        }
+
+        if(phiVanChuyen.getPhiKhac() != null)
+        {
+            double khac = phiVanChuyen.getPhiKhac();
+            tongPhi += khac;
+        }
+
+        if(phiVanChuyen.getPhiCoc() != null)
+        {
+            double coc = phiVanChuyen.getPhiCoc();
+            tongPhi += coc;
+        }
+
+        if (vanDon.getLoaiVanChuyen().equalsIgnoreCase("Liên tỉnh") ) {
+            TuyenDuong tuyenDuong = vanDon.getTuyenDuong();
+            tongPhi += tuyenDuong.getKhoangCach() % 10;
 
             if (khoiLuong > 50)
                 tongPhi += 20000 + 2000 * (khoiLuong - 50);
@@ -70,31 +163,12 @@ public class VanDonDAO {
             else if (khoiLuong > 1)
                 tongPhi += 5000;
 
-            if (kichCo.getDai() + kichCo.getRong() > 150)
-                tongPhi += 10000;
-
-            if (loaiHang.equalsIgnoreCase("hàng điện tử"))
-                tongPhi += 5000;
-            else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
-                tongPhi += 5000;
-            else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
-                tongPhi += 10000;
         } else {
-            tongPhi += vanDon.getKhoangCach() % 10 * 2000;
 
+            tongPhi += vanDon.getKhoangCach() % 10 * 2000;
             if (khoiLuong > 50)
                 tongPhi += 10000 + 2000 * (khoiLuong - 50);
             else if (khoiLuong > 5)
-                tongPhi += 10000;
-
-            if (kichCo.getDai() + kichCo.getRong() > 100)
-                tongPhi += 10000;
-
-            if (loaiHang.equalsIgnoreCase("hàng điện tử"))
-                tongPhi += 5000;
-            else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
-                tongPhi += 5000;
-            else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
                 tongPhi += 10000;
         }
         return tongPhi;
@@ -113,6 +187,8 @@ public class VanDonDAO {
         return doanhThuTheoNam;
     }
 
+
+
     public List<VanDonPOJO> danhSachDonNoiTinh() {
         List<VanDonPOJO> dsVanDon = new ArrayList<>();
 
@@ -123,6 +199,11 @@ public class VanDonDAO {
         for (Document doc : collection.find(query)) {
             VanDonPOJO vd = convertToVanDonPOJO(doc);
             dsVanDon.add(vd);
+            double totalShippingFee = tinhPhiVanChyen(vd);
+            vd.getPhiVanChuyen().setTongPhi((int)totalShippingFee);
+            String id = doc.getObjectId("_id").toString();
+            collection.updateOne(Filters.eq("_id", new ObjectId(id)),
+                    Updates.set("tongPhi", vd.getPhiVanChuyen().getTongPhi()));
         }
 
         return dsVanDon;
@@ -138,6 +219,11 @@ public class VanDonDAO {
         for (Document doc : collection.find(query)) {
             VanDonPOJO vd = convertToVanDonPOJO(doc);
             dsVanDon.add(vd);
+            double totalShippingFee = tinhPhiVanChyen(vd);
+            vd.getPhiVanChuyen().setTongPhi((int)totalShippingFee);
+            String id = doc.getObjectId("_id").toString();
+            collection.updateOne(Filters.eq("_id", new ObjectId(id)),
+                    Updates.set("tongPhi", vd.getPhiVanChuyen().getTongPhi()));
         }
 
         return dsVanDon;
@@ -148,6 +234,52 @@ public class VanDonDAO {
         Bson filter = Filters.eq("_id", id);
         Document doc = collection.find(filter).first();
         return convertToVanDonPOJO(doc);
+    }
+
+    public Double tinhKhoangCachDonLienTinh(VanDonPOJO vd){
+        Double khoangCach = 0.0;
+        KhoDAO khodao = new KhoDAO();
+        Dijkstra dijkstra = new Dijkstra();
+        KhoPOJO k1 = khodao.timKhoTheoTinh(vd.getDiemXuatPhat());
+        KhoPOJO k2 = khodao.timKhoTheoTinh(vd.getDiemDen());
+        if(!java.util.Objects.equals(k1.getKhuVuc(), k2.getKhuVuc())){
+            KhoPOJO kchinh1 = khodao.timKhoChinhTheoKhuVuc(k1.getKhuVuc());
+            KhoPOJO kchinh2 = khodao.timKhoChinhTheoKhuVuc(k2.getKhuVuc());
+            khoangCach += dijkstra.findDistance(vd.getDiemXuatPhat(), kchinh1.getTinh())
+                    + dijkstra.findDistance(kchinh1.getTinh(), kchinh2.getTinh())
+                    + dijkstra.findDistance(kchinh2.getTinh(), vd.getDiemDen());
+
+        }
+        else {
+            khoangCach += dijkstra.findDistance(vd.getDiemXuatPhat(), vd.getDiemDen());
+        }
+        return khoangCach;
+    }
+
+    public String timDuongDiNganNhat(VanDonPOJO vd){
+        String path = "";
+        KhoDAO khodao = new KhoDAO();
+        Dijkstra dijkstra = new Dijkstra();
+        KhoPOJO k1 = khodao.timKhoTheoTinh(vd.getDiemXuatPhat());
+        KhoPOJO k2 = khodao.timKhoTheoTinh(vd.getDiemDen());
+        if(!java.util.Objects.equals(k1.getKhuVuc(), k2.getKhuVuc())){
+            KhoPOJO kchinh1 = khodao.timKhoChinhTheoKhuVuc(k1.getKhuVuc());
+            KhoPOJO kchinh2 = khodao.timKhoChinhTheoKhuVuc(k2.getKhuVuc());
+            if(!java.util.Objects.equals(vd.getDiemXuatPhat(), kchinh1.getTinh()))
+            {
+                path += dijkstra.findShortedPath(vd.getDiemXuatPhat(), kchinh1.getTinh());
+            }
+            else path += vd.getDiemXuatPhat();
+            if(!java.util.Objects.equals(vd.getDiemDen(), kchinh2.getTinh()))
+            {
+                path += ", " + dijkstra.findShortedPath(kchinh2.getTinh(), vd.getDiemDen());
+            }
+            else path += ", " + vd.getDiemDen();
+        }
+        else {
+            path += dijkstra.findShortedPath(vd.getDiemXuatPhat(), vd.getDiemDen());
+        }
+        return path;
     }
 
     public VanDonPOJO convertToVanDonPOJO(Document doc) {
@@ -202,15 +334,21 @@ public class VanDonDAO {
     }
 
     public void convertToThongTinTaiXe(Document doc, VanDonPOJO vanDon) {
-        Document tttx = doc.getEmbedded(Collections.singletonList("ThongTinTaiXe"), Document.class);
+        Document tttx = doc.get("ThongTinTaiXe", Document.class);
+        ThongTinTaiXe tt = null;
         if (tttx != null) {
-            ThongTinTaiXe tt = new ThongTinTaiXe();
+            tt = new ThongTinTaiXe();
             tt.setMaTaiXe(tttx.getString("MaTaiXe"));
             tt.setTenTaiXe(tttx.getString("TenTaiXe"));
             tt.setSdtTaiXe(tttx.getString("SDTTaiXe"));
             vanDon.setThongTinTaiXe(tt);
         }
     }
+
+
+
+
+
 
     public void convertToThongTinXe(Document doc, VanDonPOJO vanDon) {
         Document ttx = doc.getEmbedded(Collections.singletonList("ThongTinXe"), Document.class);
