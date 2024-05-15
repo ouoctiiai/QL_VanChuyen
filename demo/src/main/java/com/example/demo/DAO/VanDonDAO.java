@@ -58,7 +58,7 @@ public class VanDonDAO {
             vd.getPhiVanChuyen().setTongPhi((int)totalShippingFee);
             String id = doc.getObjectId("_id").toString();
             collection.updateOne(Filters.eq("_id", new ObjectId(id)),
-                    Updates.set("tongPhi", vd.getPhiVanChuyen().getTongPhi()));
+                    Updates.set("PhiVanChuyen.TongPhi", vd.getPhiVanChuyen().getTongPhi()));
         }
         return dsVanDon;
     }
@@ -172,7 +172,7 @@ public class VanDonDAO {
             vd.getPhiVanChuyen().setTongPhi((int)totalShippingFee);
             String id = doc.getObjectId("_id").toString();
             collection.updateOne(Filters.eq("_id", new ObjectId(id)),
-                    Updates.set("tongPhi", vd.getPhiVanChuyen().getTongPhi()));
+                    Updates.set("PhiVanChuyen.TongPhi", vd.getPhiVanChuyen().getTongPhi()));
         }
 
         return dsVanDon;
@@ -192,7 +192,7 @@ public class VanDonDAO {
             vd.getPhiVanChuyen().setTongPhi((int)totalShippingFee);
             String id = doc.getObjectId("_id").toString();
             collection.updateOne(Filters.eq("_id", new ObjectId(id)),
-                    Updates.set("tongPhi", vd.getPhiVanChuyen().getTongPhi()));
+                    Updates.set("PhiVanChuyen.TongPhi", vd.getPhiVanChuyen().getTongPhi()));
         }
 
         return dsVanDon;
@@ -315,10 +315,6 @@ public class VanDonDAO {
     }
 
 
-
-
-
-
     public void convertToThongTinXe(Document doc, VanDonPOJO vanDon) {
         Document ttx = doc.getEmbedded(Collections.singletonList("ThongTinXe"), Document.class);
         if (ttx != null) {
@@ -392,5 +388,20 @@ public class VanDonDAO {
             tt.setSoLuong(tthh.getInteger("SoLuong"));
             vanDon.setThongTinHangHoa(tt);
         }
+    }
+
+    private Document convertToDocumentVDLienTinh(VanDonPOJO vd) {
+        Document doc = new Document();
+        doc.put("_id", vd.getId());
+        doc.put("MaVanDon", vd.getMaVanDon());
+        doc.put("ThoiGianLap", vd.getThoiGianLap());
+        doc.put("LoaiVanChuyen", vd.getLoaiVanChuyen());
+        doc.put("NoiTiepNhan", vd.getNoiTiepNhan());
+        doc.put("NguoiThanhToan", vd.getNguoiThanhToan());
+        doc.put("DiemXuatPhat", vd.getDiemXuatPhat());
+        doc.put("DiemDen", vd.getDiemXuatPhat());
+        doc.put("TrangThai", vd.getTrangThai());
+
+        return doc;
     }
 }
