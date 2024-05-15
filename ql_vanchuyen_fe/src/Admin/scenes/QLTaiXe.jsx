@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { Table } from 'react-bootstrap';
-import { listVanDon } from '../..//Api/DataVanDon';
+import { listTaiXe } from '../..//Api/DataVanDon';
 import React, { useState } from 'react';
 
 
@@ -10,7 +10,7 @@ const DSTaiXe = () => {
   const [vandons, setVanDons] = useState([])
 
   useEffect(() => {
-      listVanDon().then((Response) =>{
+      listTaiXe().then((Response) =>{
         setVanDons(Response.data);
       }).catch(error => {
         console.error('Error fetching data: ', error);
