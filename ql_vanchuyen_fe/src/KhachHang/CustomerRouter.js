@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import { BrowserRouter, Route, Router, Switch } from 'react-router-dom/cjs/react-router-dom';
 import { memo } from 'react';
 import { ROUTERS } from '../Path/router';
