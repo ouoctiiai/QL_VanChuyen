@@ -6,3 +6,4 @@ export const listVanDon = () => axios.get(REST_API_BASE_URL + '/danh-sach');
 
 export const getVanDonById = (employeeId) => axios.get(REST_API_BASE_URL + '/' + employeeId);
 
+export const listTaiXe = () => axios.get(REST_API_BASE_URL + '/dsTaiXe');
