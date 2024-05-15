@@ -27,7 +27,7 @@ const Team = () => {
     { field: "tenChuTaiKhoan", headerName: "Tên chủ tài khoản", flex: 1 },
     { field: "sdt", headerName: "Số điện thoại", flex: 1 },
     { field: "loaiTaiKhoan", headerName: "Loại Tài Khoản", flex: 1 },
-    // Thêm các trường khác nếu cần
+
   ];
   
 

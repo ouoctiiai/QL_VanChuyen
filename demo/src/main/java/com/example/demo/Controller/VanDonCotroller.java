@@ -1,6 +1,8 @@
 package com.example.demo.Controller;
 
+import com.example.demo.DAO.TaiXeDAO;
 import com.example.demo.DAO.VanDonDAO;
+import com.example.demo.POJO.ThongTinTaiXe;
 import com.example.demo.POJO.VanDonPOJO;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
@@ -38,6 +40,7 @@ public class VanDonCotroller {
         return new ResponseEntity<>(dsvd, HttpStatus.OK);
     }
 
+
     @GetMapping("/{id}")
     public ResponseEntity<VanDonPOJO> getVanDonById(@PathVariable ObjectId id) {
         VanDonPOJO vanDon = vanDonService.timVanDonTheoId(id);
@@ -47,4 +50,13 @@ public class VanDonCotroller {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/dsTaiXe")
+    public ResponseEntity<List<ThongTinTaiXe>> danhSachTaiXe() {
+        List<ThongTinTaiXe> dsTaiXe = vanDonService.danhSachTaiXe();
+        return new ResponseEntity<>(dsTaiXe, HttpStatus.OK);
+    }
+
+
+
 }

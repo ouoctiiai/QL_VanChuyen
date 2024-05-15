@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { Table } from 'react-bootstrap';
-import { listVanDon } from '../../Api/axiosConfig';
+import { listVanDon } from '../..//Api/DataVanDon';
 import React, { useState } from 'react';
 
 
