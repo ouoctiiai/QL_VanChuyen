@@ -48,35 +48,6 @@ public class VanDonDAO {
         connection = new Connection("VanDon");
     }
 
-
-    public List<ThongTinTaiXe> danhSachTaiXe() {
-        List<ThongTinTaiXe> dsTaiXe = new ArrayList<>();
-        MongoCollection<Document> collection = connection.getCollection();
-        List<ThongTinTaiXe> lsTaiXe = new ArrayList<>();
-        VanDonDAO vandon = new VanDonDAO();
-        List<VanDonPOJO> lsVanDon = vandon.danhSachDonLienTinh();
-        for(VanDonPOJO v : lsVanDon)
-        {
-            ThongTinTaiXe tt = v.getThongTinTaiXe();
-            if(!kiemTraTaiXeTonTai(tt,lsTaiXe))
-            {
-                lsTaiXe.add(tt);
-            }
-        }
-        return dsTaiXe;
-    }
-
-    public boolean kiemTraTaiXeTonTai(ThongTinTaiXe tx, List<ThongTinTaiXe> lsTX)
-    {
-        for (ThongTinTaiXe i : lsTX)
-        {
-            if(Objects.equals(i.getMaTaiXe(), tx.getMaTaiXe()))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
     public List<VanDonPOJO> allVanDon() {
         List<VanDonPOJO> dsVanDon = new ArrayList<>();
         MongoCollection<Document> collection = connection.getCollection();
@@ -87,7 +58,7 @@ public class VanDonDAO {
             vd.getPhiVanChuyen().setTongPhi((int)totalShippingFee);
             String id = doc.getObjectId("_id").toString();
             collection.updateOne(Filters.eq("_id", new ObjectId(id)),
-                    Updates.set("tongPhi", vd.getPhiVanChuyen().getTongPhi()));
+                    Updates.set("PhiVanChuyen.TongPhi", vd.getPhiVanChuyen().getTongPhi()));
         }
         return dsVanDon;
     }
@@ -187,8 +158,6 @@ public class VanDonDAO {
         return doanhThuTheoNam;
     }
 
-
-
     public List<VanDonPOJO> danhSachDonNoiTinh() {
         List<VanDonPOJO> dsVanDon = new ArrayList<>();
 
@@ -203,7 +172,7 @@ public class VanDonDAO {
             vd.getPhiVanChuyen().setTongPhi((int)totalShippingFee);
             String id = doc.getObjectId("_id").toString();
             collection.updateOne(Filters.eq("_id", new ObjectId(id)),
-                    Updates.set("tongPhi", vd.getPhiVanChuyen().getTongPhi()));
+                    Updates.set("PhiVanChuyen.TongPhi", vd.getPhiVanChuyen().getTongPhi()));
         }
 
         return dsVanDon;
@@ -223,7 +192,7 @@ public class VanDonDAO {
             vd.getPhiVanChuyen().setTongPhi((int)totalShippingFee);
             String id = doc.getObjectId("_id").toString();
             collection.updateOne(Filters.eq("_id", new ObjectId(id)),
-                    Updates.set("tongPhi", vd.getPhiVanChuyen().getTongPhi()));
+                    Updates.set("PhiVanChuyen.TongPhi", vd.getPhiVanChuyen().getTongPhi()));
         }
 
         return dsVanDon;
@@ -346,10 +315,6 @@ public class VanDonDAO {
     }
 
 
-
-
-
-
     public void convertToThongTinXe(Document doc, VanDonPOJO vanDon) {
         Document ttx = doc.getEmbedded(Collections.singletonList("ThongTinXe"), Document.class);
         if (ttx != null) {
@@ -423,5 +388,20 @@ public class VanDonDAO {
             tt.setSoLuong(tthh.getInteger("SoLuong"));
             vanDon.setThongTinHangHoa(tt);
         }
+    }
+
+    private Document convertToDocumentVDLienTinh(VanDonPOJO vd) {
+        Document doc = new Document();
+        doc.put("_id", vd.getId());
+        doc.put("MaVanDon", vd.getMaVanDon());
+        doc.put("ThoiGianLap", vd.getThoiGianLap());
+        doc.put("LoaiVanChuyen", vd.getLoaiVanChuyen());
+        doc.put("NoiTiepNhan", vd.getNoiTiepNhan());
+        doc.put("NguoiThanhToan", vd.getNguoiThanhToan());
+        doc.put("DiemXuatPhat", vd.getDiemXuatPhat());
+        doc.put("DiemDen", vd.getDiemXuatPhat());
+        doc.put("TrangThai", vd.getTrangThai());
+
+        return doc;
     }
 }

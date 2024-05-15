@@ -5,7 +5,7 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Button, Form } from 'react-bootstrap';
 
-const CreateOrder = () => {
+// const CreateOrder = () => {
 
     const [formState, setFormState] = useState({
         loaiHangHoa: '', tenHangHoa: '',
@@ -104,4 +104,4 @@ const CreateOrder = () => {
     );
 };
 
-export default memo(CreateOrder);
+// export default memo(CreateOrder);

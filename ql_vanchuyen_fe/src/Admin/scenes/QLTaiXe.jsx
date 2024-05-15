@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { Table } from 'react-bootstrap';
-import { listVanDon } from '../..//Api/DataVanDon';
+import { listTaiXe } from '../..//Api/DataVanDon';
 import React, { useState } from 'react';
 
 
@@ -10,7 +10,7 @@ const DSTaiXe = () => {
   const [vandons, setVanDons] = useState([])
 
   useEffect(() => {
-      listVanDon().then((Response) =>{
+      listTaiXe().then((Response) =>{
         setVanDons(Response.data);
       }).catch(error => {
         console.error('Error fetching data: ', error);
@@ -19,7 +19,7 @@ const DSTaiXe = () => {
 
   return(
     <>
-    <Table>
+    <Table style={{backgroundColor: 'white'}}>
       <thead>
         <tr>
           <th>Mã Tài xế</th>
@@ -32,9 +32,9 @@ const DSTaiXe = () => {
           vandons.map((item)=>{
             return(
               <tr>
-                <td>{item.thongTinTaiXe.maTaiXe}</td>
-                <td>{item.thongTinTaiXe.tenTaiXe}</td>
-                <td>{item.thongTinTaiXe.sdtTaiXe}</td>
+                <td>{item.maTaiXe}</td>
+                <td>{item.tenTaiXe}</td>
+                <td>{item.sdtTaiXe}</td>
               </tr>
 
             )

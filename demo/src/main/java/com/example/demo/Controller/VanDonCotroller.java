@@ -21,6 +21,7 @@ import java.util.List;
 public class VanDonCotroller {
     @Autowired
     private VanDonDAO vanDonService;
+    private TaiXeDAO taiXeService;
 
     @GetMapping("/danh-sach")
     public ResponseEntity ds(Model model) {
@@ -53,10 +54,8 @@ public class VanDonCotroller {
 
     @GetMapping("/dsTaiXe")
     public ResponseEntity<List<ThongTinTaiXe>> danhSachTaiXe() {
-        List<ThongTinTaiXe> dsTaiXe = vanDonService.danhSachTaiXe();
+        List<ThongTinTaiXe> dsTaiXe = taiXeService.danhSachTaiXe();
         return new ResponseEntity<>(dsTaiXe, HttpStatus.OK);
     }
-
-
 
 }

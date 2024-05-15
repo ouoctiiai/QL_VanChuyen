@@ -51,15 +51,14 @@
     "VAT": 7000,
     "PhiNang": 20000,
     "PhiHa": 20000,
-    "TongPhi": null
+    "TongPhi": 117607
   },
   "ThongTinShipper": {
     "MaShipper": "SP00001",
     "TenShipper": "Đặng Hoàng Anh",
     "SDTShipper": "0329457652"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 70600
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -111,15 +110,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 68002
   },
   "ThongTinShipper": {
     "MaShipper": "SP00008",
     "TenShipper": "Nguyễn Duy Hưng",
     "SDTShipper": "0329296673"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 65000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -172,15 +170,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 48007
   },
   "ThongTinShipper": {
     "MaShipper": "SP00003",
     "TenShipper": "Phạm Kim Thành",
     "SDTShipper": "0963666831"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 45000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -233,15 +230,14 @@
     "PhiCoDinh": 30000,
     "VAT": 4000,
     "PhiKhac": 10000,
-    "TongPhi": null
+    "TongPhi": 54009
   },
   "ThongTinShipper": {
     "MaShipper": "SP00004",
     "TenShipper": "Nguyễn Hà Trang",
     "SDTShipper": "0563043312"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 40000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -294,15 +290,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 38008
   },
   "ThongTinShipper": {
     "MaShipper": "SP00005",
     "TenShipper": "Trịnh Mạnh Cường",
     "SDTShipper": "0904476300"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 35000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -356,15 +351,14 @@
     "PhiCoDinh": 30000,
     "VAT": 5000,
     "PhiNang": 20000,
-    "TongPhi": null
+    "TongPhi": 60008
   },
   "ThongTinShipper": {
     "MaShipper": "SP00006",
     "TenShipper": "Nguyễn Đức Linh Kiệt",
     "SDTShipper": "0835264446"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 35000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -411,15 +405,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 33003
   },
   "ThongTinShipper": {
     "MaShipper": "SP00007",
     "TenShipper": "Phạm Bá Tuấn Linh",
     "SDTShipper": "0399968559"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 30000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -471,15 +464,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 43003
   },
   "ThongTinShipper": {
     "MaShipper": "SP00002",
     "TenShipper": "Nguyễn Đức Minh",
     "SDTShipper": "0373220264"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 40000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -532,15 +524,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 63003
   },
   "ThongTinShipper": {
     "MaShipper": "SP00009",
     "TenShipper": "Phạm Bình Nam",
     "SDTShipper": "0868191908"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 60000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -594,15 +585,14 @@
     "PhiCoDinh": 30000,
     "VAT": 4200,
     "PhiKhac": 12000,
-    "TongPhi": null
+    "TongPhi": 46202
   },
   "ThongTinShipper": {
     "MaShipper": "SP00010",
     "TenShipper": "Hồ Xuân Thái",
     "SDTShipper": "0339882065"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 30000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -656,15 +646,14 @@
     "VAT": 7000,
     "PhiNang": 20000,
     "PhiHa": 20000,
-    "TongPhi": null
+    "TongPhi": 82005
   },
   "ThongTinShipper": {
     "MaShipper": "SP00011",
     "TenShipper": "Nguyễn Khánh Toàn",
     "SDTShipper": "0339882066"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 35000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -717,15 +706,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 48009
   },
   "ThongTinShipper": {
     "MaShipper": "SP00012",
     "TenShipper": "Lê Thị Vân",
     "SDTShipper": "0869917732"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 45000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -778,15 +766,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 48009
   },
   "ThongTinShipper": {
     "MaShipper": "SP00013",
     "TenShipper": "Nguyễn Nhật An",
     "SDTShipper": "0978961065"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 45000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -839,15 +826,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 48007
   },
   "ThongTinShipper": {
     "MaShipper": "SP00014",
     "TenShipper": "Đỗ Nam Anh",
     "SDTShipper": "0966832889"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 45000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -894,15 +880,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 33006
   },
   "ThongTinShipper": {
     "MaShipper": "SP00015",
     "TenShipper": "Phạm Như Ba",
     "SDTShipper": "0963211328"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 30000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -954,15 +939,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 38003
   },
   "ThongTinShipper": {
     "MaShipper": "SP00016",
     "TenShipper": "Ngô Lan Chinh",
     "SDTShipper": "0916169135"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 35000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1016,15 +1000,14 @@
     "PhiCoDinh": 30000,
     "VAT": 3800,
     "PhiKhac": 8000,
-    "TongPhi": null
+    "TongPhi": 46802
   },
   "ThongTinShipper": {
     "MaShipper": "SP00017",
     "TenShipper": "Nguyễn Long Hải",
     "SDTShipper": "0393369300"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 35000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1077,15 +1060,14 @@
     "PhiCoDinh": 30000,
     "VAT": 5000,
     "PhiHa": 20000,
-    "TongPhi": null
+    "TongPhi": 98406
   },
   "ThongTinShipper": {
     "MaShipper": "SP00018",
     "TenShipper": "Thái Hoàng Khải",
     "SDTShipper": "0961738166"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 73400
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1137,15 +1119,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 68609
   },
   "ThongTinShipper": {
     "MaShipper": "SP00019",
     "TenShipper": "Hoàng Trung Kiên",
     "SDTShipper": "0346097698"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 65600
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1200,15 +1181,14 @@
     "VAT": 6100,
     "PhiNang": 20000,
     "PhiKhac": 11000,
-    "TongPhi": null
+    "TongPhi": 72109
   },
   "ThongTinShipper": {
     "MaShipper": "SP00020",
     "TenShipper": "Đào Nguyễn Mai Lan",
     "SDTShipper": "0971571230"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 35000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1260,15 +1240,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 53001
   },
   "ThongTinShipper": {
     "MaShipper": "SP00021",
     "TenShipper": "Đào Doãn Linh",
     "SDTShipper": "0973281930"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 50000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1320,15 +1299,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 43008
   },
   "ThongTinShipper": {
     "MaShipper": "SP00022",
     "TenShipper": "Nguyễn Tuấn Long",
     "SDTShipper": "0819912142"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 40000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1381,15 +1359,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 48001
   },
   "ThongTinShipper": {
     "MaShipper": "SP00023",
     "TenShipper": "Nguyễn Minh Nghĩa",
     "SDTShipper": "0971295745"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 45000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1442,15 +1419,14 @@
     "PhiCoDinh": 30000,
     "VAT": 4000,
     "PhiKhac": 10000,
-    "TongPhi": null
+    "TongPhi": 93606
   },
   "ThongTinShipper": {
     "MaShipper": "SP00024",
     "TenShipper": "Hoàng Minh Nguyệt",
     "SDTShipper": "0968862811"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 79600
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1502,15 +1478,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 68005
   },
   "ThongTinShipper": {
     "MaShipper": "SP00025",
     "TenShipper": "Dương Mạnh Quý",
     "SDTShipper": "0979420564"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 65000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1563,15 +1538,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 53005
   },
   "ThongTinShipper": {
     "MaShipper": "SP00026",
     "TenShipper": "Nguyễn Hương Quỳnh",
     "SDTShipper": "0942487655"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 50000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1623,15 +1597,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 53001
   },
   "ThongTinShipper": {
     "MaShipper": "SP00027",
     "TenShipper": "Trần Xuân Thái",
     "SDTShipper": "0397723289"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 50000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1684,15 +1657,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 38005
   },
   "ThongTinShipper": {
     "MaShipper": "SP00028",
     "TenShipper": "Ngô Ngọc Thắng",
     "SDTShipper": "0988185627"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 35000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1746,15 +1718,14 @@
     "VAT": 7000,
     "PhiNang": 20000,
     "PhiHa": 20000,
-    "TongPhi": null
+    "TongPhi": 107004
   },
   "ThongTinShipper": {
     "MaShipper": "SP00029",
     "TenShipper": "Trần Đức Thắng",
     "SDTShipper": "0339122978"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 60000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1807,15 +1778,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 43006
   },
   "ThongTinShipper": {
     "MaShipper": "SP00030",
     "TenShipper": "Phạm Bá Thành",
     "SDTShipper": "0394142645"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 40000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1867,15 +1837,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 30000,
     "VAT": 3000,
-    "TongPhi": null
+    "TongPhi": 53000
   },
   "ThongTinShipper": {
     "MaShipper": "SP00031",
     "TenShipper": "Lê Thị Phương Thảo",
     "SDTShipper": "0972645796"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 50000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1908,15 +1877,14 @@
     "PhiCoDinh": 30000,
     "VAT": 3400,
     "PhiKhac": 4000,
-    "TongPhi": null
+    "TongPhi": 40960
   },
   "ThongTinShipper": {
     "MaShipper": "SP00032",
     "TenShipper": "Hồ Thị Trang",
     "SDTShipper": "0396026639"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 30000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1948,15 +1916,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 26560
   },
   "ThongTinShipper": {
     "MaShipper": "SP00033",
     "TenShipper": "Nông Việt Hoàng",
     "SDTShipper": "0336658942"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -1989,15 +1956,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 21060
   },
   "ThongTinShipper": {
     "MaShipper": "SP00034",
     "TenShipper": "Tô Thị Hiểu",
     "SDTShipper": "0868777587"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2030,15 +1996,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 26420
   },
   "ThongTinShipper": {
     "MaShipper": "SP00035",
     "TenShipper": "Đỗ Mai Anh",
     "SDTShipper": "0962447592"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2071,15 +2036,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 15060
   },
   "ThongTinShipper": {
     "MaShipper": "SP00036",
     "TenShipper": "Nguyễn Đức Anh",
     "SDTShipper": "0947551710"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2111,15 +2075,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 19460
   },
   "ThongTinShipper": {
     "MaShipper": "SP00037",
     "TenShipper": "Nguyễn Linh Đan",
     "SDTShipper": "0973830290"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2151,15 +2114,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 29200
   },
   "ThongTinShipper": {
     "MaShipper": "SP00038",
     "TenShipper": "Nguyễn Nam Hưng",
     "SDTShipper": "0965759524"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2192,15 +2154,14 @@
     "PhiCoDinh": 10000,
     "PhiCoc": 30000,
     "VAT": 4000,
-    "TongPhi": null
+    "TongPhi": 72920
   },
   "ThongTinShipper": {
     "MaShipper": "SP00039",
     "TenShipper": "Nguyễn Nhật Huy",
     "SDTShipper": "0346231811"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2233,15 +2194,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 39580
   },
   "ThongTinShipper": {
     "MaShipper": "SP00040",
     "TenShipper": "Nguyễn Long Khải",
     "SDTShipper": "0989307148"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2273,15 +2233,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 23600
   },
   "ThongTinShipper": {
     "MaShipper": "SP00041",
     "TenShipper": "Lê Thị Hoa Lê",
     "SDTShipper": "0981610816"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2313,15 +2272,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 17340
   },
   "ThongTinShipper": {
     "MaShipper": "SP00042",
     "TenShipper": "Nguyễn Mai Linh",
     "SDTShipper": "0988902888"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2355,15 +2313,14 @@
     "VAT": 3000,
     "PhiHa": 20000,
     "ThuongShipper": 20000,
-    "TongPhi": null
+    "TongPhi": 59340
   },
   "ThongTinShipper": {
     "MaShipper": "SP00043",
     "TenShipper": "Nguyễn Bá Minh",
     "SDTShipper": "0387186661"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2396,15 +2353,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 22960
   },
   "ThongTinShipper": {
     "MaShipper": "SP00028",
     "TenShipper": "Ngô Ngọc Thắng",
     "SDTShipper": "0988185627"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2438,15 +2394,14 @@
     "PhiCoDinh": 10000,
     "PhiCoc": 50000,
     "VAT": 6000,
-    "TongPhi": null
+    "TongPhi": 95280
   },
   "ThongTinShipper": {
     "MaShipper": "SP00035",
     "TenShipper": "Đỗ Mai Anh",
     "SDTShipper": "0962447592"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2479,15 +2434,14 @@
     "PhiCoDinh": 10000,
     "VAT": 1200,
     "PhiKhac": 2000,
-    "TongPhi": null
+    "TongPhi": 26240
   },
   "ThongTinShipper": {
     "MaShipper": "SP00010",
     "TenShipper": "Hồ Xuân Thái",
     "SDTShipper": "0339882065"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2519,15 +2473,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 40280
   },
   "ThongTinShipper": {
     "MaShipper": "SP00021",
     "TenShipper": "Đào Doãn Linh",
     "SDTShipper": "0973281930"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2560,15 +2513,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 24720
   },
   "ThongTinShipper": {
     "MaShipper": "SP00029",
     "TenShipper": "Trần Đức Thắng",
     "SDTShipper": "0339122978"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2600,15 +2552,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 28860
   },
   "ThongTinShipper": {
     "MaShipper": "SP00030",
     "TenShipper": "Phạm Bá Thành",
     "SDTShipper": "0394142645"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2640,15 +2591,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 30280
   },
   "ThongTinShipper": {
     "MaShipper": "SP00020",
     "TenShipper": "Đào Nguyễn Mai Lan",
     "SDTShipper": "0971571230"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2680,15 +2630,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 23660
   },
   "ThongTinShipper": {
     "MaShipper": "SP00025",
     "TenShipper": "Dương Mạnh Quý",
     "SDTShipper": "0979420564"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2722,15 +2671,14 @@
     "PhiCoDinh": 10000,
     "VAT": 3000,
     "PhiNang": 20000,
-    "TongPhi": null
+    "TongPhi": 43540
   },
   "ThongTinShipper": {
     "MaShipper": "SP00007",
     "TenShipper": "Phạm Bá Tuấn Linh",
     "SDTShipper": "0399968559"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2762,15 +2710,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 39440
   },
   "ThongTinShipper": {
     "MaShipper": "SP00002",
     "TenShipper": "Nguyễn Đức Minh",
     "SDTShipper": "0373220264"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2804,15 +2751,14 @@
     "PhiCoDinh": 10000,
     "VAT": 1500,
     "PhiKhac": 5000,
-    "TongPhi": null
+    "TongPhi": 30380
   },
   "ThongTinShipper": {
     "MaShipper": "SP00022",
     "TenShipper": "Nguyễn Tuấn Long",
     "SDTShipper": "0819912142"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2844,15 +2790,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 28980
   },
   "ThongTinShipper": {
     "MaShipper": "SP00041",
     "TenShipper": "Lê Thị Hoa Lê",
     "SDTShipper": "0981610816"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2884,15 +2829,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 36520
   },
   "ThongTinShipper": {
     "MaShipper": "SP00034",
     "TenShipper": "Tô Thị Hiểu",
     "SDTShipper": "0868777587"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2925,15 +2869,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 35200
   },
   "ThongTinShipper": {
     "MaShipper": "SP00029",
     "TenShipper": "Trần Đức Thắng",
     "SDTShipper": "0339122978"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -2966,15 +2909,14 @@
     "PhiCoDinh": 10000,
     "PhiCoc": 100000,
     "VAT": 11000,
-    "TongPhi": null
+    "TongPhi": 134540
   },
   "ThongTinShipper": {
     "MaShipper": "SP00039",
     "TenShipper": "Nguyễn Nhật Huy",
     "SDTShipper": "0346231811"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -3007,15 +2949,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 32340
   },
   "ThongTinShipper": {
     "MaShipper": "SP00017",
     "TenShipper": "Nguyễn Long Hải",
     "SDTShipper": "0393369300"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -3048,15 +2989,14 @@
     "PhiCoDinh": 10000,
     "VAT": 1300,
     "PhiKhac": 3000,
-    "TongPhi": null
+    "TongPhi": 17300
   },
   "ThongTinShipper": {
     "MaShipper": "SP00037",
     "TenShipper": "Nguyễn Linh Đan",
     "SDTShipper": "0973830290"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -3088,15 +3028,14 @@
   "PhiVanChuyen": {
     "PhiCoDinh": 10000,
     "VAT": 1000,
-    "TongPhi": null
+    "TongPhi": 29740
   },
   "ThongTinShipper": {
     "MaShipper": "SP00030",
     "TenShipper": "Phạm Bá Thành",
     "SDTShipper": "0394142645"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "_id": {
@@ -3129,13 +3068,12 @@
     "PhiCoDinh": 10000,
     "PhiCoc": 100000,
     "VAT": 11000,
-    "TongPhi": null
+    "TongPhi": 135720
   },
   "ThongTinShipper": {
     "MaShipper": "SP00032",
     "TenShipper": "Hồ Thị Trang",
     "SDTShipper": "0396026639"
   },
-  "TrangThai": "Giao hàng thành công",
-  "tongPhi": 10000
+  "TrangThai": "Giao hàng thành công"
 }]
