@@ -34,8 +34,8 @@ body{
 }
 .table tbody > tr > td {
 	font-size: 0.875em;
-	background: #1A233A;
-	border-top: 10px solid #1A233A;
+	/* background: #1A233A;
+	border-top: 10px solid #1A233A; */
 	vertical-align: middle;
 	padding: 12px 8px;
 }
