@@ -4,18 +4,22 @@ import com.example.demo.POJO.ThongTinTaiXe;
 import com.example.demo.POJO.VanDonPOJO;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
+@Service
 public class TaiXeDAO {
+
     private final Connection connection;
     public TaiXeDAO() {
         connection = new Connection("VanDon");
     }
+
     public List<ThongTinTaiXe> danhSachTaiXe() {
-        List<ThongTinTaiXe> dsTaiXe = new ArrayList<>();
         MongoCollection<Document> collection = connection.getCollection();
         List<ThongTinTaiXe> lsTaiXe = new ArrayList<>();
         VanDonDAO vandon = new VanDonDAO();
@@ -28,7 +32,7 @@ public class TaiXeDAO {
                 lsTaiXe.add(tt);
             }
         }
-        return dsTaiXe;
+        return lsTaiXe;
     }
 
     public boolean kiemTraTaiXeTonTai(ThongTinTaiXe tx, List<ThongTinTaiXe> lsTX)
