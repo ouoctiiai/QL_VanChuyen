@@ -28,6 +28,7 @@ import DetailOrder from './Shipper/Pages/DetailOrder';
 import UpdateProfile from './Shipper/Pages/UpdateProfile';
 import NV_Home from './NhanVien/NV_Home';
 import DSTaiXe from './Admin/scenes/QLTaiXe';
+import DSXe from './Admin/scenes/QLXe';
 
 const renderMasterRouter = () => {
     const masterRouter = [
@@ -103,6 +104,11 @@ const renderMasterRouter = () => {
         {
             path: ROUTERS.ADMIN.QLTAIXE,
             component: DSTaiXe
+        },
+
+        {
+            path: ROUTERS.ADMIN.QLXE,
+            component: DSXe
         },
 
         {
