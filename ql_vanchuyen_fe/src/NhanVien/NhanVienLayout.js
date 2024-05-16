@@ -23,6 +23,7 @@ const NhanVienLayout = ({children,  ...props}) => {
                 <div className='sidebar-heading text-center py-4 fs-4 fw-bold text-uppercase border-bottom'>
                     <NavLink to='/nv_home' className='primary-text bg-transparent'>
                         <i className="fas fa-leaf me-2"></i>Spring
+                        <br/>
                     </NavLink>
                 </div>
                 <div className='list-group list-group-flush my-3'>

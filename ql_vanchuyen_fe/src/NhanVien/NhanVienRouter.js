@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Router, Switch } from 'react-router-dom/cjs/react-router-dom';
+import { BrowserRouter, Redirect, Route, Router, Switch } from 'react-router-dom/cjs/react-router-dom';
 import { memo } from 'react';
 import { ROUTERS } from '../Path/router';
 import NhanVienLayout from './NhanVienLayout';

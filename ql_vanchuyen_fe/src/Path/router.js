@@ -33,6 +33,6 @@ export const ROUTERS ={
         HOME: "/nv_home",
         LIST: "/dsdonhang",
         CREATE: "/taodonhang",
-        DETAIL: "/chitietdh"
+        DETAIL: "/chitietdh/:id"
     },
 }

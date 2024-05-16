@@ -28,6 +28,8 @@ import DetailOrder from './Shipper/Pages/DetailOrder';
 import UpdateProfile from './Shipper/Pages/UpdateProfile';
 import NV_Home from './NhanVien/NV_Home';
 import DSTaiXe from './Admin/scenes/QLTaiXe';
+import TaoDonHang from './NhanVien/TaoDonHang';
+import ChiTietDonHang from './NhanVien/ChiTietDonHang';
 
 const renderMasterRouter = () => {
     const masterRouter = [
@@ -114,6 +116,16 @@ const renderMasterRouter = () => {
             path: ROUTERS.EMPLOYEE.LIST,
             component: DSDonHang
         },
+
+        {
+            path: ROUTERS.EMPLOYEE.CREATE,
+            component: TaoDonHang
+        },
+
+        {
+            path: ROUTERS.EMPLOYEE.DETAIL,
+            component: ChiTietDonHang,
+        }
     ];
 
     return (

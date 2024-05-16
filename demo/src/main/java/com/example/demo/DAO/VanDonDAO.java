@@ -168,11 +168,6 @@ public class VanDonDAO {
         for (Document doc : collection.find(query)) {
             VanDonPOJO vd = convertToVanDonPOJO(doc);
             dsVanDon.add(vd);
-            double totalShippingFee = tinhPhiVanChyen(vd);
-            vd.getPhiVanChuyen().setTongPhi((int)totalShippingFee);
-            String id = doc.getObjectId("_id").toString();
-            collection.updateOne(Filters.eq("_id", new ObjectId(id)),
-                    Updates.set("PhiVanChuyen.TongPhi", vd.getPhiVanChuyen().getTongPhi()));
         }
 
         return dsVanDon;
@@ -189,10 +184,6 @@ public class VanDonDAO {
             VanDonPOJO vd = convertToVanDonPOJO(doc);
             dsVanDon.add(vd);
             double totalShippingFee = tinhPhiVanChyen(vd);
-            vd.getPhiVanChuyen().setTongPhi((int)totalShippingFee);
-            String id = doc.getObjectId("_id").toString();
-            collection.updateOne(Filters.eq("_id", new ObjectId(id)),
-                    Updates.set("PhiVanChuyen.TongPhi", vd.getPhiVanChuyen().getTongPhi()));
         }
 
         return dsVanDon;

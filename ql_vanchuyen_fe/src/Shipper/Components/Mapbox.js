@@ -90,12 +90,12 @@ function Mapbox({from, to}) {
       mapboxAccessToken = {MAPBOX_TOKEN}
     >
       {distance && (
-        <div>
-          Khoảng cách: {distance.toFixed(2)} km
+        <div >
+         Khoảng cách: {distance.toFixed(2)} km
         </div>
       )}
-    </ReactMapGL>
+    </ReactMapGL>            
   )
 }
 
-export default Mapbox
+export default Mapbox                  
