@@ -2,7 +2,9 @@ package com.example.demo.Controller;
 
 import com.example.demo.DAO.TaiXeDAO;
 import com.example.demo.DAO.VanDonDAO;
+import com.example.demo.DAO.XeDAO;
 import com.example.demo.POJO.ThongTinTaiXe;
+import com.example.demo.POJO.ThongTinXe;
 import com.example.demo.POJO.VanDonPOJO;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
@@ -22,6 +24,7 @@ public class VanDonCotroller {
     @Autowired
     private VanDonDAO vanDonService;
     private TaiXeDAO taiXeService;
+    private XeDAO xeService;
 
     @GetMapping("/danh-sach")
     public ResponseEntity ds(Model model) {
@@ -58,4 +61,9 @@ public class VanDonCotroller {
         return new ResponseEntity<>(dsTaiXe, HttpStatus.OK);
     }
 
+    @GetMapping("/dsXe")
+    public ResponseEntity<List<ThongTinXe>> danhSachXe() {
+        List<ThongTinXe> dsXe = xeService.danhSachXe();
+        return new ResponseEntity<>(dsXe, HttpStatus.OK);
+    }
 }
