@@ -19,7 +19,7 @@ import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import { CarCrashOutlined, CarRentalOutlined, CarRepairOutlined, CardTravelOutlined, ReceiptLongOutlined } from "@mui/icons-material";
 import ReceiptOutlined from "@mui/icons-material/ReceiptOutlined";
 
-const Item =({title, to, icon, selected, setSelected}) => {
+const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -28,14 +28,17 @@ const Item =({title, to, icon, selected, setSelected}) => {
       style={{
         color: colors.grey[100],
       }}
-      onClick={() => setSelected=(title)}
+      onClick={() => setSelected(title)}
       icon={icon}
-      >
+    >
       <Typography>{title}</Typography>
-      <Link to = {to} />
-      </MenuItem>
+      <Link to={to} />
+    </MenuItem>
   );
 };
+
+
+
 
 const Sidebar = () =>{
   const theme = useTheme();
@@ -60,15 +63,13 @@ const Sidebar = () =>{
         },
         "& .pro-menu-item.active": {
           color: "#6870fa !important",
-        }
-
+        },
       }}
-      >
+    >
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
 
-          <Box paddingLeft={isCollapsed ? undefined : "10%"}>
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
@@ -120,9 +121,10 @@ const Sidebar = () =>{
               </Box>
             </Box>
           )}
+           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
-              to="/"
+              to="/trangchuadmin"
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -158,16 +160,9 @@ const Sidebar = () =>{
               Pages
             </Typography>
             <Item
-              title="Quản lí hoá đơn"
-              to="/"
-              icon={<ReceiptOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
               title="Quản lí phiếu chi"
               to="/"
-              icon={<ReceiptLongOutlined />}
+              icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />

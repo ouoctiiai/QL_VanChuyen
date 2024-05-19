@@ -5,7 +5,6 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import './CreateOrder.scss';
 
- const CreateOrder = () => {
 import { Button, Col, Form, FormLabel, Row } from 'react-bootstrap';
 
 const CreateOrder = () => {
