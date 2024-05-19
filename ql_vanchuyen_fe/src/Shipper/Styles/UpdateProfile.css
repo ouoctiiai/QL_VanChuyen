@@ -1,5 +1,5 @@
 body{  
-        background: #1A233A;
+        
     }
 
     .UDPFcontainer{
@@ -36,7 +36,7 @@ body{
         text-align: center;
     }
     .card {
-        background: #272E48;
+        /* background: #272E48; */
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
@@ -50,6 +50,6 @@ body{
         -moz-border-radius: 2px;
         border-radius: 2px;
         font-size: .825rem;
-        background: #1A233A;
+        /* background: #1A233A; */
         color: #bcd0f7;
     }

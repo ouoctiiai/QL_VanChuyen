@@ -26,13 +26,14 @@ export const ROUTERS ={
     ADMIN:{
         TRANGCHUADMIN : "/trangchuadmin",
         QLTAIKHOAN: "/qltaikhoan",
-        QLTAIXE: "/qltaixe"
+        QLTAIXE: "/qltaixe",
+        QLXE: "/qlxe"
     },
 
     EMPLOYEE:{
         HOME: "/nv_home",
         LIST: "/dsdonhang",
         CREATE: "/taodonhang",
-        DETAIL: "/chitietdh"
+        DETAIL: "/chitietdh/:id"
     },
 }
