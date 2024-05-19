@@ -146,7 +146,7 @@ const Sidebar = () =>{
             />
             <Item
               title="Tạo tài khoản"
-              to="/"
+              to="/taotkshipper"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

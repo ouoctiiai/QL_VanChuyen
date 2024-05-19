@@ -6,7 +6,6 @@ import Dashboard from "./scenes/dashboard";
 // import Invoices from "./scenes/invoices";
 // import Contacts from "./scenes/contacts";
 // import Bar from "./scenes/bar";
-// import Form from "./scenes/form";
 // import Line from "./scenes/line";
 // import Pie from "./scenes/pie";
 // import FAQ from "./scenes/faq";
@@ -26,8 +25,9 @@ import { Switch } from "react-router-dom/cjs/react-router-dom";
 // import Calendar from './scenes/calendar/calendar';
 import StatBox from "./components/StatBox";
 import QLTaiKhoan from "./scenes/QLTaiKhoan";
-import QLTaiXe from "./scenes/QLTaiXe"
+import QLTaiXe from "./scenes/QLTaiXe";
 import QLXe from './scenes/QLXe';
+import TaoTKShipper from './scenes/TaoTKShipper';
 
 
 
@@ -48,6 +48,7 @@ function AdminRouter() {
             <Route path="/qltaikhoan" element={<QLTaiKhoan />} />
             <Route path="/qltaixe" element={<QLTaiXe/>} />
             <Route path="/qlxe" element={<QLXe/>} />
+            <Route path="/taotkshipper" element={<TaoTKShipper />} />
              {/* <Route path="/invoices" element={<Invoices />} />
             <Route path="/form" element={<Form />} />
             <Route path="/bar" element={<Bar />} />

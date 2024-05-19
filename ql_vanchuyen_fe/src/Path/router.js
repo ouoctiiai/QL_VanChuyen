@@ -27,7 +27,8 @@ export const ROUTERS ={
         TRANGCHUADMIN : "/trangchuadmin",
         QLTAIKHOAN: "/qltaikhoan",
         QLTAIXE: "/qltaixe",
-        QLXE: "/qlxe"
+        QLXE: "/qlxe",
+        TAOTKSHIPPER: "/taotkshipper"
     },
 
     EMPLOYEE:{

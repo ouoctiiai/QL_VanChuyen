@@ -31,6 +31,7 @@ import DSTaiXe from './Admin/scenes/QLTaiXe';
 import TaoDonHang from './NhanVien/TaoDonHang';
 import ChiTietDonHang from './NhanVien/ChiTietDonHang';
 import DSXe from './Admin/scenes/QLXe';
+import Form from './Admin/scenes/TaoTKShipper';
 
 const renderMasterRouter = () => {
     const masterRouter = [
@@ -111,6 +112,11 @@ const renderMasterRouter = () => {
         {
             path: ROUTERS.ADMIN.QLXE,
             component: DSXe
+        },
+
+        {
+            path: ROUTERS.ADMIN.TAOTKSHIPPER,
+            component: Form
         },
 
         {
