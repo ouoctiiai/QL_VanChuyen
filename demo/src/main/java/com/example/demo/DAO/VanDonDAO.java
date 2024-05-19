@@ -393,6 +393,40 @@ public class VanDonDAO {
         doc.put("DiemDen", vd.getDiemXuatPhat());
         doc.put("TrangThai", vd.getTrangThai());
 
+        ThongTinNguoiGui thongTinNguoiGui = vd.getThongTinNguoiGui();
+        doc.put("ThongTinNguoiGui.TenNguoiGui", thongTinNguoiGui.getTenNguoiGui());
+        doc.put("ThongTinNguoiGui.SDTNguoiGui", thongTinNguoiGui.getSdtNguoiGui());
+        doc.put("ThongTinNguoiGui.DiaChiNguoiGui", thongTinNguoiGui.getDiaChiNguoiGui());
+
+        ThongTinNguoiNhan thongTinNguoiNhan = vd.getThongTinNguoiNhan();
+        doc.put("ThongTinNguoiGui.TenNguoiNhan", thongTinNguoiNhan.getTenNguoiNhan());
+        doc.put("ThongTinNguoiGui.SDTNguoiNhan", thongTinNguoiNhan.getSdtNguoiNhan());
+        doc.put("ThongTinNguoiGui.DiaChiNguoiNhan", thongTinNguoiNhan.getDiaChiNguoiNhan());
+
+        ThongTinTaiXe thongTinTaiXe = vd.getThongTinTaiXe();
+        doc.put("ThongTinTaiXe.MaTaiXe", thongTinTaiXe.getMaTaiXe());
+        doc.put("ThongTinTaiXe.TenTaiXe", thongTinTaiXe.getTenTaiXe());
+        doc.put("ThongTinTaiXe.SDTTaiXe", thongTinTaiXe.getSdtTaiXe());
+
+        ThongTinXe thongTinXe = vd.getThongTinXe();
+        doc.put("ThongTinXe.BienSo", thongTinXe.getBienSo());
+        doc.put("ThongTinXe.TenXe", thongTinXe.getTenXe());
+        doc.put("ThongTinXe.LoaiXe", thongTinXe.getLoaiXe());
+        doc.put("ThongTinXe.HangXe", thongTinXe.getHangXe());
+
+        ThongTinHangHoa thongTinHangHoa = vd.getThongTinHangHoa();
+        doc.put("ThongTinHangHoa.LoaiHang", thongTinHangHoa.getLoaiHang());
+        doc.put("ThongTinHangHoa.TenHang", thongTinHangHoa.getTenHang());
+        doc.put("ThongTinHangHoa.SoLuong", thongTinHangHoa.getSoLuong());
+        doc.put("ThongTinHangHoa.TrongLuong, ", thongTinHangHoa.getTrongLuong());
+        KichCo kichCo = thongTinHangHoa.getKichCo();
+        doc.put("ThongTinHangHoa.KichCo.Dai", kichCo.getDai());
+        doc.put("ThongTinHangHoa.KichCo.Rong", kichCo.getRong());
+
+        TuyenDuong tuyenDuong = vd.getTuyenDuong();
+        doc.put("TuyenDuong.DuongDi", tuyenDuong.getDuongDi());
+        doc.put("TuyenDuong.KhoangCach", tuyenDuong.getKhoangCach());
+
         return doc;
     }
 }
