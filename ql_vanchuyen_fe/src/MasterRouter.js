@@ -164,7 +164,7 @@ const renderMasterRouter = () => {
     ];
 
     return (
-        <MasterLayout>
+        // <MasterLayout>
             <Switch>
                 {
                     masterRouter.map((item, key) => {
@@ -172,7 +172,7 @@ const renderMasterRouter = () => {
                     })
                 }
             </Switch>
-        </MasterLayout>
+        // </MasterLayout>
     );
 };
 

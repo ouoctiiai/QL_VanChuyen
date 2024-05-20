@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom/cjs/react-router-dom';
 import { memo } from 'react';
+import { listVanDon } from '../../Api/DataVanDon';
 
 const OrderList = () => {
+    const [danhSachDonHang, setDanhSachDonHang] = useState([]);
+    const [isChecked, setIsChecked] = useState();
+    const [checkedItems, setCheckedItems] = useState([]); 
+
+    useEffect(() => {
+        try{
+            listVanDon().then((Response) =>{
+                setDanhSachDonHang(Response.data);
+            })
+        }catch(error){
+            console.error('Error fetching data:', error);
+        }
+    }, []);
+
+    const handleCheckedAll = () => {
+        setIsChecked(!isChecked);
+        setCheckedItems(new Array(danhSachDonHang.length).fill(!isChecked));
+    }
+
+    const handleCheckItem = (index) => {
+        const newCheckedItems = [...checkedItems];
+        newCheckedItems[index] = !newCheckedItems[index];
+        setCheckedItems(newCheckedItems);
+    }
+
     return (
         <div className='custom_container'>
             {/* <Nav /> */}
@@ -15,7 +41,7 @@ const OrderList = () => {
                     <tr className='table-info font-style'>
                         <th scope="col">
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={isChecked} onChange={handleCheckedAll}/>
                             </div>
                         </th>
                         <th scope="col">STT</th>
@@ -27,39 +53,21 @@ const OrderList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    {danhSachDonHang.map((donHang, i) => (
+                        <tr>
                         <th scope="row">
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkedItems[i]} onChange={() => handleCheckItem(i)}/>
                             </div>
                         </th>
-                        <td>1</td>
-                        <td>DH001</td>
-                        <td>jksghbsikbvỉe</td>
-                        <td>5/5/2024</td>
-                        <td>Đang giao hàng</td>
-                        <td><NavLink to='/order-details'><i class="fa-solid fa-circle-info"></i></NavLink></td>
+                        <td>{i+1}</td>
+                        <td>{donHang.maVanDon}</td>
+                        <td>{donHang.thongTinHangHoa.tenHang || 'Khác'}</td>
+                        <td>{donHang.thoiGianLap}</td>
+                        <td>{donHang.trangThai}</td>
+                        <td><NavLink to={`/order-details/${donHang.id}`}><i class="fa-solid fa-circle-info"></i></NavLink></td>
                     </tr>
-                    <tr>
-                        <th scope="row">
-                            <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                            </div>
-                        </th>
-                        <td>Adipisicing</td>
-                        <td>Elit</td>
-                        <td>Sint</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                            </div>
-                        </th>
-                        <td>Hic</td>
-                        <td>Fugiat</td>
-                        <td>Temporibus</td>
-                    </tr>
+                    ))}
                 </tbody>
             </table>
         </div>

@@ -40,9 +40,9 @@ const TaoDonHang = () => {
                 setTinhNguoiGui(Response.data);
             });
 
-            axios.get('https://esgoo.net/api-tinhthanh/1/0.htm').then(response => {
-                setTinhNguoiNhan(response.data.data);
-            })
+            listTinhThanh().then((Response) => {
+                setTinhNguoiNhan(Response.data);
+            });
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -79,8 +79,8 @@ const TaoDonHang = () => {
         setQuanNguoiNhan([]);
         setPhuongNguoiNhan([]);
         
-        axios.get(`https://esgoo.net/api-tinhthanh/2/${idTinh}.htm`).then(response => {
-            setQuanNguoiNhan(response.data.data);
+        listQuanHuyenTheoTinhThanh(idTinh).then(response => {
+            setQuanNguoiNhan(response.data);
         }).catch(error => {
             console.error('Error fetching quan huyen data:', error);
         });
@@ -91,8 +91,8 @@ const TaoDonHang = () => {
         setSelectedQuanNguoiNhan(idQuan);
         setPhuongNguoiNhan([]);
     
-        axios.get(`https://esgoo.net/api-tinhthanh/3/${idQuan}.htm`).then(response => {
-            setPhuongNguoiNhan(response.data.data);
+        listPhuongXaTheoQuanHuyen(idQuan).then(response => {
+            setPhuongNguoiNhan(response.data);
         }).catch(error => {
             console.error('Error fetching phuong xa data:', error);
         });
@@ -158,7 +158,7 @@ const TaoDonHang = () => {
                                                 <Form.Select type='text' value={selectedTinhNguoiGui} onChange={handleTinhNguoiGuiChange}>
                                                     <option value={0}>Tỉnh Thành</option>
                                                     {tinhNguoiGui.map((tinh) => (
-                                                        <option key={tinh.idProvince} value={tinh.idProvince}>{tinh.name}</option>
+                                                        <option key={tinh.IdDiaChi} value={tinh.IdDiaChi}>{tinh.Name}</option>
                                                     ))}
                                                 </Form.Select>
                                             </Col>
@@ -169,7 +169,7 @@ const TaoDonHang = () => {
                                                 <Form.Select type='text' value={selectedQuanNguoiGui} onChange={handleQuanNguoiGuiChange}>
                                                     <option value={0}>Quận Huyện</option>
                                                     {quanNguoiGui.map((quan) => (
-                                                        <option key={quan.idDistrict} value={quan.idDistrict}>{quan.name}</option>
+                                                        <option key={quan.MaQuanHuyen} value={quan.MaQuanHuyen}>{quan.TenQuanHuyen}</option>
                                                     ))}
                                                 </Form.Select>
                                             </Col>
@@ -180,7 +180,7 @@ const TaoDonHang = () => {
                                                 <Form.Select type='text'>
                                                     <option value={0}>Phường Xã</option>
                                                     {phuongNguoiGui.map((phuong) => (
-                                                        <option key={phuong.idCommune} value={phuong.idCommune}>{phuong.name}</option>
+                                                        <option key={phuong.maPhuongXa} value={phuong.maPhuongXa}>{phuong.tenPhuongXa}</option>
                                                     ))}
                                                 </Form.Select>
                                             </Col>
@@ -223,8 +223,8 @@ const TaoDonHang = () => {
                                             <Col sm="8">
                                                 <Form.Select type='text' value={selectedTinhNguoiNhan} onChange={handleTinhNguoiNhanChange}>
                                                     <option value={0}>Tỉnh Thành</option>
-                                                    {tinhNguoiNhan.map((item) => (
-                                                        <option key={item.id} value={item.id}>{item.full_name}</option>
+                                                    {tinhNguoiNhan.map((tinh) => (
+                                                        <option key={tinh.IdDiaChi} value={tinh.IdDiaChi}>{tinh.Name}</option>
                                                     ))}
                                                 </Form.Select>
                                             </Col>
@@ -234,8 +234,8 @@ const TaoDonHang = () => {
                                             <Col sm="8">
                                                 <Form.Select type='text' value={selectedQuanNguoiNhan} onChange={handleQuanNguoiNhanChange}>
                                                     <option value={0}>Quận Huyện</option>
-                                                    {quanNguoiNhan.map((item) => (
-                                                        <option key={item.id} value={item.id}>{item.full_name}</option>
+                                                    {quanNguoiNhan.map((quan) => (
+                                                        <option key={quan.MaQuanHuyen} value={quan.MaQuanHuyen}>{quan.TenQuanHuyen}</option>
                                                     ))}
                                                 </Form.Select>
                                             </Col>
@@ -245,8 +245,8 @@ const TaoDonHang = () => {
                                             <Col sm="8">
                                                 <Form.Select type='text'>
                                                     <option value={0}>Phường Xã</option>
-                                                    {phuongNguoiNhan.map((item) => (
-                                                        <option key={item.id} value={item.id}>{item.full_name}</option>
+                                                    {phuongNguoiNhan.map((phuong) => (
+                                                        <option key={phuong.maPhuongXa} value={phuong.maPhuongXa}>{phuong.tenPhuongXa}</option>
                                                     ))}
                                                 </Form.Select>
                                             </Col>
