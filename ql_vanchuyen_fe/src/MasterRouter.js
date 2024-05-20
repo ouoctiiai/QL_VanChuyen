@@ -32,6 +32,10 @@ import TaoDonHang from './NhanVien/TaoDonHang';
 import ChiTietDonHang from './NhanVien/ChiTietDonHang';
 import DSXe from './Admin/scenes/QLXe';
 import Form from './Admin/scenes/TaoTKShipper';
+import Bar from './Admin/scenes/Charts/BarChart';
+import Line from './Admin/scenes/Charts/LineChart';
+import Pie from './Admin/scenes/Charts/PieChart';
+import Geography from './Admin/scenes/Charts/GeographyChart';
 
 const renderMasterRouter = () => {
     const masterRouter = [
@@ -122,7 +126,22 @@ const renderMasterRouter = () => {
             path: ROUTERS.ADMIN.DASHBOARD,
             component: Dashboard
         },
-
+        {
+            path: ROUTERS.ADMIN.BARCHART,
+            component: Bar
+          },
+          {
+            path: ROUTERS.ADMIN.LINECHART,
+            component: Line
+          },
+          {
+            path: ROUTERS.ADMIN.PIECHART,
+            component: Pie
+          },
+          {
+            path: ROUTERS.ADMIN.GEOGRAPHYCHART,
+            component: Geography
+          },
         {
             path: ROUTERS.EMPLOYEE.HOME,
             component: NV_Home
