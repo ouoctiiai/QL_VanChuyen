@@ -118,6 +118,10 @@ const renderMasterRouter = () => {
             path: ROUTERS.ADMIN.TAOTKSHIPPER,
             component: Form
         },
+        {
+            path: ROUTERS.ADMIN.DASHBOARD,
+            component: Dashboard
+        },
 
         {
             path: ROUTERS.EMPLOYEE.HOME,

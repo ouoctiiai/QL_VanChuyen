@@ -1,11 +1,37 @@
-import { Box, Button, TextField } from "@mui/material";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Box, Button, TextField, Select, MenuItem, FormControl, InputLabel, FormHelperText } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../components/Header";
+import { Autocomplete } from '@mui/material';
+
 
 const Form = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
+  const [banks, setBanks] = useState([]);
+
+  useEffect(() => {
+      axios.get('https://api.vietqr.io/v2/banks')
+        .then((response) => {
+          // http status code
+          // 200: thanh cong
+          // 400: bad request
+          // 401, 403: unauthorized
+          // 500: loi backend server
+          if (response && response.status === 200) {
+            const result = response.data;
+            if (result && result.code === "00") {
+              setBanks(result.data);
+              console.log(banks);
+            }
+          }
+          })
+        .catch((error) => {
+          console.error('Không thể lấy dữ liệu từ API', error);
+        });
+    }, []);
 
   const handleFormSubmit = (values) => {
     console.log(values);
@@ -128,6 +154,32 @@ const Form = () => {
                 helperText={touched.diaChi && errors.diaChi}
                 sx={{ gridColumn: "span 4" }}
               />
+              <FormControl fullWidth variant="filled" sx={{ gridColumn: "span 2" }}>
+                <InputLabel id="tenNH-label"></InputLabel>
+                <Autocomplete
+                  id="tenNH"
+                  options={banks}
+                  getOptionLabel={(option) => option.shortName}
+                  //value={values.tenNH}
+                  onChange={(event, newValue) => {
+                    handleChange("tenNH")(newValue ? newValue.shortName : "");
+                  }}
+                  onBlur={handleBlur("tenNH")}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      error={!!touched.tenNH && !!errors.tenNH}
+                      helperText={touched.tenNH && errors.tenNH}
+                      label="Tên Ngân Hàng"
+                    />
+                  )}
+                  renderOption={(props, option) => (
+                    <li {...props}>
+                      {option.shortName}
+                    </li>
+                  )}
+                />
+              </FormControl>
               <TextField
                 fullWidth
                 variant="filled"
@@ -139,7 +191,7 @@ const Form = () => {
                 name="soTK"
                 error={!!touched.soTK && !!errors.soTK}
                 helperText={touched.soTK && errors.soTK}
-                sx={{ gridColumn: "span 4" }}
+                sx={{ gridColumn: "span 2" }}
               />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
@@ -157,7 +209,6 @@ const Form = () => {
 const phoneRegExp = /^0[0-9]{9}$/;
 const cccdRegExp = /^[0-9]{12}$/;
 
-
 const checkoutSchema = yup.object().shape({
   tenTK: yup.string().required("Bắt buộc"),
   tenChuTK: yup.string().required("Bắt buộc"),
@@ -172,8 +223,10 @@ const checkoutSchema = yup.object().shape({
     .required("Bắt buộc"),
   matkhau: yup.string().required("Bắt buộc"),
   diaChi: yup.string().required("Bắt buộc"),
+  tenNH: yup.string().required("Bắt buộc"),
   soTK: yup.string().required("Bắt buộc"),
 });
+
 const initialValues = {
   tenTK: "",
   tenChuTK: "",
@@ -182,6 +235,7 @@ const initialValues = {
   cccd: "",
   matkhau: "",
   diaChi: "",
+  tenNH: "",
   soTK: "",
 };
 
