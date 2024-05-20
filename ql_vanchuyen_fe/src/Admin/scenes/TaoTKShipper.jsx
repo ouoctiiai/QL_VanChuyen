@@ -41,26 +41,26 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="First Name"
+                label="Tên tài khoản"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.firstName}
-                name="firstName"
-                error={!!touched.firstName && !!errors.firstName}
-                helperText={touched.firstName && errors.firstName}
+                value={values.tenTK}
+                name="tenTK"
+                error={!!touched.tenTK && !!errors.tenTK}
+                helperText={touched.tenTK && errors.tenTK}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Last Name"
+                label="Tên chủ tài khoản"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.lastName}
-                name="lastName"
-                error={!!touched.lastName && !!errors.lastName}
-                helperText={touched.lastName && errors.lastName}
+                value={values.tenChuTK}
+                name="tenChuTK"
+                error={!!touched.tenChuTK && !!errors.tenChuTK}
+                helperText={touched.tenChuTK && errors.tenChuTK}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
@@ -80,45 +80,71 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Contact Number"
+                label="Số điện thoại"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.contact}
-                name="contact"
-                error={!!touched.contact && !!errors.contact}
-                helperText={touched.contact && errors.contact}
+                value={values.sdt}
+                name="sdt"
+                error={!!touched.sdt && !!errors.sdt}
+                helperText={touched.sdt && errors.sdt}
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 1"
+                label="Căn cước công dân"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address1}
-                name="address1"
-                error={!!touched.address1 && !!errors.address1}
-                helperText={touched.address1 && errors.address1}
+                value={values.cccd}
+                name="cccd"
+                error={!!touched.cccd && !!errors.cccd}
+                helperText={touched.cccd && errors.cccd}
+                sx={{ gridColumn: "span 4" }}
+              />
+                <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Mật khẩu của shipper"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.matkhau}
+                name="matkhau"
+                error={!!touched.matkhau && !!errors.matkhau}
+                helperText={touched.matkhau && errors.matkhau}
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 2"
+                label="Địa chỉ"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address2}
-                name="address2"
-                error={!!touched.address2 && !!errors.address2}
-                helperText={touched.address2 && errors.address2}
+                value={values.diaChi}
+                name="diaChi"
+                error={!!touched.diaChi && !!errors.diaChi}
+                helperText={touched.diaChi && errors.diaChi}
+                sx={{ gridColumn: "span 4" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Số Tài Khoản"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.soTK}
+                name="soTK"
+                error={!!touched.soTK && !!errors.soTK}
+                helperText={touched.soTK && errors.soTK}
                 sx={{ gridColumn: "span 4" }}
               />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
-                Create New User
+                Tạo tài khoản
               </Button>
             </Box>
           </form>
@@ -128,27 +154,35 @@ const Form = () => {
   );
 };
 
-const phoneRegExp =
-  /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
+const phoneRegExp = /^0[0-9]{9}$/;
+const cccdRegExp = /^[0-9]{12}$/;
+
 
 const checkoutSchema = yup.object().shape({
-  firstName: yup.string().required("required"),
-  lastName: yup.string().required("required"),
-  email: yup.string().email("invalid email").required("required"),
-  contact: yup
+  tenTK: yup.string().required("Bắt buộc"),
+  tenChuTK: yup.string().required("Bắt buộc"),
+  email: yup.string().email("Lỗi định dạng Email").required("Bắt buộc"),
+  sdt: yup
     .string()
-    .matches(phoneRegExp, "Phone number is not valid")
-    .required("required"),
-  address1: yup.string().required("required"),
-  address2: yup.string().required("required"),
+    .matches(phoneRegExp, "Định dạng SDT không đúng")
+    .required("Bắt buộc"),
+  cccd:yup
+    .string()
+    .matches(cccdRegExp, "Định dạng CCCD không đúng")
+    .required("Bắt buộc"),
+  matkhau: yup.string().required("Bắt buộc"),
+  diaChi: yup.string().required("Bắt buộc"),
+  soTK: yup.string().required("Bắt buộc"),
 });
 const initialValues = {
-  firstName: "",
-  lastName: "",
+  tenTK: "",
+  tenChuTK: "",
   email: "",
-  contact: "",
-  address1: "",
-  address2: "",
+  sdt: "",
+  cccd: "",
+  matkhau: "",
+  diaChi: "",
+  soTK: "",
 };
 
 export default Form;
