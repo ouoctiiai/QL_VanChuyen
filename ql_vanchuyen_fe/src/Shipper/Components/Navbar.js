@@ -7,7 +7,7 @@ const Navbar = ({children, ...props}) => {
     const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div {...props}>
-    <nav>
+    <nav className="navShip">
       <Link to="/shipper_home" className="title">
         Don cho
       </Link>

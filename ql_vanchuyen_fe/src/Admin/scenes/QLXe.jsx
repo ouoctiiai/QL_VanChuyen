@@ -1,51 +1,77 @@
-import axios from "axios";
-import { useEffect } from "react";
-import { Table } from 'react-bootstrap';
-import { listXe } from '../..//Api/DataVanDon';
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { Box, useTheme } from "@mui/material";
+import { DataGrid } from "@mui/x-data-grid";
+import { tokens } from "../theme";
+import Header from "../components/Header";
+import '../index.css'
+import { listXe } from '../../Api/DataVanDon';
 
 const DSXe = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
-  const [xes, setVanDons] = useState([])
+  const [xes, setXes] = useState([]);
 
   useEffect(() => {
-      listXe().then((Response) =>{
-        setVanDons(Response.data);
-      }).catch(error => {
-        console.error('Error fetching data: ', error);
-      })
-  }, [])
+    listXe().then((Response) =>{
+      const dataWithSTT = Response.data.map((item, index) => ({
+        ...item,
+        stt: index + 1,
+        id: index,
+      }));
+      setXes(dataWithSTT);
+    }).catch(error => {
+      console.error('Error fetching data: ', error);
+    })
+  }, []);
+  
+  const columns = [
+    { field: "stt", headerName: "STT", flex: 1 },
+    { field: "bienSo", headerName: "Biển số xe", flex: 1 },
+    { field: "tenXe", headerName: "Tên xe", flex: 1 },
+    { field: "loaiXe", headerName: "Loại xe", flex: 1 },
+    { field: "hangXe", headerName: "Hãng xe", flex: 1 },
+  ];
+  
+  
 
-  return(
-    <>
-    <Table style={{backgroundColor: 'white'}}>
-      <thead>
-        <tr>
-          <th>Biển số xe</th>
-          <th>Tên xe</th>
-          <th>Loại xe</th>
-          <th>Hãng xe</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          xes.map((item)=>{
-            return(
-              <tr>
-                <td>{item.bienSo}</td>
-                <td>{item.tenXe}</td>
-                <td>{item.loaiXe}</td>
-                <td>{item.hangXe}</td>
-              </tr>
+  return (
+      <Box m="20px">
+      <Header title="ADMIN" subtitle="Quản lí xe" />
+      <Box
+        m="40px 0 0 0"
+        height="75vh"
+        sx={{
+          "& .MuiDataGrid-root": {
+            border: "none",
+          },
+          "& .MuiDataGrid-cell": {
+            borderBottom: "none",
+          },
+          "& .name-column--cell": {
+            color: colors.greenAccent[300],
+          },
+          "& .MuiDataGrid-columnHeaders": {
+            backgroundColor: colors.blueAccent[700],
+            borderBottom: "none",
+          },
+          "& .MuiDataGrid-virtualScroller": {
+            backgroundColor: colors.primary[400],
+          },
+          "& .MuiDataGrid-footerContainer": {
+            borderTop: "none",
+            backgroundColor: colors.blueAccent[700],
+          },
+          "& .MuiCheckbox-root": {
+            color: `${colors.greenAccent[200]} !important`,
+          },
+        }}
+      >
+        <DataGrid checkboxSelection rows={xes} columns={columns} />
+      </Box>
+    </Box> 
 
-            )
-          })
-        }
-      </tbody>
-    </Table>
+  );
+};
 
-    </>
-  )
-}
 export default DSXe;

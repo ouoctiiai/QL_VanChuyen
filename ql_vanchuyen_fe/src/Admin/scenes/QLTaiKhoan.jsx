@@ -1,38 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import { listTaiKhoan } from '../../Api/DataTaiKhoan';
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../theme";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../components/Header";
-
-const URL = "http://localhost:4433/taikhoan/danh-sach";
-
+import '../index.css'
+import { listTaiKhoan } from '../../Api/DataTaiKhoan';
 const Team = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const [taiKhoan, setTaiKhoans] = useState([])
+  const [taiKhoan, setTaiKhoans] = useState([]);
+
   useEffect(() => {
-    fetch(URL)
-      .then((response) => response.json())
-      .then((data) => setTaiKhoans(data))
-      .catch((error) => console.error(error));
+    listTaiKhoan().then((Response) =>{
+      const dataWithSTT = Response.data.map((item, index) => ({
+        ...item,
+        stt: index + 1,
+      }));
+      setTaiKhoans(dataWithSTT);
+    }).catch(error => {
+      console.error('Error fetching data: ', error);
+    })
   }, []);
+  
   const columns = [
-    { field: "id", headerName: "ID" },
+    { field: "stt", headerName: "STT", flex: 0.5 },
+    { field: "id", headerName: "ID", flex: 1 },
     { field: "tenTaiKhoan", headerName: "Tên tài khoản", flex: 1 },
     { field: "tenChuTaiKhoan", headerName: "Tên chủ tài khoản", flex: 1 },
     { field: "sdt", headerName: "Số điện thoại", flex: 1 },
     { field: "loaiTaiKhoan", headerName: "Loại Tài Khoản", flex: 1 },
-
   ];
+  
   
 
   return (
-    <Box m="20px">
+      <Box m="20px">
       <Header title="ADMIN" subtitle="Quản lí tài khoản" />
       <Box
         m="40px 0 0 0"
@@ -61,11 +64,14 @@ const Team = () => {
           "& .MuiCheckbox-root": {
             color: `${colors.greenAccent[200]} !important`,
           },
+
+
         }}
       >
         <DataGrid checkboxSelection rows={taiKhoan} columns={columns} />
       </Box>
-    </Box>
+    </Box> 
+
   );
 };
 

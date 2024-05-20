@@ -49,6 +49,8 @@ public class TaiKhoanPOJO {
         this.tongTienCong = tongTienCong;
     }
 
+
+
     public String getId() {
         return id;
     }
@@ -144,4 +146,6 @@ public class TaiKhoanPOJO {
     public void setTongTienCong(Integer tongTienCong) {
         this.tongTienCong = tongTienCong;
     }
+
+
 }
