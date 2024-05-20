@@ -113,7 +113,7 @@ const ChiTietDonHang = () => {
                         </div>
                     </div>
 
-                    <div className='row'>
+                    <div className='row' style={{overflowY:'hidden'}}>
                         <div class="card" style={{width:'500px'}}>
 							<div class="card-body">
 								<Mapbox from={thongTinNguoiGui.diaChiNguoiGui} to={thongTinNguoiNhan.diaChiNguoiNhan} />

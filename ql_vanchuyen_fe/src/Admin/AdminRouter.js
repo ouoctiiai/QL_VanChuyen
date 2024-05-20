@@ -1,79 +1,57 @@
-import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import Topbar from "./scenes/global/Topbar";
-import Sidebar from "./scenes/global/Sidebar";
+import { Route } from "react-router-dom";
 import Dashboard from "./scenes/dashboard";
-// import Invoices from "./scenes/invoices";
-// import Contacts from "./scenes/contacts";
-// import Bar from "./scenes/bar";
-// import Line from "./scenes/line";
-// import Pie from "./scenes/pie";
-// import FAQ from "./scenes/faq";
-// import Geography from "./scenes/geography";
 import "./index.css";
-
-
-import BarChart from "./components/BarChart";
-import GeographyChart from "./components/GeographyChart";
-import Header from "./components/Header";
-import LineChart from "./components/LineChart";
-import PieChart from "./components/PieChart";
-import ProgressCircle from "./components/ProgressCircle";
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import { ColorModeContext, useMode } from "./theme";
 import { Switch } from "react-router-dom/cjs/react-router-dom";
-// import Calendar from './scenes/calendar/calendar';
-import StatBox from "./components/StatBox";
-import QLTaiKhoan from "./scenes/QLTaiKhoan";
-import QLTaiXe from "./scenes/QLTaiXe";
-import QLXe from './scenes/QLXe';
-import TaoTKShipper from './scenes/TaoTKShipper';
+import { ROUTERS } from './../Path/router';
+import Team from "./scenes/QLTaiKhoan";
+import DSTaiXe from "./scenes/QLTaiXe";
+import DSXe from "./scenes/QLXe";
+import Form from "./scenes/TaoTKShipper";
+import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
+import AdminLayout from "./AdminLayout";
 
 
+const renderAdminRouter = () => {
+  const adminRouter = [
+    {
+      path: ROUTERS.ADMIN.QLTAIKHOAN,
+      component: Team
+    },
+    {
+      path: ROUTERS.ADMIN.QLTAIXE,
+      component: DSTaiXe
+    },
+    {
+      path: ROUTERS.ADMIN.QLXE,
+      component: DSXe
+    },
+    {
+      path: ROUTERS.ADMIN.TAOTKSHIPPER,
+      component: Form
+    },
+    {
+      path: ROUTERS.ADMIN.DASHBOARD,
+      component: Dashboard
+  },
 
-function AdminRouter() {
-  const [theme, colorMode] = useMode();
-  const [isSidebar, setIsSidebar] = useState(true);
-
+  ]
   return (
-    <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <div className="app"> 
-        <Sidebar isSidebar={isSidebar} />
-        <main className="content">
-          <Topbar setIsSidebar={setIsSidebar} />
-          <Switch>
-            <Route path="/dashboad" element={<Dashboard />} />
-            <Route path="/qltaikhoan" element={<QLTaiKhoan />} />
-            <Route path="/qltaixe" element={<QLTaiXe/>} />
-            <Route path="/qlxe" element={<QLXe/>} />
-            <Route path="/taotkshipper" element={<TaoTKShipper />} />
-             {/* <Route path="/invoices" element={<Invoices />} />
-            <Route path="/form" element={<Form />} />
-            <Route path="/bar" element={<Bar />} />
-            <Route path="/pie" element={<Pie />} />
-            <Route path="/line" element={<Line />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/calendar" element={<Calendar />} />
-            <Route path="/geography" element={<Geography />} /> */}
-          </Switch>
-
-        <Dashboard>
-          <Header/>
-          <StatBox/> 
-          <ProgressCircle/>
-          <BarChart/>
-          <LineChart/>
-          <PieChart/>
-          <GeographyChart/>
-        </Dashboard>
-        </main>
-      </div>
-
-      </ThemeProvider>
-    </ColorModeContext.Provider>
+    <BrowserRouter>
+      <AdminLayout>
+        <Switch>
+          {
+            adminRouter.map((item, key) => {
+              return <Route key={key} path={item.path} component={item.component} />
+            })
+          }
+        </Switch>
+      </AdminLayout>
+    </BrowserRouter>
   );
 }
+
+const AdminRouter = () => {
+  return renderAdminRouter();
+};
 
 export default AdminRouter;
