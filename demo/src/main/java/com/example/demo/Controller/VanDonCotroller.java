@@ -81,6 +81,8 @@ public class VanDonCotroller {
     public ResponseEntity<Double> calculateDistance(@PathVariable String dc1, @PathVariable String dc2) {
         Double khoangCach = vanDonService.tinhKhoangCachDonLT(dc1, dc2);
         return ResponseEntity.ok(khoangCach);
+    }
+
     @GetMapping("/tongTaiXe")
     public ResponseEntity<Integer> tinhTongTaiXe() {
         int tongTaiXe = taiXeService.tinhTongTaiXe();
@@ -109,5 +111,17 @@ public class VanDonCotroller {
     public ResponseEntity<List<VanDonPOJO>> get10RecentOrders() {
         List<VanDonPOJO> dsvd = vanDonService.danhSach10DonGanDayNhat();
         return new ResponseEntity<>(dsvd, HttpStatus.OK);
+    }
+
+    @GetMapping("/phiVAT/{phiCoDinh}/{phiCoc}/{phiNang}/{phiHa}/{phiThuong}/{phiKhac}")
+    public ResponseEntity<Integer> tinhPhiVat(@PathVariable int phiCoDinh, @PathVariable int phiCoc, @PathVariable int phiNang, @PathVariable int phiHa, @PathVariable int phiThuong, @PathVariable int phiKhac) {
+        int phiVat = vanDonService.tinhPhiVAT(phiCoDinh, phiCoc, phiNang, phiHa, phiThuong, phiKhac);
+        return ResponseEntity.ok(phiVat);
+    }
+
+    @GetMapping("/tongPhi/{phiCoDinh}/{phiVAT}/{phiCoc}/{phiNang}/{phiHa}/{phiThuong}/{phiKhac}/{khoangCach}/{khoiLuong}/{chieuDai}/{chieuRong}/{loaiHang}/{loaiVanChuyen}")
+    public ResponseEntity<Integer> tinhTongPhi(@PathVariable int phiCoDinh, @PathVariable int phiVAT, @PathVariable int phiCoc, @PathVariable int phiNang, @PathVariable int phiHa, @PathVariable int phiThuong, @PathVariable int phiKhac, @PathVariable double khoangCach, @PathVariable double khoiLuong, @PathVariable double chieuDai, @PathVariable double chieuRong, @PathVariable String loaiHang, @PathVariable String loaiVanChuyen) {
+        int tongPhi = vanDonService.tinhTongPhi(phiCoDinh, phiVAT, phiCoc, phiNang, phiHa, phiThuong, phiKhac, khoangCach, khoiLuong, chieuDai, chieuRong, loaiHang, loaiVanChuyen);
+        return ResponseEntity.ok(tongPhi);
     }
 }

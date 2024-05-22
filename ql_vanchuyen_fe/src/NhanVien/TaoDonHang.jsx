@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Col, Form, Row, Card } from 'react-bootstrap';
-import { listTaiXe, listVanDon, listXe, tinhKhoangCachLienTinh } from '../Api/DataVanDon';
+import { listTaiXe, listVanDon, listXe, tinhKhoangCachLienTinh, tinhPhiVat, tinhTongPhi } from '../Api/DataVanDon';
 import { listPhuongXaTheoQuanHuyen, listQuanHuyenTheoTinhThanh, listTinhThanh } from '../Api/DataDiaChi';
 import Mapbox from '../Shipper/Components/Mapbox';
 
@@ -30,6 +30,18 @@ const TaoDonHang = () => {
     const [selectedPhuongNguoiNhan, setSelectedPhuongNguoiNhan] = useState(0);
 
     const [soLuong, setSoLuong] = useState (1);
+    const [chieuDai, setChieuDai] = useState (0);
+    const [chieuRong, setChieuRong] = useState (0);
+    const [khoiLuong, setKhoiLuong] = useState(0.99);
+    const [phiCoDinh, setPhiCoDinh] = useState(0);
+    const [phiCoc, setPhiCoc] = useState(0);
+    const [phiNang, setPhiNang] = useState(0);
+    const [phiHa, setPhiHa] = useState(0);
+    const [phiThuong, setPhiThuong] = useState(0);
+    const [phiKhac, setPhiKhac] = useState(0);
+    const [phiVAT, setPhiVAT] = useState([]);
+    const [tongPhi, setTongPhi] = useState([]);
+    const [loaiHang, setLoaiHang] = useState('');
 
     useEffect(() => {
         try {
@@ -51,18 +63,42 @@ const TaoDonHang = () => {
             if (loaiVanChuyen === 'Liên tỉnh') {
                 const dc1 = getTinhNguoiGui();
                 const dc2 = getTinhNguoiNhan();
-          
+                
+                setPhiCoDinh(30000);
                 tinhKhoangCachLienTinh(dc1, dc2).then(response => {
                   setKhoangCach(response.data.toFixed(2));
                 })
                 .catch(error => {
                   console.error('Lỗi khi tính khoảng cách:', error);
                 });
-              }
+            }
+            else{
+                setPhiCoDinh(10000);
+            }
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     }, [loaiVanChuyen, selectedTinhNguoiGui, selectedTinhNguoiNhan]);
+
+    useEffect(() => {
+        try {
+            tinhPhiVat(phiCoDinh, phiCoc, phiNang, phiHa, phiThuong, phiKhac).then((response) =>{
+                setPhiVAT(response.data);
+            })     
+        } catch (error) {
+            console.error('Lỗi khi tính phí VAT:', error);
+        }
+    }, [phiCoDinh, phiCoc, phiNang, phiHa, phiThuong, phiKhac]);
+
+    useEffect(() => {
+        try {
+            tinhTongPhi(phiCoDinh, phiVAT, phiCoc, phiNang, phiHa, phiThuong, phiKhac, khoangCach, khoiLuong, chieuDai, chieuRong, loaiHang, loaiVanChuyen).then((response) => {
+                setTongPhi(response.data);
+            })      
+        } catch (error) {
+            console.error('Lỗi khi tính tổng phí:', error);
+        }
+    }, [phiCoDinh, phiVAT, phiCoc, phiNang, phiHa, phiThuong, phiKhac, khoangCach, khoiLuong, chieuDai, chieuRong, loaiHang, loaiVanChuyen]);
 
     const handleTinhNguoiGuiChange = (e) => {
         const idTinh = e.target.value;
@@ -385,10 +421,10 @@ const TaoDonHang = () => {
                                         <Form.Group as={Row} className='p-2'>
                                             <Form.Label column sm="3"><h6>Loại hàng</h6></Form.Label>
                                             <Col sm="9">
-                                                <Form.Select>
+                                                <Form.Select value={loaiHang} onChange={(e) => setLoaiHang(e.target.value)}>
                                                     <option>Chọn loại hàng</option>
-                                                    {uniqueLoaiHang.map((donHang, index) => 
-                                                        <option key={index} value={donHang}>{donHang}</option>
+                                                    {uniqueLoaiHang.map((loaiHang, index) => 
+                                                        <option key={index} value={loaiHang}>{loaiHang}</option>
                                                     )}
                                                 </Form.Select>
                                             </Col>
@@ -409,14 +445,14 @@ const TaoDonHang = () => {
                                         <Form.Group as={Row} className='p-2'>
                                             <Form.Label column sm="3"><h6>Số lượng</h6></Form.Label>
                                             <Col sm="9">
-                                                <Form.Control type='number' min={1}></Form.Control>
+                                                <Form.Control type='number' value={soLuong}></Form.Control>
                                             </Col>
                                         </Form.Group>
 
                                         <Form.Group as={Row} className='p-2'>
                                             <Form.Label column sm="3"><h6>Trọng lượng</h6></Form.Label>
                                             <Col sm="9">
-                                                <Form.Select>
+                                                <Form.Select value={khoiLuong} onChange={(e) => setKhoiLuong(parseFloat(e.target.value))}>
                                                     <option value="0.99">Dưới 1kg</option>
                                                     <option value="4.99">Dưới 5kg</option>
                                                     <option value="9.99">Dưới 10kg</option>
@@ -429,50 +465,59 @@ const TaoDonHang = () => {
                                     <Col>
                                         <Form.Group as={Row} className='p-2'>
                                             <Form.Label column sm="3"><h6>Kích cỡ</h6></Form.Label>
+                                            {loaiVanChuyen == 'Liên tỉnh' && (
                                             <Col sm="9">
                                                 <Form.Group as={Row} className='p-2'>
                                                     <Form.Label column sm="4"><h6>Chiều dài</h6></Form.Label>
                                                     <Col sm="8">
-                                                        <Form.Control type='number' min={1}></Form.Control>
+                                                        <Form.Control type='number' value={chieuDai} onChange={(e) => setChieuDai(parseFloat(e.target.value))}></Form.Control>
                                                     </Col>                                                        
                                                 </Form.Group>
                                                 <Form.Group as={Row} className='p-2'>
                                                     <Form.Label column sm="4"><h6>Chiều rộng</h6></Form.Label>
                                                     <Col sm="8">
-                                                        <Form.Control type='number' min={1}></Form.Control>
+                                                        <Form.Control type='number' value={chieuRong} onChange={(e) => setChieuRong(parseFloat(e.target.value))}></Form.Control>
                                                     </Col>
                                                 </Form.Group>
                                             </Col>
+                                            )}
+
+                                            {loaiVanChuyen == 'Nội tỉnh' && (
+                                            <Col sm="9">
+                                                <Form.Group as={Row} className='p-2'>
+                                                    <Form.Label column sm="4"><h6>Chiều dài</h6></Form.Label>
+                                                    <Col sm="8">
+                                                        <Form.Control type='number' value={chieuDai} onChange={(e) => setChieuDai(parseFloat(e.target.value))} disabled></Form.Control>
+                                                    </Col>                                                        
+                                                </Form.Group>
+                                                <Form.Group as={Row} className='p-2'>
+                                                    <Form.Label column sm="4"><h6>Chiều rộng</h6></Form.Label>
+                                                    <Col sm="8">
+                                                        <Form.Control type='number' value={chieuRong} onChange={(e) => setChieuRong(parseFloat(e.target.value))} disabled></Form.Control>
+                                                    </Col>
+                                                </Form.Group>
+                                            </Col>
+                                            )}
+                                            
                                         </Form.Group>
                                     </Col>
                                 </Row>
 
                                 <Row>
                                     <Col>
-                                        {loaiVanChuyen == 'Liên tỉnh' && (
-                                            <Form.Group as={Row} className='p-2'>
-                                                <Form.Label column sm="5"><h6>Phí cố định</h6></Form.Label>
-                                                <Col sm="7">
-                                                    <Form.Control type='number' value={30000} disabled></Form.Control>
-                                                </Col>
-                                            </Form.Group>
-                                        )}
-
-                                        {loaiVanChuyen == 'Nội tỉnh' && (
-                                            <Form.Group as={Row} className='p-2'>
-                                                <Form.Label column sm="5"><h6>Phí cố định</h6></Form.Label>
-                                                <Col sm="7">
-                                                    <Form.Control type='number' value={10000} disabled></Form.Control>
-                                                </Col>
-                                            </Form.Group>
-                                        )}
+                                        <Form.Group as={Row} className='p-2'>
+                                            <Form.Label column sm="5"><h6>Phí cố định</h6></Form.Label>
+                                            <Col sm="7">
+                                                <Form.Control type='number' value={phiCoDinh} disabled></Form.Control>
+                                            </Col>
+                                        </Form.Group>
                                     </Col>
 
                                     <Col>
                                         <Form.Group as={Row} className='p-2'>
                                             <Form.Label column sm="5"><h6>Phí VAT</h6></Form.Label>
                                             <Col sm="7">
-                                                <Form.Control type='number' disabled></Form.Control>
+                                                <Form.Control type='number' disabled value={phiVAT}></Form.Control>
                                             </Col>
                                         </Form.Group>
                                     </Col>
@@ -481,7 +526,7 @@ const TaoDonHang = () => {
                                         <Form.Group as={Row} className='p-2'>
                                             <Form.Label column sm="5"><h6>Tiền cọc</h6></Form.Label>
                                             <Col sm="7">
-                                                <Form.Control type='number' min={1}></Form.Control>
+                                                <Form.Control type='number' value={phiCoc} onChange={(e) => setPhiCoc(parseInt(e.target.value))} ></Form.Control>
                                             </Col>
                                         </Form.Group>
                                     </Col>
@@ -492,7 +537,7 @@ const TaoDonHang = () => {
                                         <Form.Group as={Row} className='p-2'>
                                             <Form.Label column sm="5"><h6>Phí nâng</h6></Form.Label>
                                             <Col sm="7">
-                                                <Form.Control type='number' min={1}></Form.Control>
+                                                <Form.Control type='number' value={phiNang} onChange={(e) => setPhiNang(parseInt(e.target.value))}></Form.Control>
                                             </Col>
                                         </Form.Group>
                                     </Col>
@@ -501,7 +546,7 @@ const TaoDonHang = () => {
                                         <Form.Group as={Row} className='p-2'>
                                             <Form.Label column sm="5"><h6>Phí hạ</h6></Form.Label>
                                             <Col sm="7">
-                                                <Form.Control type='number' min={1}></Form.Control>
+                                                <Form.Control type='number' value={phiHa} onChange={(e) => setPhiHa(parseInt(e.target.value))}></Form.Control>
                                             </Col>
                                         </Form.Group>
                                     </Col>
@@ -510,7 +555,7 @@ const TaoDonHang = () => {
                                         <Form.Group as={Row} className='p-2'>
                                             <Form.Label column sm="5"><h6>Thưởng shipper</h6></Form.Label>
                                             <Col sm="7">
-                                                <Form.Control type='number' min={1}></Form.Control>
+                                                <Form.Control type='number' value={phiThuong} onChange={(e) => setPhiThuong(parseInt(e.target.value))}></Form.Control>
                                             </Col>
                                         </Form.Group>
                                     </Col>
@@ -521,7 +566,7 @@ const TaoDonHang = () => {
                                         <Form.Group as={Row} className='p-2'>
                                             <Form.Label column sm="5"><h6>Phí khác</h6></Form.Label>
                                             <Col sm="7">
-                                                <Form.Control type='number' min={1}></Form.Control>
+                                                <Form.Control type='number' value={phiKhac} onChange={(e) => setPhiKhac(parseInt(e.target.value))}></Form.Control>
                                             </Col>
                                         </Form.Group>
                                     </Col>
@@ -552,7 +597,7 @@ const TaoDonHang = () => {
                                         <Form.Group as={Row} className='p-2'>
                                             <Form.Label column sm="5"><h6>Tổng phí</h6></Form.Label>
                                             <Col sm="7">
-                                                <Form.Control type='number' min={1} disabled></Form.Control>
+                                                <Form.Control type='number' min={1} disabled value={tongPhi}></Form.Control>
                                             </Col>
                                         </Form.Group>
                                     </Col>
