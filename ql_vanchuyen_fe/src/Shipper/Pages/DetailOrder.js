@@ -33,15 +33,14 @@ const DetailOrder = () => {
 		<div class="main-body">
 			<div class="row">
 				<div class="col-lg-4">
-					<div class="card">
+					<div class="card bg-cardShip">
 						<div class="card-body">
 							<div class="d-flex flex-column align-items-center text-center">
 								<div class="mt-3">
 									<h4>Mã vận đơn: {detailorder.maVanDon}</h4>
-									<p class="text-secondary mb-1">Thời gian lập: {detailorder.thoiGianLap}</p>
+									<p class="mb-1">Thời gian lập: {detailorder.thoiGianLap}</p>
 									<p class="text-muted font-size-sm">Tiền nhận được: </p>
 									<button class="btn btn-primary">Nhận đơn</button>
-									<button class="btn btn-outline-primary">Quay lại</button>
 								</div>
 							</div>
 							<hr class="my-4" />
@@ -49,8 +48,8 @@ const DetailOrder = () => {
 									<div class="col-sm-3">
 										<h6 class="mb-0">Loại hàng</h6>
 									</div>
-									<div class="col-sm-9 text-secondary">
-										<p class="text-secondary mb-1">{thongTinHangHoa.loaiHang}</p>
+									<div class="col-sm-9 ">
+										<p class="mb-1">{thongTinHangHoa.loaiHang}</p>
 									</div>
 								</div>
 
@@ -58,8 +57,8 @@ const DetailOrder = () => {
 									<div class="col-sm-3">
 										<h6 class="mb-0">Khoảng cách</h6>
 									</div>
-									<div class="col-sm-9 text-secondary">
-										<p class="text-secondary mb-1">{detailorder.khoangCach} km</p>
+									<div class="col-sm-9 ">
+										<p class="mb-1">{detailorder.khoangCach} km</p>
 									</div>
 								</div>
 						</div>
@@ -67,7 +66,7 @@ const DetailOrder = () => {
 					
 				</div>
 				<div class="col-lg-8">
-					<div class="card">
+					<div class="card bg-cardShip">
 						<div class="card-body">
 							<h4 class="mb-0">Thông tin người gửi</h4>
 							<br />
@@ -75,31 +74,31 @@ const DetailOrder = () => {
 								<div class="col-sm-3">
 									<h6 class="mb-0">Tên người gửi</h6>
 								</div>
-								<div class="col-sm-9 text-secondary">
-									<p class="text-secondary mb-1">{thongTinNguoiGui.tenNguoiGui}</p>
+								<div class="col-sm-9 ">
+									<p class="mb-1">{thongTinNguoiGui.tenNguoiGui}</p>
 								</div>
 							</div>
 							<div class="row mb-3">
 								<div class="col-sm-3">
 									<h6 class="mb-0">Số điện thoại</h6>
 								</div>
-								<div class="col-sm-9 text-secondary">
-									<p class="text-secondary mb-1">{thongTinNguoiGui.sdtNguoiGui}</p>
+								<div class="col-sm-9 ">
+									<p class="mb-1">{thongTinNguoiGui.sdtNguoiGui}</p>
 								</div>
 							</div>
 							<div class="row mb-3">
 								<div class="col-sm-3">
 									<h6 class="mb-0">Địa chỉ lấy hàng</h6>
 								</div>
-								<div class="col-sm-9 text-secondary">
-									<p class="text-secondary mb-1">{thongTinNguoiGui.diaChiNguoiGui}</p>
+								<div class="col-sm-9 ">
+									<p class="mb-1">{thongTinNguoiGui.diaChiNguoiGui}</p>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<div class="card">
+							<div class="card bg-cardShip">
 								<div class="card-body">
 								<h4 class="mb-0">Thông tin người nhận</h4>
 								<br />
@@ -107,24 +106,24 @@ const DetailOrder = () => {
 									<div class="col-sm-3">
 									<h6 class="mb-0">Tên người nhận</h6>
 									</div>
-									<div class="col-sm-9 text-secondary">
-									<p class="text-secondary mb-1">{thongTinNguoiNhan.tenNguoiNhan}</p>
+									<div class="col-sm-9">
+									<p class="mb-1">{thongTinNguoiNhan.tenNguoiNhan}</p>
 									</div>
 								</div>
 								<div class="row mb-3">
 									<div class="col-sm-3">
 									<h6 class="mb-0">Số điện thoại</h6>
 									</div>
-									<div class="col-sm-9 text-secondary">
-									<p class="text-secondary mb-1">{thongTinNguoiNhan.sdtNguoiNhan}</p>                    
+									<div class="col-sm-9">
+									<p class="mb-1">{thongTinNguoiNhan.sdtNguoiNhan}</p>                    
 									</div>
 								</div>
 								<div class="row mb-3">
 									<div class="col-sm-3">
 									<h6 class="mb-0">Địa chỉ giao hàng</h6>
 									</div>
-									<div class="col-sm-9 text-secondary">
-									<p class="text-secondary mb-1">{thongTinNguoiNhan.diaChiNguoiNhan}</p>                    
+									<div class="col-sm-9">
+									<p class="mb-1">{thongTinNguoiNhan.diaChiNguoiNhan}</p>                    
 									</div>
 								</div>
 								</div>
@@ -133,7 +132,7 @@ const DetailOrder = () => {
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<div class="card">
+							<div class="card bg-cardShip">
 								<div class="card-body">
 									<Mapbox from={thongTinNguoiGui.diaChiNguoiGui} to={thongTinNguoiNhan.diaChiNguoiNhan} />
 								</div>

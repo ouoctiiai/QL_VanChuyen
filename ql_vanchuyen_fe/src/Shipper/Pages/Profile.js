@@ -11,24 +11,24 @@ const Profile = () => {
       <div class="main-body">
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
-              <div class="card">
+              <div class="card  bg-cardShip">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150" />
                     <div class="mt-3">
                       <h4>Nguyễn Quốc Thái</h4>
-                      <p class="text-secondary mb-1">Shipper</p>
+                      <p class="mb-1">Shipper</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="card mt-3">
+              <div class="card mt-3  bg-cardShip">
               <div class="card-body">
                   <div class="row">
                     <div class="col-sm-5">
                       <h6 class="mb-0">Số tài khoản</h6>
                     </div>
-                    <div class="col-sm-7 text-secondary">
+                    <div class="col-sm-7">
                       1375833381
                     </div>
                   </div>
@@ -37,7 +37,7 @@ const Profile = () => {
                     <div class="col-sm-5">
                       <h6 class="mb-0">Tên ngân nàng</h6>
                     </div>
-                    <div class="col-sm-7 text-secondary">
+                    <div class="col-sm-7">
                       Vietcombank
                     </div>
                   </div>
@@ -45,13 +45,13 @@ const Profile = () => {
               </div>
             </div>
             <div class="col-md-8">
-              <div class="card mb-3">
+              <div class="card mb-3 bg-cardShip">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Mã Shipper</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div class="col-sm-9">
                       SP001
                     </div>
                   </div>
@@ -60,7 +60,7 @@ const Profile = () => {
                     <div class="col-sm-3">
                       <h6 class="mb-0">Tên tài khoản</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div class="col-sm-9">
                       ouoctiiai
                     </div>
                   </div>
@@ -69,7 +69,7 @@ const Profile = () => {
                     <div class="col-sm-3">
                       <h6 class="mb-0">Điện thoại</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div class="col-sm-9">
                       (239) 816-9029
                     </div>
                   </div>
@@ -78,7 +78,7 @@ const Profile = () => {
                     <div class="col-sm-3">
                       <h6 class="mb-0">Mail</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div class="col-sm-9">
                       luphi2612@gmail.com
                     </div>
                   </div>
@@ -87,7 +87,7 @@ const Profile = () => {
                     <div class="col-sm-3">
                       <h6 class="mb-0">Địa chỉ</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div class="col-sm-9">
                       406/6 CỘng Hòa, Phường 13, Quận Tân Bình, TPHCM
                     </div>
                   </div>

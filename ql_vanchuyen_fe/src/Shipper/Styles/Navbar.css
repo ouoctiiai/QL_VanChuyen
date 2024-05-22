@@ -1,49 +1,45 @@
-/* 
-.active{
-    background-color: #1d4ed8;
-}
 .navShip {
-    background-color: #0f172a;
-}
-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
     position: sticky;
     top: 0;
+    background-color: #c8d6f5;
 }
 
-nav .title {
+.navShip .title {
     font-size: 1.5rem;
     margin: 1rem;
     font-weight: bold;
     text-decoration: none;
-    color: white;
+    color: rgb(21, 11, 60);
 }
 
-nav ul {
+.navShip ul {
     display: flex;
 }
 
-nav ul li {
+.navShip ul li {
    list-style: none; 
 }
 
-nav ul li a {
+.navShip ul li a {
     display: block;
     text-decoration: none;
-    color: white;
+    color: rgb(21, 11, 60);
     padding: 0.5rem;
     margin: 0 0.5rem;
     border-radius: 0.5rem;
+    font-size: 17px;
+    font-weight: bold;
 }
 
-nav ul li a:not(.active):hover {
-    background-color:#172554 ;
+.navShip ul li a:not(.active):hover {
+    background-color:#aec0fe ;
+    color: rgb(21, 11, 60);
 }
 
-nav .menu {
+.navShip .menu {
     display: none;
     position: absolute;
     top: 0.75rem;
@@ -54,7 +50,7 @@ nav .menu {
     height: 2rem;
 }
 
-nav .menu span {
+.navShip .menu span {
     height: 0.4rem;
     width: 100%;
     background-color: #fff;
@@ -63,32 +59,32 @@ nav .menu span {
 
 
 @media (max-width: 600px) {
-    nav .menu {
+    .navShip .menu {
         display: flex;
     }
 
-    nav {
+    .navShip {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    nav ul {
+    .navShip ul {
         display: none;
         flex-direction: column;
         width: 100%;
         margin-bottom: 0.25rem;
     }
 
-    nav ul.open {
+    .navShip ul.open {
         display: flex;
     }
 
-    nav ul li {
+    .navShip ul li {
         width: 100%;
         text-align: center;
     }
 
-    nav ul li a {
+    .navShip ul li a {
         margin: 0.2rem 0.5rem;
     }
-} */
+} 
