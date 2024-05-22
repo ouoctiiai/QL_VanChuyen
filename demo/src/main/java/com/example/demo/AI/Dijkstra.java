@@ -121,7 +121,7 @@ public class Dijkstra {
     }
 
     public static void main(String[] args) {
-        System.out.println(findDistance("Lai Châu", "Long An"));
+        System.out.println(findDistance("TP Hồ Chí Minh", "Lâm Đồng"));
         System.out.println(findShortedPath("Lai Châu", "Long An"));
     }
 

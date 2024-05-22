@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
 @RestController
 @RequestMapping("/vandon")
@@ -55,6 +55,16 @@ public class VanDonCotroller {
         }
     }
 
+//    @GetMapping("/{maVanDon}")
+//    public ResponseEntity<VanDonPOJO> getVanDonByMaVanDon(@PathVariable ObjectId id) {
+//        VanDonPOJO vanDon = vanDonService.timVanDonTheoId(id);
+//        if (vanDon != null) {
+//            return ResponseEntity.ok(vanDon);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+
     @GetMapping("/dsTaiXe")
     public ResponseEntity<List<ThongTinTaiXe>> danhSachTaiXe() {
         List<ThongTinTaiXe> dsTaiXe = taiXeService.danhSachTaiXe();
@@ -67,6 +77,10 @@ public class VanDonCotroller {
         return new ResponseEntity<>(dsXe, HttpStatus.OK);
     }
 
+    @GetMapping("/khoangCach/{dc1}/{dc2}")
+    public ResponseEntity<Double> calculateDistance(@PathVariable String dc1, @PathVariable String dc2) {
+        Double khoangCach = vanDonService.tinhKhoangCachDonLT(dc1, dc2);
+        return ResponseEntity.ok(khoangCach);
     @GetMapping("/tongTaiXe")
     public ResponseEntity<Integer> tinhTongTaiXe() {
         int tongTaiXe = taiXeService.tinhTongTaiXe();

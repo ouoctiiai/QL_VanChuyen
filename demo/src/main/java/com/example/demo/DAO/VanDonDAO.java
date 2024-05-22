@@ -233,6 +233,13 @@ public class VanDonDAO {
         return convertToVanDonPOJO(doc);
     }
 
+//    public VanDonPOJO timVanDonTheoMaVanDon(String maVanDon){
+//        MongoCollection<Document> collection = connection.getCollection();
+//        Bson filter = Filters.eq("MaVanDon", maVanDon);
+//        Document doc = collection.find(filter).first();
+//        return convertToVanDonPOJO(doc);
+//    }
+
     public Double tinhKhoangCachDonLienTinh(VanDonPOJO vd){
         Double khoangCach = 0.0;
         KhoDAO khodao = new KhoDAO();
