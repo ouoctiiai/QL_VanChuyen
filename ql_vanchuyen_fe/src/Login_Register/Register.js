@@ -78,7 +78,7 @@ const Register = (props) => {
             <div className="tab-content">
                 <div className="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
                     <form onSubmit={handleSignIn}>
-                        <div className="text-center mb-3">
+                        {/* <div className="text-center mb-3">
                             <p>Đăng nhập với:</p>
                             <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
                                 <i className="fab fa-facebook-f"></i>
@@ -97,7 +97,7 @@ const Register = (props) => {
                             </button>
                         </div>
 
-                        <p className="text-center">hoặc:</p>
+                        <p className="text-center">hoặc:</p> */}
 
                         {/* <!-- Name input --> */}
                         <div data-mdb-input-init className="form-outline mb-4">

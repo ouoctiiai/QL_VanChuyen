@@ -6,9 +6,16 @@ const Menu = () => {
     const history = useHistory();
     const handleLogout = () => {
         localStorage.removeItem("accessToken");
+        localStorage.removeItem("userId");
+        localStorage.removeItem("loaiTaiKhoan");
+        localStorage.removeItem("tenChuTaiKhoan");
         history.replace("/login");
         window.location.reload(true);
     }
+    const tenChuTaiKhoan = localStorage.getItem("tenChuTaiKhoan");
+    const loaiTaiKhoan = localStorage.getItem("loaiTaiKhoan");
+
+
     return (
         <div className='menu_container'>
             <div className="profile-userpic">
@@ -18,10 +25,10 @@ const Menu = () => {
                         <!-- SIDEBAR USER TITLE --> */}
             <div className="profile-usertitle">
                 <div className="profile-usertitle-name">
-                    Tên tài khoản
+                    {tenChuTaiKhoan}
                 </div>
                 <div className="profile-usertitle-job">
-                    Role
+                    {loaiTaiKhoan}
                 </div>
             </div>
             <div className="profile-usermenu">

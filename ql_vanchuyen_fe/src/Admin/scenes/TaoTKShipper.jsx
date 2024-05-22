@@ -13,25 +13,25 @@ const Form = () => {
   const [banks, setBanks] = useState([]);
 
   useEffect(() => {
-      axios.get('https://api.vietqr.io/v2/banks')
-        .then((response) => {
-          // http status code
-          // 200: thanh cong
-          // 400: bad request
-          // 401, 403: unauthorized
-          // 500: loi backend server
-          if (response && response.status === 200) {
-            const result = response.data;
-            if (result && result.code === "00") {
-              setBanks(result.data);
-              console.log(banks);
-            }
+    axios.get('https://api.vietqr.io/v2/banks')
+      .then((response) => {
+        // http status code
+        // 200: thanh cong
+        // 400: bad request
+        // 401, 403: unauthorized
+        // 500: loi backend server
+        if (response && response.status === 200) {
+          const result = response.data;
+          if (result && result.code === "00") {
+            setBanks(result.data);
+            console.log(banks);
           }
-          })
-        .catch((error) => {
-          console.error('Không thể lấy dữ liệu từ API', error);
-        });
-    }, []);
+        }
+      })
+      .catch((error) => {
+        console.error('Không thể lấy dữ liệu từ API', error);
+      });
+  }, []);
 
   const handleFormSubmit = (values) => {
     console.log(values);
@@ -60,6 +60,9 @@ const Form = () => {
               gap="30px"
               gridTemplateColumns="repeat(4, minmax(0, 1fr))"
               sx={{
+                "& .MuiFormLabel-root": {
+                  fontSize: "1.2em", 
+                },
                 "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
               }}
             >
@@ -128,7 +131,7 @@ const Form = () => {
                 helperText={touched.cccd && errors.cccd}
                 sx={{ gridColumn: "span 4" }}
               />
-                <TextField
+              <TextField
                 fullWidth
                 variant="filled"
                 type="text"
@@ -194,8 +197,8 @@ const Form = () => {
                 sx={{ gridColumn: "span 2" }}
               />
             </Box>
-            <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained">
+            <Box display="flex" justifyContent="end" mt="20px" >
+              <Button type="submit" color="secondary" variant="contained" sx={{ fontSize: '1.3em' }}>
                 Tạo tài khoản
               </Button>
             </Box>
@@ -217,7 +220,7 @@ const checkoutSchema = yup.object().shape({
     .string()
     .matches(phoneRegExp, "Định dạng SDT không đúng")
     .required("Bắt buộc"),
-  cccd:yup
+  cccd: yup
     .string()
     .matches(cccdRegExp, "Định dạng CCCD không đúng")
     .required("Bắt buộc"),
