@@ -13,3 +13,7 @@ export const listXe = () => axios.get(REST_API_BASE_URL + '/dsXe');
 export const listNoiTinh = () => axios.get(REST_API_BASE_URL + '/dsDonNoiTinh');
 
 export const listNgoaiTinh = () => axios.get(REST_API_BASE_URL + '/dsDonLienTinh');
+
+// export const tinhKhoangCachLienTinh = (dc1, dc2) => axios.get(REST_API_BASE_URL + '/khoangCach' + '/' + dc1 + '/' + dc2);
+
+export const tinhKhoangCachLienTinh = (dc1, dc2) => axios.get(`${REST_API_BASE_URL}/khoangCach/${dc1}/${dc2}`);

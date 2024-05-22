@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Col, Form, Row, Card } from 'react-bootstrap';
-import { listTaiXe, listVanDon, listXe } from '../Api/DataVanDon';
+import { listTaiXe, listVanDon, listXe, tinhKhoangCachLienTinh } from '../Api/DataVanDon';
 import { listPhuongXaTheoQuanHuyen, listQuanHuyenTheoTinhThanh, listTinhThanh } from '../Api/DataDiaChi';
 import Mapbox from '../Shipper/Components/Mapbox';
 
@@ -8,9 +8,9 @@ const TaoDonHang = () => {
     const [danhSachDonHang, setDanhSachDonHang] = useState([]);
     const [danhSachXe, setDanhSachXe] = useState([]);
     const [danhSachTaiXe, setDanhSachTaiXe] = useState([]);
-    const [loaiVanChuyen, setLoaiVanChuyen] = useState('Liên tỉnh');
     const [soDienThoai, setSoDienThoaiTaiXe] = useState([]);
     const [loaiXeChon, setLoaiXeChon] = useState([]);
+    const [loaiVanChuyen, setLoaiVanChuyen] = useState('Liên tỉnh');
     const [khoangCach, setKhoangCach] = useState(0);
 
     const [tinhNguoiGui, setTinhNguoiGui] = useState([]);
@@ -29,6 +29,8 @@ const TaoDonHang = () => {
     const [selectedQuanNguoiNhan, setSelectedQuanNguoiNhan] = useState(0);
     const [selectedPhuongNguoiNhan, setSelectedPhuongNguoiNhan] = useState(0);
 
+    const [soLuong, setSoLuong] = useState (1);
+
     useEffect(() => {
         try {
             listVanDon().then((Response) => {
@@ -45,10 +47,22 @@ const TaoDonHang = () => {
                 setTinhNguoiGui(Response.data);
                 setTinhNguoiNhan(Response.data);
             });
+
+            if (loaiVanChuyen === 'Liên tỉnh') {
+                const dc1 = getTinhNguoiGui();
+                const dc2 = getTinhNguoiNhan();
+          
+                tinhKhoangCachLienTinh(dc1, dc2).then(response => {
+                  setKhoangCach(response.data.toFixed(2));
+                })
+                .catch(error => {
+                  console.error('Lỗi khi tính khoảng cách:', error);
+                });
+              }
         } catch (error) {
             console.error('Error fetching data:', error);
         }
-    }, []);
+    }, [loaiVanChuyen, selectedTinhNguoiGui, selectedTinhNguoiNhan]);
 
     const handleTinhNguoiGuiChange = (e) => {
         const idTinh = e.target.value;
@@ -62,7 +76,7 @@ const TaoDonHang = () => {
             console.error('Error fetching QuanHuyen data:', error);
         });
 
-        if (loaiVanChuyen == 'Nội tỉnh') {
+        if (loaiVanChuyen === 'Nội tỉnh') {
             setSelectedTinhNguoiNhan(idTinh);
             setQuanNguoiNhan([]);
             setPhuongNguoiNhan([]);
@@ -168,6 +182,37 @@ const TaoDonHang = () => {
         }
     };
 
+    const formatTenTinh = (tenTinh) => {
+        if (tenTinh === "Thành phố Hồ Chí Minh") {
+            return tenTinh.replace("Thành phố", "TP")
+        }else if(tenTinh == "Thành phố Hà Nội" || tenTinh === "Thành phố Cần Thơ"){
+            return tenTinh.replace("Thành phố", "");
+        } 
+        else {
+            return tenTinh.replace("Tỉnh ", "");
+        }
+    };
+    
+    const getTinhNguoiGui = () => {
+        const selectedTinh = tinhNguoiGui.find(tinh => tinh.IdDiaChi === selectedTinhNguoiGui);
+        if(selectedTinh){
+            return formatTenTinh(selectedTinh.Name);
+        }
+        else{
+            return '';
+        }
+    };
+    
+    const getTinhNguoiNhan = () => {
+        const selectedTinh = tinhNguoiNhan.find(tinh => tinh.IdDiaChi === selectedTinhNguoiNhan);
+        if(selectedTinh){
+            return formatTenTinh(selectedTinh.Name);
+        }
+        else{
+            return '';
+        }
+    };
+
     const locBienSoXe = danhSachXe
         .filter(xe => xe.loaiXe == loaiXeChon)
         .map(xe => xe.bienSo);
@@ -246,7 +291,7 @@ const TaoDonHang = () => {
                                             <Col sm="8">
                                                 <Form.Control type='text' placeholder='Tên đường, Tòa nhà, Số nhà' value={soNhaNguoiGui} onChange={handleSoNhaNguoiGuiChange}></Form.Control>
                                             </Col>
-                                        </Row>     
+                                        </Row>    
                                     </Form.Group>
                                 </Form>
                             </Card.Body>
@@ -388,13 +433,13 @@ const TaoDonHang = () => {
                                                 <Form.Group as={Row} className='p-2'>
                                                     <Form.Label column sm="4"><h6>Chiều dài</h6></Form.Label>
                                                     <Col sm="8">
-                                                        <Form.Control type='number' min={1} value="chieuDai"></Form.Control>
+                                                        <Form.Control type='number' min={1}></Form.Control>
                                                     </Col>                                                        
                                                 </Form.Group>
                                                 <Form.Group as={Row} className='p-2'>
                                                     <Form.Label column sm="4"><h6>Chiều rộng</h6></Form.Label>
                                                     <Col sm="8">
-                                                        <Form.Control type='number' min={1} value="chieuRong"></Form.Control>
+                                                        <Form.Control type='number' min={1}></Form.Control>
                                                     </Col>
                                                 </Form.Group>
                                             </Col>
@@ -481,9 +526,8 @@ const TaoDonHang = () => {
                                         </Form.Group>
                                     </Col>
 
-                                    
                                     <Col>
-                                        {loaiVanChuyen == 'Nội tỉnh' && (
+                                        {loaiVanChuyen === 'Nội tỉnh' && (
                                             <Form.Group as={Row} className='p-2'>
                                                 <Form.Label column sm="5"><h6>Khoảng cách</h6></Form.Label>
                                                 <Col sm="7">
@@ -494,11 +538,11 @@ const TaoDonHang = () => {
                                                 </Col>
                                             </Form.Group>
                                         )}
-                                        {loaiVanChuyen == 'Liên tỉnh' && (
+                                        {loaiVanChuyen === 'Liên tỉnh' && (
                                             <Form.Group as={Row} className='p-2'>
                                                 <Form.Label column sm="5"><h6>Khoảng cách</h6></Form.Label>
                                                 <Col sm="7">
-                                                    <Form.Control type='number' min={1} disabled></Form.Control>
+                                                    <Form.Control type='number' min={1} disabled value={khoangCach}></Form.Control>
                                                 </Col>
                                             </Form.Group>
                                         )}
@@ -518,7 +562,7 @@ const TaoDonHang = () => {
                     </Card>
                 </Row>
 
-                {loaiVanChuyen == 'Liên tỉnh' && (
+                {loaiVanChuyen === 'Liên tỉnh' && (
                     <Row style={{marginBottom: '10px'}}>
                         <Col>
                             <Card>

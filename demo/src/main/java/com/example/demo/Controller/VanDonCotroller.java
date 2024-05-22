@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
 @RestController
 @RequestMapping("/vandon")
@@ -65,5 +65,11 @@ public class VanDonCotroller {
     public ResponseEntity<List<ThongTinXe>> danhSachXe() {
         List<ThongTinXe> dsXe = xeService.danhSachXe();
         return new ResponseEntity<>(dsXe, HttpStatus.OK);
+    }
+
+    @GetMapping("/khoangCach/{dc1}/{dc2}")
+    public ResponseEntity<Double> calculateDistance(@PathVariable String dc1, @PathVariable String dc2) {
+        Double khoangCach = vanDonService.tinhKhoangCachDonLT(dc1, dc2);
+        return ResponseEntity.ok(khoangCach);
     }
 }

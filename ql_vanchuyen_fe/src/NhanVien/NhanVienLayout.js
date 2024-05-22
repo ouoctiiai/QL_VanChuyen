@@ -18,9 +18,9 @@ const NhanVienLayout = ({children,  ...props}) => {
     };
 
     return (
-        <div className='d-flex wrapper' {...props}>
+        <div className='d-flex wrapper nv_container' {...props}>
             <div className='bg-white sidebar-wrapper'>
-                <div className='sidebar-heading text-center py-4 fs-4 fw-bold text-uppercase border-bottom'>
+                <div className='sidebar-heading text-center py-4 fs-4 fw-bold text-uppercase border-bottom nv_sidebar'>
                     <NavLink to='/nv_home' className='primary-text bg-transparent'>
                         <i className="fas fa-leaf me-2"></i>Spring
                         <br/>
