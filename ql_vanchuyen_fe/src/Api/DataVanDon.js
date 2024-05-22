@@ -13,3 +13,5 @@ export const listXe = () => axios.get(REST_API_BASE_URL + '/dsXe');
 export const listNoiTinh = () => axios.get(REST_API_BASE_URL + '/dsDonNoiTinh');
 
 export const listNgoaiTinh = () => axios.get(REST_API_BASE_URL + '/dsDonLienTinh');
+
+export const getVanDonByMaVanDon = (maVanDon) => axios.get(REST_API_BASE_URL + '/' + maVanDon);

@@ -64,9 +64,9 @@ public class TaiKhoanDAO {
         return convertToTaiKhoanPOJO(doc);
     }
 
-    public TaiKhoanPOJO timTaiKhoanTheoSDT(String sdt){
+    public TaiKhoanPOJO timTaiKhoanTheoTenTaiKhoan(String tenTaiKhoan){
         MongoCollection<Document> collection = connection.getCollection();
-        Bson filter = Filters.eq("SDT", sdt);
+        Bson filter = Filters.eq("TenTaiKhoan", tenTaiKhoan);
         Document doc = collection.find(filter).first();
         return doc != null ? convertToTaiKhoanPOJO(doc) : null;
     }

@@ -55,6 +55,16 @@ public class VanDonCotroller {
         }
     }
 
+//    @GetMapping("/{maVanDon}")
+//    public ResponseEntity<VanDonPOJO> getVanDonByMaVanDon(@PathVariable ObjectId id) {
+//        VanDonPOJO vanDon = vanDonService.timVanDonTheoId(id);
+//        if (vanDon != null) {
+//            return ResponseEntity.ok(vanDon);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+
     @GetMapping("/dsTaiXe")
     public ResponseEntity<List<ThongTinTaiXe>> danhSachTaiXe() {
         List<ThongTinTaiXe> dsTaiXe = taiXeService.danhSachTaiXe();
