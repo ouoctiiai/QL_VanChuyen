@@ -76,6 +76,7 @@ const Sidebar = () =>{
             style={{
               margin: "10px 0 20px 0",
               color: colors.grey[100],
+              fontSize: 1.3,
             }}
           >
             {!isCollapsed && (

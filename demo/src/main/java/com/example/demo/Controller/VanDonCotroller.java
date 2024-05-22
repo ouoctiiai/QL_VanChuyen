@@ -66,4 +66,17 @@ public class VanDonCotroller {
         List<ThongTinXe> dsXe = xeService.danhSachXe();
         return new ResponseEntity<>(dsXe, HttpStatus.OK);
     }
+
+    @GetMapping("/tongTaiXe")
+    public ResponseEntity<Integer> tinhTongTaiXe() {
+        int tongTaiXe = taiXeService.tinhTongTaiXe();
+        return new ResponseEntity<>(tongTaiXe, HttpStatus.OK);
+    }
+
+    @GetMapping("/tongXe")
+    public ResponseEntity<Integer> tinhTongXe() {
+        int tongXe = xeService.tinhTongXe();
+        return new ResponseEntity<>(tongXe, HttpStatus.OK);
+    }
+
 }

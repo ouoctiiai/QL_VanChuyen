@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.DAO.ShipperDAO;
 import com.example.demo.DAO.TaiKhoanDAO;
 import com.example.demo.POJO.TaiKhoanPOJO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,17 @@ import java.util.List;
 public class TaiKhoanController {
     @Autowired
     private TaiKhoanDAO taiKhoanService;
+    private ShipperDAO shipperService;
 
     @GetMapping("/danh-sach")
     public ResponseEntity dsTaiKhoan(Model model) {
         List<TaiKhoanPOJO> dstk = taiKhoanService.layTatCaTaiKhoan();
         return new ResponseEntity<>(dstk, HttpStatus.OK);
     }
+
+//    @GetMapping("/tongShipper")
+//    public ResponseEntity<Integer> tinhTongShipper() {
+//        int tongShipper = shipperService.tinhTongShipper(dsTaiKhoan());
+//        return new ResponseEntity<>(tinhTongShipper(), HttpStatus.OK);
+//    }
 }
