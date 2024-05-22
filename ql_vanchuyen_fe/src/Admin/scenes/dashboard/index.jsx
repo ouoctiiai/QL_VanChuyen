@@ -156,7 +156,7 @@ const Dashboard = () => {
             title="12,361"
             subtitle="Đơn chờ giao"
             progress={pendingRate} 
-            increase="+14%"
+            increase={pendingRate.toFixed(2)}
             icon={
               <EmailIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -175,7 +175,7 @@ const Dashboard = () => {
             title="431,225"
             subtitle="Đơn đang giao"
             progress={deliveringRate} 
-            increase="+21%"
+            increase={deliveringRate.toFixed(2)}
             icon={
               <PointOfSaleIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -191,7 +191,7 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="32,441"
+            title={waitingForConfirmationRate.toFixed(2)}
             subtitle="Chờ xác nhận"
             progress={waitingForConfirmationRate} 
             icon={
@@ -210,9 +210,9 @@ const Dashboard = () => {
         >
           <StatBox
             title="1,325,134"
-            subtitle="Đơn Đã huỷ"
+            subtitle="Đơn đã huỷ"
             progress={cancelledRate}
-            increase="+43%"
+            increase={cancelledRate.toFixed(2)}
             icon={
               <TrafficIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
