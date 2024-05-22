@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Console;
 import java.util.List;
 
 @RestController
@@ -65,4 +66,19 @@ public class TaiKhoanController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
+
+    @PostMapping("/create")
+    public ResponseEntity<TaiKhoanPOJO> taoTaiKhoan(@RequestBody TaiKhoanPOJO taiKhoan){
+        boolean check = taiKhoanService.themTaiKhoanMoi(taiKhoan);
+        System.out.println(check);
+        if(check){
+            System.out.println(taiKhoan.getTenTaiKhoan());
+            return ResponseEntity.ok(taiKhoan);
+        }
+        else{
+            System.out.println("Loi");
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();}
+    }
+
 }

@@ -15,16 +15,21 @@ import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import { getTongDonHangThanhCong } from "./../../../Api/DataVanDon";
 import { getTongDonHang } from './../../../Api/DataVanDon';
+import { get10RecentOrders } from "./../../../Api/DataVanDon";
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [totalOrders, setTotalOrders] = useState(0);
   const [successfulOrders, setSuccessfulOrders] = useState(0);
+  const [recentOrders, setRecentOrders] = useState([]);
+
   const successRate = (successfulOrders / totalOrders) * 100;
+  const successRate1 = totalOrders ? (successfulOrders / totalOrders) * 100 : 0;
 
 
   useEffect(() => {
+    //Lấy tổng đơn
     const fetchTotalOrders = async () => {
       try {
         const response = await getTongDonHang();
@@ -34,6 +39,7 @@ const Dashboard = () => {
       }
     };
 
+    //Lấy đơn đã giao
     const fetchSuccessfulOrders = async () => {
       try {
         const response = await getTongDonHangThanhCong();
@@ -43,10 +49,22 @@ const Dashboard = () => {
       }
     };
 
+    //DS 10 đơn gần nhất
+    const fetchRecentOrders = async () => {
+      try {
+        const response = await get10RecentOrders();
+        setRecentOrders(response.data);
+      } catch (error) {
+        console.error("Error fetching recent orders:", error);
+      }
+    };
+
     fetchTotalOrders();
     fetchSuccessfulOrders();
+    fetchRecentOrders();
   }, []);
-  
+
+
   return (
     <Box m="20px">
       {/* HEADER */}
@@ -210,12 +228,12 @@ const Dashboard = () => {
             p="15px"
           >
             <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
+              Đơn hàng gần đây
             </Typography>
           </Box>
-          {mockTransactions.map((transaction, i) => (
+          {recentOrders.map((order, i) => (
             <Box
-              key={`${transaction.txId}-${i}`}
+              key={`${order.maVanDon}-${i}`}
               display="flex"
               justifyContent="space-between"
               alignItems="center"
@@ -228,19 +246,19 @@ const Dashboard = () => {
                   variant="h5"
                   fontWeight="600"
                 >
-                  {transaction.txId}
+                  {order.maVanDon}
                 </Typography>
                 <Typography color={colors.grey[100]}>
-                  {transaction.user}
+                  {order.loaiVanChuyen}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
+              <Box color={colors.grey[100]}>{order.thoiGianLap}</Box>
               <Box
                 backgroundColor={colors.greenAccent[500]}
                 p="5px 10px"
                 borderRadius="4px"
               >
-                ${transaction.cost}
+                ${order.phiVanChuyen.tongPhi}
               </Box>
             </Box>
           ))}
@@ -254,7 +272,7 @@ const Dashboard = () => {
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
-            Campaign
+            Đơn giao thành công
           </Typography>
           <Box
             display="flex"
@@ -268,9 +286,9 @@ const Dashboard = () => {
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $48,352 revenue generated
+              {successRate1.toFixed(2)}%
             </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
+            <Typography>Số đơn đã giao hàng thành công trên tổng số đơn</Typography>
           </Box>
         </Box>
         <Box

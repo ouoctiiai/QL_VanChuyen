@@ -101,6 +101,30 @@ public class VanDonCotroller {
         return new ResponseEntity<>(tongDonHangThanhCong, HttpStatus.OK);
     }
 
+    @GetMapping("/tongDonHangDaHuy")
+    public ResponseEntity<Integer> tinhTongDonHangDaHuy() {
+        int tongDonHangDaHuy = vanDonService.tinhTongSoDonHangDaHuy();
+        return new ResponseEntity<>(tongDonHangDaHuy, HttpStatus.OK);
+    }
+
+    @GetMapping("/tongDonHangChoGiao")
+    public ResponseEntity<Integer> tinhTongDonHangChoGiao() {
+        int tongDonHangChoGiao = vanDonService.tinhTongSoDonHangChoGiao();
+        return new ResponseEntity<>(tongDonHangChoGiao, HttpStatus.OK);
+    }
+
+    @GetMapping("/tongDonHangChoXacNhan")
+    public ResponseEntity<Integer> tinhTongDonHangChoXN() {
+        int tongDonHangChoXN = vanDonService.tinhTongSoDonHangChoXN();
+        return new ResponseEntity<>(tongDonHangChoXN, HttpStatus.OK);
+    }
+
+    @GetMapping("/tongDonHangThanhCong")
+    public ResponseEntity<Integer> tinhTongDonHangDangGiao() {
+        int tongDonHangDangGiao = vanDonService.tinhTongSoDonHangDangGiao();
+        return new ResponseEntity<>(tongDonHangDangGiao, HttpStatus.OK);
+    }
+
     @GetMapping("/tongDonHang")
     public ResponseEntity<Integer> tinhTongDonHang() {
         int tongDonHang = vanDonService.tinhTongDonHang();
