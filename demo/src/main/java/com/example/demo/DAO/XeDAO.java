@@ -47,4 +47,8 @@ public class XeDAO {
         return false;
     }
 
+    public int tinhTongXe() {
+        List<ThongTinXe> danhSachXe = danhSachXe();
+        return danhSachXe.size();
+    }
 }

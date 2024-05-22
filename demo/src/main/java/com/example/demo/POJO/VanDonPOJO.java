@@ -126,9 +126,6 @@ public class VanDonPOJO {
         return phiVanChuyen;
     }
 
-    public ThongTinShipper getThongTinShipper() {
-        return thongTinShipper;
-    }
 
     public String getTrangThai() {
         return trangThai;

@@ -25,7 +25,7 @@ const ListDonCho = () => {
         <div class="col-lg-12">
           <div class="align-items-center row">
               <div class="col-lg-10">
-                  <div class="mb-3 mb-lg-0"><h6 class="fs-16 mb-0 text-light">Danh sách đơn đang chờ xử lý</h6></div>
+                  <div class="mb-3 mb-lg-0"><h6 class="fs-16 mb-0">Danh sách đơn đang chờ xử lý</h6></div>
               </div>
               <div class="col-lg-2">
                 <div class="candidate-list-widgets">
@@ -56,7 +56,7 @@ const ListDonCho = () => {
 
                               <td>
                                   <div>
-                                      <h5 class="font-size-18"><a href="/detailorder" class="text-light">{item.thongTinHangHoa.loaiHang}</a></h5>
+                                      <h5 class="font-size-18"><a href="/detailorder">{item.thongTinHangHoa.loaiHang}</a></h5>
                                   </div>
                               </td>
 
@@ -64,13 +64,13 @@ const ListDonCho = () => {
                                   <ul class="list-unstyled ps-0 mb-0">
                                         <li>
                                             <p class="text-muted mb-1 text-truncate">
-                                                <i class="mdi mdi-circle-medium align-middle text-primary me-1">-</i>
+                                                <i class="mdi mdi-circle-medium align-middle me-1">-</i>
                                                 Điểm nhận: {item.thongTinNguoiGui.diaChiNguoiGui} 
                                             </p>
                                         </li>
                                         <li>
                                             <p class="text-muted mb-1 text-truncate">
-                                                <i class="mdi mdi-circle-medium align-middle text-primary me-1">-</i> 
+                                                <i class="mdi mdi-circle-medium align-middle me-1">-</i> 
                                                 Điểm giao: {item.thongTinNguoiNhan.diaChiNguoiNhan} 
                                             </p>
                                         </li>
@@ -78,11 +78,11 @@ const ListDonCho = () => {
                               </td>
 
                               <td>
-                                  <h3 class="mb-0 font-size-20 text-light"><b>{item.khoangCach}km</b></h3>
+                                  <h3 class="mb-0 font-size-20 text-primary"><b>{item.khoangCach}km</b></h3>
                               </td>
 
                               <td>
-                                  <h3 class="mb-0 font-size-20 text-light"><b>{item.phiVanChuyen.tongPhi}đ</b></h3>
+                                  <h3 class="mb-0 font-size-20 text-primary"><b>{item.phiVanChuyen.tongPhi}đ</b></h3>
                               </td>
 
                               <td>

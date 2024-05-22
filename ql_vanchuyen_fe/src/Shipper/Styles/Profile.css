@@ -1,7 +1,4 @@
-body{
-    text-align: left;
-    
-}
+
 .main-body {
     padding: 15px;
     margin-top: 40px;
@@ -16,7 +13,7 @@ body{
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: #ecf5ff;
     background-clip: border-box;
     border: 0 solid rgba(0,0,0,.125);
     border-radius: .25rem;
@@ -49,4 +46,8 @@ body{
 }
 .shadow-none {
     box-shadow: none!important;
+}
+
+.text-black{
+    color: black;
 }

@@ -3,8 +3,10 @@ package com.example.demo.DAO;
 import com.example.demo.AI.Dijkstra;
 import com.example.demo.POJO.*;
 import com.mongodb.BasicDBObject;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Sorts;
 import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -16,23 +18,6 @@ import java.util.*;
 
 @Service
 public class VanDonDAO {
-
-    private class DoanhThuTheoNam{
-        public int nam;
-        public double tongTien;
-
-        public DoanhThuTheoNam(){
-            nam= 0;
-            tongTien = 0;
-        }
-        public DoanhThuTheoNam(int nam){
-            this.nam = nam;
-        }
-        public DoanhThuTheoNam(int nam, double tongTien){
-            this.nam = nam;
-            this.tongTien = tongTien;
-        }
-    }
 
     private final Connection connection;
     private java.util.Objects Objects;
@@ -145,6 +130,39 @@ public class VanDonDAO {
         return tongPhi;
     }
 
+    private class DoanhThuTheoNam{
+        public int nam;
+        public double tongTien;
+
+        public DoanhThuTheoNam(){
+            nam= 0;
+            tongTien = 0;
+        }
+        public DoanhThuTheoNam(int nam){
+            this.nam = nam;
+        }
+        public DoanhThuTheoNam(int nam, double tongTien){
+            this.nam = nam;
+            this.tongTien = tongTien;
+        }
+    }
+
+    public List<VanDonPOJO> danhSach10DonGanDayNhat() {
+        List<VanDonPOJO> dsVanDon = new ArrayList<>();
+
+        MongoCollection<Document> collection = connection.getCollection();
+
+        FindIterable<Document> docs = collection.find()
+                .sort(Sorts.descending("ThoiGianLap"))
+                .limit(10);
+
+        for (Document doc : docs) {
+            VanDonPOJO vd = convertToVanDonPOJO(doc);
+            dsVanDon.add(vd);
+        }
+
+        return dsVanDon;
+    }
     public List<Map<Integer, Double>> tinhDoanhThuTheoNam() {
         List<VanDonPOJO> danhSach = allVanDon();
         List<Map<Integer, Double>> doanhThuTheoNam = new ArrayList<>();
@@ -156,6 +174,25 @@ public class VanDonDAO {
         }
 
         return doanhThuTheoNam;
+    }
+
+    public int tinhTongSoDonHangThanhCong() {
+        int tongSoDonHangThanhCong = 0;
+
+        MongoCollection<Document> collection = connection.getCollection();
+        BasicDBObject query = new BasicDBObject("TrangThai", "Giao hàng thành công");
+
+        for (Document doc : collection.find(query)) {
+            tongSoDonHangThanhCong++;
+        }
+
+        return tongSoDonHangThanhCong;
+    }
+
+    public int tinhTongDonHang() {
+        MongoCollection<Document> collection = connection.getCollection();
+        long count = collection.countDocuments();
+        return (int) count;
     }
 
     public List<VanDonPOJO> danhSachDonNoiTinh() {
@@ -219,6 +256,26 @@ public class VanDonDAO {
         }
         else {
             khoangCach += dijkstra.findDistance(vd.getDiemXuatPhat(), vd.getDiemDen());
+        }
+        return khoangCach;
+    }
+
+    public Double tinhKhoangCachDonLT(String dc1, String dc2){
+        Double khoangCach = 0.0;
+        KhoDAO khodao = new KhoDAO();
+        Dijkstra dijkstra = new Dijkstra();
+        KhoPOJO k1 = khodao.timKhoTheoTinh(dc1);
+        KhoPOJO k2 = khodao.timKhoTheoTinh(dc2);
+        if(!java.util.Objects.equals(k1.getKhuVuc(), k2.getKhuVuc())){
+            KhoPOJO kchinh1 = khodao.timKhoChinhTheoKhuVuc(k1.getKhuVuc());
+            KhoPOJO kchinh2 = khodao.timKhoChinhTheoKhuVuc(k2.getKhuVuc());
+            khoangCach += dijkstra.findDistance(dc1, kchinh1.getTinh())
+                    + dijkstra.findDistance(kchinh1.getTinh(), kchinh2.getTinh())
+                    + dijkstra.findDistance(kchinh2.getTinh(), dc2);
+
+        }
+        else {
+            khoangCach += dijkstra.findDistance(dc1, dc2);
         }
         return khoangCach;
     }

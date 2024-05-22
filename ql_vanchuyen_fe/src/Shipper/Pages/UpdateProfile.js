@@ -10,7 +10,7 @@ const UpdateProfile = () => {
         <div class="row gutters">
             <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                 <div class="card h-100">
-                    <div class="card-body">
+                    <div class="card-body bg-cardShip">
                         <div class="account-settings">
                             <div class="user-profile">
                                 <div class="user-avatar">
@@ -29,7 +29,7 @@ const UpdateProfile = () => {
             </div>
             <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                 <div class="card h-100">
-                    <div class="card-body">
+                    <div class="card-body bg-cardShip">
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <h6 class="mb-3 text-primary">Personal Details</h6>

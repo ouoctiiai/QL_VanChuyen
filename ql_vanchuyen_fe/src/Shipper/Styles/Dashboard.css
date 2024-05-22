@@ -139,6 +139,15 @@
   .bg-primary {
       background-color: #9c64b8 !important;
   }
+
+  .bg-cardShip {
+    background-color: #f2f7ff !important;
+}
+
   .text-white {
       color: #fff !important;
+  }
+
+  .buttonShip{
+    width: 50%;
   }

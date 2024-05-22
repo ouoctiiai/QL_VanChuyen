@@ -1,17 +1,17 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
-import ReactMapGL from "react-map-gl"
+import ReactMapGL from "react-map-gl"                 
 import { listVanDon } from '../../Api/DataVanDon';
-
-function Mapbox({from, to}) {
-
+                   
+function Mapbox({from, to, setKC}) {
+                   
   const getLocate = async (address) => {
     try {
       const responseLocate = await axios.get(
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${MAPBOX_TOKEN}`
-      );
+      );             
   
-      if (responseLocate.data.features.length === 0) {
+      if (responseLocate.data.features.length === 0) {         
         throw new Error('No location found for the provided address');
       }
   
@@ -33,6 +33,7 @@ function Mapbox({from, to}) {
       .then(function (response) {
         const distance = response.data.routes[0].distance / 1000;
         setDistance(distance);
+        setKC(parseFloat(distance.toFixed(2)))
         const geojson = response.data.routes[0].geometry;
       })
       .catch(function (error) {
@@ -87,14 +88,14 @@ function Mapbox({from, to}) {
       {...viewport}
       mapStyle="mapbox://styles/mapbox/streets-v12"
       onViewportChange={(viewport) => setViewport(viewport)}
-      mapboxAccessToken = {MAPBOX_TOKEN}
+      mapboxAccessToken = {MAPBOX_TOKEN}    
     >
       {distance && (
-        <div >
+        <div style={{color:'black'}}>
          Khoảng cách: {distance.toFixed(2)} km
         </div>
       )}
-    </ReactMapGL>            
+    </ReactMapGL>                                       
   )
 }
 
