@@ -16,9 +16,9 @@ const Login = (props) => {
     // const [isActive, setIsActive] = useState('');
     const [isChecked, setIsChecked] = useState('');
     const [formState, setFormState] = useState({
-        phone: '', password: ''
+        tenTaiKhoan: '', password: ''
     });
-    const [isActivePhone, setIsActivePhone] = useState(false);
+    const [isActiveUsername, setIsActiveUsername] = useState(false);
     const [isActivePassword, setIsActivePassword] = useState(false);
     const history = useHistory();
 
@@ -30,13 +30,17 @@ const Login = (props) => {
     }
 
     useEffect(() => {
-        setIsActivePhone(!!formState.phone);
+        setIsActiveUsername(!!formState.tenTaiKhoan);
         setIsActivePassword(!!formState.password);
-    }, [formState.phone, formState.password]);
+
+        const rememberMe = localStorage.getItem("rememberMe") === "true";
+        setIsChecked(rememberMe);
+    }, [formState.tenTaiKhoan, formState.password]);
 
 
     const handleCheckboxChange = () => {
         setIsChecked(!isChecked);
+        localStorage.setItem("rememberMe", !isChecked);
     }
 
     const handleSignIn = async (event) => {
@@ -44,8 +48,8 @@ const Login = (props) => {
         console.log('Form state:', formState);
 
         try {
-            const response = await axios.post('http://localhost:4433/taikhoan/login', {
-                sdt: formState.phone,
+            const response = await login({
+                tenTaiKhoan: formState.tenTaiKhoan,
                 matKhau: formState.password
             });
 
@@ -61,7 +65,7 @@ const Login = (props) => {
                     localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
                     localStorage.setItem("accessToken", true);
                     history.replace(`/customer/${id}`);
-                } else if(loaiTaiKhoan === 'Shipper'){
+                } else if (loaiTaiKhoan === 'Shipper') {
                     localStorage.setItem("userId", id);
                     localStorage.setItem("accessToken", true)
                     history.setItem(`/shipper_home/${id}`);
@@ -71,11 +75,27 @@ const Login = (props) => {
                 }
             } else {
                 console.error('Login failed with status:', response.status);
-                alert('Login failed. Please check your phone number and password.');
+                alert('Login failed. Please check your username and password.');
+            }
+
+            if (isChecked) {
+                localStorage.setItem("loginData", JSON.stringify(formState));
+            } else {
+                localStorage.removeItem("loginData");
             }
         } catch (error) {
-            // console.error('Error during login:', error);
-            console.error('Error during login:', error.response ? error.response.data : error.message);
+            if (error.response) {
+                // The request was made and the server responded with a status code that falls out of the range of 2xx
+                console.error('Error during login (response data):', error.response.data);
+                console.error('Error during login (response status):', error.response.status);
+                console.error('Error during login (response headers):', error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.error('Error during login (request):', error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.error('Error during login (message):', error.message);
+            }
             alert('An error occurred during login. Please try again later.');
         }
     }
@@ -124,8 +144,8 @@ const Login = (props) => {
 
                         {/* <!-- Email input --> */}
                         <div data-mdb-input-init className='form-outline mb-4'>
-                            <input type="text" id="loginName" name='phone' value={formState.phone} onChange={handleChange} className={`form-control ${isActivePhone ? 'active' : ''}`} />
-                            <label className="form-label" htmlFor="loginName">Số điện thoại</label>
+                            <input type="text" id="loginName" name='tenTaiKhoan' value={formState.tenTaiKhoan} onChange={handleChange} className={`form-control ${isActiveUsername ? 'active' : ''}`} />
+                            <label className="form-label" htmlFor="loginName">Tên Đăng Nhập</label>
                         </div>
 
                         {/* <!-- Password input --> */}

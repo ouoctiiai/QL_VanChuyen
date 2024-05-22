@@ -1,5 +1,6 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
+import React, { useState, useEffect } from 'react';
 import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import EmailIcon from "@mui/icons-material/Email";
@@ -12,11 +13,40 @@ import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import { getTongDonHangThanhCong } from "./../../../Api/DataVanDon";
+import { getTongDonHang } from './../../../Api/DataVanDon';
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [totalOrders, setTotalOrders] = useState(0);
+  const [successfulOrders, setSuccessfulOrders] = useState(0);
+  const successRate = (successfulOrders / totalOrders) * 100;
 
+
+  useEffect(() => {
+    const fetchTotalOrders = async () => {
+      try {
+        const response = await getTongDonHang();
+        setTotalOrders(response.data);
+      } catch (error) {
+        console.error("Error fetching total orders:", error);
+      }
+    };
+
+    const fetchSuccessfulOrders = async () => {
+      try {
+        const response = await getTongDonHangThanhCong();
+        setSuccessfulOrders(response.data);
+      } catch (error) {
+        console.error("Error fetching successful orders:", error);
+      }
+    };
+
+    fetchTotalOrders();
+    fetchSuccessfulOrders();
+  }, []);
+  
   return (
     <Box m="20px">
       {/* HEADER */}
@@ -232,7 +262,7 @@ const Dashboard = () => {
             alignItems="center"
             mt="25px"
           >
-            <ProgressCircle size="125" />
+            <ProgressCircle progress={successRate / 100} size="125" />
             <Typography
               variant="h5"
               color={colors.greenAccent[500]}

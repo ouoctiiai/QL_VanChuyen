@@ -55,6 +55,16 @@ public class VanDonCotroller {
         }
     }
 
+//    @GetMapping("/{maVanDon}")
+//    public ResponseEntity<VanDonPOJO> getVanDonByMaVanDon(@PathVariable ObjectId id) {
+//        VanDonPOJO vanDon = vanDonService.timVanDonTheoId(id);
+//        if (vanDon != null) {
+//            return ResponseEntity.ok(vanDon);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+
     @GetMapping("/dsTaiXe")
     public ResponseEntity<List<ThongTinTaiXe>> danhSachTaiXe() {
         List<ThongTinTaiXe> dsTaiXe = taiXeService.danhSachTaiXe();
@@ -71,5 +81,33 @@ public class VanDonCotroller {
     public ResponseEntity<Double> calculateDistance(@PathVariable String dc1, @PathVariable String dc2) {
         Double khoangCach = vanDonService.tinhKhoangCachDonLT(dc1, dc2);
         return ResponseEntity.ok(khoangCach);
+    @GetMapping("/tongTaiXe")
+    public ResponseEntity<Integer> tinhTongTaiXe() {
+        int tongTaiXe = taiXeService.tinhTongTaiXe();
+        return new ResponseEntity<>(tongTaiXe, HttpStatus.OK);
+    }
+
+    @GetMapping("/tongXe")
+    public ResponseEntity<Integer> tinhTongXe() {
+        int tongXe = xeService.tinhTongXe();
+        return new ResponseEntity<>(tongXe, HttpStatus.OK);
+    }
+
+    @GetMapping("/tongDonHangThanhCong")
+    public ResponseEntity<Integer> tinhTongDonHangThanhCong() {
+        int tongDonHangThanhCong = vanDonService.tinhTongSoDonHangThanhCong();
+        return new ResponseEntity<>(tongDonHangThanhCong, HttpStatus.OK);
+    }
+
+    @GetMapping("/tongDonHang")
+    public ResponseEntity<Integer> tinhTongDonHang() {
+        int tongDonHang = vanDonService.tinhTongDonHang();
+        return new ResponseEntity<>(tongDonHang, HttpStatus.OK);
+    }
+
+    @GetMapping("/10donGanNhat")
+    public ResponseEntity<List<VanDonPOJO>> get10RecentOrders() {
+        List<VanDonPOJO> dsvd = vanDonService.danhSach10DonGanDayNhat();
+        return new ResponseEntity<>(dsvd, HttpStatus.OK);
     }
 }

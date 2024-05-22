@@ -123,10 +123,6 @@ public class TaiKhoanPOJO {
         this.diaChi = diaChi;
     }
 
-    public ThongTinTaiKhoan getThongTinTaKhoan() {
-        return thongTinTaiKhoan;
-    }
-
     public void setThongTinTaiKhoan(ThongTinTaiKhoan thongTinTaiKhoan) {
         this.thongTinTaiKhoan = thongTinTaiKhoan;
     }

@@ -6,9 +6,7 @@ import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 
 @Service
@@ -47,4 +45,12 @@ public class TaiXeDAO {
         return false;
     }
 
+    public int tinhTongTaiXe() {
+        List<ThongTinTaiXe> danhSachTaiXe = danhSachTaiXe();
+        Set<String> tx = new HashSet<>();
+        for (ThongTinTaiXe taiXe : danhSachTaiXe) {
+            tx.add(taiXe.getMaTaiXe());
+        }
+        return tx.size();
+    }
 }
