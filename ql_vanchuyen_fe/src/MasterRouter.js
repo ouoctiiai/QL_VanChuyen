@@ -32,128 +32,166 @@ import TaoDonHang from './NhanVien/TaoDonHang';
 import ChiTietDonHang from './NhanVien/ChiTietDonHang';
 import DSXe from './Admin/scenes/QLXe';
 import Form from './Admin/scenes/TaoTKShipper';
+import PrivateRoute from './Path/PrivateRouter';
 
 const renderMasterRouter = () => {
     const masterRouter = [
         {
             path: ROUTERS.CUSTOMER.HOME,
-            component: Customer
+            component: Customer,
+            isPrivate: true
         },
         {
             path: ROUTERS.CUSTOMER.PROFILE,
-            component: ProfileCustomer
+            component: ProfileCustomer,
+            isPrivate: true
         },
         {
             path: ROUTERS.CUSTOMER.CREATE_ORDER,
-            component: CreateOrder
+            component: CreateOrder,
+            isPrivate: true
         },
         {
             path: ROUTERS.CUSTOMER.ORDER_LIST,
-            component: OrderList
+            component: OrderList,
+            isPrivate: true
         },
         {
             path: ROUTERS.CUSTOMER.ORDER_DETAILS,
-            component: OrderDetails
+            component: OrderDetails,
+            isPrivate: true
         },
         {
             path: ROUTERS.LOGIN.LOGIN,
-            component: Login
+            component: Login,
         },
         {
             path: ROUTERS.LOGIN.REGISTER,
-            component: Register
+            component: Register,
         },
         {
             path: ROUTERS.SHIPPER.HOME,
-            component: SP_Home
+            component: SP_Home,
+            isPrivate: true
         },
         {
             path: ROUTERS.SHIPPER.HISTORY,
-            component: History
+            component: History,
+            isPrivate: true
         },
         {
             path: ROUTERS.SHIPPER.DASHBOARD,
-            component: Dashboard
+            component: Dashboard,
+            isPrivate: true
         },
         {
             path: ROUTERS.SHIPPER.PROFILE,
-            component: Profile
+            component: Profile,
+            isPrivate: true
         },
         {
             path: ROUTERS.SHIPPER.DETAILORDER,
-            component: DetailOrder
+            component: DetailOrder,
+            isPrivate: true
         },
-        
+
         {
             path: ROUTERS.SHIPPER.UPDATEPEOFILE,
-            component: UpdateProfile
+            component: UpdateProfile,
+            isPrivate: true
         },
 
         {
             path: ROUTERS.SHIPPER.DETAILORDER,
-            component: DetailOrder
+            component: DetailOrder,
+            isPrivate: true
         },
 
         {
             path: ROUTERS.ADMIN.TRANGCHUADMIN,
-            component: AdminRouter
+            component: AdminRouter,
+            isPrivate: true
         },
 
         {
             path: ROUTERS.ADMIN.QLTAIKHOAN,
-            component: Team
+            component: Team,
+            isPrivate: true
         },
 
         {
             path: ROUTERS.ADMIN.QLTAIXE,
-            component: DSTaiXe
+            component: DSTaiXe,
+            isPrivate: true
         },
 
         {
             path: ROUTERS.ADMIN.QLXE,
-            component: DSXe
+            component: DSXe,
+            isPrivate: true
         },
 
         {
             path: ROUTERS.ADMIN.TAOTKSHIPPER,
-            component: Form
+            component: Form,
+            isPrivate: true
         },
         {
             path: ROUTERS.ADMIN.DASHBOARD,
-            component: Dashboard
+            component: Dashboard,
+            isPrivate: true
         },
 
         {
             path: ROUTERS.EMPLOYEE.HOME,
-            component: NV_Home
-        }, 
+            component: NV_Home,
+            isPrivate: true
+        },
 
         {
             path: ROUTERS.EMPLOYEE.LIST,
-            component: DSDonHang
+            component: DSDonHang,
+            isPrivate: true
         },
 
         {
             path: ROUTERS.EMPLOYEE.CREATE,
-            component: TaoDonHang
+            component: TaoDonHang,
+            isPrivate: true
         },
 
         {
             path: ROUTERS.EMPLOYEE.DETAIL,
             component: ChiTietDonHang,
+            isPrivate: true
         }
     ];
 
     return (
-        // <MasterLayout>
-            <Switch>
-                {
-                    masterRouter.map((item, key) => {
-                        return <Route key={key} path={item.path} component={item.component} />
-                    })
-                }
-            </Switch>
-        // </MasterLayout>
+        <Switch>
+            {
+                masterRouter.map((item, key) => {
+                    return <Route key={key} path={item.path} component={item.component} />
+                    // if (item.isPrivate) {
+                    //     return (
+                    //         <PrivateRoute 
+                    //             key={key} 
+                    //             path={item.path} 
+                    //             component={item.component} 
+                    //         />
+                    //     );
+                    // } else {
+                    //     return (
+                    //         <Route 
+                    //             key={key} 
+                    //             path={item.path} 
+                    //             component={item.component} 
+                    //         />
+                    //     );
+                    // }
+                })
+            }
+        </Switch>
     );
 };
 
