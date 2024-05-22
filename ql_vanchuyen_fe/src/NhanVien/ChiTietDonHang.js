@@ -31,10 +31,10 @@ const ChiTietDonHang = () => {
 
 
     return (
-            <div className='row' style={{marginTop:'15px', marginLeft:'30px'}}>
+            <div className='row' style={{marginTop:'15px', marginLeft:'10px'}}>
                 <div className='col'>
                     <div className='row'>
-                        <div className='card' style={{width:'500px', height: '250px'}}>
+                        <div className='card' style={{height: '250px', width: '480px'}}>
                             <div className='card-body'>
                                 <div className='card-title' style={{fontStyle: 'both', fontSize: '22px', textAlign: 'center'}}>Thông tin người gửi</div>
                                 <table className='table' style={{fontSize: '18px'}}>
@@ -56,12 +56,12 @@ const ChiTietDonHang = () => {
                     </div>
 
                     <div className='row'>
-                        <div className='card' style={{width:'500px'}}>
+                        <div className='card' style={{width: '480px'}}>
                             <div className='card-body'>
                                 <div className='card-title' style={{fontStyle: 'both', fontSize: '22px', textAlign: 'center'}}>Thông tin đơn hàng</div>
                                 <table className='table table-borderless' style={{fontSize: '18px'}}>
                                         <tr>
-                                            <td className='col-3'>Mã vận đơn: </td>
+                                            <td className='col-4'>Mã vận đơn: </td>
                                             <td>{chiTietDon.maVanDon}</td>
                                         </tr>
                                         <tr>
@@ -92,12 +92,12 @@ const ChiTietDonHang = () => {
 
                 <div className='col'>
                     <div className='row'>
-                        <div className='card' style={{width:'500px', height:'250px'}}>
+                        <div className='card' style={{height:'250px', width: '480px'}}>
                             <div className='card-body'>
                                 <div className='card-title' style={{fontStyle: 'both', fontSize: '22px', textAlign: 'center'}}>Thông tin người nhận</div>
                                 <table className='table table-borderless' style={{fontSize: '18px'}}>
                                     <tr>
-                                        <td className='col-4'>Tên người nhận: </td>
+                                        <td className='col-5'>Tên người nhận: </td>
                                         <td>{thongTinNguoiNhan.tenNguoiNhan}</td>
                                     </tr>
                                     <tr>
@@ -114,7 +114,7 @@ const ChiTietDonHang = () => {
                     </div>
 
                     <div className='row' style={{overflowY:'hidden'}}>
-                        <div class="card" style={{width:'500px'}}>
+                        <div class="card" style={{width: '480px'}}> 
 							<div class="card-body">
 								<Mapbox from={thongTinNguoiGui.diaChiNguoiGui} to={thongTinNguoiNhan.diaChiNguoiNhan} />
 							</div>

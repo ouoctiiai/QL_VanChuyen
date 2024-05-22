@@ -5,6 +5,8 @@ import './Login_Regis.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { login } from '../Api/DataTaiKhoan';
+import axios from 'axios';
 
 
 
@@ -37,12 +39,46 @@ const Login = (props) => {
         setIsChecked(!isChecked);
     }
 
-    const handleSignIn = () => {
-        localStorage.setItem("accessToken", true);
-        history.replace("/customer");
+    const handleSignIn = async (event) => {
+        event.preventDefault();
+        console.log('Form state:', formState);
+
+        try {
+            const response = await axios.post('http://localhost:4433/taikhoan/login', {
+                sdt: formState.phone,
+                matKhau: formState.password
+            });
+
+            console.log('Response:', response);
+
+            if (response.status === 200) {
+                const data = response.data;
+                const { id, loaiTaiKhoan, tenChuTaiKhoan } = data;
+
+                if (loaiTaiKhoan === 'Khách hàng') {
+                    localStorage.setItem("userId", id);
+                    localStorage.setItem("tenChuTaiKhoan", tenChuTaiKhoan);
+                    localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
+                    localStorage.setItem("accessToken", true);
+                    history.replace(`/customer/${id}`);
+                } else if(loaiTaiKhoan === 'Shipper'){
+                    localStorage.setItem("userId", id);
+                    localStorage.setItem("accessToken", true)
+                    history.setItem(`/shipper_home/${id}`);
+                } else {
+                    // Handle other user types or show an error message
+                    alert('Login successful but not a customer.');
+                }
+            } else {
+                console.error('Login failed with status:', response.status);
+                alert('Login failed. Please check your phone number and password.');
+            }
+        } catch (error) {
+            // console.error('Error during login:', error);
+            console.error('Error during login:', error.response ? error.response.data : error.message);
+            alert('An error occurred during login. Please try again later.');
+        }
     }
-
-
 
 
     return (
@@ -65,7 +101,7 @@ const Login = (props) => {
                 <div className="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
 
                     <form>
-                        <div className="text-center mb-3">
+                        {/* <div className="text-center mb-3">
                             <p>Đăng nhập với:</p>
                             <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
                                 <i className="fab fa-facebook-f"></i>
@@ -82,9 +118,9 @@ const Login = (props) => {
                             <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
                                 <i className="fab fa-github"></i>
                             </button>
-                        </div>
+                        </div> */}
 
-                        <p className="text-center">hoặc:</p>
+                        {/* <p className="text-center">hoặc:</p> */}
 
                         {/* <!-- Email input --> */}
                         <div data-mdb-input-init className='form-outline mb-4'>
