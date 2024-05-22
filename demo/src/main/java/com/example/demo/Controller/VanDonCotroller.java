@@ -119,7 +119,7 @@ public class VanDonCotroller {
         return new ResponseEntity<>(tongDonHangChoXN, HttpStatus.OK);
     }
 
-    @GetMapping("/tongDonHangThanhCong")
+    @GetMapping("/tongDonHangDangGiao")
     public ResponseEntity<Integer> tinhTongDonHangDangGiao() {
         int tongDonHangDangGiao = vanDonService.tinhTongSoDonHangDangGiao();
         return new ResponseEntity<>(tongDonHangDangGiao, HttpStatus.OK);
