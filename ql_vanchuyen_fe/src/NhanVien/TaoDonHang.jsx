@@ -1,8 +1,8 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Col, Form, Row, Card } from 'react-bootstrap';
 import { listTaiXe, listVanDon, listXe } from '../Api/DataVanDon';
-import axios from 'axios';
 import { listPhuongXaTheoQuanHuyen, listQuanHuyenTheoTinhThanh, listTinhThanh } from '../Api/DataDiaChi';
+import Mapbox from '../Shipper/Components/Mapbox';
 
 const TaoDonHang = () => {
     const [danhSachDonHang, setDanhSachDonHang] = useState([]);
@@ -11,18 +11,23 @@ const TaoDonHang = () => {
     const [loaiVanChuyen, setLoaiVanChuyen] = useState('Liên tỉnh');
     const [soDienThoai, setSoDienThoaiTaiXe] = useState([]);
     const [loaiXeChon, setLoaiXeChon] = useState([]);
+    const [khoangCach, setKhoangCach] = useState(0);
 
     const [tinhNguoiGui, setTinhNguoiGui] = useState([]);
     const [quanNguoiGui, setQuanNguoiGui] = useState([]);
     const [phuongNguoiGui, setPhuongNguoiGui] = useState([]);
+    const [soNhaNguoiGui, setSoNhaNguoiGui] = useState([]);
     const [selectedTinhNguoiGui, setSelectedTinhNguoiGui] = useState(0);
     const [selectedQuanNguoiGui, setSelectedQuanNguoiGui] = useState(0);
+    const [selectedPhuongNguoiGui, setSelectedPhuongNguoiGui] = useState(0);
 
     const [tinhNguoiNhan, setTinhNguoiNhan] = useState([]);
     const [quanNguoiNhan, setQuanNguoiNhan] = useState([]);
     const [phuongNguoiNhan, setPhuongNguoiNhan] = useState([]);
+    const [soNhaNguoiNhan, setSoNhaNguoiNhan] = useState([]);
     const [selectedTinhNguoiNhan, setSelectedTinhNguoiNhan] = useState(0);
     const [selectedQuanNguoiNhan, setSelectedQuanNguoiNhan] = useState(0);
+    const [selectedPhuongNguoiNhan, setSelectedPhuongNguoiNhan] = useState(0);
 
     useEffect(() => {
         try {
@@ -38,9 +43,6 @@ const TaoDonHang = () => {
 
             listTinhThanh().then((Response) => {
                 setTinhNguoiGui(Response.data);
-            });
-
-            listTinhThanh().then((Response) => {
                 setTinhNguoiNhan(Response.data);
             });
         } catch (error) {
@@ -59,6 +61,18 @@ const TaoDonHang = () => {
         }).catch(error => {
             console.error('Error fetching QuanHuyen data:', error);
         });
+
+        if (loaiVanChuyen == 'Nội tỉnh') {
+            setSelectedTinhNguoiNhan(idTinh);
+            setQuanNguoiNhan([]);
+            setPhuongNguoiNhan([]);
+
+            listQuanHuyenTheoTinhThanh(idTinh).then(response => {
+                setQuanNguoiNhan(response.data);
+            }).catch(error => {
+                console.error('Error fetching QuanHuyen data:', error);
+            });
+        }
     };
 
     const handleQuanNguoiGuiChange = (e) => {
@@ -71,6 +85,15 @@ const TaoDonHang = () => {
         }).catch(error => {
             console.error('Error fetching PhuongXa data:', error);
         });
+    };
+
+    const handlePhuongNguoiGuiChange = (e) => {
+        const idPhuong = e.target.value;
+        setSelectedPhuongNguoiGui(idPhuong);
+    };
+
+    const handleSoNhaNguoiGuiChange = (e) => {
+        setSoNhaNguoiGui(e.target.value);
     };
 
     const handleTinhNguoiNhanChange = (e) => {
@@ -98,6 +121,15 @@ const TaoDonHang = () => {
         });
     };
 
+    const handlePhuongNguoiNhanChange = (e) => {
+        const idPhuong = e.target.value;
+        setSelectedPhuongNguoiNhan(idPhuong);
+    };
+
+    const handleSoNhaNguoiNhanChange = (e) => {
+        setSoNhaNguoiNhan(e.target.value);
+    };
+
     const handleLoaiVanChuyenChange = (event) => {
         setLoaiVanChuyen(event.target.value);
     };
@@ -110,6 +142,30 @@ const TaoDonHang = () => {
 
     const handleLoaiXeChange = (event) => {
         setLoaiXeChon(event.target.value);
+    };
+
+    const getDiaChiNguoiGui = () => {
+        const selectedTinh = tinhNguoiGui.find(tinh => tinh.IdDiaChi === selectedTinhNguoiGui);
+        const selectedQuan = quanNguoiGui.find(quan => quan.MaQuanHuyen === selectedQuanNguoiGui);
+        const selectedPhuong = phuongNguoiGui.find(phuong => phuong.maPhuongXa === selectedPhuongNguoiGui);
+        
+        if (selectedTinh && selectedQuan && selectedPhuong) {
+            return `${soNhaNguoiGui}, ${selectedPhuong.tenPhuongXa}, ${selectedQuan.TenQuanHuyen}, ${selectedTinh.Name}`;
+        } else {
+            return '';
+        }
+    };
+
+    const getDiaChiNguoiNhan = () => {
+        const selectedTinh = tinhNguoiNhan.find(tinh => tinh.IdDiaChi === selectedTinhNguoiNhan);
+        const selectedQuan = quanNguoiNhan.find(quan => quan.MaQuanHuyen === selectedQuanNguoiNhan);
+        const selectedPhuong = phuongNguoiNhan.find(phuong => phuong.maPhuongXa === selectedPhuongNguoiNhan);
+        
+        if (selectedTinh && selectedQuan && selectedPhuong) {
+            return `${soNhaNguoiNhan}, ${selectedPhuong.tenPhuongXa}, ${selectedQuan.TenQuanHuyen}, ${selectedTinh.Name}`;
+        } else {
+            return '';
+        }
     };
 
     const locBienSoXe = danhSachXe
@@ -177,7 +233,7 @@ const TaoDonHang = () => {
                                         <Row style={{marginLeft:'10px'}}>
                                             <Form.Label column sm="4"><h6>Phường Xã</h6></Form.Label>
                                             <Col sm="8">
-                                                <Form.Select type='text'>
+                                                <Form.Select type='text' value={selectedPhuongNguoiGui} onChange={handlePhuongNguoiGuiChange}>
                                                     <option value={0}>Phường Xã</option>
                                                     {phuongNguoiGui.map((phuong) => (
                                                         <option key={phuong.maPhuongXa} value={phuong.maPhuongXa}>{phuong.tenPhuongXa}</option>
@@ -188,9 +244,9 @@ const TaoDonHang = () => {
                                         <Row style={{marginLeft:'10px'}}>
                                             <Form.Label column sm="4"><h6></h6></Form.Label>
                                             <Col sm="8">
-                                                <Form.Control type='text' placeholder='Tên đường, Tòa nhà, Số nhà'></Form.Control>
+                                                <Form.Control type='text' placeholder='Tên đường, Tòa nhà, Số nhà' value={soNhaNguoiGui} onChange={handleSoNhaNguoiGuiChange}></Form.Control>
                                             </Col>
-                                        </Row>      
+                                        </Row>     
                                     </Form.Group>
                                 </Form>
                             </Card.Body>
@@ -221,12 +277,22 @@ const TaoDonHang = () => {
                                         <Row style={{marginLeft:'10px'}}>
                                             <Form.Label column sm="4"><h6>Tỉnh Thành</h6></Form.Label>
                                             <Col sm="8">
-                                                <Form.Select type='text' value={selectedTinhNguoiNhan} onChange={handleTinhNguoiNhanChange}>
-                                                    <option value={0}>Tỉnh Thành</option>
-                                                    {tinhNguoiNhan.map((tinh) => (
-                                                        <option key={tinh.IdDiaChi} value={tinh.IdDiaChi}>{tinh.Name}</option>
-                                                    ))}
-                                                </Form.Select>
+                                                {loaiVanChuyen == 'Liên tỉnh' && (
+                                                    <Form.Select type='text' value={selectedTinhNguoiNhan} onChange={handleTinhNguoiNhanChange}>
+                                                        <option value={0}>Tỉnh Thành</option>
+                                                        {tinhNguoiNhan.map((tinh) => (
+                                                            <option key={tinh.IdDiaChi} value={tinh.IdDiaChi}>{tinh.Name}</option>
+                                                        ))}
+                                                    </Form.Select>
+                                                )}
+                                                {loaiVanChuyen == 'Nội tỉnh' && (
+                                                    <Form.Select type='text' value={selectedTinhNguoiNhan} onChange={handleTinhNguoiNhanChange}>
+                                                        <option value={0}>Tỉnh Thành</option>
+                                                        {tinhNguoiNhan.map((tinh) => (
+                                                            <option key={tinh.IdDiaChi} value={tinh.IdDiaChi} disabled>{tinh.Name}</option>
+                                                        ))}
+                                                    </Form.Select>
+                                                )}
                                             </Col>
                                         </Row> 
                                         <Row style={{marginLeft:'10px'}}>
@@ -243,7 +309,7 @@ const TaoDonHang = () => {
                                         <Row style={{marginLeft:'10px'}}>
                                             <Form.Label column sm="4"><h6>Phường Xã</h6></Form.Label>
                                             <Col sm="8">
-                                                <Form.Select type='text'>
+                                                <Form.Select type='text' value={selectedPhuongNguoiNhan} onChange={handlePhuongNguoiNhanChange}>
                                                     <option value={0}>Phường Xã</option>
                                                     {phuongNguoiNhan.map((phuong) => (
                                                         <option key={phuong.maPhuongXa} value={phuong.maPhuongXa}>{phuong.tenPhuongXa}</option>
@@ -254,7 +320,7 @@ const TaoDonHang = () => {
                                         <Row style={{marginLeft:'10px'}}>
                                             <Form.Label column sm="4"><h6></h6></Form.Label>
                                             <Col sm="8">
-                                                <Form.Control type='text' placeholder='Tên đường, Tòa nhà, Số nhà'></Form.Control>
+                                                <Form.Control type='text' placeholder='Tên đường, Tòa nhà, Số nhà' value={soNhaNguoiNhan} onChange={handleSoNhaNguoiNhanChange}></Form.Control>
                                             </Col>
                                         </Row>
                                     </Form.Group>
@@ -265,7 +331,7 @@ const TaoDonHang = () => {
                 </Row>
 
                 <Row style={{marginBottom: '10px'}}>
-                    <Card style={{marginLeft:'12px', width:'1050px'}}>
+                    <Card style={{marginLeft:'12px', width:'945px'}}>
                         <Card.Body>
                             <Card.Title style={{fontSize:'22px', fontStyle:'both', textAlign:'center'}}>Nhập thông tin hàng hóa</Card.Title>
                             <Form>
@@ -310,6 +376,7 @@ const TaoDonHang = () => {
                                                     <option value="4.99">Dưới 5kg</option>
                                                     <option value="9.99">Dưới 10kg</option>
                                                     <option value="49.99">Dưới 50kg</option>
+                                                    <option value="50.11">Trên 50kg</option>
                                                 </Form.Select>
                                             </Col>
                                         </Form.Group>                   
@@ -321,15 +388,127 @@ const TaoDonHang = () => {
                                                 <Form.Group as={Row} className='p-2'>
                                                     <Form.Label column sm="4"><h6>Chiều dài</h6></Form.Label>
                                                     <Col sm="8">
-                                                        <Form.Control type='number' min={1}></Form.Control>
+                                                        <Form.Control type='number' min={1} value="chieuDai"></Form.Control>
                                                     </Col>                                                        
                                                 </Form.Group>
                                                 <Form.Group as={Row} className='p-2'>
                                                     <Form.Label column sm="4"><h6>Chiều rộng</h6></Form.Label>
                                                     <Col sm="8">
-                                                        <Form.Control type='number' min={1}></Form.Control>
+                                                        <Form.Control type='number' min={1} value="chieuRong"></Form.Control>
                                                     </Col>
                                                 </Form.Group>
+                                            </Col>
+                                        </Form.Group>
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <Col>
+                                        {loaiVanChuyen == 'Liên tỉnh' && (
+                                            <Form.Group as={Row} className='p-2'>
+                                                <Form.Label column sm="5"><h6>Phí cố định</h6></Form.Label>
+                                                <Col sm="7">
+                                                    <Form.Control type='number' value={30000} disabled></Form.Control>
+                                                </Col>
+                                            </Form.Group>
+                                        )}
+
+                                        {loaiVanChuyen == 'Nội tỉnh' && (
+                                            <Form.Group as={Row} className='p-2'>
+                                                <Form.Label column sm="5"><h6>Phí cố định</h6></Form.Label>
+                                                <Col sm="7">
+                                                    <Form.Control type='number' value={10000} disabled></Form.Control>
+                                                </Col>
+                                            </Form.Group>
+                                        )}
+                                    </Col>
+
+                                    <Col>
+                                        <Form.Group as={Row} className='p-2'>
+                                            <Form.Label column sm="5"><h6>Phí VAT</h6></Form.Label>
+                                            <Col sm="7">
+                                                <Form.Control type='number' disabled></Form.Control>
+                                            </Col>
+                                        </Form.Group>
+                                    </Col>
+
+                                    <Col>
+                                        <Form.Group as={Row} className='p-2'>
+                                            <Form.Label column sm="5"><h6>Tiền cọc</h6></Form.Label>
+                                            <Col sm="7">
+                                                <Form.Control type='number' min={1}></Form.Control>
+                                            </Col>
+                                        </Form.Group>
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <Col>
+                                        <Form.Group as={Row} className='p-2'>
+                                            <Form.Label column sm="5"><h6>Phí nâng</h6></Form.Label>
+                                            <Col sm="7">
+                                                <Form.Control type='number' min={1}></Form.Control>
+                                            </Col>
+                                        </Form.Group>
+                                    </Col>
+
+                                    <Col>
+                                        <Form.Group as={Row} className='p-2'>
+                                            <Form.Label column sm="5"><h6>Phí hạ</h6></Form.Label>
+                                            <Col sm="7">
+                                                <Form.Control type='number' min={1}></Form.Control>
+                                            </Col>
+                                        </Form.Group>
+                                    </Col>
+
+                                    <Col>
+                                        <Form.Group as={Row} className='p-2'>
+                                            <Form.Label column sm="5"><h6>Thưởng shipper</h6></Form.Label>
+                                            <Col sm="7">
+                                                <Form.Control type='number' min={1}></Form.Control>
+                                            </Col>
+                                        </Form.Group>
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <Col>
+                                        <Form.Group as={Row} className='p-2'>
+                                            <Form.Label column sm="5"><h6>Phí khác</h6></Form.Label>
+                                            <Col sm="7">
+                                                <Form.Control type='number' min={1}></Form.Control>
+                                            </Col>
+                                        </Form.Group>
+                                    </Col>
+
+                                    
+                                    <Col>
+                                        {loaiVanChuyen == 'Nội tỉnh' && (
+                                            <Form.Group as={Row} className='p-2'>
+                                                <Form.Label column sm="5"><h6>Khoảng cách</h6></Form.Label>
+                                                <Col sm="7">
+                                                    <Form.Control type='number' min={1} disabled value={khoangCach}></Form.Control>
+                                                    <div style={{display: 'none'}}>
+                                                        <Mapbox from={getDiaChiNguoiGui()} to={getDiaChiNguoiNhan()} setKC={setKhoangCach} disabled/>
+                                                    </div>
+                                                </Col>
+                                            </Form.Group>
+                                        )}
+                                        {loaiVanChuyen == 'Liên tỉnh' && (
+                                            <Form.Group as={Row} className='p-2'>
+                                                <Form.Label column sm="5"><h6>Khoảng cách</h6></Form.Label>
+                                                <Col sm="7">
+                                                    <Form.Control type='number' min={1} disabled></Form.Control>
+                                                </Col>
+                                            </Form.Group>
+                                        )}
+                                    </Col>
+
+                                    <Col>
+                                        <Form.Group as={Row} className='p-2'>
+                                            <Form.Label column sm="5"><h6>Tổng phí</h6></Form.Label>
+                                            <Col sm="7">
+                                                <Form.Control type='number' min={1} disabled></Form.Control>
                                             </Col>
                                         </Form.Group>
                                     </Col>
