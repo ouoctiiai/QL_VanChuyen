@@ -29,5 +29,5 @@ export const getTongDonHang = () => axios.get(REST_API_BASE_URL + '/tongDonHang'
 export const tinhPhiVat = (phiCoDinh, phiCoc, phiNang, phiHa, phiThuong, phiKhac) => 
     axios.get(`${REST_API_BASE_URL}/phiVAT/${phiCoDinh}/${phiCoc}/${phiNang}/${phiHa}/${phiThuong}/${phiKhac}`);
 
-export const tinhTongPhi = (phiCoDinh, phiVAT, phiCoc, phiNang, phiHa, phiThuong, phiKhac, khoangCach, khoiLuong, chieuDai, chieuRong, loaiHang, loaiVanChuyen) => 
+export const tinhTongPhi = (phiCoDinh, phiVAT, phiCoc, phiNang, phiHa, phiThuong, phiKhac, khoangCach, khoiLuong, chieuDai, chieuRong, loaiHang, loaiVanChuyen) =>  
     axios.get(`${REST_API_BASE_URL}/tongPhi/${phiCoDinh}/${phiVAT}/${phiCoc}/${phiNang}/${phiHa}/${phiThuong}/${phiKhac}/${khoangCach}/${khoiLuong}/${chieuDai}/${chieuRong}/${loaiHang}/${loaiVanChuyen}`);
