@@ -9,10 +9,10 @@ const Header = () => {
                 <div class="container-fluid">
                     <a class="navbar-brand">Logo</a>
                     <div class="d-flex">
-                        <button class="btn btn-outline-success mx-3" type="submit">Home</button>
-                        <button class="btn btn-outline-success mx-3" type="submit">News</button>
-                        <button class="btn btn-outline-success mx-3" type="submit">About us</button>
-                        <button class="btn btn-outline-success mx-3" type="submit">Contact us</button>
+                        <button class="btn-header mx-3" type="submit">Home</button>
+                        <button class="btn-header mx-3" type="submit">News</button>
+                        <button class="btn-header mx-3" type="submit">About us</button>
+                        <button class="btn-header mx-3" type="submit">Contact us</button>
                     </div>
                 </div>
             </nav>

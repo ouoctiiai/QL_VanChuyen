@@ -15,10 +15,10 @@ const History = () => {
               <table class="table user-list">
                 <thead>
                   <tr>
-                    <th className='text-light'><span>User</span></th>
-                    <th className='text-light'><span>Created</span></th>
-                    <th class="text-center text-light"><span>Status</span></th>
-                    <th className='text-light'><span>Email</span></th>
+                    <th><span>User</span></th>
+                    <th><span>Created</span></th>
+                    <th class="text-center"><span>Status</span></th>
+                    <th><span>Email</span></th>
                     <th>&nbsp;</th>
                   </tr>
                 </thead>

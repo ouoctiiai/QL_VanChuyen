@@ -216,6 +216,26 @@ public class VanDonDAO {
         return khoangCach;
     }
 
+    public Double tinhKhoangCachDonLT(String dc1, String dc2){
+        Double khoangCach = 0.0;
+        KhoDAO khodao = new KhoDAO();
+        Dijkstra dijkstra = new Dijkstra();
+        KhoPOJO k1 = khodao.timKhoTheoTinh(dc1);
+        KhoPOJO k2 = khodao.timKhoTheoTinh(dc2);
+        if(!java.util.Objects.equals(k1.getKhuVuc(), k2.getKhuVuc())){
+            KhoPOJO kchinh1 = khodao.timKhoChinhTheoKhuVuc(k1.getKhuVuc());
+            KhoPOJO kchinh2 = khodao.timKhoChinhTheoKhuVuc(k2.getKhuVuc());
+            khoangCach += dijkstra.findDistance(dc1, kchinh1.getTinh())
+                    + dijkstra.findDistance(kchinh1.getTinh(), kchinh2.getTinh())
+                    + dijkstra.findDistance(kchinh2.getTinh(), dc2);
+
+        }
+        else {
+            khoangCach += dijkstra.findDistance(dc1, dc2);
+        }
+        return khoangCach;
+    }
+
     public String timDuongDiNganNhat(VanDonPOJO vd){
         String path = "";
         KhoDAO khodao = new KhoDAO();
