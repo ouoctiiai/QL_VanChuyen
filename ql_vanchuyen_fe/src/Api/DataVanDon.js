@@ -14,8 +14,6 @@ export const listNoiTinh = () => axios.get(REST_API_BASE_URL + '/dsDonNoiTinh');
 
 export const listNgoaiTinh = () => axios.get(REST_API_BASE_URL + '/dsDonLienTinh');
 
-// export const tinhKhoangCachLienTinh = (dc1, dc2) => axios.get(REST_API_BASE_URL + '/khoangCach' + '/' + dc1 + '/' + dc2);
-
 export const tinhKhoangCachLienTinh = (dc1, dc2) => axios.get(`${REST_API_BASE_URL}/khoangCach/${dc1}/${dc2}`);
 
 export const get10RecentOrders = () => axios.get(REST_API_BASE_URL + '/10donGanNhat');
@@ -28,6 +26,11 @@ export const getTongDonHangThanhCong = () => axios.get(REST_API_BASE_URL + '/ton
 
 export const getTongDonHang = () => axios.get(REST_API_BASE_URL + '/tongDonHang');
 
+export const tinhPhiVat = (phiCoDinh, phiCoc, phiNang, phiHa, phiThuong, phiKhac) => 
+    axios.get(`${REST_API_BASE_URL}/phiVAT/${phiCoDinh}/${phiCoc}/${phiNang}/${phiHa}/${phiThuong}/${phiKhac}`);
+
+export const tinhTongPhi = (phiCoDinh, phiVAT, phiCoc, phiNang, phiHa, phiThuong, phiKhac, khoangCach, khoiLuong, chieuDai, chieuRong, loaiHang, loaiVanChuyen) =>  
+    axios.get(`${REST_API_BASE_URL}/tongPhi/${phiCoDinh}/${phiVAT}/${phiCoc}/${phiNang}/${phiHa}/${phiThuong}/${phiKhac}/${khoangCach}/${khoiLuong}/${chieuDai}/${chieuRong}/${loaiHang}/${loaiVanChuyen}`);
 export const getTongDonHangDaHuy = () => axios.get(REST_API_BASE_URL + '/tongDonHangDaHuy');
 
 export const getTongDonHangChoGiao = () => axios.get(REST_API_BASE_URL + '/tongDonHangChoGiao');

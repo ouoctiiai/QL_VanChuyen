@@ -12,7 +12,6 @@ const ProfileCustomer = () => {
 
     const [taiKhoan, setTaiKhoan] = useState([]);
     const [thongTinTaiKhoan, setThongTinTaiKhoan] = useState('');
-    const {id} = useParams();
 
     const [showPassword, setShowPassword] = useState(false);
 

@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import Mapbox from '../Components/Mapbox'
 import Navbar from '../Components/Navbar';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { useParams } from 'react-router-dom/cjs/react-router-dom';
 import { getVanDonById } from '../../Api/DataVanDon';
 
 const DetailOrder = () => {
-  const{ id } = useParams();
+  const{ idVanDon } = useParams();
   const[detailorder, setdetailorder] = useState('')
   const[thongTinNguoiGui, setThongTinNguoiGui] = useState('')
   const[thongTinNguoiNhan, setThongTinNguoiNhan] = useState('')
   const[thongTinHangHoa, setThongTinHangHoa] = useState('')
 
   useEffect(() => {
-    if(id){
-      getVanDonById(id).then((response) => {
+    if(idVanDon){
+      getVanDonById(idVanDon).then((response) => {
         console.log(response.data);
 		setThongTinNguoiGui(response.data.thongTinNguoiGui);
 		setThongTinNguoiNhan(response.data.thongTinNguoiNhan);
@@ -23,7 +23,7 @@ const DetailOrder = () => {
         console.error(error);
       })
     }
-  }, [id])
+  }, [idVanDon])
 
   return (
     <div>

@@ -120,7 +120,6 @@ public class VanDonDAO {
                 tongPhi += 5000;
 
         } else {
-
             tongPhi += vanDon.getKhoangCach() % 10 * 2000;
             if (khoiLuong > 50)
                 tongPhi += 10000 + 2000 * (khoiLuong - 50);
@@ -128,6 +127,45 @@ public class VanDonDAO {
                 tongPhi += 10000;
         }
         return tongPhi;
+    }
+
+    public int tinhTongPhi(int phiCoDinh, int phiVAT, int phiCoc, int phiNang, int phiHa, int phiThuong, int phiKhac, double khoangCach, double khoiLuong, double chieuDai, double chieuRong, String loaiHang, String loaiVanChuyen){
+        int tongPhi = phiCoDinh + phiVAT + phiCoc + phiNang + phiHa + phiThuong + phiKhac;
+
+        if (loaiHang.equalsIgnoreCase("hàng điện tử"))
+            tongPhi += 5000;
+        else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
+            tongPhi += 5000;
+        else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
+            tongPhi += 10000;
+
+        if (chieuDai + chieuRong > 150)
+            tongPhi += 10000;
+
+        if (loaiVanChuyen.equalsIgnoreCase("Liên tỉnh") ) {
+            tongPhi += khoangCach % 10;
+
+            if (khoiLuong > 50)
+                tongPhi += 20000 + 2000 * (khoiLuong - 50);
+            else if (khoiLuong > 10)
+                tongPhi += 20000;
+            else if (khoiLuong > 5)
+                tongPhi += 10000;
+            else if (khoiLuong > 1)
+                tongPhi += 5000;
+
+        } else {
+            tongPhi += khoangCach % 10 * 2000;
+            if (khoiLuong > 50)
+                tongPhi += 10000 + 2000 * (khoiLuong - 50);
+            else if (khoiLuong > 5)
+                tongPhi += 10000;
+        }
+        return tongPhi;
+    }
+
+    public int tinhPhiVAT(int phiCoDinh, int phiCoc, int phiNang, int phiHa, int phiThuong, int phiKhac){
+        return (int) ((phiCoDinh + phiCoc + phiNang + phiHa + phiThuong + phiKhac) * 0.1);
     }
 
     private class DoanhThuTheoNam{
