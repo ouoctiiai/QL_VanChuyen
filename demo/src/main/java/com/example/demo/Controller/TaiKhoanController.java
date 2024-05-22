@@ -69,8 +69,6 @@ public class TaiKhoanController {
 
     @PostMapping("/create")
     public ResponseEntity<TaiKhoanPOJO> taoTaiKhoan(@RequestBody TaiKhoanPOJO taiKhoan){
-        System.out.println("Hehe");
-
         boolean check = taiKhoanService.themTaiKhoanMoi(taiKhoan);
         System.out.println(check);
         if(check){

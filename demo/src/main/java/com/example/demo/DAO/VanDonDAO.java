@@ -189,6 +189,58 @@ public class VanDonDAO {
         return tongSoDonHangThanhCong;
     }
 
+    public int tinhTongSoDonHangDaHuy() {
+        int tongSoDonHangThanhCong = 0;
+
+        MongoCollection<Document> collection = connection.getCollection();
+        BasicDBObject query = new BasicDBObject("TrangThai", "Đã huỷ");
+
+        for (Document doc : collection.find(query)) {
+            tongSoDonHangThanhCong++;
+        }
+
+        return tongSoDonHangThanhCong;
+    }
+
+    public int tinhTongSoDonHangDangGiao() {
+        int tongSoDonHangThanhCong = 0;
+
+        MongoCollection<Document> collection = connection.getCollection();
+        BasicDBObject query = new BasicDBObject("TrangThai", "Đang giao");
+
+        for (Document doc : collection.find(query)) {
+            tongSoDonHangThanhCong++;
+        }
+
+        return tongSoDonHangThanhCong;
+    }
+
+    public int tinhTongSoDonHangChoGiao() {
+        int tongSoDonHangThanhCong = 0;
+
+        MongoCollection<Document> collection = connection.getCollection();
+        BasicDBObject query = new BasicDBObject("TrangThai", "Chờ giao");
+
+        for (Document doc : collection.find(query)) {
+            tongSoDonHangThanhCong++;
+        }
+
+        return tongSoDonHangThanhCong;
+    }
+
+    public int tinhTongSoDonHangChoXN() {
+        int tongSoDonHangThanhCong = 0;
+
+        MongoCollection<Document> collection = connection.getCollection();
+        BasicDBObject query = new BasicDBObject("TrangThai", "Chờ xác nhận");
+
+        for (Document doc : collection.find(query)) {
+            tongSoDonHangThanhCong++;
+        }
+
+        return tongSoDonHangThanhCong;
+    }
+
     public int tinhTongDonHang() {
         MongoCollection<Document> collection = connection.getCollection();
         long count = collection.countDocuments();
