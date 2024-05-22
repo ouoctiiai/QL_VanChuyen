@@ -47,6 +47,7 @@ const DSXe = () => {
           },
           "& .MuiDataGrid-cell": {
             borderBottom: "none",
+            fontSize: "1.4em",
           },
           "& .name-column--cell": {
             color: colors.greenAccent[300],
@@ -54,6 +55,7 @@ const DSXe = () => {
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: colors.blueAccent[700],
             borderBottom: "none",
+            fontSize: "1.5em",
           },
           "& .MuiDataGrid-virtualScroller": {
             backgroundColor: colors.primary[400],

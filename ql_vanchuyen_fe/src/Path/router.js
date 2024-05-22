@@ -29,7 +29,11 @@ export const ROUTERS ={
         QLTAIKHOAN: "/qltaikhoan",
         QLTAIXE: "/qltaixe",
         QLXE: "/qlxe",
-        TAOTKSHIPPER: "/taotkshipper"
+        TAOTKSHIPPER: "/taotkshipper",
+        BARCHART: "/barchart",
+        PIECHART: "/piechart",
+        LINECHART:"/linechart",
+        GEOGRAPHYCHART:"/geographychart"
     },
 
     EMPLOYEE:{
