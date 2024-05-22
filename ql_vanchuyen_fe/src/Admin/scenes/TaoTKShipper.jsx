@@ -33,8 +33,23 @@ const Form = () => {
       });
   }, []);
 
-  const handleFormSubmit = (values) => {
+  // const handleFormSubmit = (values) => {
+  //   console.log(values);
+  // };
+
+  const handleFormSubmit = (event, values) => {
     console.log(values);
+
+    fetch('https://api.example.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    })
+      .then(response => response.json())
+      .then(data => console.log('Success:', data))
+      .catch(error => console.error('Error:', error));
   };
 
   return (
