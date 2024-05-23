@@ -137,9 +137,9 @@ public class VanDonCotroller {
         return new ResponseEntity<>(dsvd, HttpStatus.OK);
     }
 
-    @GetMapping("/phiVAT/{phiCoDinh}/{phiCoc}/{phiNang}/{phiHa}/{phiThuong}/{phiKhac}")
-    public ResponseEntity<Integer> tinhPhiVat(@PathVariable int phiCoDinh, @PathVariable int phiCoc, @PathVariable int phiNang, @PathVariable int phiHa, @PathVariable int phiThuong, @PathVariable int phiKhac) {
-        int phiVat = vanDonService.tinhPhiVAT(phiCoDinh, phiCoc, phiNang, phiHa, phiThuong, phiKhac);
+    @GetMapping("/phiVAT/{phiCoDinh}/{phiCoc}/{phiNang}/{phiHa}/{phiKhac}")
+    public ResponseEntity<Integer> tinhPhiVat(@PathVariable int phiCoDinh, @PathVariable int phiCoc, @PathVariable int phiNang, @PathVariable int phiHa, @PathVariable int phiKhac) {
+        int phiVat = vanDonService.tinhPhiVAT(phiCoDinh, phiCoc, phiNang, phiHa, phiKhac);
         return ResponseEntity.ok(phiVat);
     }
 
@@ -147,5 +147,11 @@ public class VanDonCotroller {
     public ResponseEntity<Integer> tinhTongPhi(@PathVariable int phiCoDinh, @PathVariable int phiVAT, @PathVariable int phiCoc, @PathVariable int phiNang, @PathVariable int phiHa, @PathVariable int phiThuong, @PathVariable int phiKhac, @PathVariable double khoangCach, @PathVariable double khoiLuong, @PathVariable double chieuDai, @PathVariable double chieuRong, @PathVariable String loaiHang, @PathVariable String loaiVanChuyen) {
         int tongPhi = vanDonService.tinhTongPhi(phiCoDinh, phiVAT, phiCoc, phiNang, phiHa, phiThuong, phiKhac, khoangCach, khoiLuong, chieuDai, chieuRong, loaiHang, loaiVanChuyen);
         return ResponseEntity.ok(tongPhi);
+    }
+
+    @PostMapping("/themDonHang")
+    public ResponseEntity<VanDonPOJO> themDonHang(@RequestBody VanDonPOJO vanDonPOJO) {
+        VanDonPOJO newVanDon = vanDonService.themDonHang(vanDonPOJO);
+        return ResponseEntity.ok(newVanDon);
     }
 }

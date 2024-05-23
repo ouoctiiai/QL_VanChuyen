@@ -5,6 +5,7 @@ import com.example.demo.POJO.*;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Sorts;
 import com.mongodb.client.model.Updates;
@@ -12,12 +13,14 @@ import lombok.SneakyThrows;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.Logger;
 
 @Service
 public class VanDonDAO {
@@ -167,8 +170,8 @@ public class VanDonDAO {
         return tongPhi;
     }
 
-    public int tinhPhiVAT(int phiCoDinh, int phiCoc, int phiNang, int phiHa, int phiThuong, int phiKhac){
-        return (int) ((phiCoDinh + phiCoc + phiNang + phiHa + phiThuong + phiKhac) * 0.1);
+    public int tinhPhiVAT(int phiCoDinh, int phiCoc, int phiNang, int phiHa, int phiKhac){
+        return (int) ((phiCoDinh + phiCoc + phiNang + phiHa + phiKhac) * 0.1);
     }
 
     private class DoanhThuTheoNam{
@@ -204,6 +207,7 @@ public class VanDonDAO {
 
         return dsVanDon;
     }
+
     public List<Map<Integer, Double>> tinhDoanhThuTheoNam() {
         List<VanDonPOJO> danhSach = allVanDon();
         List<Map<Integer, Double>> doanhThuTheoNam = new ArrayList<>();
@@ -397,6 +401,116 @@ public class VanDonDAO {
             path += dijkstra.findShortedPath(vd.getDiemXuatPhat(), vd.getDiemDen());
         }
         return path;
+    }
+
+    private String generateMaVanDon() {
+        String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        StringBuilder maVanDon = new StringBuilder();
+        Random rnd = new Random();
+        while (maVanDon.length() < 9) { // Độ dài mã vận đơn là 9 kí tự
+            int index = (int) (rnd.nextFloat() * CHARACTERS.length());
+            maVanDon.append(CHARACTERS.charAt(index));
+        }
+        return maVanDon.toString();
+    }
+    public VanDonPOJO themDonHang(VanDonPOJO vanDonPOJO) {
+        try{
+            // Tạo mã vận đơn tự động
+            String maVanDon = generateMaVanDon();
+            vanDonPOJO.setMaVanDon(maVanDon);
+
+            // Lấy thời gian hiện tại của hệ thống laptop
+            Date thoiGianLap = new Date();
+            vanDonPOJO.setThoiGianLap(thoiGianLap);
+
+            // Trạng thái mặc định là "đang chờ xác nhận"
+            vanDonPOJO.setTrangThai("Đang chờ xác nhận");
+
+            Document thongTinHH = new Document()
+                    .append("LoaiHang", vanDonPOJO.getThongTinHangHoa().getLoaiHang())
+                    .append("TenHang", vanDonPOJO.getThongTinHangHoa().getTenHang())
+                    .append("TrongLuong", vanDonPOJO.getThongTinHangHoa().getTrongLuong())
+                    .append("SoLuong", vanDonPOJO.getThongTinHangHoa().getSoLuong());
+
+            if (Optional.ofNullable(vanDonPOJO.getThongTinHangHoa().getKichCo()).isPresent()) {
+                thongTinHH.append("KichCo", new Document()
+                        .append("Dai", vanDonPOJO.getThongTinHangHoa().getKichCo().getDai())
+                        .append("Rong", vanDonPOJO.getThongTinHangHoa().getKichCo().getRong()));
+            }
+            // Tạo đối tượng Document từ VanDonPOJO
+            Document document = new Document("MaVanDon", vanDonPOJO.getMaVanDon())
+                    .append("ThoiGianLap", vanDonPOJO.getThoiGianLap())
+                    .append("TrangThai", vanDonPOJO.getTrangThai())
+                    .append("LoaiVanChuyen", vanDonPOJO.getLoaiVanChuyen())
+                    .append("NoiTiepNhan", vanDonPOJO.getNoiTiepNhan())
+                    .append("NguoiThanhToan", vanDonPOJO.getNguoiThanhToan())
+                    .append("ThongTinNguoiGui", new Document()
+                            .append("TenNguoiGui", vanDonPOJO.getThongTinNguoiGui().getTenNguoiGui())
+                            .append("SDTNguoiGui", vanDonPOJO.getThongTinNguoiGui().getSdtNguoiGui())
+                            .append("DiaChiNguoiGui", vanDonPOJO.getThongTinNguoiGui().getDiaChiNguoiGui()))
+                    .append("ThongTinNguoiNhan", new Document()
+                            .append("TenNguoiNhan", vanDonPOJO.getThongTinNguoiNhan().getTenNguoiNhan())
+                            .append("SDTNguoiNhan", vanDonPOJO.getThongTinNguoiNhan().getSdtNguoiNhan())
+                            .append("DiaChiNguoiNhan", vanDonPOJO.getThongTinNguoiNhan().getDiaChiNguoiNhan()))
+                    .append("ThongTinHangHoa", thongTinHH)
+                    .append("PhiVanChuyen", new Document()
+                            .append("PhiCoDinh", vanDonPOJO.getPhiVanChuyen().getPhiCoDinh())
+                            .append("VAT", vanDonPOJO.getPhiVanChuyen().getVat())
+                            .append("PhiNang", vanDonPOJO.getPhiVanChuyen().getPhiNang())
+                            .append("PhiHa", vanDonPOJO.getPhiVanChuyen().getPhiHa())
+                            .append("TongPhi", vanDonPOJO.getPhiVanChuyen().getTongPhi()));
+
+            if (Optional.ofNullable(vanDonPOJO.getKhoangCach()).isPresent()) {
+                document.append("KhoangCach", vanDonPOJO.getKhoangCach());
+            }
+
+            if (Optional.ofNullable(vanDonPOJO.getDiemDen()).isPresent()) {
+                document.append("DiemDen", vanDonPOJO.getDiemDen());
+            }
+
+            if (Optional.ofNullable(vanDonPOJO.getDiemXuatPhat()).isPresent()) {
+                document.append("DiemXuatPhat", vanDonPOJO.getDiemXuatPhat());
+            }
+
+            if (Optional.ofNullable(vanDonPOJO.getTuyenDuong()).isPresent()) {
+                document.append("TuyenDuong", new Document()
+                        .append("DuongDi", vanDonPOJO.getTuyenDuong().getDuongDi())
+                        .append("KhoangCach", vanDonPOJO.getTuyenDuong().getKhoangCach()));
+            }
+
+            if (Optional.ofNullable(vanDonPOJO.getThongTinTaiXe()).isPresent()) {
+                document.append("ThongTinTaiXe", new Document()
+                        .append("MaTaiXe", vanDonPOJO.getThongTinTaiXe().getMaTaiXe())
+                        .append("TenTaiXe", vanDonPOJO.getThongTinTaiXe().getTenTaiXe())
+                        .append("SDTTaiXe", vanDonPOJO.getThongTinTaiXe().getSdtTaiXe()));
+            }
+
+            if (Optional.ofNullable(vanDonPOJO.getThongTinXe()).isPresent()) {
+                document.append("ThongTinXe", new Document()
+                        .append("BienSo", vanDonPOJO.getThongTinXe().getBienSo())
+                        .append("TenXe", vanDonPOJO.getThongTinXe().getTenXe())
+                        .append("LoaiXe", vanDonPOJO.getThongTinXe().getLoaiXe())
+                        .append("HangXe", vanDonPOJO.getThongTinXe().getHangXe()));
+            }
+
+            if (Optional.ofNullable(vanDonPOJO.getThongTinShipper()).isPresent()) {
+                document.append("ThongTinShipper", new Document()
+                        .append("MaShipper", vanDonPOJO.getThongTinShipper().getMaShipper())
+                        .append("TenShipper", vanDonPOJO.getThongTinShipper().getTenShipper())
+                        .append("SDTShipper", vanDonPOJO.getThongTinShipper().getSdtShipper()));
+            }
+            // Lấy collection từ cơ sở dữ liệu
+            MongoCollection<Document> collection = connection.getCollection();
+
+            // Thêm một bản ghi mới vào collection
+            collection.insertOne(document);
+
+            return vanDonPOJO;
+        }catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Lỗi khi thêm đơn hàng", e);
+        }
+
     }
 
     @SneakyThrows
