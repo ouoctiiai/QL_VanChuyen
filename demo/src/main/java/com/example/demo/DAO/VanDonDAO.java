@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.logging.Logger;
 
@@ -191,6 +192,61 @@ public class VanDonDAO {
         }
     }
 
+    public List<Map<String, Object>> tinhDoanhThuTheoNam() {
+        List<VanDonPOJO> danhSach = allVanDon();
+        Map<Integer, Double> tongTien1Nam = new HashMap<>();
+
+        for (VanDonPOJO vanDon : danhSach) {
+            int nam = vanDon.getThoiGianLap().getYear();
+            double tongPhi = vanDon.getPhiVanChuyen().getTongPhi();
+            tongTien1Nam.put(nam, tongTien1Nam.getOrDefault(nam, 0.0) + tongPhi);
+        }
+
+        List<Map<String, Object>> doanhThuTheoNam = new ArrayList<>();
+        for (Map.Entry<Integer, Double> entry : tongTien1Nam.entrySet()) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("nam", entry.getKey());
+            map.put("tongTien", entry.getValue());
+            doanhThuTheoNam.add(map);
+        }
+
+        return doanhThuTheoNam;
+    }
+
+    public List<Map<String, Object>> tinhDoanhThuTheoThang() {
+        List<VanDonPOJO> danhSach = allVanDon();
+        Map<Integer, Map<Integer, Double>> tongTienTheoNamVaThang = new HashMap<>();
+
+        for (VanDonPOJO vanDon : danhSach) {
+//            LocalDate thoiGianLap = vanDon.getThoiGianLap();
+            LocalDate thoiGianLap = LocalDate.parse(vanDon.getThoiGianLapToString());
+            int nam = thoiGianLap.getYear();
+            int thang = thoiGianLap.getMonthValue();
+            double tongPhi = vanDon.getPhiVanChuyen().getTongPhi();
+
+            tongTienTheoNamVaThang
+                    .computeIfAbsent(nam, k -> new HashMap<>())
+                    .merge(thang, tongPhi, Double::sum);
+        }
+
+        List<Map<String, Object>> doanhThuTheoThang = new ArrayList<>();
+        for (Map.Entry<Integer, Map<Integer, Double>> entryNam : tongTienTheoNamVaThang.entrySet()) {
+            int nam = entryNam.getKey();
+            for (Map.Entry<Integer, Double> entryThang : entryNam.getValue().entrySet()) {
+                int thang = entryThang.getKey();
+                double tongTien = entryThang.getValue();
+
+                Map<String, Object> map = new HashMap<>();
+                map.put("nam", nam);
+                map.put("thang", thang);
+                map.put("tongTien", tongTien);
+                doanhThuTheoThang.add(map);
+            }
+        }
+
+        return doanhThuTheoThang;
+    }
+
     public List<VanDonPOJO> danhSach10DonGanDayNhat() {
         List<VanDonPOJO> dsVanDon = new ArrayList<>();
 
@@ -208,18 +264,7 @@ public class VanDonDAO {
         return dsVanDon;
     }
 
-    public List<Map<Integer, Double>> tinhDoanhThuTheoNam() {
-        List<VanDonPOJO> danhSach = allVanDon();
-        List<Map<Integer, Double>> doanhThuTheoNam = new ArrayList<>();
-        Map<Integer, Double> tongTien1Nam = new HashMap<>();
-        for (VanDonPOJO vanDon : danhSach) {
-            int nam = vanDon.getThoiGianLap().getYear();
-            int tongPhi = vanDon.getPhiVanChuyen().getTongPhi();
-            tongTien1Nam.put(nam, tongTien1Nam.getOrDefault(nam, 0.0) + tongPhi);
-        }
 
-        return doanhThuTheoNam;
-    }
 
     public int tinhTongSoDonHangThanhCong() {
         int tongSoDonHangThanhCong = 0;

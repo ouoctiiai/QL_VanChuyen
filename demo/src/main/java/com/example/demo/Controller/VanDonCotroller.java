@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
@@ -153,5 +154,17 @@ public class VanDonCotroller {
     public ResponseEntity<VanDonPOJO> themDonHang(@RequestBody VanDonPOJO vanDonPOJO) {
         VanDonPOJO newVanDon = vanDonService.themDonHang(vanDonPOJO);
         return ResponseEntity.ok(newVanDon);
+    }
+
+    @GetMapping("/doanh-thu-theo-thang")
+    public ResponseEntity<List<Map<String, Object>>> getDoanhThuTheoThang() {
+        List<Map<String, Object>> doanhThuTheoThangList = vanDonService.tinhDoanhThuTheoThang();
+        return new ResponseEntity<>(doanhThuTheoThangList, HttpStatus.OK);
+    }
+
+    @GetMapping("/doanh-thu-theo-nam")
+    public ResponseEntity<List<Map<String, Object>>> getDoanhThuTheoNam() {
+        List<Map<String, Object>> doanhThuTheoNamList = vanDonService.tinhDoanhThuTheoNam();
+        return new ResponseEntity<>(doanhThuTheoNamList, HttpStatus.OK);
     }
 }
