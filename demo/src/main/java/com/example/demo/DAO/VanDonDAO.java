@@ -9,6 +9,7 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Sorts;
 import com.mongodb.client.model.Updates;
+import lombok.SneakyThrows;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
@@ -16,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.Logger;
 
@@ -232,55 +235,55 @@ public class VanDonDAO {
     }
 
     public int tinhTongSoDonHangDaHuy() {
-        int tongSoDonHangThanhCong = 0;
+        int tongSoDonHangDaHuy = 0;
 
         MongoCollection<Document> collection = connection.getCollection();
-        BasicDBObject query = new BasicDBObject("TrangThai", "Đã huỷ");
+        BasicDBObject query = new BasicDBObject("TrangThai", "Đã hủy");
 
         for (Document doc : collection.find(query)) {
-            tongSoDonHangThanhCong++;
+            tongSoDonHangDaHuy++;
         }
 
-        return tongSoDonHangThanhCong;
+        return tongSoDonHangDaHuy;
     }
 
     public int tinhTongSoDonHangDangGiao() {
-        int tongSoDonHangThanhCong = 0;
+        int tongSoDonHangDangGiao = 0;
 
         MongoCollection<Document> collection = connection.getCollection();
         BasicDBObject query = new BasicDBObject("TrangThai", "Đang giao");
 
         for (Document doc : collection.find(query)) {
-            tongSoDonHangThanhCong++;
+            tongSoDonHangDangGiao++;
         }
 
-        return tongSoDonHangThanhCong;
+        return tongSoDonHangDangGiao;
     }
 
     public int tinhTongSoDonHangChoGiao() {
-        int tongSoDonHangThanhCong = 0;
+        int tongSoDonHangChoGiao = 0;
 
         MongoCollection<Document> collection = connection.getCollection();
         BasicDBObject query = new BasicDBObject("TrangThai", "Chờ giao");
 
         for (Document doc : collection.find(query)) {
-            tongSoDonHangThanhCong++;
+            tongSoDonHangChoGiao++;
         }
 
-        return tongSoDonHangThanhCong;
+        return tongSoDonHangChoGiao;
     }
 
     public int tinhTongSoDonHangChoXN() {
-        int tongSoDonHangThanhCong = 0;
+        int tongSoDonHangChoXN = 0;
 
         MongoCollection<Document> collection = connection.getCollection();
         BasicDBObject query = new BasicDBObject("TrangThai", "Chờ xác nhận");
 
         for (Document doc : collection.find(query)) {
-            tongSoDonHangThanhCong++;
+            tongSoDonHangChoXN++;
         }
 
-        return tongSoDonHangThanhCong;
+        return tongSoDonHangChoXN;
     }
 
     public int tinhTongDonHang() {
@@ -510,14 +513,12 @@ public class VanDonDAO {
 
     }
 
+    @SneakyThrows
     public VanDonPOJO convertToVanDonPOJO(Document doc) {
         VanDonPOJO vanDon = new VanDonPOJO();
-
-        // Get the ObjectIds and convert them to String using toString()
         vanDon.setId(doc.getObjectId("_id").toString());
-        // Get the String values directly
-        vanDon.setMaVanDon(doc.getString("MaVanDon"));
         vanDon.setThoiGianLap(doc.getDate("ThoiGianLap"));
+        vanDon.setMaVanDon(doc.getString("MaVanDon"));
         vanDon.setLoaiVanChuyen(doc.getString("LoaiVanChuyen"));
         vanDon.setNoiTiepNhan(doc.getString("NoiTiepNhan"));
         vanDon.setNguoiThanhToan(doc.getString("NguoiThanhToan"));

@@ -1,11 +1,6 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { tokens } from "../theme";
-import CircularProgress from "@mui/material/CircularProgress";
-import { styled } from "@mui/system";
-
-const StyledCircularProgress = styled(CircularProgress)(({ theme }) => ({
-  color: theme.palette.success.main
-}));
+import ProgressCircle from "./ProgressCircle"
 
 const StatBox = ({ title, subtitle, icon, progress, increase, ...rest }) => {
   const theme = useTheme();
@@ -25,12 +20,7 @@ const StatBox = ({ title, subtitle, icon, progress, increase, ...rest }) => {
           </Typography>
         </Box>
         <Box>
-          <StyledCircularProgress
-            variant="determinate"
-            value={progress * 100}
-            size={50}
-            thickness={5}
-          />
+        <ProgressCircle progress={progress} />
         </Box>
       </Box>
       <Box display="flex" justifyContent="space-between" mt="2px">

@@ -36,7 +36,7 @@ import PrivateRoute from './Path/PrivateRouter';
 import Bar from './Admin/scenes/Charts/BarChart';
 import Line from './Admin/scenes/Charts/LineChart';
 import Pie from './Admin/scenes/Charts/PieChart';
-import Geography from './Admin/scenes/Charts/GeographyChart';
+
 
 const renderMasterRouter = () => {
     const masterRouter = [
@@ -157,10 +157,7 @@ const renderMasterRouter = () => {
             path: ROUTERS.ADMIN.PIECHART,
             component: Pie
           },
-          {
-            path: ROUTERS.ADMIN.GEOGRAPHYCHART,
-            component: Geography
-          },
+        
         {
             path: ROUTERS.EMPLOYEE.HOME,
             component: NV_Home,

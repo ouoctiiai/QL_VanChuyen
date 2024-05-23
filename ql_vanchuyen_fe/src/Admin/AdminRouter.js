@@ -12,7 +12,6 @@ import AdminLayout from "./AdminLayout";
 import Bar from "./scenes/Charts/BarChart";
 import Line from "./scenes/Charts/LineChart";
 import Pie from "./scenes/Charts/PieChart";
-import Geography from "./scenes/Charts/GeographyChart";
 
 
 const renderAdminRouter = () => {
@@ -49,10 +48,7 @@ const renderAdminRouter = () => {
       path: ROUTERS.ADMIN.PIECHART,
       component: Pie
     },
-    {
-      path: ROUTERS.ADMIN.GEOGRAPHYCHART,
-      component: Geography
-    },
+  
   ]
   return (
     <BrowserRouter>
