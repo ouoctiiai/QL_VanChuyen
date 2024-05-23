@@ -228,55 +228,55 @@ public class VanDonDAO {
     }
 
     public int tinhTongSoDonHangDaHuy() {
-        int tongSoDonHangThanhCong = 0;
+        int tongSoDonHangDaHuy = 0;
 
         MongoCollection<Document> collection = connection.getCollection();
-        BasicDBObject query = new BasicDBObject("TrangThai", "Đã huỷ");
+        BasicDBObject query = new BasicDBObject("TrangThai", "Đã hủy");
 
         for (Document doc : collection.find(query)) {
-            tongSoDonHangThanhCong++;
+            tongSoDonHangDaHuy++;
         }
 
-        return tongSoDonHangThanhCong;
+        return tongSoDonHangDaHuy;
     }
 
     public int tinhTongSoDonHangDangGiao() {
-        int tongSoDonHangThanhCong = 0;
+        int tongSoDonHangDangGiao = 0;
 
         MongoCollection<Document> collection = connection.getCollection();
         BasicDBObject query = new BasicDBObject("TrangThai", "Đang giao");
 
         for (Document doc : collection.find(query)) {
-            tongSoDonHangThanhCong++;
+            tongSoDonHangDangGiao++;
         }
 
-        return tongSoDonHangThanhCong;
+        return tongSoDonHangDangGiao;
     }
 
     public int tinhTongSoDonHangChoGiao() {
-        int tongSoDonHangThanhCong = 0;
+        int tongSoDonHangChoGiao = 0;
 
         MongoCollection<Document> collection = connection.getCollection();
         BasicDBObject query = new BasicDBObject("TrangThai", "Chờ giao");
 
         for (Document doc : collection.find(query)) {
-            tongSoDonHangThanhCong++;
+            tongSoDonHangChoGiao++;
         }
 
-        return tongSoDonHangThanhCong;
+        return tongSoDonHangChoGiao;
     }
 
     public int tinhTongSoDonHangChoXN() {
-        int tongSoDonHangThanhCong = 0;
+        int tongSoDonHangChoXN = 0;
 
         MongoCollection<Document> collection = connection.getCollection();
         BasicDBObject query = new BasicDBObject("TrangThai", "Chờ xác nhận");
 
         for (Document doc : collection.find(query)) {
-            tongSoDonHangThanhCong++;
+            tongSoDonHangChoXN++;
         }
 
-        return tongSoDonHangThanhCong;
+        return tongSoDonHangChoXN;
     }
 
     public int tinhTongDonHang() {

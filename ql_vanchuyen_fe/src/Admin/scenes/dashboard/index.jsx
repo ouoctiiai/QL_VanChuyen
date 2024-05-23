@@ -1,12 +1,7 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import React, { useState, useEffect } from 'react';
-import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import EmailIcon from "@mui/icons-material/Email";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import TrafficIcon from "@mui/icons-material/Traffic";
 import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
 import GeographyChart from "../../components/GeographyChart";
@@ -20,6 +15,10 @@ import { getTongDonHangChoGiao } from "./../../../Api/DataVanDon";
 import { getTongDonHangDangGiao } from "./../../../Api/DataVanDon";
 import { getTongDonHangChoXN } from "./../../../Api/DataVanDon";
 import { getTongDonHangDaHuy } from "./../../../Api/DataVanDon";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -153,12 +152,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="12,361"
+            title={pendingOrders}
             subtitle="Đơn chờ giao"
-            progress={pendingRate} 
-            increase={pendingRate.toFixed(2)}
+            progress={pendingRate/100} 
+            increase={`${pendingRate.toFixed(2)}%`}
             icon={
-              <EmailIcon
+              <ShoppingCartIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -172,12 +171,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="431,225"
+            title={deliveringOrders}
             subtitle="Đơn đang giao"
-            progress={deliveringRate} 
-            increase={deliveringRate.toFixed(2)}
+            progress={deliveringRate/100} 
+            increase={`${deliveringRate.toFixed(2)}%`}
             icon={
-              <PointOfSaleIcon
+              <ShoppingCartCheckoutIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -191,11 +190,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title={waitingForConfirmationRate.toFixed(2)}
+            title={waitingForConfirmationOrders}
             subtitle="Chờ xác nhận"
-            progress={waitingForConfirmationRate} 
+            progress={waitingForConfirmationRate/100} 
+            increase={`${waitingForConfirmationRate.toFixed(2)}%`}
             icon={
-              <PersonAddIcon
+              <ProductionQuantityLimitsIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -209,12 +209,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="1,325,134"
+            title={cancelledOrders}
             subtitle="Đơn đã huỷ"
-            progress={cancelledRate}
-            increase={cancelledRate.toFixed(2)}
+            progress={cancelledRate/100}
+            increase={`${cancelledRate.toFixed(2)}%`}
             icon={
-              <TrafficIcon
+              <RemoveShoppingCartIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
