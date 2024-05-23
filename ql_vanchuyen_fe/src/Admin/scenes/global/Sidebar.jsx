@@ -136,7 +136,7 @@ const Sidebar = () =>{
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
-              Data
+              Account
             </Typography>
             <Item
               title="Quản lí tài khoản"
@@ -181,21 +181,6 @@ const Sidebar = () =>{
               selected={selected}
               setSelected={setSelected}
             />
-            
-            {/* <Item
-              title="Calendar"
-              to="/calendar"
-              icon={<CalendarTodayOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="FAQ Page"
-              to="/faq"
-              icon={<HelpOutlineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            /> */}
 
             <Typography
               variant="h6"
@@ -205,30 +190,23 @@ const Sidebar = () =>{
               Charts
             </Typography>
             <Item
-              title="Bar Chart"
-              to="/"
-              icon={<BarChartOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Pie Chart"
-              to="/"
+              title="Thống kê đơn hàng"
+              to="/piechart"
               icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Line Chart"
-              to="/"
+              title="Thống kê thu"
+              to="/linechart"
               icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Geography Chart"
-              to="/"
-              icon={<MapOutlinedIcon />}
+              title="Thống kê chi"
+              to="/barchart"
+              icon={<BarChartOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />

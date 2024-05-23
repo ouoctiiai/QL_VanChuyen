@@ -6,11 +6,18 @@ import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../components/Header";
 import { Autocomplete } from '@mui/material';
+import { useHistory } from 'react-router-dom';
+
 
 
 const Form = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const [banks, setBanks] = useState([]);
+  const history = useHistory();
+
+  const handleCreateAccountClick = () => {
+    history.push('/qltaikhoan');
+  };
 
   useEffect(() => {
     axios.get('https://api.vietqr.io/v2/banks')
@@ -76,7 +83,7 @@ const Form = () => {
               gridTemplateColumns="repeat(4, minmax(0, 1fr))"
               sx={{
                 "& .MuiFormLabel-root": {
-                  fontSize: "1.2em", 
+                  fontSize: "1.2em",
                 },
                 "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
               }}
@@ -213,7 +220,13 @@ const Form = () => {
               />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px" >
-              <Button type="submit" color="secondary" variant="contained" sx={{ fontSize: '1.3em' }}>
+              <Button
+                type="submit"
+                color="secondary"
+                variant="contained"
+                sx={{ fontSize: '1.3em' }}
+                onClick={handleCreateAccountClick}
+              >
                 Tạo tài khoản
               </Button>
             </Box>

@@ -15,16 +15,31 @@ import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import { getTongDonHangThanhCong } from "./../../../Api/DataVanDon";
 import { getTongDonHang } from './../../../Api/DataVanDon';
+import { get10RecentOrders } from "./../../../Api/DataVanDon";
+import { getTongDonHangChoGiao } from "./../../../Api/DataVanDon";
+import { getTongDonHangDangGiao } from "./../../../Api/DataVanDon";
+import { getTongDonHangChoXN } from "./../../../Api/DataVanDon";
+import { getTongDonHangDaHuy } from "./../../../Api/DataVanDon";
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [totalOrders, setTotalOrders] = useState(0);
   const [successfulOrders, setSuccessfulOrders] = useState(0);
-  const successRate = (successfulOrders / totalOrders) * 100;
+  const [recentOrders, setRecentOrders] = useState([]);
+  const [pendingOrders, setPendingOrders] = useState(0);
+  const [deliveringOrders, setDeliveringOrders] = useState(0);
+  const [waitingForConfirmationOrders, setWaitingForConfirmationOrders] = useState(0);
+  const [cancelledOrders, setCancelledOrders] = useState(0);
 
+  const successRate1 = totalOrders ? (successfulOrders / totalOrders) * 100 : 0;
+  const pendingRate = totalOrders ? (pendingOrders / totalOrders) * 100 : 0;
+  const deliveringRate = totalOrders ? (deliveringOrders / totalOrders) * 100 : 0;
+  const waitingForConfirmationRate = totalOrders ? (waitingForConfirmationOrders / totalOrders) * 100 : 0;
+  const cancelledRate = totalOrders ? (cancelledOrders / totalOrders) * 100 : 0;
 
   useEffect(() => {
+    //Lấy tổng đơn
     const fetchTotalOrders = async () => {
       try {
         const response = await getTongDonHang();
@@ -34,6 +49,7 @@ const Dashboard = () => {
       }
     };
 
+    //Lấy đơn đã giao
     const fetchSuccessfulOrders = async () => {
       try {
         const response = await getTongDonHangThanhCong();
@@ -43,10 +59,62 @@ const Dashboard = () => {
       }
     };
 
+    const fetchPendingOrders = async () => {
+      try {
+        const response = await getTongDonHangChoGiao();
+        setPendingOrders(response.data);
+      } catch (error) {
+        console.error("Error fetching pending orders:", error);
+      }
+    };
+
+    const fetchDeliveringOrders = async () => {
+      try {
+        const response = await getTongDonHangDangGiao();
+        setDeliveringOrders(response.data);
+      } catch (error) {
+        console.error("Error fetching delivering orders:", error);
+      }
+    };
+
+    const fetchWaitingForConfirmationOrders = async () => {
+      try {
+        const response = await getTongDonHangChoXN();
+        setWaitingForConfirmationOrders(response.data);
+      } catch (error) {
+        console.error("Error fetching orders waiting for confirmation:", error);
+      }
+    };
+
+    const fetchCancelledOrders = async () => {
+      try {
+        const response = await getTongDonHangDaHuy();
+        setCancelledOrders(response.data);
+      } catch (error) {
+        console.error("Error fetching cancelled orders:", error);
+      }
+    };
+
+    //DS 10 đơn gần nhất
+    const fetchRecentOrders = async () => {
+      try {
+        const response = await get10RecentOrders();
+        setRecentOrders(response.data);
+      } catch (error) {
+        console.error("Error fetching recent orders:", error);
+      }
+    };
+
     fetchTotalOrders();
     fetchSuccessfulOrders();
+    fetchRecentOrders();
+    fetchPendingOrders();
+    fetchDeliveringOrders();
+    fetchWaitingForConfirmationOrders();
+    fetchCancelledOrders();
   }, []);
-  
+
+
   return (
     <Box m="20px">
       {/* HEADER */}
@@ -86,9 +154,9 @@ const Dashboard = () => {
         >
           <StatBox
             title="12,361"
-            subtitle="Emails Sent"
-            progress="0.75"
-            increase="+14%"
+            subtitle="Đơn chờ giao"
+            progress={pendingRate} 
+            increase={pendingRate.toFixed(2)}
             icon={
               <EmailIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -105,9 +173,9 @@ const Dashboard = () => {
         >
           <StatBox
             title="431,225"
-            subtitle="Sales Obtained"
-            progress="0.50"
-            increase="+21%"
+            subtitle="Đơn đang giao"
+            progress={deliveringRate} 
+            increase={deliveringRate.toFixed(2)}
             icon={
               <PointOfSaleIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -123,10 +191,9 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="32,441"
-            subtitle="New Clients"
-            progress="0.30"
-            increase="+5%"
+            title={waitingForConfirmationRate.toFixed(2)}
+            subtitle="Chờ xác nhận"
+            progress={waitingForConfirmationRate} 
             icon={
               <PersonAddIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -143,9 +210,9 @@ const Dashboard = () => {
         >
           <StatBox
             title="1,325,134"
-            subtitle="Traffic Received"
-            progress="0.80"
-            increase="+43%"
+            subtitle="Đơn đã huỷ"
+            progress={cancelledRate}
+            increase={cancelledRate.toFixed(2)}
             icon={
               <TrafficIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -210,12 +277,12 @@ const Dashboard = () => {
             p="15px"
           >
             <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
+              Đơn hàng gần đây
             </Typography>
           </Box>
-          {mockTransactions.map((transaction, i) => (
+          {recentOrders.map((order, i) => (
             <Box
-              key={`${transaction.txId}-${i}`}
+              key={`${order.maVanDon}-${i}`}
               display="flex"
               justifyContent="space-between"
               alignItems="center"
@@ -228,19 +295,19 @@ const Dashboard = () => {
                   variant="h5"
                   fontWeight="600"
                 >
-                  {transaction.txId}
+                  {order.maVanDon}
                 </Typography>
                 <Typography color={colors.grey[100]}>
-                  {transaction.user}
+                  {order.loaiVanChuyen}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
+              <Box color={colors.grey[100]}>{order.thoiGianLap}</Box>
               <Box
                 backgroundColor={colors.greenAccent[500]}
                 p="5px 10px"
                 borderRadius="4px"
               >
-                ${transaction.cost}
+                ${order.phiVanChuyen.tongPhi}
               </Box>
             </Box>
           ))}
@@ -254,7 +321,7 @@ const Dashboard = () => {
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
-            Campaign
+            Đơn giao thành công
           </Typography>
           <Box
             display="flex"
@@ -262,15 +329,15 @@ const Dashboard = () => {
             alignItems="center"
             mt="25px"
           >
-            <ProgressCircle progress={successRate / 100} size="125" />
+            <ProgressCircle progress={successRate1 / 100} size="125" />
             <Typography
               variant="h5"
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $48,352 revenue generated
+              {successRate1.toFixed(2)}%
             </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
+            <Typography>Số đơn đã giao hàng thành công trên tổng số đơn</Typography>
           </Box>
         </Box>
         <Box

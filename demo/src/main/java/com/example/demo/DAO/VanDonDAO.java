@@ -123,7 +123,6 @@ public class VanDonDAO {
                 tongPhi += 5000;
 
         } else {
-
             tongPhi += vanDon.getKhoangCach() % 10 * 2000;
             if (khoiLuong > 50)
                 tongPhi += 10000 + 2000 * (khoiLuong - 50);
@@ -131,6 +130,45 @@ public class VanDonDAO {
                 tongPhi += 10000;
         }
         return tongPhi;
+    }
+
+    public int tinhTongPhi(int phiCoDinh, int phiVAT, int phiCoc, int phiNang, int phiHa, int phiThuong, int phiKhac, double khoangCach, double khoiLuong, double chieuDai, double chieuRong, String loaiHang, String loaiVanChuyen){
+        int tongPhi = phiCoDinh + phiVAT + phiCoc + phiNang + phiHa + phiThuong + phiKhac;
+
+        if (loaiHang.equalsIgnoreCase("hàng điện tử"))
+            tongPhi += 5000;
+        else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
+            tongPhi += 5000;
+        else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
+            tongPhi += 10000;
+
+        if (chieuDai + chieuRong > 150)
+            tongPhi += 10000;
+
+        if (loaiVanChuyen.equalsIgnoreCase("Liên tỉnh") ) {
+            tongPhi += khoangCach % 10;
+
+            if (khoiLuong > 50)
+                tongPhi += 20000 + 2000 * (khoiLuong - 50);
+            else if (khoiLuong > 10)
+                tongPhi += 20000;
+            else if (khoiLuong > 5)
+                tongPhi += 10000;
+            else if (khoiLuong > 1)
+                tongPhi += 5000;
+
+        } else {
+            tongPhi += khoangCach % 10 * 2000;
+            if (khoiLuong > 50)
+                tongPhi += 10000 + 2000 * (khoiLuong - 50);
+            else if (khoiLuong > 5)
+                tongPhi += 10000;
+        }
+        return tongPhi;
+    }
+
+    public int tinhPhiVAT(int phiCoDinh, int phiCoc, int phiNang, int phiHa, int phiThuong, int phiKhac){
+        return (int) ((phiCoDinh + phiCoc + phiNang + phiHa + phiThuong + phiKhac) * 0.1);
     }
 
     private class DoanhThuTheoNam{
@@ -192,6 +230,58 @@ public class VanDonDAO {
         return tongSoDonHangThanhCong;
     }
 
+    public int tinhTongSoDonHangDaHuy() {
+        int tongSoDonHangThanhCong = 0;
+
+        MongoCollection<Document> collection = connection.getCollection();
+        BasicDBObject query = new BasicDBObject("TrangThai", "Đã huỷ");
+
+        for (Document doc : collection.find(query)) {
+            tongSoDonHangThanhCong++;
+        }
+
+        return tongSoDonHangThanhCong;
+    }
+
+    public int tinhTongSoDonHangDangGiao() {
+        int tongSoDonHangThanhCong = 0;
+
+        MongoCollection<Document> collection = connection.getCollection();
+        BasicDBObject query = new BasicDBObject("TrangThai", "Đang giao");
+
+        for (Document doc : collection.find(query)) {
+            tongSoDonHangThanhCong++;
+        }
+
+        return tongSoDonHangThanhCong;
+    }
+
+    public int tinhTongSoDonHangChoGiao() {
+        int tongSoDonHangThanhCong = 0;
+
+        MongoCollection<Document> collection = connection.getCollection();
+        BasicDBObject query = new BasicDBObject("TrangThai", "Chờ giao");
+
+        for (Document doc : collection.find(query)) {
+            tongSoDonHangThanhCong++;
+        }
+
+        return tongSoDonHangThanhCong;
+    }
+
+    public int tinhTongSoDonHangChoXN() {
+        int tongSoDonHangThanhCong = 0;
+
+        MongoCollection<Document> collection = connection.getCollection();
+        BasicDBObject query = new BasicDBObject("TrangThai", "Chờ xác nhận");
+
+        for (Document doc : collection.find(query)) {
+            tongSoDonHangThanhCong++;
+        }
+
+        return tongSoDonHangThanhCong;
+    }
+
     public int tinhTongDonHang() {
         MongoCollection<Document> collection = connection.getCollection();
         long count = collection.countDocuments();
@@ -235,6 +325,13 @@ public class VanDonDAO {
         Document doc = collection.find(filter).first();
         return convertToVanDonPOJO(doc);
     }
+
+//    public VanDonPOJO timVanDonTheoMaVanDon(String maVanDon){
+//        MongoCollection<Document> collection = connection.getCollection();
+//        Bson filter = Filters.eq("MaVanDon", maVanDon);
+//        Document doc = collection.find(filter).first();
+//        return convertToVanDonPOJO(doc);
+//    }
 
     public Double tinhKhoangCachDonLienTinh(VanDonPOJO vd){
         Double khoangCach = 0.0;

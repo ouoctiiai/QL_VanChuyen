@@ -30,43 +30,48 @@ public class TaiKhoanDAO {
         }
         return danhSachTK;
     }
-    
 
-    public void themTaiKhoanMoi(TaiKhoanPOJO taiKhoanMoi) {
-        MongoCollection<Document> collection = connection.getCollection();
-        Document doc = new Document();
-        doc.append("LoaiTaiKhoan", taiKhoanMoi.getLoaiTaiKhoan());
-        doc.append("TenTaiKhoan", taiKhoanMoi.getTenTaiKhoan());
-        doc.append("TenChuTaiKhoan", taiKhoanMoi.getTenChuTaiKhoan());
-        doc.append("SDT", taiKhoanMoi.getSdt());
-        doc.append("Email", taiKhoanMoi.getEmail());
-        doc.append("SoCCCD", taiKhoanMoi.getSoCCCD());
-        doc.append("MatKhau", taiKhoanMoi.getMatKhau());
-        doc.append("DiaChi", taiKhoanMoi.getDiaChi());
-        doc.append("MaShipper", taiKhoanMoi.getMaShipper());
-        doc.append("TongTienCong", taiKhoanMoi.getTongTienCong());
 
-        ThongTinTaiKhoan tt = taiKhoanMoi.getThongTinTaiKhoan();
-        if (tt != null) {
-            Document ttttk = new Document();
-            ttttk.append("TenNganHang", tt.getTenNganHang());
-            ttttk.append("SoTaiKhoan", tt.getSoTaiKhoan());
-            doc.append("TKNganHang", ttttk);
+    public boolean themTaiKhoanMoi(TaiKhoanPOJO taiKhoanMoi) {
+        try {
+            MongoCollection<Document> collection = connection.getCollection();
+            Document doc = new Document();
+            doc.append("LoaiTaiKhoan", taiKhoanMoi.getLoaiTaiKhoan());
+            doc.append("TenTaiKhoan", taiKhoanMoi.getTenTaiKhoan());
+            doc.append("TenChuTaiKhoan", taiKhoanMoi.getTenChuTaiKhoan());
+            doc.append("SDT", taiKhoanMoi.getSdt());
+            doc.append("Email", taiKhoanMoi.getEmail());
+            doc.append("SoCCCD", taiKhoanMoi.getSoCCCD());
+            doc.append("MatKhau", taiKhoanMoi.getMatKhau());
+            doc.append("DiaChi", taiKhoanMoi.getDiaChi());
+            doc.append("MaShipper", "Ma tu dong");
+//        doc.append("TongTienCong", taiKhoanMoi.getTongTienCong());
+
+            ThongTinTaiKhoan tt = taiKhoanMoi.getThongTinTaiKhoan();
+            if (tt != null) {
+                Document ttttk = new Document();
+                ttttk.append("TenNganHang", tt.getTenNganHang());
+                ttttk.append("SoTaiKhoan", tt.getSoTaiKhoan());
+                doc.append("TKNganHang", ttttk);
+            }
+
+            collection.insertOne(doc);
+            return true;
+        } catch (Exception ex) {
+            return false;
         }
-
-        collection.insertOne(doc);
     }
 
-    public TaiKhoanPOJO timTaiKhoanTheoId(ObjectId id){
+    public TaiKhoanPOJO timTaiKhoanTheoId(ObjectId id) {
         MongoCollection<Document> collection = connection.getCollection();
         Bson filter = Filters.eq("_id", id);
         Document doc = collection.find(filter).first();
         return convertToTaiKhoanPOJO(doc);
     }
 
-    public TaiKhoanPOJO timTaiKhoanTheoSDT(String sdt){
+    public TaiKhoanPOJO timTaiKhoanTheoTenTaiKhoan(String tenTaiKhoan){
         MongoCollection<Document> collection = connection.getCollection();
-        Bson filter = Filters.eq("SDT", sdt);
+        Bson filter = Filters.eq("TenTaiKhoan", tenTaiKhoan);
         Document doc = collection.find(filter).first();
         return doc != null ? convertToTaiKhoanPOJO(doc) : null;
     }
@@ -100,4 +105,5 @@ public class TaiKhoanDAO {
     public void dongKetNoi() {
         connection.close();
     }
+
 }
