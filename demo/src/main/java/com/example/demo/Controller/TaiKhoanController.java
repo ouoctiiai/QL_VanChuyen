@@ -27,11 +27,11 @@ public class TaiKhoanController {
         return new ResponseEntity<>(dstk, HttpStatus.OK);
     }
 
-//    @GetMapping("/tongShipper")
-//    public ResponseEntity<Integer> tinhTongShipper() {
-//        int tongShipper = shipperService.tinhTongShipper(dsTaiKhoan());
-//        return new ResponseEntity<>(tinhTongShipper(), HttpStatus.OK);
-//    }
+    @GetMapping("/tongShipper")
+    public ResponseEntity tinhTongShipper() {
+        int tongShipper = shipperService.tinhTongShipper();
+        return new ResponseEntity<>(tongShipper, HttpStatus.OK);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<TaiKhoanPOJO> getTaiKhoanById(@PathVariable ObjectId id) {
@@ -53,12 +53,12 @@ public class TaiKhoanController {
 //            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 //        }
         if (user != null) {
-            System.out.println("Found user: " + user);  // In ra thông tin user tìm thấy
+            System.out.println("Found user: " + user);
             if (user.getMatKhau().equals(loginRequest.getMatKhau())) {
-                System.out.println("Login successful for user: " + user.getId());  // In ra log nếu đăng nhập thành công
+                System.out.println("Login successful for user: " + user.getId());
                 return ResponseEntity.ok(user);
             } else {
-                System.out.println("Incorrect password for user: " + user.getId());  // In ra log nếu sai mật khẩu
+                System.out.println("Incorrect password for user: " + user.getId());
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
             }
         } else {
