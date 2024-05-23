@@ -8,12 +8,15 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Sorts;
 import com.mongodb.client.model.Updates;
+import lombok.SneakyThrows;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
@@ -299,14 +302,12 @@ public class VanDonDAO {
         return path;
     }
 
+    @SneakyThrows
     public VanDonPOJO convertToVanDonPOJO(Document doc) {
         VanDonPOJO vanDon = new VanDonPOJO();
-
-        // Get the ObjectIds and convert them to String using toString()
         vanDon.setId(doc.getObjectId("_id").toString());
-        // Get the String values directly
-        vanDon.setMaVanDon(doc.getString("MaVanDon"));
         vanDon.setThoiGianLap(doc.getDate("ThoiGianLap"));
+        vanDon.setMaVanDon(doc.getString("MaVanDon"));
         vanDon.setLoaiVanChuyen(doc.getString("LoaiVanChuyen"));
         vanDon.setNoiTiepNhan(doc.getString("NoiTiepNhan"));
         vanDon.setNguoiThanhToan(doc.getString("NguoiThanhToan"));

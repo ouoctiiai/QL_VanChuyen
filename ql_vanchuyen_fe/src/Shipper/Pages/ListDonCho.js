@@ -35,7 +35,7 @@ const ListDonCho = () => {
                                 name="choices-single-filter-orderby" 
                                 id="choices-single-filter-orderby" 
                                 aria-label="Default select example">
-                            <option value="tphcm">TPHCM</option>
+                            <option value="tphcm">TP Hồ Chí Minh</option>
                             <option value="hn">Hà Nội</option>
                             <option value="dn">Đà Nẵng</option>
                         </select>
