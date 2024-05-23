@@ -301,7 +301,7 @@ const Dashboard = () => {
                   {order.loaiVanChuyen}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{order.thoiGianLap}</Box>
+              <Box color={colors.grey[100]}>{order.thoiGianLapToString}</Box>
               <Box
                 backgroundColor={colors.greenAccent[500]}
                 p="5px 10px"
