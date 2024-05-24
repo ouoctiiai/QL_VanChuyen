@@ -392,6 +392,19 @@ public class VanDonDAO {
         return (int) count;
     }
 
+    public List<VanDonPOJO> dsDonTheoTrangThai(String trangThai) {
+        List<VanDonPOJO> dsVanDon = new ArrayList<>();
+        MongoCollection<Document> collection = connection.getCollection();
+        Bson filter = Filters.eq("TrangThai", trangThai);
+
+        for (Document doc : collection.find(filter)) {
+            VanDonPOJO vd = convertToVanDonPOJO(doc);
+            dsVanDon.add(vd);
+        }
+        return dsVanDon;
+    }
+
+
     public int tinhTongSoDonCuaShipper(String id) {
         int s = 0;
         List<VanDonPOJO> dsVanDon = allVanDon();
@@ -544,6 +557,8 @@ public class VanDonDAO {
                             .append("VAT", vanDonPOJO.getPhiVanChuyen().getVat())
                             .append("PhiNang", vanDonPOJO.getPhiVanChuyen().getPhiNang())
                             .append("PhiHa", vanDonPOJO.getPhiVanChuyen().getPhiHa())
+                            .append("ThuongShipper", vanDonPOJO.getPhiVanChuyen().getThuongShipper())
+                            .append("PhiKhac", vanDonPOJO.getPhiVanChuyen().getPhiKhac())
                             .append("TongPhi", vanDonPOJO.getPhiVanChuyen().getTongPhi()));
 
             if (Optional.ofNullable(vanDonPOJO.getKhoangCach()).isPresent()) {
@@ -597,6 +612,18 @@ public class VanDonDAO {
 
     }
 
+    public VanDonPOJO updateTrangThai(Object id) {
+        try {
+            MongoCollection<Document> collection = connection.getCollection();
+            collection.updateOne(
+                    Filters.eq("_id", id),
+                    Updates.set("TrangThai", "Chờ giao"));
+            return new VanDonPOJO();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
     public void themDonHangKhachHang(VanDonPOJO vanDonPOJO){
         MongoCollection<Document> collection = connection.getCollection();
         Document doc = new Document()
