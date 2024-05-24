@@ -5,6 +5,14 @@ public class ThongTinShipper {
     private String tenShipper;
     private String sdtShipper;
 
+    public ThongTinShipper(String maShipper, String tenShipper, String sdtShipper) {
+        this.maShipper = maShipper;
+        this.tenShipper = tenShipper;
+        this.sdtShipper = sdtShipper;
+    }
+
+    public ThongTinShipper(){}
+
     // Getter methods
     public String getMaShipper() {
         return maShipper;

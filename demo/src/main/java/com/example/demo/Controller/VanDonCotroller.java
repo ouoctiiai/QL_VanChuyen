@@ -181,4 +181,16 @@ public class VanDonCotroller {
         List<VanDonPOJO> dsvd = vanDonService.lichSuDonCuaShipper(masp);
         return new ResponseEntity<>(dsvd, HttpStatus.OK);
     }
+
+    @GetMapping("/tongDonCuaShipper/{masp}")
+    public ResponseEntity<Integer> tinhTongDonCuaShipper(@PathVariable String masp) {
+        int tongDonHang = vanDonService.tinhTongSoDonCuaShipper(masp);
+        return new ResponseEntity<>(tongDonHang, HttpStatus.OK);
+    }
+
+    @GetMapping("/TongDonDaGiaoCuaShipper/{masp}")
+    public ResponseEntity<Integer> tinhTongDonDaGiaoCuaShipper(@PathVariable String masp) {
+        int tongDonHang = vanDonService.tinhTongSoDonDaGiaoCuaShipper(masp);
+        return new ResponseEntity<>(tongDonHang, HttpStatus.OK);
+    }
 }
