@@ -63,11 +63,11 @@ public class VanDonDAO {
         KichCo kichCo = thongTinHangHoa.getKichCo();
         String loaiHang = thongTinHangHoa.getLoaiHang();
 
-        if (loaiHang.equalsIgnoreCase("hàng điện tử"))
+        if (loaiHang.equalsIgnoreCase("Điện - điện tử"))
             tongPhi += 5000;
-        else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
+        else if (loaiHang.equalsIgnoreCase("Hàng dễ vỡ"))
             tongPhi += 5000;
-        else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
+        else if (loaiHang.equalsIgnoreCase("Thuốc & hóa chất"))
             tongPhi += 10000;
 
         if(kichCo != null){
@@ -139,11 +139,11 @@ public class VanDonDAO {
     public int tinhTongPhi(int phiCoDinh, int phiVAT, int phiCoc, int phiNang, int phiHa, int phiThuong, int phiKhac, double khoangCach, double khoiLuong, double chieuDai, double chieuRong, String loaiHang, String loaiVanChuyen){
         int tongPhi = phiCoDinh + phiVAT + phiCoc + phiNang + phiHa + phiThuong + phiKhac;
 
-        if (loaiHang.equalsIgnoreCase("hàng điện tử"))
+        if (loaiHang.equalsIgnoreCase("Điện - điện tử"))
             tongPhi += 5000;
-        else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
+        else if (loaiHang.equalsIgnoreCase("Hàng dễ vỡ"))
             tongPhi += 5000;
-        else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
+        else if (loaiHang.equalsIgnoreCase("Thuốc & hóa chất"))
             tongPhi += 10000;
 
         if (chieuDai + chieuRong > 150)
@@ -503,7 +503,11 @@ public class VanDonDAO {
                             .append("VAT", vanDonPOJO.getPhiVanChuyen().getVat())
                             .append("PhiNang", vanDonPOJO.getPhiVanChuyen().getPhiNang())
                             .append("PhiHa", vanDonPOJO.getPhiVanChuyen().getPhiHa())
-                            .append("TongPhi", vanDonPOJO.getPhiVanChuyen().getTongPhi()));
+                            .append("TongPhi", vanDonPOJO.getPhiVanChuyen().getTongPhi()))
+                    .append("ThongTinShipper", new Document()
+                            .append("MaShipper", vanDonPOJO.getThongTinShipper().getMaShipper())
+                            .append("TenShipper", vanDonPOJO.getThongTinShipper().getTenShipper())
+                            .append("SDTShipper", vanDonPOJO.getThongTinShipper().getSdtShipper()));
 
             if (Optional.ofNullable(vanDonPOJO.getKhoangCach()).isPresent()) {
                 document.append("KhoangCach", vanDonPOJO.getKhoangCach());
@@ -538,16 +542,7 @@ public class VanDonDAO {
                         .append("HangXe", vanDonPOJO.getThongTinXe().getHangXe()));
             }
 
-            if (Optional.ofNullable(vanDonPOJO.getThongTinShipper()).isPresent()) {
-                document.append("ThongTinShipper", new Document()
-                        .append("MaShipper", vanDonPOJO.getThongTinShipper().getMaShipper())
-                        .append("TenShipper", vanDonPOJO.getThongTinShipper().getTenShipper())
-                        .append("SDTShipper", vanDonPOJO.getThongTinShipper().getSdtShipper()));
-            }
-            // Lấy collection từ cơ sở dữ liệu
             MongoCollection<Document> collection = connection.getCollection();
-
-            // Thêm một bản ghi mới vào collection
             collection.insertOne(document);
 
             return vanDonPOJO;
