@@ -2,9 +2,19 @@ import React, { useState } from "react";
 
 import "../Styles/Navbar.css";
 import { Link, NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
-const Navbar = ({children, ...props}) => {
-    const [menuOpen, setMenuOpen] = useState(false);
+const Navbar = ({ children, ...props }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const history = useHistory();
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("loaiTaiKhoan");
+    localStorage.removeItem("tenChuTaiKhoan");
+    history.replace("/login");
+  }
   return (
     <div {...props}>
       <nav className="navShip">
@@ -26,9 +36,14 @@ const Navbar = ({children, ...props}) => {
           <li>
             <NavLink to="/profile">ProFile</NavLink>
           </li>
+          <li>
+            <NavLink to="/login" onClick={handleLogout}>
+              <i class="fa-solid fa-person-walking-arrow-right"></i>
+            </NavLink>
+          </li>
         </ul>
       </nav>
-    {children}
+      {children}
     </div>
   )
 }

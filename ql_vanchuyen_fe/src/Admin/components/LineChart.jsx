@@ -35,7 +35,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
       if (!acc[nam]) {
         acc[nam] = [];
       }
-      acc[nam].push({ x: `${thang} Tháng`, y: tongTien });
+      acc[nam].push({ x: `Tháng ${thang}`, y: tongTien });
       return acc;
     }, {});
 
@@ -58,6 +58,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
           legend: {
             text: {
               fill: colors.grey[100],
+              fontSize: 14,
             },
           },
           ticks: {
@@ -67,12 +68,14 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
             },
             text: {
               fill: colors.grey[100],
+              fontSize: 12,
             },
           },
         },
         legends: {
           text: {
             fill: colors.grey[100],
+            fontSize: 12,
           },
         },
         tooltip: {
@@ -96,8 +99,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         tickSize: 0,
         tickPadding: 5,
         tickRotation: 0,
-        tickValues: Array.from({ length: 12 }, (_, i) => `${i + 1} Tháng`),
-        legend: "Thời gian",
+        tickValues: Array.from({ length: 12 }, (_, i) => `Tháng ${i + 1}`),
         legendOffset: 36,
         legendPosition: "middle",
       }}
@@ -105,7 +107,6 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         tickSize: 3,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "Tổng tiền",
         legendOffset: -40,
         legendPosition: "middle",
         tickFormat: value => `${value}đ`,

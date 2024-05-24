@@ -3,8 +3,9 @@ import Mapbox from '../Components/Mapbox'
 import Navbar from '../Components/Navbar';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { getVanDonById } from '../../Api/DataVanDon';
+import OrderList from '../../KhachHang/OrderList/OrderList';
 
-const DetailOrder = () => {
+const DetailHistory = () => {
   const{ id } = useParams();
   const[detailorder, setdetailorder] = useState('')
   const[thongTinNguoiGui, setThongTinNguoiGui] = useState('')
@@ -40,9 +41,12 @@ const DetailOrder = () => {
 							<div class="d-flex flex-column align-items-center text-center">
 								<div class="mt-3">
 									<h4>Mã vận đơn: {detailorder.maVanDon}</h4>
+                                    <hr />
 									<p class="mb-1">Thời gian lập: {detailorder.thoiGianLapToString}</p>
-									<p class="text-muted font-size-sm">Tiền nhận được: {thongTinPhi.luongShipperTheoDon}đ</p>
-									<button class="btn btn-primary">Nhận đơn</button>
+                                    <hr />
+									<p class="mb-1">Tiền nhận được: {thongTinPhi.luongShipperTheoDon}đ</p>
+                                    <hr />
+                                    <p class="mb-1">Loại vận chuyển: {detailorder.loaiVanChuyen}</p>
 								</div>
 							</div>
 							<hr class="my-4" />
@@ -73,14 +77,15 @@ const DetailOrder = () => {
 									</div>
 								</div>
 
-								<div class="row mb-3">
+                                <div class="row mb-3">
 									<div class="col-sm-5">
-										<h6 class="mb-0">Khoảng cách:</h6>
+										<h6 class="mb-0">Trạng thái:</h6>
 									</div>
 									<div class="col-sm-7 ">
-										<p class="mb-1">{detailorder.khoangCach} km</p>
+										<p class="mb-1">{detailorder.trangThai}</p>
 									</div>
 								</div>
+
 						</div>
 					</div>
 					
@@ -150,15 +155,6 @@ const DetailOrder = () => {
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="card bg-cardShip">
-								<div class="card-body">
-									<Mapbox from={thongTinNguoiGui.diaChiNguoiGui} to={thongTinNguoiNhan.diaChiNguoiNhan} />
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -168,4 +164,4 @@ const DetailOrder = () => {
   )
 }
 
-export default DetailOrder
+export default DetailHistory

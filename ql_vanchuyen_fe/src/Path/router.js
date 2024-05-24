@@ -5,7 +5,8 @@ export const ROUTERS ={
         PROFILE:"/profile-customer",
         CREATE_ORDER:"/create-order",
         ORDER_LIST:"/order-list",
-        ORDER_DETAILS:"/order-details"
+        ORDER_DETAILS:"/order-details",
+        UPDATE_PROFILE: "/update-profile-customer"
     },
 
     LOGIN:{
@@ -20,7 +21,8 @@ export const ROUTERS ={
         DASHBOARD: "/dashboard",
         DETAILORDER: "/detailorder",
         UPDATEPEOFILE: "/UpdateProfile",
-        DETAILORDER: "/detailorder/:id"
+        DETAILORDER: "/detailorder/:id",
+        DETAILHISTORY: "/detailhistory/:id"
     },
     
     ADMIN:{

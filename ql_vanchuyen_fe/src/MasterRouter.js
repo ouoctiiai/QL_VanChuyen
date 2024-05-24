@@ -36,7 +36,8 @@ import PrivateRoute from './Path/PrivateRouter';
 import Bar from './Admin/scenes/Charts/BarChart';
 import Line from './Admin/scenes/Charts/LineChart';
 import Pie from './Admin/scenes/Charts/PieChart';
-
+import UpdateProfileCustomer from './KhachHang/Profile/UpdateProfileCustomer';
+import DetailHistory from './Shipper/Pages/DetailHistory';
 
 const renderMasterRouter = () => {
     const masterRouter = [
@@ -63,6 +64,11 @@ const renderMasterRouter = () => {
         {
             path: ROUTERS.CUSTOMER.ORDER_DETAILS,
             component: OrderDetails,
+            isPrivate: true
+        },
+        {
+            path: ROUTERS.CUSTOMER.UPDATE_PROFILE,
+            component: UpdateProfileCustomer,
             isPrivate: true
         },
         {
@@ -108,6 +114,12 @@ const renderMasterRouter = () => {
         {
             path: ROUTERS.SHIPPER.DETAILORDER,
             component: DetailOrder,
+            isPrivate: true
+        },
+
+        {
+            path: ROUTERS.SHIPPER.DETAILHISTORY,
+            component: DetailHistory,
             isPrivate: true
         },
 
@@ -187,24 +199,23 @@ const renderMasterRouter = () => {
         <Switch>
             {
                 masterRouter.map((item, key) => {
-                    return <Route key={key} path={item.path} component={item.component} />
-                    // if (item.isPrivate) {
-                    //     return (
-                    //         <PrivateRoute 
-                    //             key={key} 
-                    //             path={item.path} 
-                    //             component={item.component} 
-                    //         />
-                    //     );
-                    // } else {
-                    //     return (
-                    //         <Route 
-                    //             key={key} 
-                    //             path={item.path} 
-                    //             component={item.component} 
-                    //         />
-                    //     );
-                    // }
+                    if (item.isPrivate) {
+                        return (
+                            <PrivateRoute 
+                                key={key} 
+                                path={item.path} 
+                                component={item.component} 
+                            />
+                        );
+                    } else {
+                        return (
+                            <Route 
+                                key={key} 
+                                path={item.path} 
+                                component={item.component} 
+                            />
+                        );
+                    }
                 })
             }
         </Switch>

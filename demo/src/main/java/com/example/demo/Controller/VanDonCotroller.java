@@ -6,6 +6,7 @@ import com.example.demo.DAO.XeDAO;
 import com.example.demo.POJO.ThongTinTaiXe;
 import com.example.demo.POJO.ThongTinXe;
 import com.example.demo.POJO.VanDonPOJO;
+import com.example.demo.POJO.VanDonRepository;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class VanDonCotroller {
     private VanDonDAO vanDonService;
     private TaiXeDAO taiXeService;
     private XeDAO xeService;
+    private VanDonRepository vanDonRepository;
 
     @GetMapping("/danh-sach")
     public ResponseEntity ds(Model model) {
@@ -56,15 +58,15 @@ public class VanDonCotroller {
         }
     }
 
-//    @GetMapping("/{maVanDon}")
-//    public ResponseEntity<VanDonPOJO> getVanDonByMaVanDon(@PathVariable ObjectId id) {
-//        VanDonPOJO vanDon = vanDonService.timVanDonTheoId(id);
-//        if (vanDon != null) {
-//            return ResponseEntity.ok(vanDon);
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
+    @PostMapping("/create-order")
+    public ResponseEntity<String> createOrder(@RequestBody VanDonPOJO vanDonPOJO) {
+        try {
+            vanDonService.themDonHangKhachHang(vanDonPOJO);
+            return ResponseEntity.ok("Order created successfully!");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error creating order: " + e.getMessage());
+        }
+    }
 
     @GetMapping("/dsTaiXe")
     public ResponseEntity<List<ThongTinTaiXe>> danhSachTaiXe() {
@@ -166,5 +168,17 @@ public class VanDonCotroller {
     public ResponseEntity<List<Map<String, Object>>> getDoanhThuTheoNam() {
         List<Map<String, Object>> doanhThuTheoNamList = vanDonService.tinhDoanhThuTheoNam();
         return new ResponseEntity<>(doanhThuTheoNamList, HttpStatus.OK);
+    }
+
+    @GetMapping("danh-sach-don-cho-giao-theo-tinh/{tinh}")
+    public ResponseEntity<List<VanDonPOJO>> dsDonChoGiao(@PathVariable String tinh) {
+        List<VanDonPOJO> dsvd = vanDonService.danhSachDonNoiTinhChuaGiaoTheoTinh(tinh);
+        return new ResponseEntity<>(dsvd, HttpStatus.OK);
+    }
+
+    @GetMapping("danh-sach-don-da-giao-cua-shipper/{masp}")
+    public ResponseEntity<List<VanDonPOJO>> dsDonCuaShipper(@PathVariable String masp) {
+        List<VanDonPOJO> dsvd = vanDonService.lichSuDonCuaShipper(masp);
+        return new ResponseEntity<>(dsvd, HttpStatus.OK);
     }
 }

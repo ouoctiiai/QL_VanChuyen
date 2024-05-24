@@ -84,7 +84,7 @@ const ChiTietDonHang = () => {
                                             <td>Trạng thái:</td>
                                             <td>{chiTietDon.trangThai}</td>
                                         </tr>
-                                    </table>
+                                </table>
                             </div>
                         </div>
                     </div>

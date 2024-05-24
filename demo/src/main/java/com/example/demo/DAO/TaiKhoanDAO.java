@@ -1,7 +1,10 @@
 package com.example.demo.DAO;
 
+import com.example.demo.POJO.PhiVanChuyen;
 import com.example.demo.POJO.TaiKhoanPOJO;
 import com.example.demo.POJO.ThongTinTaiKhoan;
+import com.example.demo.POJO.VanDonPOJO;
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
@@ -30,7 +33,6 @@ public class TaiKhoanDAO {
         }
         return danhSachTK;
     }
-
 
     public boolean themTaiKhoanMoi(TaiKhoanPOJO taiKhoanMoi) {
         try {
@@ -76,6 +78,19 @@ public class TaiKhoanDAO {
         return doc != null ? convertToTaiKhoanPOJO(doc) : null;
     }
 
+    public List<TaiKhoanPOJO> danhSachTaiKhoanLaShipper() {
+        List<TaiKhoanPOJO> ds = new ArrayList<>();
+        MongoCollection<Document> collection = connection.getCollection();
+        BasicDBObject query = new BasicDBObject("LoaiTaiKhoan", "Shipper");
+
+        for (Document doc : collection.find(query)) {
+            TaiKhoanPOJO vd = convertToTaiKhoanPOJO(doc);
+            ds.add(vd);
+        }
+
+        return ds;
+    }
+
     // Phương thức để chuyển đổi Document thành KhoPOJO
     private TaiKhoanPOJO convertToTaiKhoanPOJO(Document doc) {
         TaiKhoanPOJO tk = new TaiKhoanPOJO();
@@ -89,7 +104,7 @@ public class TaiKhoanDAO {
         tk.setMatKhau(doc.getString("MatKhau"));
         tk.setDiaChi(doc.getString("DiaChi"));
         tk.setMaShipper(doc.getString("MaShipper"));
-        tk.setTongTienCong(doc.getInteger("TongTienCong"));
+        tk.setTongTienCong(tinhTongLuongCuaShipper(tk));
 
         Document ttttk = doc.getEmbedded(Collections.singletonList("TKNganHang"), Document.class);
         if (ttttk != null) {
@@ -99,6 +114,18 @@ public class TaiKhoanDAO {
             tk.setThongTinTaiKhoan(tt);
         }
         return tk;
+    }
+
+    public Integer tinhTongLuongCuaShipper(TaiKhoanPOJO tk)
+    {
+        VanDonDAO vd = new VanDonDAO();
+        Integer luong = 0;
+        List<VanDonPOJO> ls = vd.lichSuDonCuaShipper(tk.getMaShipper());
+        for (VanDonPOJO vd1 : ls) {
+            PhiVanChuyen p = vd1.getPhiVanChuyen();
+            luong += p.getLuongShipperTheoDon();
+        }
+        return luong;
     }
 
     // Đóng kết nối cơ sở dữ liệu
