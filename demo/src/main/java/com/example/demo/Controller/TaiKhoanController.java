@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.DAO.TaiKhoanDAO;
 import com.example.demo.POJO.TaiKhoanPOJO;
+import com.example.demo.POJO.VanDonPOJO;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,12 @@ public class TaiKhoanController {
     public ResponseEntity dsTaiKhoan(Model model) {
         List<TaiKhoanPOJO> dstk = taiKhoanService.layTatCaTaiKhoan();
         return new ResponseEntity<>(dstk, HttpStatus.OK);
+    }
+
+    @GetMapping("/dsTaiKhoanLaShipper")
+    public ResponseEntity dsTaiKhoanLaShipper(Model model) {
+        List<TaiKhoanPOJO> ds = taiKhoanService.danhSachTaiKhoanLaShipper();
+        return new ResponseEntity<>(ds, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

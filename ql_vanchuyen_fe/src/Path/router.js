@@ -21,7 +21,8 @@ export const ROUTERS ={
         DASHBOARD: "/dashboard",
         DETAILORDER: "/detailorder",
         UPDATEPEOFILE: "/UpdateProfile",
-        DETAILORDER: "/detailorder/:id"
+        DETAILORDER: "/detailorder/:id",
+        DETAILHISTORY: "/detailhistory/:id"
     },
     
     ADMIN:{

@@ -132,7 +132,6 @@ public class VanDonPOJO {
         return trangThai;
     }
 
-
     // Setters
     public void setId(String id) {
         this.id = id;

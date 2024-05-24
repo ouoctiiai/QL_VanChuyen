@@ -175,4 +175,10 @@ public class VanDonCotroller {
         List<VanDonPOJO> dsvd = vanDonService.danhSachDonNoiTinhChuaGiaoTheoTinh(tinh);
         return new ResponseEntity<>(dsvd, HttpStatus.OK);
     }
+
+    @GetMapping("danh-sach-don-da-giao-cua-shipper/{masp}")
+    public ResponseEntity<List<VanDonPOJO>> dsDonCuaShipper(@PathVariable String masp) {
+        List<VanDonPOJO> dsvd = vanDonService.lichSuDonCuaShipper(masp);
+        return new ResponseEntity<>(dsvd, HttpStatus.OK);
+    }
 }

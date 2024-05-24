@@ -36,8 +36,8 @@ import PrivateRoute from './Path/PrivateRouter';
 import Bar from './Admin/scenes/Charts/BarChart';
 import Line from './Admin/scenes/Charts/LineChart';
 import Pie from './Admin/scenes/Charts/PieChart';
-import Geography from './Admin/scenes/Charts/GeographyChart';
 import UpdateProfileCustomer from './KhachHang/Profile/UpdateProfileCustomer';
+import DetailHistory from './Shipper/Pages/DetailHistory';
 
 const renderMasterRouter = () => {
     const masterRouter = [
@@ -118,6 +118,12 @@ const renderMasterRouter = () => {
         },
 
         {
+            path: ROUTERS.SHIPPER.DETAILHISTORY,
+            component: DetailHistory,
+            isPrivate: true
+        },
+
+        {
             path: ROUTERS.ADMIN.TRANGCHUADMIN,
             component: AdminRouter,
             isPrivate: true
@@ -193,24 +199,23 @@ const renderMasterRouter = () => {
         <Switch>
             {
                 masterRouter.map((item, key) => {
-                    return <Route key={key} path={item.path} component={item.component} />
-                    // if (item.isPrivate) {
-                    //     return (
-                    //         <PrivateRoute 
-                    //             key={key} 
-                    //             path={item.path} 
-                    //             component={item.component} 
-                    //         />
-                    //     );
-                    // } else {
-                    //     return (
-                    //         <Route 
-                    //             key={key} 
-                    //             path={item.path} 
-                    //             component={item.component} 
-                    //         />
-                    //     );
-                    // }
+                    if (item.isPrivate) {
+                        return (
+                            <PrivateRoute 
+                                key={key} 
+                                path={item.path} 
+                                component={item.component} 
+                            />
+                        );
+                    } else {
+                        return (
+                            <Route 
+                                key={key} 
+                                path={item.path} 
+                                component={item.component} 
+                            />
+                        );
+                    }
                 })
             }
         </Switch>

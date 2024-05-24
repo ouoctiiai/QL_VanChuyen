@@ -48,3 +48,5 @@ export const getDoanhThuNam = () => axios.get(REST_API_BASE_URL + '/doanh-thu-th
 export const getDoanhThuThang = () => axios.get(REST_API_BASE_URL + '/doanh-thu-theo-thang');
 
 export const listDonChoTheoTinh = (tinh) => axios.get(REST_API_BASE_URL + '/danh-sach-don-cho-giao-theo-tinh/' + tinh);
+
+export const lichSuDonCuaShipper = (maShipper) => axios.get(REST_API_BASE_URL + '/danh-sach-don-da-giao-cua-shipper/' + maShipper);
