@@ -496,16 +496,13 @@ public class VanDonDAO {
     }
     public VanDonPOJO themDonHang(VanDonPOJO vanDonPOJO) {
         try{
-            // Tạo mã vận đơn tự động
             String maVanDon = generateMaVanDon();
             vanDonPOJO.setMaVanDon(maVanDon);
 
-            // Lấy thời gian hiện tại của hệ thống laptop
             Date thoiGianLap = new Date();
             vanDonPOJO.setThoiGianLap(thoiGianLap);
 
-            // Trạng thái mặc định là "đang chờ xác nhận"
-            vanDonPOJO.setTrangThai("Đang chờ xác nhận");
+            vanDonPOJO.setTrangThai("Chờ xác nhận");
 
             Document thongTinHH = new Document()
                     .append("LoaiHang", vanDonPOJO.getThongTinHangHoa().getLoaiHang())
@@ -539,11 +536,7 @@ public class VanDonDAO {
                             .append("VAT", vanDonPOJO.getPhiVanChuyen().getVat())
                             .append("PhiNang", vanDonPOJO.getPhiVanChuyen().getPhiNang())
                             .append("PhiHa", vanDonPOJO.getPhiVanChuyen().getPhiHa())
-                            .append("TongPhi", vanDonPOJO.getPhiVanChuyen().getTongPhi()))
-                    .append("ThongTinShipper", new Document()
-                            .append("MaShipper", vanDonPOJO.getThongTinShipper().getMaShipper())
-                            .append("TenShipper", vanDonPOJO.getThongTinShipper().getTenShipper())
-                            .append("SDTShipper", vanDonPOJO.getThongTinShipper().getSdtShipper()));
+                            .append("TongPhi", vanDonPOJO.getPhiVanChuyen().getTongPhi()));
 
             if (Optional.ofNullable(vanDonPOJO.getKhoangCach()).isPresent()) {
                 document.append("KhoangCach", vanDonPOJO.getKhoangCach());
@@ -576,6 +569,13 @@ public class VanDonDAO {
                         .append("TenXe", vanDonPOJO.getThongTinXe().getTenXe())
                         .append("LoaiXe", vanDonPOJO.getThongTinXe().getLoaiXe())
                         .append("HangXe", vanDonPOJO.getThongTinXe().getHangXe()));
+            }
+
+            if (Optional.ofNullable(vanDonPOJO.getThongTinShipper()).isPresent()) {
+                document.append("ThongTinShipper", new Document()
+                        .append("MaShipper", vanDonPOJO.getThongTinShipper().getMaShipper())
+                        .append("TenShipper", vanDonPOJO.getThongTinShipper().getTenShipper())
+                        .append("SDTShipper", vanDonPOJO.getThongTinShipper().getSdtShipper()));
             }
 
             MongoCollection<Document> collection = connection.getCollection();

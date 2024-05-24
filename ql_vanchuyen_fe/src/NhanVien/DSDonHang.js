@@ -92,23 +92,25 @@ const DSDonHang = () => {
             </div>
             
             <div className='row-md-1 bg-white rounded'>
-                <div className='col overflow-scroll' style={{maxHeight: '500px'}}>
-                    <table className='table text-left align-middle table-fixed table-bordered table-light table-striped' style={{fontSize: '18px', color:'white'}}>
+                <div className='col overflow-scroll' style={{minHeight: '420px'}}>
+                    <table className='table text-left align-middle table-bordered table-light table-striped' style={{fontSize: '18px', color:'white', borderCollapse:'collapse'}}>
                         <thead className= 'table-success' style={{position: 'sticky', top: '0', textAlign: 'center', zIndex: '1'}}>
                             <tr>
+                                <th>STT</th>
                                 <th>Mã vận đơn</th>
-                                <th>Tên người gửi</th>
-                                <th>Tên người nhận</th>
-                                <th>Thời gian lập</th>
-                                <th>Tổng tiền</th>
-                                <th>Trạng thái</th>
-                                <th className='col-1'></th>
+                                <th >Tên người gửi</th>
+                                <th >Tên người nhận</th>
+                                <th >Thời gian lập</th>
+                                <th >Tổng tiền</th>
+                                <th >Trạng thái</th>
+                                <th ></th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            {currentPageData.map((donHang) =>(
+                            {currentPageData.map((donHang, i) =>(
                                 <tr>
+                                    <td>{startIndex + i +1}</td>
                                     <td>{donHang.maVanDon}</td>
                                     <td>{donHang.thongTinNguoiGui.tenNguoiGui}</td>
                                     <td>{donHang.thongTinNguoiNhan.tenNguoiNhan}</td>
@@ -121,7 +123,7 @@ const DSDonHang = () => {
                                         </NavLink>
                                         <span>&nbsp; &nbsp;</span>
                                         <NavLink to =''>
-                                            <i class="far fa-edit" style={{color: 'black'}}></i>
+                                            <i class="fas fa-check-circle" style={{color: 'black'}}></i>
                                         </NavLink>
                                     </td>
                                 </tr>
@@ -131,7 +133,7 @@ const DSDonHang = () => {
                 </div>
             </div>
 
-            <div className='row'>
+            <div className='row' style={{marginTop:'15px', display:'flex', justifyContent: 'end', marginRight: '30px'}}>
                 <Pagination style={{ border: '1px solid black', borderRadius: '5px', display: 'flex', listStyle: 'none', padding: '0', width: '270px'}}>
                         <Pagination.First onClick={() => handlePageChange(1)} disabled={currentPage === 1} />
                         <Pagination.Prev onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} />
