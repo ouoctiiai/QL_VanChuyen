@@ -36,6 +36,8 @@ import PrivateRoute from './Path/PrivateRouter';
 import Bar from './Admin/scenes/Charts/BarChart';
 import Line from './Admin/scenes/Charts/LineChart';
 import Pie from './Admin/scenes/Charts/PieChart';
+import PhieuChi from './Admin/scenes/TaoPhieuChi';
+
 import UpdateProfileCustomer from './KhachHang/Profile/UpdateProfileCustomer';
 import DetailHistory from './Shipper/Pages/DetailHistory';
 
@@ -153,6 +155,11 @@ const renderMasterRouter = () => {
             isPrivate: true
         },
         {
+            path: ROUTERS.ADMIN.TAOPHIEUCHI,
+            component: PhieuChi,
+            isPrivate: true
+        },
+        {
             path: ROUTERS.ADMIN.DASHBOARD,
             component: Dashboard,
             isPrivate: true
@@ -160,16 +167,16 @@ const renderMasterRouter = () => {
         {
             path: ROUTERS.ADMIN.BARCHART,
             component: Bar
-          },
-          {
+        },
+        {
             path: ROUTERS.ADMIN.LINECHART,
             component: Line
-          },
-          {
+        },
+        {
             path: ROUTERS.ADMIN.PIECHART,
             component: Pie
-          },
-        
+        },
+
         {
             path: ROUTERS.EMPLOYEE.HOME,
             component: NV_Home,

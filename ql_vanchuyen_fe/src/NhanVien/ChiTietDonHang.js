@@ -60,30 +60,30 @@ const ChiTietDonHang = () => {
                             <div className='card-body'>
                                 <div className='card-title' style={{fontStyle: 'both', fontSize: '22px', textAlign: 'center'}}>Thông tin đơn hàng</div>
                                 <table className='table table-borderless' style={{fontSize: '18px'}}>
-                                    <tr>
-                                        <td className='col-4'>Mã vận đơn: </td>
-                                        <td>{chiTietDon.maVanDon}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Loại hàng:</td>
-                                        <td>{thongTinHangHoa.loaiHang}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Thời gian lập: </td>
-                                        <td>{chiTietDon.thoiGianLap}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tên shipper: </td>
-                                        <td>{thongTinShipper.tenShipper}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tổng phí:</td> 
-                                        <td>{phiVanChuyen.tongPhi}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Trạng thái:</td>
-                                        <td>{chiTietDon.trangThai}</td>
-                                    </tr>
+                                        <tr>
+                                            <td className='col-4'>Mã vận đơn: </td>
+                                            <td>{chiTietDon.maVanDon}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Loại hàng:</td>
+                                            <td>{thongTinHangHoa.loaiHang}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thời gian lập: </td>
+                                            <td>{chiTietDon.thoiGianLapToString}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tên shipper: </td>
+                                            <td>{thongTinShipper.tenShipper}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tổng phí:</td> 
+                                            <td>{phiVanChuyen.tongPhi}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Trạng thái:</td>
+                                            <td>{chiTietDon.trangThai}</td>
+                                        </tr>
                                 </table>
                             </div>
                         </div>
