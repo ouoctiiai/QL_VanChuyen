@@ -1,8 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Styles/Dashboard.css'
 import Navbar from '../Components/Navbar';
+import {getTongDonCuaShipper, getTongDonDaGiaoCuaShipper} from '../../Api/DataVanDon';
+import { getTaiKhoanById } from '../../Api/DataTaiKhoan';
+
 
 const Dashboard = () => {
+
+    const[tongDon, setTongDon] = useState(null);
+    const[tongDonDaGiao, setTongDonDaGiao] = useState(null);
+    const [taiKhoan, setTaiKhoan] = useState([]);
+
+    useEffect(() => {
+
+        const fetchData = async () => {
+            try {
+              const id = localStorage.getItem("userId");
+              const response = await getTaiKhoanById(id);
+              setTaiKhoan(response.data);
+        
+              const getTongDon = await getTongDonCuaShipper(taiKhoan.maShipper);
+              setTongDon(getTongDon.data);
+
+              const getTongDonDaGiao = await getTongDonDaGiaoCuaShipper(taiKhoan.maShipper);
+              setTongDonDaGiao(getTongDonDaGiao.data);
+            } catch (error) {
+              console.error(error);
+            }
+          };
+        
+          fetchData();
+        }, [taiKhoan]);
+
+
   return (
     <>
     <Navbar />
@@ -42,8 +72,8 @@ const Dashboard = () => {
             <div class="card order-card bg-cardShip">
                 <div class="card-block">
                     <h6 class="m-b-20">Tổng đơn đã chạy</h6>
-                    <h2 class="text-right"><span>926</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">911</span></p>
+                    <h2 class="text-right"><span>{tongDon}</span></h2>
+                    <p class="m-b-0">Completed Orders<span class="f-right">{tongDonDaGiao}</span></p>
                 </div>
             </div>
         </div>
