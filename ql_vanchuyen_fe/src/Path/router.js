@@ -33,6 +33,7 @@ export const ROUTERS ={
         BARCHART: "/barchart",
         PIECHART: "/piechart",
         LINECHART:"/linechart",
+        TAOPHIEUCHI: "/taophieuchi",
     },
 
     EMPLOYEE:{

@@ -6,18 +6,15 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import { CarCrashOutlined, CarRentalOutlined, CarRepairOutlined, CardTravelOutlined, ReceiptLongOutlined } from "@mui/icons-material";
-import ReceiptOutlined from "@mui/icons-material/ReceiptOutlined";
+import { CarRentalOutlined} from "@mui/icons-material";
+import PostAddIcon from '@mui/icons-material/PostAdd';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -63,7 +60,8 @@ const Sidebar = () =>{
         },
         "& .pro-menu-item.active": {
           color: "#6870fa !important",
-        },
+        }
+
       }}
     >
       <ProSidebar collapsed={isCollapsed}>
@@ -136,7 +134,28 @@ const Sidebar = () =>{
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
-              Account
+              Create 
+            </Typography>
+            <Item
+              title="Tạo tài khoản"
+              to="/taotkshipper"
+              icon={<PersonAddAltIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Tạo phiếu chi"
+              to="/taophieuchi"
+              icon={<PostAddIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Manage
             </Typography>
             <Item
               title="Quản lí tài khoản"
@@ -145,21 +164,6 @@ const Sidebar = () =>{
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
-              title="Tạo tài khoản"
-              to="/taotkshipper"
-              icon={<ContactsOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Pages
-            </Typography>
             <Item
               title="Quản lí phiếu chi"
               to="/"

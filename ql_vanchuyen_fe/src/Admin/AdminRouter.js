@@ -12,6 +12,7 @@ import AdminLayout from "./AdminLayout";
 import Bar from "./scenes/Charts/BarChart";
 import Line from "./scenes/Charts/LineChart";
 import Pie from "./scenes/Charts/PieChart";
+import PhieuChi from "./scenes/TaoPhieuChi";
 
 
 const renderAdminRouter = () => {
@@ -48,7 +49,10 @@ const renderAdminRouter = () => {
       path: ROUTERS.ADMIN.PIECHART,
       component: Pie
     },
-  
+    {
+      path: ROUTERS.ADMIN.TAOPHIEUCHI,
+      component: PhieuChi
+    },
   ]
   return (
     <BrowserRouter>
