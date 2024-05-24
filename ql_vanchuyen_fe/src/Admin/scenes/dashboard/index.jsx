@@ -3,7 +3,7 @@ import { tokens } from "../../theme";
 import React, { useState, useEffect } from 'react';
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import Header from "../../components/Header";
-// import LineChart from "../../components/LineChart";
+import LineChart from "../../components/LineChart";
 import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
@@ -19,6 +19,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import { getDoanhThuNam } from "./../../../Api/DataVanDon";
+
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -30,6 +32,8 @@ const Dashboard = () => {
   const [deliveringOrders, setDeliveringOrders] = useState(0);
   const [waitingForConfirmationOrders, setWaitingForConfirmationOrders] = useState(0);
   const [cancelledOrders, setCancelledOrders] = useState(0);
+  const [doanhThuNamData, setDoanhThuNamData] = useState([]);
+  const [tongDoanhThuTheoNam, setTongDoanhThuTheoNam] = useState(0);
 
   const successRate1 = totalOrders ? (successfulOrders / totalOrders) * 100 : 0;
   const pendingRate = totalOrders ? (pendingOrders / totalOrders) * 100 : 0;
@@ -104,6 +108,31 @@ const Dashboard = () => {
       }
     };
 
+    const fetchDoanhThuNamData = () => {
+      getDoanhThuNam()
+        .then(response => {
+          if (response && response.data) {
+            // Lưu dữ liệu doanh thu theo năm
+            setDoanhThuNamData(response.data);
+
+            // Tính tổng doanh thu theo năm
+            const tongDoanhThuTheoNam = response.data.reduce((tong, item) => {
+              return tong + item.tongTien;
+            }, 0);
+
+            // Lưu tổng doanh thu theo năm
+            setTongDoanhThuTheoNam(tongDoanhThuTheoNam);
+          } else {
+            console.log("Không có dữ liệu doanh thu theo năm.");
+          }
+        })
+        .catch(error => {
+          console.error('Lỗi khi lấy dữ liệu doanh thu theo năm:', error);
+        });
+    };
+
+
+
     fetchTotalOrders();
     fetchSuccessfulOrders();
     fetchRecentOrders();
@@ -111,6 +140,8 @@ const Dashboard = () => {
     fetchDeliveringOrders();
     fetchWaitingForConfirmationOrders();
     fetchCancelledOrders();
+    fetchDoanhThuNamData();
+
   }, []);
 
 
@@ -154,7 +185,7 @@ const Dashboard = () => {
           <StatBox
             title={pendingOrders}
             subtitle="Đơn chờ giao"
-            progress={pendingRate/100} 
+            progress={pendingRate / 100}
             increase={`${pendingRate.toFixed(2)}%`}
             icon={
               <ShoppingCartIcon
@@ -173,7 +204,7 @@ const Dashboard = () => {
           <StatBox
             title={deliveringOrders}
             subtitle="Đơn đang giao"
-            progress={deliveringRate/100} 
+            progress={deliveringRate / 100}
             increase={`${deliveringRate.toFixed(2)}%`}
             icon={
               <ShoppingCartCheckoutIcon
@@ -192,7 +223,7 @@ const Dashboard = () => {
           <StatBox
             title={waitingForConfirmationOrders}
             subtitle="Chờ xác nhận"
-            progress={waitingForConfirmationRate/100} 
+            progress={waitingForConfirmationRate / 100}
             increase={`${waitingForConfirmationRate.toFixed(2)}%`}
             icon={
               <ProductionQuantityLimitsIcon
@@ -211,7 +242,7 @@ const Dashboard = () => {
           <StatBox
             title={cancelledOrders}
             subtitle="Đơn đã huỷ"
-            progress={cancelledRate/100}
+            progress={cancelledRate / 100}
             increase={`${cancelledRate.toFixed(2)}%`}
             icon={
               <RemoveShoppingCartIcon
@@ -247,7 +278,7 @@ const Dashboard = () => {
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                $59,342.32
+                {tongDoanhThuTheoNam.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
               </Typography>
             </Box>
             <Box>
@@ -258,9 +289,9 @@ const Dashboard = () => {
               </IconButton>
             </Box>
           </Box>
-          {/* <Box height="250px" m="-20px 0 0 0">
+          <Box height="250px" m="-20px 0 0 0">
             <LineChart isDashboard={true} />
-          </Box> */}
+          </Box>
         </Box>
         <Box
           gridColumn="span 4"
