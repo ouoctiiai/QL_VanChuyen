@@ -7,17 +7,12 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../components/Header";
 import { Autocomplete } from '@mui/material';
 import { useHistory } from 'react-router-dom';
-
-
+import { createAccount } from '../../Api/DataTaiKhoan';
 
 const Form = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const [banks, setBanks] = useState([]);
   const history = useHistory();
-
-  const handleCreateAccountClick = () => {
-    history.push('/qltaikhoan');
-  };
 
   useEffect(() => {
     axios.get('https://api.vietqr.io/v2/banks')
@@ -44,19 +39,30 @@ const Form = () => {
   //   console.log(values);
   // };
 
-  const handleFormSubmit = (event, values) => {
-    console.log(values);
-
-    fetch('https://api.example.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+  const handleFormSubmit = async (values) => {
+    const formattedValues = {
+      loaiTaiKhoan: 'Shipper',
+      tenTaiKhoan: values.tenTK,
+      tenChuTaiKhoan: values.tenChuTK,
+      sdt: values.sdt,
+      email: values.email,
+      soCCCD: values.cccd,
+      matKhau: values.matkhau,
+      diaChi: values.diaChi,
+      thongTinTaiKhoan: {
+        tenNganHang: values.tenNH,
+        soTaiKhoan: values.soTK,
       },
-      body: JSON.stringify(values),
-    })
-      .then(response => response.json())
-      .then(data => console.log('Success:', data))
-      .catch(error => console.error('Error:', error));
+    };
+
+    try {
+      const response = await createAccount(formattedValues);
+      console.log('Account created successfully:', response.data);
+      history.push('/qltaikhoan');
+    } catch (error) {
+      console.error('Error creating account:', error.response ? error.response.data : error.message);
+      alert('Đã xảy ra lỗi khi tạo tài khoản. Vui lòng thử lại.');
+    }
   };
 
   return (
@@ -156,7 +162,7 @@ const Form = () => {
               <TextField
                 fullWidth
                 variant="filled"
-                type="text"
+                type="password"
                 label="Mật khẩu của shipper"
                 onBlur={handleBlur}
                 onChange={handleChange}
@@ -225,7 +231,7 @@ const Form = () => {
                 color="secondary"
                 variant="contained"
                 sx={{ fontSize: '1.3em' }}
-                onClick={handleCreateAccountClick}
+                // onClick={handleCreateAccountClick}
               >
                 Tạo tài khoản
               </Button>

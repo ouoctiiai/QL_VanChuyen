@@ -54,3 +54,7 @@ export const lichSuDonCuaShipper = (maShipper) => axios.get(REST_API_BASE_URL + 
 export const listTheoTrangThai = (tt) => axios.get(REST_API_BASE_URL + '/ds' + '/' + tt);
 
 export const updateTrangThai = (id) => axios.post(REST_API_BASE_URL + '/update' + '/' + id);
+
+export const getTongDonCuaShipper = (maShipper) => axios.get(REST_API_BASE_URL + '/tongDonCuaShipper/' +maShipper);
+
+export const getTongDonDaGiaoCuaShipper = (maShipper) => axios.get(REST_API_BASE_URL + '/TongDonDaGiaoCuaShipper/' +maShipper);

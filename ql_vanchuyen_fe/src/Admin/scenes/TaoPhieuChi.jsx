@@ -1,25 +1,38 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, Box, TextField } from '@mui/material';
 import { Formik } from "formik";
 import * as yup from "yup";
+import React, { useState, useEffect } from 'react';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../components/Header";
+import { getDSShipper } from '../../Api/DataTaiKhoan';
+import { listTaiXe } from '../../Api/DataVanDon';
 
 const PhieuChi = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
-  const handleFormSubmit = (values) => {
+  const [taiXes, setTaiXes] = useState([]);
+  const [shippers, setShippers] = useState([]);
+
+  useEffect(() => {
+    listTaiXe().then((Response) => {
+      setTaiXes(Response.data);
+    }).catch(error => {
+      console.error('Error fetching data: ', error);
+    })
+  }, []);
+
+  useEffect(() => {
+    getDSShipper().then((Response) => {
+      setShippers(Response.data);
+    }).catch(error => {
+      console.error('Error fetching data: ', error);
+    })
+  }, []);
+
+
+  const handleFormSubmit = (event, values) => {
     console.log(values);
   };
-
-  const shippers = [
-    { name: 'Shipper 1', salary: '500,000 VND' },
-    { name: 'Shipper 2', salary: '600,000 VND' }
-  ];
-
-  const drivers = [
-    { name: 'Driver 1', salary: '700,000 VND' },
-    { name: 'Driver 2', salary: '800,000 VND' }
-  ];
 
   return (
     <Box m="20px">
@@ -48,9 +61,9 @@ const PhieuChi = () => {
               }}
             >
               <Paper sx={{ gridColumn: 'span 2', mb: 2, p: 2 }}>
-                <h5>Danh sách Shipper</h5>
-                <TableContainer>
-                  <Table>
+                <h5>Danh sách lương Shipper</h5>
+                <TableContainer sx={{ maxHeight: 440, overflow: 'auto' }}>
+                  <Table stickyHeader>
                     <TableHead>
                       <TableRow>
                         <TableCell>STT</TableCell>
@@ -63,9 +76,11 @@ const PhieuChi = () => {
                       {shippers.map((shipper, index) => (
                         <TableRow key={index}>
                           <TableCell>{index + 1}</TableCell>
-                          <TableCell>{shipper.name}</TableCell>
-                          <TableCell>{shipper.salary}</TableCell>
-                          <TableCell><Button variant="contained" color="secondary">Thanh toán</Button></TableCell>
+                          <TableCell>{shipper.tenChuTaiKhoan}</TableCell>
+                          <TableCell>{shipper.tongTienCong}</TableCell>
+                          <TableCell>
+                            {shipper.tongTienCong !== 0 && <Button variant="contained" color="secondary">Thanh toán</Button>}
+                          </TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
@@ -73,10 +88,11 @@ const PhieuChi = () => {
                 </TableContainer>
               </Paper>
 
+
               <Paper sx={{ gridColumn: 'span 2', mb: 2, p: 2 }}>
-                <h5>Danh sách Tài xế</h5>
-                <TableContainer>
-                  <Table>
+                <h5>Danh sách lương Tài xế</h5>
+                <TableContainer sx={{ maxHeight: 440, overflow: 'auto' }}>
+                  <Table stickyHeader>
                     <TableHead>
                       <TableRow>
                         <TableCell>STT</TableCell>
@@ -86,19 +102,22 @@ const PhieuChi = () => {
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {drivers.map((driver, index) => (
+                      {taiXes.map((driver, index) => (
                         <TableRow key={index}>
                           <TableCell>{index + 1}</TableCell>
-                          <TableCell>{driver.name}</TableCell>
-                          <TableCell>{driver.salary}</TableCell>
-                          <TableCell><Button variant="contained" color="secondary">Thanh toán</Button></TableCell>
+                          <TableCell>{driver.tenTaiXe}</TableCell>
+                          <TableCell>{driver.luongTaiXe}</TableCell>
+                          <TableCell>
+                            {driver.luongTaiXe !== 0 && <Button variant="contained" color="secondary">Thanh toán</Button>}
+                          </TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
                   </Table>
                 </TableContainer>
               </Paper>
-              
+
+
               <Box display="flex" alignItems="center" sx={{ gridColumn: "span 4" }}>
                 <TextField
                   fullWidth
@@ -165,20 +184,14 @@ const PhieuChi = () => {
 
 
 const checkoutSchema = yup.object().shape({
-  firstName: yup.string().required("required"),
-  lastName: yup.string().required("required"),
   chiPhiXe: yup.string().required("required"),
   chiPhiNhienLieu: yup.string().required("required"),
   chiPhiThietBi: yup.string().required("required"),
-  address2: yup.string().required("required"),
 });
 const initialValues = {
-  firstName: "",
-  lastName: "",
   chiPhiXe: "",
   chiPhiNhienLieu: "",
   chiPhiThietBi: "",
-  address2: "",
 };
 
 export default PhieuChi;

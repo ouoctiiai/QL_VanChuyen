@@ -37,17 +37,20 @@ public class TaiKhoanDAO {
     public boolean themTaiKhoanMoi(TaiKhoanPOJO taiKhoanMoi) {
         try {
             MongoCollection<Document> collection = connection.getCollection();
+
+            String maShipperMoi = generateMaShipperMoi(collection);
+
             Document doc = new Document();
             doc.append("LoaiTaiKhoan", taiKhoanMoi.getLoaiTaiKhoan());
             doc.append("TenTaiKhoan", taiKhoanMoi.getTenTaiKhoan());
+            doc.append("MaShipper", maShipperMoi);
             doc.append("TenChuTaiKhoan", taiKhoanMoi.getTenChuTaiKhoan());
             doc.append("SDT", taiKhoanMoi.getSdt());
             doc.append("Email", taiKhoanMoi.getEmail());
             doc.append("SoCCCD", taiKhoanMoi.getSoCCCD());
             doc.append("MatKhau", taiKhoanMoi.getMatKhau());
             doc.append("DiaChi", taiKhoanMoi.getDiaChi());
-            doc.append("MaShipper", "Ma tu dong");
-//        doc.append("TongTienCong", taiKhoanMoi.getTongTienCong());
+            doc.append("TongTienCong", "0");
 
             ThongTinTaiKhoan tt = taiKhoanMoi.getThongTinTaiKhoan();
             if (tt != null) {
@@ -63,6 +66,20 @@ public class TaiKhoanDAO {
             return false;
         }
     }
+
+    private String generateMaShipperMoi(MongoCollection<Document> collection) {
+        Document sort = new Document("MaShipper", -1);
+        Document result = collection.find().sort(sort).first();
+
+        if (result == null || result.getString("MaShipper") == null) {
+            return "SP00000";
+        }
+
+        String lastMaShipper = result.getString("MaShipper");
+        int number = Integer.parseInt(lastMaShipper.substring(2)) + 1;
+        return String.format("SP%05d", number);
+    }
+
 
     public TaiKhoanPOJO timTaiKhoanTheoId(ObjectId id) {
         MongoCollection<Document> collection = connection.getCollection();
