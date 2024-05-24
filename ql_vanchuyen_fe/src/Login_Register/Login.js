@@ -68,8 +68,16 @@ const Login = (props) => {
                 } else if (loaiTaiKhoan === 'Shipper') {
                     localStorage.setItem("userId", id);
                     localStorage.setItem("accessToken", true)
-                    history.setItem(`/shipper_home/${id}`);
-                } else {
+                    history.replace(`/shipper_home/${id}`);
+                } else if(loaiTaiKhoan === "Kho"){
+                    localStorage.setItem("userId", id);
+                    localStorage.setItem("accessToken", true)
+                    history.replace(`/nv_home/${id}`);
+                }else if(loaiTaiKhoan === "QuanLy"){
+                    localStorage.setItem("userId", id);
+                    localStorage.setItem("accessToken", true)
+                    history.replace(`/trangchuadmin/${id}`);
+                }else {
                     // Handle other user types or show an error message
                     alert('Login successful but not a customer.');
                 }

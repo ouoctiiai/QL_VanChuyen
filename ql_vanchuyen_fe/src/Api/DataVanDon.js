@@ -26,6 +26,7 @@ export const getTongDonHangThanhCong = () => axios.get(REST_API_BASE_URL + '/ton
 
 export const getTongDonHang = () => axios.get(REST_API_BASE_URL + '/tongDonHang');
 
+export const createOrder = (dataOrder) => axios.post(REST_API_BASE_URL + '/create-order', dataOrder)
 export const tinhPhiVat = (phiCoDinh, phiCoc, phiNang, phiHa, phiKhac) => 
     axios.get(`${REST_API_BASE_URL}/phiVAT/${phiCoDinh}/${phiCoc}/${phiNang}/${phiHa}/${phiKhac}`);
 

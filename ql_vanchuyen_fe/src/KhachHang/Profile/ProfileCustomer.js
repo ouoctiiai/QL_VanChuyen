@@ -7,11 +7,13 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { memo } from 'react';
 import { getTaiKhoanById } from '../../Api/DataTaiKhoan';
+import { Button } from 'react-bootstrap';
 
 const ProfileCustomer = () => {
 
     const [taiKhoan, setTaiKhoan] = useState([]);
     const [thongTinTaiKhoan, setThongTinTaiKhoan] = useState('');
+    // const {id} = useParams();
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -112,6 +114,13 @@ const ProfileCustomer = () => {
                                 <p className='content'>{thongTinTaiKhoan.soTaiKhoan}</p>
                             </div>
                         </div>
+                    </div>
+                    <div className='d-flex justify-content-start' style={{ backgroundColor: 'white' }}>
+                        <NavLink to="/update-profile-customer" >
+                            <Button className='btn-create d-flex justify-content-center' style={{ width: '200px' }}>
+                                Edit Profile
+                            </Button>
+                        </NavLink>
                     </div>
                 </div>
             </div>

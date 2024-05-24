@@ -12,7 +12,7 @@ const CustomerLayout = ({children, ...props}) => {
         <div className='customer_container' style={{backgroundColor: 'white', minHeight:'610px'}} {...props}>
             <Header />
             <div className='row'>
-                <div className='col-md-2' style={{paddingLeft: '50px', paddingTop: '30px', boxShadow: '5px -10px 8px rgba(0, 0, 0, 0.5)', height: '100vh'}}>
+                <div className='col-md-2' style={{paddingLeft: '50px', paddingTop: '30px', boxShadow: '5px -10px 8px rgba(0, 0, 0, 0.5)', height: '130vh'}}>
                     <Menu />
                 </div>
                 <div className='col-md-10'>

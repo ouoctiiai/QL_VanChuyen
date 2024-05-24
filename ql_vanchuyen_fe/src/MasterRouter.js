@@ -36,7 +36,8 @@ import PrivateRoute from './Path/PrivateRouter';
 import Bar from './Admin/scenes/Charts/BarChart';
 import Line from './Admin/scenes/Charts/LineChart';
 import Pie from './Admin/scenes/Charts/PieChart';
-
+import Geography from './Admin/scenes/Charts/GeographyChart';
+import UpdateProfileCustomer from './KhachHang/Profile/UpdateProfileCustomer';
 
 const renderMasterRouter = () => {
     const masterRouter = [
@@ -63,6 +64,11 @@ const renderMasterRouter = () => {
         {
             path: ROUTERS.CUSTOMER.ORDER_DETAILS,
             component: OrderDetails,
+            isPrivate: true
+        },
+        {
+            path: ROUTERS.CUSTOMER.UPDATE_PROFILE,
+            component: UpdateProfileCustomer,
             isPrivate: true
         },
         {
