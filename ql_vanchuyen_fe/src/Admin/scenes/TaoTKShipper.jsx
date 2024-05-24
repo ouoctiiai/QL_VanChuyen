@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Box, Button, TextField, Select, MenuItem, FormControl, InputLabel, FormHelperText } from "@mui/material";
+import { Box, Button, TextField, FormControl, InputLabel } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -61,7 +61,7 @@ const Form = () => {
 
   return (
     <Box m="20px">
-      <Header title="CREATE SHIPPER" subtitle="Tạo 1 tài khoản shipper mới" />
+      <Header title="TẠO TÀI KHOẢN SHIPPER" subtitle="Tạo 1 tài khoản shipper mới" />
 
       <Formik
         onSubmit={handleFormSubmit}

@@ -394,6 +394,21 @@ public class VanDonDAO {
         return ds;
     }
 
+    public List<VanDonPOJO> lichSuDonCuaTaiXe(String id){
+        List<VanDonPOJO> ds = new ArrayList<>();
+        List<VanDonPOJO> dsVanDon = allVanDon();
+        for(VanDonPOJO vd : dsVanDon){
+            ThongTinTaiXe tt = vd.getThongTinTaiXe();
+            if(tt != null){
+                if(java.util.Objects.equals(tt.getMaTaiXe(), id))
+                {
+                    ds.add(vd);
+                }
+            }
+        }
+        return ds;
+    }
+
     public void themDonHangKhachHang(VanDonPOJO vanDonPOJO){
         MongoCollection<Document> collection = connection.getCollection();
         Document doc = new Document()
