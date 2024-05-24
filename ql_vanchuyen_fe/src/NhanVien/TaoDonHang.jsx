@@ -298,11 +298,6 @@ const TaoDonHang = () => {
                 phiKhac : parseInt(phiKhac),
                 tongPhi: parseInt(tongPhi)
             },
-            thongTinShipper: {
-                maShipper: "",
-                tenShipper: "",
-                sdtShipper: ""
-            },
         };
 
         themDonHang(vanDonMoi)
@@ -471,7 +466,8 @@ const TaoDonHang = () => {
                     </Row>
 
                     <Row style={{marginBottom: '10px'}}>
-                        <Card style={{marginLeft:'12px', width:'965px'}}>
+                        <Col>
+                        <Card>
                             <Card.Body>
                                 <Card.Title style={{fontSize:'22px', fontStyle:'both', textAlign:'center'}}>Nhập thông tin hàng hóa</Card.Title>
                                 <Row>
@@ -661,6 +657,8 @@ const TaoDonHang = () => {
                                     </Row>
                             </Card.Body>
                         </Card>
+                        </Col>
+                        
                     </Row>
 
                     {loaiVanChuyen === 'Liên tỉnh' && (

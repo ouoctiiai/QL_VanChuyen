@@ -74,8 +74,11 @@ const ChiTietDonHang = () => {
                                         </tr>
                                         <tr>
                                             <td>Tên shipper: </td>
-                                            <td>{thongTinShipper.tenShipper}</td>
+                                            {thongTinShipper && (
+                                                <td>{thongTinShipper.tenShipper}</td>
+                                            )}                 
                                         </tr>
+                                        
                                         <tr>
                                             <td>Tổng phí:</td> 
                                             <td>{phiVanChuyen.tongPhi}</td>
