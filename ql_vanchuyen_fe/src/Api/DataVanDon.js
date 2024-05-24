@@ -26,6 +26,7 @@ export const getTongDonHangThanhCong = () => axios.get(REST_API_BASE_URL + '/ton
 
 export const getTongDonHang = () => axios.get(REST_API_BASE_URL + '/tongDonHang');
 
+export const createOrder = (dataOrder) => axios.post(REST_API_BASE_URL + '/create-order', dataOrder)
 export const tinhPhiVat = (phiCoDinh, phiCoc, phiNang, phiHa, phiKhac) => 
     axios.get(`${REST_API_BASE_URL}/phiVAT/${phiCoDinh}/${phiCoc}/${phiNang}/${phiHa}/${phiKhac}`);
 
@@ -45,3 +46,7 @@ export const themDonHang = (vanDonMoi) => axios.post(REST_API_BASE_URL + '/themD
 export const getDoanhThuNam = () => axios.get(REST_API_BASE_URL + '/doanh-thu-theo-nam');
 
 export const getDoanhThuThang = () => axios.get(REST_API_BASE_URL + '/doanh-thu-theo-thang');
+
+export const listDonChoTheoTinh = (tinh) => axios.get(REST_API_BASE_URL + '/danh-sach-don-cho-giao-theo-tinh/' + tinh);
+
+export const lichSuDonCuaShipper = (maShipper) => axios.get(REST_API_BASE_URL + '/danh-sach-don-da-giao-cua-shipper/' + maShipper);

@@ -1,5 +1,7 @@
 package com.example.demo.POJO;
 
+import org.bson.types.ObjectId;
+
 public class PhiVanChuyen {
     private Integer phiCoDinh;
     private Integer vat;
@@ -9,6 +11,7 @@ public class PhiVanChuyen {
     private Integer thuongShipper;
     private Integer phiKhac;
     private Integer tongPhi;
+    private Integer luongShipperTheoDon;
 
 
     // Getter methods
@@ -42,6 +45,8 @@ public class PhiVanChuyen {
         return thuongShipper;
     }
 
+    public Integer getLuongShipperTheoDon(){return luongShipperTheoDon;}
+
     // Setter methods
     public void setPhiCoDinh(Integer phiCoDinh) {
         this.phiCoDinh = phiCoDinh;
@@ -66,5 +71,19 @@ public class PhiVanChuyen {
     public void setPhiKhac(Integer phiKhac) {this.phiKhac = phiKhac; }
 
     public void setThuongShipper(Integer thuongShipper) {this.thuongShipper = thuongShipper; }
+
+    public void setLuongShipperTheoDon(){
+        this.luongShipperTheoDon = tinhLuongTheoDon();
+    }
+
+    public Integer tinhLuongTheoDon()
+    {
+        Integer phi = this.tongPhi * 35 / 100;
+        if(this.thuongShipper != null)
+        {
+            phi += this.thuongShipper;
+        }
+        return  phi;
+    }
 
 }

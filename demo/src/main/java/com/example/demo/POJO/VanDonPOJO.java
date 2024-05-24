@@ -1,11 +1,10 @@
 package com.example.demo.POJO;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -132,7 +131,6 @@ public class VanDonPOJO {
     public String getTrangThai() {
         return trangThai;
     }
-
 
     // Setters
     public void setId(String id) {

@@ -1,14 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Styles/Profile.css'
-import Navbar from'../Components/Navbar'
+import Navbar from '../Components/Navbar'
+import { getTaiKhoanById } from '../../Api/DataTaiKhoan';
 
 
 const Profile = () => {
+  const [taiKhoan, setTaiKhoan] = useState([]);
+  const [thongTinTaiKhoan, setThongTinTaiKhoan] = useState([]);
+
+  useEffect(() => {
+    try {
+      const id = localStorage.getItem("userId");
+      getTaiKhoanById(id).then((Response) => {
+        setTaiKhoan(Response.data);
+        setThongTinTaiKhoan(Response.data.thongTinTaiKhoan);
+      })
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }, []);
+
   return (
     <>
-    <Navbar/>
-    <div class="container">
-      <div class="main-body">
+      <Navbar />
+      <div class="container">
+        <div class="main-body">
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card  bg-cardShip">
@@ -16,20 +32,20 @@ const Profile = () => {
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150" />
                     <div class="mt-3">
-                      <h4>Nguyễn Quốc Thái</h4>
+                      <h4>{taiKhoan.tenChuTaiKhoan}</h4>
                       <p class="mb-1">Shipper</p>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="card mt-3  bg-cardShip">
-              <div class="card-body">
+                <div class="card-body">
                   <div class="row">
                     <div class="col-sm-5">
                       <h6 class="mb-0">Số tài khoản</h6>
                     </div>
                     <div class="col-sm-7">
-                      1375833381
+                      {thongTinTaiKhoan.soTaiKhoan}
                     </div>
                   </div>
                   <hr />
@@ -38,7 +54,7 @@ const Profile = () => {
                       <h6 class="mb-0">Tên ngân nàng</h6>
                     </div>
                     <div class="col-sm-7">
-                      Vietcombank
+                      {thongTinTaiKhoan.tenNganHang}
                     </div>
                   </div>
                 </div>
@@ -52,7 +68,7 @@ const Profile = () => {
                       <h6 class="mb-0">Mã Shipper</h6>
                     </div>
                     <div class="col-sm-9">
-                      SP001
+                      {taiKhoan.maShipper}
                     </div>
                   </div>
                   <hr />
@@ -61,7 +77,7 @@ const Profile = () => {
                       <h6 class="mb-0">Tên tài khoản</h6>
                     </div>
                     <div class="col-sm-9">
-                      ouoctiiai
+                      {taiKhoan.tenTaiKhoan}
                     </div>
                   </div>
                   <hr />
@@ -70,7 +86,7 @@ const Profile = () => {
                       <h6 class="mb-0">Điện thoại</h6>
                     </div>
                     <div class="col-sm-9">
-                      (239) 816-9029
+                      {taiKhoan.sdt}
                     </div>
                   </div>
                   <hr />
@@ -79,7 +95,7 @@ const Profile = () => {
                       <h6 class="mb-0">Mail</h6>
                     </div>
                     <div class="col-sm-9">
-                      luphi2612@gmail.com
+                      {taiKhoan.email}
                     </div>
                   </div>
                   <hr />
@@ -88,7 +104,7 @@ const Profile = () => {
                       <h6 class="mb-0">Địa chỉ</h6>
                     </div>
                     <div class="col-sm-9">
-                      406/6 CỘng Hòa, Phường 13, Quận Tân Bình, TPHCM
+                      {taiKhoan.diaChi}
                     </div>
                   </div>
                   <hr />
@@ -101,37 +117,37 @@ const Profile = () => {
               </div>
 
               <div class="counter">
-                    <div class="row">
-                        <div class="col-6 col-lg-3">
-                            <div class="count-data text-center">
-                                <h6 class="count h2" data-to="500" data-speed="500">500</h6>
-                                <p class="m-0px font-w-600">Happy Clients</p>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-3">
-                            <div class="count-data text-center">
-                                <h6 class="count h2" data-to="150" data-speed="150">150</h6>
-                                <p class="m-0px font-w-600">Project Completed</p>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-3">
-                            <div class="count-data text-center">
-                                <h6 class="count h2" data-to="850" data-speed="850">850</h6>
-                                <p class="m-0px font-w-600">Photo Capture</p>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-3">
-                            <div class="count-data text-center">
-                                <h6 class="count h2" data-to="190" data-speed="190">190</h6>
-                                <p class="m-0px font-w-600">Telephonic Talk</p>
-                            </div>
-                        </div>
+                <div class="row">
+                  <div class="col-6 col-lg-3">
+                    <div class="count-data text-center">
+                      <h6 class="count h2" data-to="500" data-speed="500">500</h6>
+                      <p class="m-0px font-w-600">Happy Clients</p>
                     </div>
+                  </div>
+                  <div class="col-6 col-lg-3">
+                    <div class="count-data text-center">
+                      <h6 class="count h2" data-to="150" data-speed="150">150</h6>
+                      <p class="m-0px font-w-600">Project Completed</p>
+                    </div>
+                  </div>
+                  <div class="col-6 col-lg-3">
+                    <div class="count-data text-center">
+                      <h6 class="count h2" data-to="850" data-speed="850">850</h6>
+                      <p class="m-0px font-w-600">Photo Capture</p>
+                    </div>
+                  </div>
+                  <div class="col-6 col-lg-3">
+                    <div class="count-data text-center">
+                      <h6 class="count h2" data-to="190" data-speed="190">190</h6>
+                      <p class="m-0px font-w-600">Telephonic Talk</p>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
           </div>
         </div>
-    </div>
+      </div>
     </>
   )
 }

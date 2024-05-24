@@ -3,6 +3,7 @@ import { Col, Form, Row, Card, Button, NavLink } from 'react-bootstrap';
 import { listTaiXe, listVanDon, listXe, themDonHang, tinhKhoangCachLienTinh, tinhPhiVat, tinhTongPhi } from '../Api/DataVanDon';
 import { listPhuongXaTheoQuanHuyen, listQuanHuyenTheoTinhThanh, listTinhThanh } from '../Api/DataDiaChi';
 import Mapbox from '../Shipper/Components/Mapbox';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 const TaoDonHang = () => {
     const [danhSachDonHang, setDanhSachDonHang] = useState([]);
@@ -53,6 +54,8 @@ const TaoDonHang = () => {
     const [chieuDai, setChieuDai] = useState (0);
     const [chieuRong, setChieuRong] = useState (0);
     const [khoiLuong, setKhoiLuong] = useState(0.99);
+
+    const navigate = useHistory();
 
     useEffect(() => {
         try {
@@ -148,14 +151,10 @@ const TaoDonHang = () => {
         });
     };
 
-    const handlePhuongNguoiGuiChange = (e) => {
-        const idPhuong = e.target.value;
-        setSelectedPhuongNguoiGui(idPhuong);
-    };
-
-    const handleSoNhaNguoiGuiChange = (e) => {
-        setSoNhaNguoiGui(e.target.value);
-    };
+    // const handlePhuongNguoiGuiChange = (e) => {
+    //     const idPhuong = e.target.value;
+    //     setSelectedPhuongNguoiGui(idPhuong);
+    // };
 
     const handleTinhNguoiNhanChange = (e) => {
         const idTinh = e.target.value;
@@ -182,28 +181,16 @@ const TaoDonHang = () => {
         });
     };
 
-    const handlePhuongNguoiNhanChange = (e) => {
-        const idPhuong = e.target.value;
-        setSelectedPhuongNguoiNhan(idPhuong);
-    };
-
-    const handleSoNhaNguoiNhanChange = (e) => {
-        setSoNhaNguoiNhan(e.target.value);
-    };
-
-    const handleLoaiVanChuyenChange = (event) => {
-        setLoaiVanChuyen(event.target.value);
-    };
+    // const handlePhuongNguoiNhanChange = (e) => {
+    //     const idPhuong = e.target.value;
+    //     setSelectedPhuongNguoiNhan(idPhuong);
+    // };
 
     const handleTaiXeChange = (event) => {
         const taiXe = danhSachTaiXe.find(tx => tx.tenTaiXe === event.target.value);  
         setTenTaiXe(event.target.value)     
         setSoDienThoaiTaiXe(taiXe ? taiXe.sdtTaiXe : '');
         setMaTaiXe(taiXe ? taiXe.maTaiXe : '');
-    };
-
-    const handleLoaiXeChange = (event) => {
-        setLoaiXeChon(event.target.value);
     };
 
     const getDiaChiNguoiGui = () => {
@@ -311,11 +298,17 @@ const TaoDonHang = () => {
                 phiKhac : parseInt(phiKhac),
                 tongPhi: parseInt(tongPhi)
             },
+            thongTinShipper: {
+                maShipper: "",
+                tenShipper: "",
+                sdtShipper: ""
+            },
         };
 
         themDonHang(vanDonMoi)
             .then(Response => {
                 alert("Đơn hàng được thêm thành công!");
+                navigate.replace('/dsdonhang');
             })
             .catch(error => {
                 console.error("Có lỗi xảy ra:", error);
@@ -331,7 +324,7 @@ const TaoDonHang = () => {
             <Row>
                 <Form onSubmit={handleSubmit}>
                     <Row style={{marginBottom: '10px'}}>
-                        <Form.Select style={{width: '300px', marginLeft:'12px'}} value={loaiVanChuyen} onChange={handleLoaiVanChuyenChange}>
+                        <Form.Select style={{width: '300px', marginLeft:'12px'}} value={loaiVanChuyen} onChange={(e) => setLoaiVanChuyen(e.target.value)}>
                             {uniqueLoaiVanChuyen.map((donHang, index) => 
                                 <option key={index} value={donHang}>{donHang}</option>
                             )}
@@ -383,7 +376,7 @@ const TaoDonHang = () => {
                                             <Row style={{marginLeft:'10px'}}>
                                                 <Form.Label column sm="4"><h6>Phường Xã</h6></Form.Label>
                                                 <Col sm="8">
-                                                    <Form.Select type='text' value={selectedPhuongNguoiGui} onChange={handlePhuongNguoiGuiChange}>
+                                                    <Form.Select type='text' value={selectedPhuongNguoiGui} onChange={(e) => setSelectedPhuongNguoiGui(e.target.value)}>
                                                         <option value={0}>Phường Xã</option>
                                                         {phuongNguoiGui.map((phuong) => (
                                                             <option key={phuong.maPhuongXa} value={phuong.maPhuongXa}>{phuong.tenPhuongXa}</option>
@@ -394,7 +387,7 @@ const TaoDonHang = () => {
                                             <Row style={{marginLeft:'10px'}}>
                                                 <Form.Label column sm="4"><h6></h6></Form.Label>
                                                 <Col sm="8">
-                                                    <Form.Control type='text' placeholder='Tên đường, Tòa nhà, Số nhà' value={soNhaNguoiGui} onChange={handleSoNhaNguoiGuiChange}></Form.Control>
+                                                    <Form.Control type='text' placeholder='Tên đường, Tòa nhà, Số nhà' value={soNhaNguoiGui} onChange={(e) => setSoNhaNguoiGui(e.target.value)}></Form.Control>
                                                 </Col>
                                             </Row>    
                                         </Form.Group>
@@ -457,7 +450,7 @@ const TaoDonHang = () => {
                                             <Row style={{marginLeft:'10px'}}>
                                                 <Form.Label column sm="4"><h6>Phường Xã</h6></Form.Label>
                                                 <Col sm="8">
-                                                    <Form.Select type='text' value={selectedPhuongNguoiNhan} onChange={handlePhuongNguoiNhanChange}>
+                                                    <Form.Select type='text' value={selectedPhuongNguoiNhan} onChange={(e) => setSelectedPhuongNguoiNhan(e.target.value)}>
                                                         <option value={0}>Phường Xã</option>
                                                         {phuongNguoiNhan.map((phuong) => (
                                                             <option key={phuong.maPhuongXa} value={phuong.maPhuongXa}>{phuong.tenPhuongXa}</option>
@@ -468,7 +461,7 @@ const TaoDonHang = () => {
                                             <Row style={{marginLeft:'10px'}}>
                                                 <Form.Label column sm="4"><h6></h6></Form.Label>
                                                 <Col sm="8">
-                                                    <Form.Control type='text' placeholder='Tên đường, Tòa nhà, Số nhà' value={soNhaNguoiNhan} onChange={handleSoNhaNguoiNhanChange}></Form.Control>
+                                                    <Form.Control type='text' placeholder='Tên đường, Tòa nhà, Số nhà' value={soNhaNguoiNhan} onChange={(e) => setSoNhaNguoiNhan(e.target.value)}></Form.Control>
                                                 </Col>
                                             </Row>
                                         </Form.Group>
@@ -645,7 +638,6 @@ const TaoDonHang = () => {
                                                             <Mapbox from={getDiaChiNguoiGui()} to={getDiaChiNguoiNhan()} setKC={setKhoangCach} disabled/>
                                                         </div>
                                                     </Col>
-                                                    <Row><p>Khoảng cách: {khoangCach}</p></Row>
                                                 </Form.Group>
                                             )}
                                             {loaiVanChuyen === 'Liên tỉnh' && (
@@ -706,7 +698,7 @@ const TaoDonHang = () => {
                                         <Form.Group as={Row} className='p-2'>
                                                 <Form.Label column sm="4"><h6>Loại xe</h6></Form.Label>
                                                 <Col sm="8">
-                                                    <Form.Select value={loaiXeChon} onChange={handleLoaiXeChange}>
+                                                    <Form.Select value={loaiXeChon} onChange={(e) => setLoaiXeChon(e.target.value)}>
                                                         <option>Chọn loại xe</option>
                                                         {uniqueLoaiXe.map((loaiXe, index) => 
                                                             <option key={index} value={loaiXe}>{loaiXe}</option>
@@ -734,7 +726,7 @@ const TaoDonHang = () => {
 
                     <Row>
                         <div style={{width: '500px', marginLeft:'250px'}}>
-                            <Button type='submit' style={{backgroundColor: '#009d63'}}> Thêm đơn hàng</Button>
+                            <Button type='submit' style={{backgroundColor: '#009d63'}} onClick={handleSubmit}> Thêm đơn hàng</Button>
                         </div>           
                     </Row>
                 </Form>

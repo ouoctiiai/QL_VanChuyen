@@ -70,7 +70,7 @@ const ChiTietDonHang = () => {
                                         </tr>
                                         <tr>
                                             <td>Thời gian lập: </td>
-                                            <td>{chiTietDon.thoiGianLap}</td>
+                                            <td>{chiTietDon.thoiGianLapToString}</td>
                                         </tr>
                                         <tr>
                                             <td>Tên shipper: </td>
@@ -84,7 +84,7 @@ const ChiTietDonHang = () => {
                                             <td>Trạng thái:</td>
                                             <td>{chiTietDon.trangThai}</td>
                                         </tr>
-                                    </table>
+                                </table>
                             </div>
                         </div>
                     </div>
