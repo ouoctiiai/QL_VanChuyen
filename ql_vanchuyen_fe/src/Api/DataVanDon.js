@@ -50,3 +50,7 @@ export const getDoanhThuThang = () => axios.get(REST_API_BASE_URL + '/doanh-thu-
 export const listDonChoTheoTinh = (tinh) => axios.get(REST_API_BASE_URL + '/danh-sach-don-cho-giao-theo-tinh/' + tinh);
 
 export const lichSuDonCuaShipper = (maShipper) => axios.get(REST_API_BASE_URL + '/danh-sach-don-da-giao-cua-shipper/' + maShipper);
+
+export const listTheoTrangThai = (tt) => axios.get(REST_API_BASE_URL + '/ds' + '/' + tt);
+
+export const updateTrangThai = (id) => axios.post(REST_API_BASE_URL + '/update' + '/' + id);

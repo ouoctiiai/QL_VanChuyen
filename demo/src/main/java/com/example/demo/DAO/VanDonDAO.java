@@ -366,9 +366,20 @@ public class VanDonDAO {
         for (Document doc : collection.find(query)) {
             VanDonPOJO vd = convertToVanDonPOJO(doc);
             dsVanDon.add(vd);
-            double totalShippingFee = tinhPhiVanChyen(vd);
         }
 
+        return dsVanDon;
+    }
+
+    public List<VanDonPOJO> dsDonTheoTrangThai(String trangThai) {
+        List<VanDonPOJO> dsVanDon = new ArrayList<>();
+        MongoCollection<Document> collection = connection.getCollection();
+        Bson filter = Filters.eq("TrangThai", trangThai);
+
+        for (Document doc : collection.find(filter)) {
+            VanDonPOJO vd = convertToVanDonPOJO(doc);
+            dsVanDon.add(vd);
+        }
         return dsVanDon;
     }
 
@@ -509,6 +520,7 @@ public class VanDonDAO {
         }
         return maVanDon.toString();
     }
+
     public VanDonPOJO themDonHang(VanDonPOJO vanDonPOJO) {
         try{
             String maVanDon = generateMaVanDon();
@@ -602,6 +614,19 @@ public class VanDonDAO {
             throw new RuntimeException("Lỗi khi thêm đơn hàng", e);
         }
 
+    }
+
+    public VanDonPOJO updateTrangThai(Object id){
+        try {
+            MongoCollection<Document> collection = connection.getCollection();
+            collection.updateOne(
+                    Filters.eq("_id", id),
+                    Updates.set("TrangThai", "Chờ giao"));
+            return new VanDonPOJO();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
     }
 
     @SneakyThrows
