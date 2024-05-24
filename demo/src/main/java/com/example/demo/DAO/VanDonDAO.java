@@ -392,36 +392,6 @@ public class VanDonDAO {
         return (int) count;
     }
 
-    public List<VanDonPOJO> danhSachDonNoiTinh() {
-        List<VanDonPOJO> dsVanDon = new ArrayList<>();
-
-        MongoCollection<Document> collection = connection.getCollection();
-
-        BasicDBObject query = new BasicDBObject("LoaiVanChuyen", "Nội tỉnh");
-
-        for (Document doc : collection.find(query)) {
-            VanDonPOJO vd = convertToVanDonPOJO(doc);
-            dsVanDon.add(vd);
-        }
-
-        return dsVanDon;
-    }
-
-    public List<VanDonPOJO> danhSachDonLienTinh() {
-        List<VanDonPOJO> dsVanDon = new ArrayList<>();
-
-        MongoCollection<Document> collection = connection.getCollection();
-
-        BasicDBObject query = new BasicDBObject("LoaiVanChuyen", "Liên tỉnh");
-
-        for (Document doc : collection.find(query)) {
-            VanDonPOJO vd = convertToVanDonPOJO(doc);
-            dsVanDon.add(vd);
-        }
-
-        return dsVanDon;
-    }
-
     public List<VanDonPOJO> dsDonTheoTrangThai(String trangThai) {
         List<VanDonPOJO> dsVanDon = new ArrayList<>();
         MongoCollection<Document> collection = connection.getCollection();
@@ -434,12 +404,6 @@ public class VanDonDAO {
         return dsVanDon;
     }
 
-    public VanDonPOJO timVanDonTheoId(ObjectId id) {
-        MongoCollection<Document> collection = connection.getCollection();
-        Bson filter = Filters.eq("_id", id);
-        Document doc = collection.find(filter).first();
-        return convertToVanDonPOJO(doc);
-    }
 
     public int tinhTongSoDonCuaShipper(String id) {
         int s = 0;
@@ -648,7 +612,7 @@ public class VanDonDAO {
 
     }
 
-    public VanDonPOJO updateTrangThai(Object id){
+    public VanDonPOJO updateTrangThai(Object id) {
         try {
             MongoCollection<Document> collection = connection.getCollection();
             collection.updateOne(
@@ -659,6 +623,7 @@ public class VanDonDAO {
             ex.printStackTrace();
             return null;
         }
+    }
     public void themDonHangKhachHang(VanDonPOJO vanDonPOJO){
         MongoCollection<Document> collection = connection.getCollection();
         Document doc = new Document()
