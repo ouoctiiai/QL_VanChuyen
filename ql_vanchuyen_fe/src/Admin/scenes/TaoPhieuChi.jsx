@@ -6,6 +6,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../components/Header";
 import { getDSShipper } from '../../Api/DataTaiKhoan';
 import { listTaiXe } from '../../Api/DataVanDon';
+import { taoPhieuChi } from '../../Api/DataPhieuChi';
 
 const PhieuChi = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
@@ -14,24 +15,69 @@ const PhieuChi = () => {
   const [shippers, setShippers] = useState([]);
 
   useEffect(() => {
-    listTaiXe().then((Response) => {
-      setTaiXes(Response.data);
+    listTaiXe().then((response) => {
+      setTaiXes(response.data);
     }).catch(error => {
       console.error('Error fetching data: ', error);
-    })
+    });
   }, []);
 
   useEffect(() => {
-    getDSShipper().then((Response) => {
-      setShippers(Response.data);
+    getDSShipper().then((response) => {
+      setShippers(response.data);
     }).catch(error => {
       console.error('Error fetching data: ', error);
-    })
+    });
   }, []);
 
+  const handleFormSubmit = async (values) => {
+    try {
+      const response = await taoPhieuChi(values);
+      console.log('Tạo phiếu thành công:', response.data);
+      alert('Tạo phiếu thành công!');
+    } catch (error) {
+      console.error('Lỗi khi tạo phiếu:', error);
+      alert('Lỗi khi tạo phiếu: ' + error.message);
+    }
+  };
 
-  const handleFormSubmit = (event, values) => {
-    console.log(values);
+  const handlePayment = async (type, item) => {
+    const values = {
+      LoaiPhieuChi: type === 'shipper' ? 'Trả lương Shipper' : 'Trả lương Tài Xế',
+      TongTien: item.tongTienCong || item.luongTaiXe,
+      ThoiGianLap: new Date(),
+      ThongTinShipper: type === 'shipper' ? {
+        maShipper: item.maShipper,
+        tenShipper: item.tenChuTaiKhoan,
+      } : null,
+      ThongTinTaiXe: type === 'driver' ? {
+        maTaiXe: item.maTaiXe,
+        tenTaiXe: item.tenTaiXe,
+      } : null,
+    };
+    await handleFormSubmit(values);
+
+    updateTotalAmount(0);
+  };
+
+  // Hàm cập nhật tổng tiền trên giao diện thành giá trị 'amount'
+  const updateTotalAmount = (amount) => {
+    // Thực hiện cập nhật tổng tiền trên giao diện
+    const totalAmountElement = document.getElementById('totalAmount');
+    if (totalAmountElement) {
+      totalAmountElement.innerText = amount;
+    } else {
+      console.error("Không tìm thấy phần tử có id 'totalAmount'");
+    }
+  };
+
+  const handleOtherPayments = async (type, amount) => {
+    const values = {
+      LoaiPhieuChi: type,
+      TongTien: amount,
+      ThoiGianLap: new Date(),
+    };
+    await handleFormSubmit(values);
   };
 
   return (
@@ -79,7 +125,15 @@ const PhieuChi = () => {
                           <TableCell>{shipper.tenChuTaiKhoan}</TableCell>
                           <TableCell>{shipper.tongTienCong}</TableCell>
                           <TableCell>
-                            {shipper.tongTienCong !== 0 && <Button variant="contained" color="secondary">Thanh toán</Button>}
+                            {shipper.tongTienCong !== 0 && (
+                              <Button
+                                variant="contained"
+                                color="secondary"
+                                onClick={() => handlePayment('shipper', shipper)}
+                              >
+                                Thanh toán
+                              </Button>
+                            )}
                           </TableCell>
                         </TableRow>
                       ))}
@@ -87,7 +141,6 @@ const PhieuChi = () => {
                   </Table>
                 </TableContainer>
               </Paper>
-
 
               <Paper sx={{ gridColumn: 'span 2', mb: 2, p: 2 }}>
                 <h5>Danh sách lương Tài xế</h5>
@@ -108,7 +161,15 @@ const PhieuChi = () => {
                           <TableCell>{driver.tenTaiXe}</TableCell>
                           <TableCell>{driver.luongTaiXe}</TableCell>
                           <TableCell>
-                            {driver.luongTaiXe !== 0 && <Button variant="contained" color="secondary">Thanh toán</Button>}
+                            {driver.luongTaiXe !== 0 && (
+                              <Button
+                                variant="contained"
+                                color="secondary"
+                                onClick={() => handlePayment('driver', driver)}
+                              >
+                                Thanh toán
+                              </Button>
+                            )}
                           </TableCell>
                         </TableRow>
                       ))}
@@ -117,12 +178,11 @@ const PhieuChi = () => {
                 </TableContainer>
               </Paper>
 
-
               <Box display="flex" alignItems="center" sx={{ gridColumn: "span 4" }}>
                 <TextField
                   fullWidth
                   variant="filled"
-                  type="text"
+                  type="number"
                   label="Chi phí nâng cấp, sửa chữa xe"
                   onBlur={handleBlur}
                   onChange={handleChange}
@@ -132,7 +192,12 @@ const PhieuChi = () => {
                   helperText={touched.chiPhiXe && errors.chiPhiXe}
                   sx={{ flex: 1 }}
                 />
-                <Button color="secondary" variant="contained" sx={{ ml: 2 }}>
+                <Button
+                  color="secondary"
+                  variant="contained"
+                  sx={{ ml: 2 }}
+                  onClick={() => handleOtherPayments('Chi phí xe', values.chiPhiXe)}
+                >
                   Thanh Toán
                 </Button>
               </Box>
@@ -141,7 +206,7 @@ const PhieuChi = () => {
                 <TextField
                   fullWidth
                   variant="filled"
-                  type="text"
+                  type="number"
                   label="Chi phí nhiên liệu"
                   onBlur={handleBlur}
                   onChange={handleChange}
@@ -151,7 +216,12 @@ const PhieuChi = () => {
                   helperText={touched.chiPhiNhienLieu && errors.chiPhiNhienLieu}
                   sx={{ flex: 1 }}
                 />
-                <Button color="secondary" variant="contained" sx={{ ml: 2 }}>
+                <Button
+                  color="secondary"
+                  variant="contained"
+                  sx={{ ml: 2 }}
+                  onClick={() => handleOtherPayments('Chi phí nhiên liệu', values.chiPhiNhienLieu)}
+                >
                   Thanh Toán
                 </Button>
               </Box>
@@ -160,7 +230,7 @@ const PhieuChi = () => {
                 <TextField
                   fullWidth
                   variant="filled"
-                  type="text"
+                  type="number"
                   label="Chi phí thiết bị"
                   onBlur={handleBlur}
                   onChange={handleChange}
@@ -170,7 +240,12 @@ const PhieuChi = () => {
                   helperText={touched.chiPhiThietBi && errors.chiPhiThietBi}
                   sx={{ flex: 1 }}
                 />
-                <Button color="secondary" variant="contained" sx={{ ml: 2 }}>
+                <Button
+                  color="secondary"
+                  variant="contained"
+                  sx={{ ml: 2 }}
+                  onClick={() => handleOtherPayments('Chi phí thiết bị', values.chiPhiThietBi)}
+                >
                   Thanh Toán
                 </Button>
               </Box>
@@ -182,12 +257,12 @@ const PhieuChi = () => {
   );
 };
 
-
 const checkoutSchema = yup.object().shape({
-  chiPhiXe: yup.string().required("required"),
-  chiPhiNhienLieu: yup.string().required("required"),
-  chiPhiThietBi: yup.string().required("required"),
+  chiPhiXe: yup.number().required("required"),
+  chiPhiNhienLieu: yup.number().required("required"),
+  chiPhiThietBi: yup.number().required("required"),
 });
+
 const initialValues = {
   chiPhiXe: "",
   chiPhiNhienLieu: "",
