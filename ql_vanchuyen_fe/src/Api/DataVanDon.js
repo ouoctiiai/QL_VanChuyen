@@ -45,3 +45,5 @@ export const themDonHang = (vanDonMoi) => axios.post(REST_API_BASE_URL + '/themD
 export const getDoanhThuNam = () => axios.get(REST_API_BASE_URL + '/doanh-thu-theo-nam');
 
 export const getDoanhThuThang = () => axios.get(REST_API_BASE_URL + '/doanh-thu-theo-thang');
+
+export const listDonChoTheoTinh = (tinh) => axios.get(REST_API_BASE_URL + '/danh-sach-don-cho-giao-theo-tinh/' + tinh);

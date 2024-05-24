@@ -1,29 +1,31 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Mapbox from '../Components/Mapbox'
 import Navbar from '../Components/Navbar';
-import { useParams } from 'react-router-dom/cjs/react-router-dom';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { getVanDonById } from '../../Api/DataVanDon';
 
 const DetailOrder = () => {
-  const{ idVanDon } = useParams();
+  const{ id } = useParams();
   const[detailorder, setdetailorder] = useState('')
   const[thongTinNguoiGui, setThongTinNguoiGui] = useState('')
   const[thongTinNguoiNhan, setThongTinNguoiNhan] = useState('')
   const[thongTinHangHoa, setThongTinHangHoa] = useState('')
+  const[thongTinPhi, setThongTinPhi] = useState('')
 
   useEffect(() => {
-    if(idVanDon){
-      getVanDonById(idVanDon).then((response) => {
+    if(id){
+      getVanDonById(id).then((response) => {
         console.log(response.data);
 		setThongTinNguoiGui(response.data.thongTinNguoiGui);
 		setThongTinNguoiNhan(response.data.thongTinNguoiNhan);
 		setThongTinHangHoa(response.data.thongTinHangHoa);
+		setThongTinPhi(response.data.phiVanChuyen);
         setdetailorder(response.data);
       }).catch(error => {
         console.error(error);
       })
     }
-  }, [idVanDon])
+  }, [id])
 
   return (
     <div>
@@ -38,26 +40,44 @@ const DetailOrder = () => {
 							<div class="d-flex flex-column align-items-center text-center">
 								<div class="mt-3">
 									<h4>Mã vận đơn: {detailorder.maVanDon}</h4>
-									<p class="mb-1">Thời gian lập: {detailorder.thoiGianLap}</p>
-									<p class="text-muted font-size-sm">Tiền nhận được: </p>
+									<p class="mb-1">Thời gian lập: {detailorder.thoiGianLapToString}</p>
+									<p class="text-muted font-size-sm">Tiền nhận được: {thongTinPhi.luongShipperTheoDon}đ</p>
 									<button class="btn btn-primary">Nhận đơn</button>
 								</div>
 							</div>
 							<hr class="my-4" />
 								<div class="row mb-3">
-									<div class="col-sm-3">
+									<div class="col-sm-5">
 										<h6 class="mb-0">Loại hàng</h6>
 									</div>
-									<div class="col-sm-9 ">
+									<div class="col-sm-7 ">
 										<p class="mb-1">{thongTinHangHoa.loaiHang}</p>
 									</div>
 								</div>
 
-								<div class="row mb-3">
-									<div class="col-sm-3">
-										<h6 class="mb-0">Khoảng cách</h6>
+								<div class="row mb-4">
+									<div class="col-sm-5">
+										<h6 class="mb-0">Tên hàng:</h6>
 									</div>
-									<div class="col-sm-9 ">
+									<div class="col-sm-7 ">
+										<p class="mb-1">{thongTinHangHoa.tenHang}</p>
+									</div>
+								</div>
+
+								<div class="row mb-3">
+									<div class="col-sm-5">
+										<h6 class="mb-0">Cân nặng:</h6>
+									</div>
+									<div class="col-sm-7 ">
+										<p class="mb-1">{thongTinHangHoa.trongLuong}kg</p>
+									</div>
+								</div>
+
+								<div class="row mb-3">
+									<div class="col-sm-5">
+										<h6 class="mb-0">Khoảng cách:</h6>
+									</div>
+									<div class="col-sm-7 ">
 										<p class="mb-1">{detailorder.khoangCach} km</p>
 									</div>
 								</div>

@@ -167,4 +167,10 @@ public class VanDonCotroller {
         List<Map<String, Object>> doanhThuTheoNamList = vanDonService.tinhDoanhThuTheoNam();
         return new ResponseEntity<>(doanhThuTheoNamList, HttpStatus.OK);
     }
+
+    @GetMapping("danh-sach-don-cho-giao-theo-tinh/{tinh}")
+    public ResponseEntity<List<VanDonPOJO>> dsDonChoGiao(@PathVariable String tinh) {
+        List<VanDonPOJO> dsvd = vanDonService.danhSachDonNoiTinhChuaGiaoTheoTinh(tinh);
+        return new ResponseEntity<>(dsvd, HttpStatus.OK);
+    }
 }

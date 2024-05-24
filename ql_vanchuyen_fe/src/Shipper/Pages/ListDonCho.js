@@ -1,50 +1,68 @@
 import { useEffect, useState } from 'react';
 import '../Styles/ListDonCho.css';
 import Navbar from '../Components/Navbar';
-import { listVanDon } from '../../Api/DataVanDon';
+import { listDonChoTheoTinh } from '../../Api/DataVanDon';
 
 const ListDonCho = () => {
+  const [vandons, setVanDons] = useState([]);
+  const [selectedTinh, setSelectedTinh] = useState('TP Hồ Chí Minh'); // Initial selected value
 
-  const [vandons, setVanDons] = useState([])
-
+  // Fetch data on component mount and on selectedTinh change
   useEffect(() => {
-      listVanDon().then((Response) =>{
-        setVanDons(Response.data);
-      }).catch(error => {
+    const fetchData = async () => {
+      try {
+        const response = await listDonChoTheoTinh(selectedTinh);
+        setVanDons(response.data);
+      } catch (error) {
         console.error(error);
-      })
-  }, [])
+      }
+    };
 
+    fetchData(); // Fetch data initially
+  }, [selectedTinh]); // Dependency array includes selectedTinh
+
+  const handleTinhChange = (event) => {
+    setSelectedTinh(event.target.value);
+  };
 
   return (
     <>
-    <Navbar />
-    <div className='container'>
-    <div className='orderlistcard'>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="align-items-center row">
-              <div class="col-lg-10">
-                  <div class="mb-3 mb-lg-0"><h6 class="fs-16 mb-0">Danh sách đơn đang chờ xử lý</h6></div>
-              </div>
-              <div class="col-lg-2">
-                <div class="candidate-list-widgets">
-                    <div class="selection-widget">
-                        <select class="form-select" 
-                                data-trigger="true" 
-                                name="choices-single-filter-orderby" 
-                                id="choices-single-filter-orderby" 
-                                aria-label="Default select example">
-                            <option value="tphcm">TP Hồ Chí Minh</option>
-                            <option value="hn">Hà Nội</option>
-                            <option value="dn">Đà Nẵng</option>
-                        </select>
+      <Navbar />
+      <div className="container">
+        <div className="orderlistcard">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="align-items-center row">
+                <div className="col-lg-10">
+                  <div className="mb-3 mb-lg-0">
+                    <h6 className="fs-16 mb-0">
+                      Danh sách đơn đang chờ xử lý tại {selectedTinh}
+                    </h6>
+                  </div>
+                </div>
+                <div className="col-lg-2">
+                  <div className="candidate-list-widgets">
+                    <div className="selection-widget">
+                      <select
+                        className="form-select"
+                        data-trigger="true"
+                        name="choices-single-filter-orderby"
+                        id="choices-single-filter-orderby"
+                        aria-label="Lọc theo tỉnh"
+                        value={selectedTinh}
+                        onChange={handleTinhChange}
+                      >
+                        <option value="TP Hồ Chí Minh">TP Hồ Chí Minh</option>
+                        <option value="Hà Nội">Hà Nội</option>
+                        <option value="Đà Nẵng">Đà Nẵng</option>
+                        {/* Add more options as needed */}
+                      </select>
                     </div>
+                  </div>
                 </div>
               </div>
+            </div>
           </div>
-        </div>
-      </div>            
       <div class="row">
         <div class="col-xl-12">
           <div class="row align-items-center">
@@ -56,7 +74,7 @@ const ListDonCho = () => {
 
                               <td>
                                   <div>
-                                      <h5 class="font-size-18"><a href="/detailorder">{item.thongTinHangHoa.loaiHang}</a></h5>
+                                      <h5 class="font-size-18"><a href={`/detailorder/${item.id}`}>{item.thongTinHangHoa.loaiHang}</a></h5>
                                   </div>
                               </td>
 
@@ -88,7 +106,7 @@ const ListDonCho = () => {
                               <td>
                                   <button type="button" 
                                         class="btn btn-primary waves-effect waves-light">
-                                            <a className='text-light' href={`/detailorder/${item.id}`}>Nhận</a>
+                                            <a className='text-light' href={`/detailorder/${item.id}`}>Chi tiết</a>
                                     </button>
                               </td>
                           </tr>

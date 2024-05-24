@@ -28,13 +28,7 @@ public class VanDonDAO {
 
     private final Connection connection;
     private java.util.Objects Objects;
-//
-//    public void capNhatDonLienTinh(KhoPOJO kho) {
-//        MongoCollection<Document> collection = connection.getCollection();
-//        Bson filter = Filters.eq("id", kho.getId());
-//        Document updatedDocument = convertToDocument(kho);
-//        collection.replaceOne(filter, updatedDocument);
-//    }
+
 
     public VanDonDAO() {
         connection = new Connection("VanDon");
@@ -53,6 +47,18 @@ public class VanDonDAO {
                     Updates.set("PhiVanChuyen.TongPhi", vd.getPhiVanChuyen().getTongPhi()));
         }
         return dsVanDon;
+    }
+
+    public List<VanDonPOJO> danhSachDonNoiTinhChuaGiaoTheoTinh(String tinh) {
+        List<VanDonPOJO> dsVanDon = new ArrayList<>();
+        List<VanDonPOJO> dsNoiTinh = danhSachDonNoiTinh();
+        for (VanDonPOJO vd : dsNoiTinh) {
+            if(java.util.Objects.equals(vd.getTrangThai(), "Chờ giao") && java.util.Objects.equals(vd.getTinh(), tinh))
+            {
+                dsVanDon.add(vd);
+            }
+        }
+        return  dsVanDon;
     }
 
     public double tinhPhiVanChyen(VanDonPOJO vanDon) {
@@ -264,8 +270,6 @@ public class VanDonDAO {
         return dsVanDon;
     }
 
-
-
     public int tinhTongSoDonHangThanhCong() {
         int tongSoDonHangThanhCong = 0;
 
@@ -374,13 +378,6 @@ public class VanDonDAO {
         Document doc = collection.find(filter).first();
         return convertToVanDonPOJO(doc);
     }
-
-//    public VanDonPOJO timVanDonTheoMaVanDon(String maVanDon){
-//        MongoCollection<Document> collection = connection.getCollection();
-//        Bson filter = Filters.eq("MaVanDon", maVanDon);
-//        Document doc = collection.find(filter).first();
-//        return convertToVanDonPOJO(doc);
-//    }
 
     public Double tinhKhoangCachDonLienTinh(VanDonPOJO vd){
         Double khoangCach = 0.0;
@@ -619,7 +616,6 @@ public class VanDonDAO {
         }
     }
 
-
     public void convertToThongTinXe(Document doc, VanDonPOJO vanDon) {
         Document ttx = doc.getEmbedded(Collections.singletonList("ThongTinXe"), Document.class);
         if (ttx != null) {
@@ -654,6 +650,7 @@ public class VanDonDAO {
             p.setThuongShipper(phi.getInteger("ThuongShipper"));
             p.setTongPhi(phi.getInteger("TongPhi"));
             p.setPhiCoc(phi.getInteger("PhiCoc"));
+            p.setLuongShipperTheoDon();
             vanDon.setPhiVanChuyen(p);
         }
     }
