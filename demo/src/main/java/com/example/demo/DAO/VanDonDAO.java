@@ -181,23 +181,6 @@ public class VanDonDAO {
         return (int) ((phiCoDinh + phiCoc + phiNang + phiHa + phiKhac) * 0.1);
     }
 
-    private class DoanhThuTheoNam{
-        public int nam;
-        public double tongTien;
-
-        public DoanhThuTheoNam(){
-            nam= 0;
-            tongTien = 0;
-        }
-        public DoanhThuTheoNam(int nam){
-            this.nam = nam;
-        }
-        public DoanhThuTheoNam(int nam, double tongTien){
-            this.nam = nam;
-            this.tongTien = tongTien;
-        }
-    }
-
     public List<Map<String, Object>> tinhDoanhThuTheoNam() {
         List<VanDonPOJO> danhSach = allVanDon();
         Map<Integer, Double> tongTien1Nam = new HashMap<>();
