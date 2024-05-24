@@ -233,12 +233,29 @@ public class VanDonDAO {
         return convertToVanDonPOJO(doc);
     }
 
-//    public VanDonPOJO timVanDonTheoMaVanDon(String maVanDon){
-//        MongoCollection<Document> collection = connection.getCollection();
-//        Bson filter = Filters.eq("MaVanDon", maVanDon);
-//        Document doc = collection.find(filter).first();
-//        return convertToVanDonPOJO(doc);
-//    }
+    public void themDonHangKhachHang(VanDonPOJO vanDonPOJO){
+        MongoCollection<Document> collection = connection.getCollection();
+        Document doc = new Document()
+                .append("maVanDon", vanDonPOJO.getMaVanDon() != null ? vanDonPOJO.getMaVanDon() : null)
+                .append("thoiGianLap", vanDonPOJO.getThoiGianLap() != null ? vanDonPOJO.getThoiGianLap() : null)
+                .append("loaiVanChuyen", vanDonPOJO.getLoaiVanChuyen() != null ? vanDonPOJO.getLoaiVanChuyen() : null)
+                .append("noiTiepNhan", vanDonPOJO.getNoiTiepNhan() != null ? vanDonPOJO.getNoiTiepNhan() : null)
+                .append("nguoiThanhToan", vanDonPOJO.getNguoiThanhToan() != null ? vanDonPOJO.getNguoiThanhToan() : null)
+                .append("thongTinNguoiGui", vanDonPOJO.getThongTinNguoiGui() != null ? vanDonPOJO.getThongTinNguoiGui() : null)
+                .append("thongTinNguoiNhan", vanDonPOJO.getThongTinNguoiNhan() != null ? vanDonPOJO.getThongTinNguoiNhan() : null)
+                .append("thongTinTaiXe", vanDonPOJO.getThongTinTaiXe() != null ? vanDonPOJO.getThongTinTaiXe() : null)
+                .append("thongTinXe", vanDonPOJO.getThongTinXe() != null ? vanDonPOJO.getThongTinXe() : null)
+                .append("thongTinHangHoa", vanDonPOJO.getThongTinHangHoa() != null ? vanDonPOJO.getThongTinHangHoa() : null)
+                .append("diemXuatPhat", vanDonPOJO.getDiemXuatPhat() != null ? vanDonPOJO.getDiemXuatPhat() : null)
+                .append("diemDen", vanDonPOJO.getDiemDen() != null ? vanDonPOJO.getDiemDen() : null)
+                .append("tinh", vanDonPOJO.getTinh() != null ? vanDonPOJO.getTinh() : null)
+                .append("khoangCach", vanDonPOJO.getKhoangCach() != null ? vanDonPOJO.getKhoangCach() : null)
+                .append("tuyenDuong", vanDonPOJO.getTuyenDuong() != null ? vanDonPOJO.getTuyenDuong() : null)
+                .append("phiVanChuyen", vanDonPOJO.getPhiVanChuyen() != null ? vanDonPOJO.getPhiVanChuyen() : null)
+                .append("thongTinShipper", vanDonPOJO.getThongTinShipper() != null ? vanDonPOJO.getThongTinShipper() : null)
+                .append("trangThai", vanDonPOJO.getTrangThai() != null ? vanDonPOJO.getTrangThai() : null);
+        collection.insertOne(doc);
+    }
 
     public Double tinhKhoangCachDonLienTinh(VanDonPOJO vd){
         Double khoangCach = 0.0;

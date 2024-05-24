@@ -6,6 +6,7 @@ import com.example.demo.DAO.XeDAO;
 import com.example.demo.POJO.ThongTinTaiXe;
 import com.example.demo.POJO.ThongTinXe;
 import com.example.demo.POJO.VanDonPOJO;
+import com.example.demo.POJO.VanDonRepository;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
 @RestController
 @RequestMapping("/vandon")
@@ -25,6 +26,7 @@ public class VanDonCotroller {
     private VanDonDAO vanDonService;
     private TaiXeDAO taiXeService;
     private XeDAO xeService;
+    private VanDonRepository vanDonRepository;
 
     @GetMapping("/danh-sach")
     public ResponseEntity ds(Model model) {
@@ -55,15 +57,15 @@ public class VanDonCotroller {
         }
     }
 
-//    @GetMapping("/{maVanDon}")
-//    public ResponseEntity<VanDonPOJO> getVanDonByMaVanDon(@PathVariable ObjectId id) {
-//        VanDonPOJO vanDon = vanDonService.timVanDonTheoId(id);
-//        if (vanDon != null) {
-//            return ResponseEntity.ok(vanDon);
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
+    @PostMapping("/create-order")
+    public ResponseEntity<String> createOrder(@RequestBody VanDonPOJO vanDonPOJO) {
+        try {
+            vanDonService.themDonHangKhachHang(vanDonPOJO);
+            return ResponseEntity.ok("Order created successfully!");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error creating order: " + e.getMessage());
+        }
+    }
 
     @GetMapping("/dsTaiXe")
     public ResponseEntity<List<ThongTinTaiXe>> danhSachTaiXe() {

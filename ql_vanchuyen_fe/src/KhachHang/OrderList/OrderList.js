@@ -64,6 +64,10 @@ const OrderList = () => {
         return [...new Set(pageNumbers)]; // Remove duplicates
     };
 
+    const handleOrderDetailClick = (idOrder) => {
+        localStorage.setItem('idOrder', idOrder);
+    }
+
 
     return (
         <div className='custom_container' style={{ marginTop: '20px', marginLeft: '10px' }}>
@@ -118,7 +122,7 @@ const OrderList = () => {
                             <td>{donHang.thongTinHangHoa.tenHang || 'Khác'}</td>
                             <td>{donHang.thoiGianLap}</td>
                             <td>{donHang.trangThai}</td>
-                            <td><NavLink to={`/order-details/${donHang.id}`}><i class="fa-solid fa-circle-info"></i></NavLink></td>
+                            <td><NavLink to={`/order-details/${donHang.id}`} onClick = {() =>handleOrderDetailClick(donHang.id)}><i class="fa-solid fa-circle-info"></i></NavLink></td>
                         </tr>
                     ))}
                 </tbody>

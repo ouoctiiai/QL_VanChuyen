@@ -11,6 +11,7 @@ import CreateOrder from './CreateOrder/CreateOrder';
 import OrderList from './OrderList/OrderList';
 import OrderDetails from './OrderDetails/OrderDetails';
 import CustomerLayout from './CustomerLayout';
+import UpdateProfileCustomer from './Profile/UpdateProfileCustomer';
 
 const renderCustomerRouter = () => {
     const customerRouter = [
@@ -29,6 +30,10 @@ const renderCustomerRouter = () => {
         {
             path: ROUTERS.CUSTOMER.ORDER_DETAILS,
             component: OrderDetails
+        },
+        {
+            path: ROUTERS.CUSTOMER.UPDATE_PROFILE,
+            component: UpdateProfileCustomer
         }
     ];
 

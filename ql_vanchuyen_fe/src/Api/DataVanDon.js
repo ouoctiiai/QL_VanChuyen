@@ -23,3 +23,5 @@ export const getTongXe = () => axios.get(REST_API_BASE_URL + '/tongXe');
 export const getTongDonHangThanhCong = () => axios.get(REST_API_BASE_URL + '/tongDonHangThanhCong');
 
 export const getTongDonHang = () => axios.get(REST_API_BASE_URL + '/tongDonHang');
+
+export const createOrder = (dataOrder) => axios.post(REST_API_BASE_URL + '/create-order', dataOrder)
