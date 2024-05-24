@@ -163,10 +163,7 @@ const renderMasterRouter = () => {
             path: ROUTERS.ADMIN.PIECHART,
             component: Pie
           },
-          {
-            path: ROUTERS.ADMIN.GEOGRAPHYCHART,
-            component: Geography
-          },
+        
         {
             path: ROUTERS.EMPLOYEE.HOME,
             component: NV_Home,
@@ -196,24 +193,24 @@ const renderMasterRouter = () => {
         <Switch>
             {
                 masterRouter.map((item, key) => {
-                    // return <Route key={key} path={item.path} component={item.component} />
-                    if (item.isPrivate) {
-                        return (
-                            <PrivateRoute 
-                                key={key} 
-                                path={item.path} 
-                                component={item.component} 
-                            />
-                        );
-                    } else {
-                        return (
-                            <Route 
-                                key={key} 
-                                path={item.path} 
-                                component={item.component} 
-                            />
-                        );
-                    }
+                    return <Route key={key} path={item.path} component={item.component} />
+                    // if (item.isPrivate) {
+                    //     return (
+                    //         <PrivateRoute 
+                    //             key={key} 
+                    //             path={item.path} 
+                    //             component={item.component} 
+                    //         />
+                    //     );
+                    // } else {
+                    //     return (
+                    //         <Route 
+                    //             key={key} 
+                    //             path={item.path} 
+                    //             component={item.component} 
+                    //         />
+                    //     );
+                    // }
                 })
             }
         </Switch>

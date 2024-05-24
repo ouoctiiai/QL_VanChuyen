@@ -61,6 +61,10 @@
     cursor: pointer;
 }
 
+.nv_container .nv_sidebar .list-group :hover{
+    color: var(--main-text-color);
+}
+
 .list-group-item {
     border: none;
     padding: 20px 30px;

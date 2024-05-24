@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
@@ -79,6 +80,12 @@ public class VanDonCotroller {
         return new ResponseEntity<>(dsXe, HttpStatus.OK);
     }
 
+    @GetMapping("/khoangCach/{dc1}/{dc2}")
+    public ResponseEntity<Double> calculateDistance(@PathVariable String dc1, @PathVariable String dc2) {
+        Double khoangCach = vanDonService.tinhKhoangCachDonLT(dc1, dc2);
+        return ResponseEntity.ok(khoangCach);
+    }
+
     @GetMapping("/tongTaiXe")
     public ResponseEntity<Integer> tinhTongTaiXe() {
         int tongTaiXe = taiXeService.tinhTongTaiXe();
@@ -97,6 +104,30 @@ public class VanDonCotroller {
         return new ResponseEntity<>(tongDonHangThanhCong, HttpStatus.OK);
     }
 
+    @GetMapping("/tongDonHangDaHuy")
+    public ResponseEntity<Integer> tinhTongDonHangDaHuy() {
+        int tongDonHangDaHuy = vanDonService.tinhTongSoDonHangDaHuy();
+        return new ResponseEntity<>(tongDonHangDaHuy, HttpStatus.OK);
+    }
+
+    @GetMapping("/tongDonHangChoGiao")
+    public ResponseEntity<Integer> tinhTongDonHangChoGiao() {
+        int tongDonHangChoGiao = vanDonService.tinhTongSoDonHangChoGiao();
+        return new ResponseEntity<>(tongDonHangChoGiao, HttpStatus.OK);
+    }
+
+    @GetMapping("/tongDonHangChoXacNhan")
+    public ResponseEntity<Integer> tinhTongDonHangChoXN() {
+        int tongDonHangChoXN = vanDonService.tinhTongSoDonHangChoXN();
+        return new ResponseEntity<>(tongDonHangChoXN, HttpStatus.OK);
+    }
+
+    @GetMapping("/tongDonHangDangGiao")
+    public ResponseEntity<Integer> tinhTongDonHangDangGiao() {
+        int tongDonHangDangGiao = vanDonService.tinhTongSoDonHangDangGiao();
+        return new ResponseEntity<>(tongDonHangDangGiao, HttpStatus.OK);
+    }
+
     @GetMapping("/tongDonHang")
     public ResponseEntity<Integer> tinhTongDonHang() {
         int tongDonHang = vanDonService.tinhTongDonHang();
@@ -107,5 +138,35 @@ public class VanDonCotroller {
     public ResponseEntity<List<VanDonPOJO>> get10RecentOrders() {
         List<VanDonPOJO> dsvd = vanDonService.danhSach10DonGanDayNhat();
         return new ResponseEntity<>(dsvd, HttpStatus.OK);
+    }
+
+    @GetMapping("/phiVAT/{phiCoDinh}/{phiCoc}/{phiNang}/{phiHa}/{phiKhac}")
+    public ResponseEntity<Integer> tinhPhiVat(@PathVariable int phiCoDinh, @PathVariable int phiCoc, @PathVariable int phiNang, @PathVariable int phiHa, @PathVariable int phiKhac) {
+        int phiVat = vanDonService.tinhPhiVAT(phiCoDinh, phiCoc, phiNang, phiHa, phiKhac);
+        return ResponseEntity.ok(phiVat);
+    }
+
+    @GetMapping("/tongPhi/{phiCoDinh}/{phiVAT}/{phiCoc}/{phiNang}/{phiHa}/{phiThuong}/{phiKhac}/{khoangCach}/{khoiLuong}/{chieuDai}/{chieuRong}/{loaiHang}/{loaiVanChuyen}")
+    public ResponseEntity<Integer> tinhTongPhi(@PathVariable int phiCoDinh, @PathVariable int phiVAT, @PathVariable int phiCoc, @PathVariable int phiNang, @PathVariable int phiHa, @PathVariable int phiThuong, @PathVariable int phiKhac, @PathVariable double khoangCach, @PathVariable double khoiLuong, @PathVariable double chieuDai, @PathVariable double chieuRong, @PathVariable String loaiHang, @PathVariable String loaiVanChuyen) {
+        int tongPhi = vanDonService.tinhTongPhi(phiCoDinh, phiVAT, phiCoc, phiNang, phiHa, phiThuong, phiKhac, khoangCach, khoiLuong, chieuDai, chieuRong, loaiHang, loaiVanChuyen);
+        return ResponseEntity.ok(tongPhi);
+    }
+
+    @PostMapping("/themDonHang")
+    public ResponseEntity<VanDonPOJO> themDonHang(@RequestBody VanDonPOJO vanDonPOJO) {
+        VanDonPOJO newVanDon = vanDonService.themDonHang(vanDonPOJO);
+        return ResponseEntity.ok(newVanDon);
+    }
+
+    @GetMapping("/doanh-thu-theo-thang")
+    public ResponseEntity<List<Map<String, Object>>> getDoanhThuTheoThang() {
+        List<Map<String, Object>> doanhThuTheoThangList = vanDonService.tinhDoanhThuTheoThang();
+        return new ResponseEntity<>(doanhThuTheoThangList, HttpStatus.OK);
+    }
+
+    @GetMapping("/doanh-thu-theo-nam")
+    public ResponseEntity<List<Map<String, Object>>> getDoanhThuTheoNam() {
+        List<Map<String, Object>> doanhThuTheoNamList = vanDonService.tinhDoanhThuTheoNam();
+        return new ResponseEntity<>(doanhThuTheoNamList, HttpStatus.OK);
     }
 }

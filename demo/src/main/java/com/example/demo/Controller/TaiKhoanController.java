@@ -1,6 +1,5 @@
 package com.example.demo.Controller;
 
-import com.example.demo.DAO.ShipperDAO;
 import com.example.demo.DAO.TaiKhoanDAO;
 import com.example.demo.POJO.TaiKhoanPOJO;
 import org.bson.types.ObjectId;
@@ -18,19 +17,12 @@ import java.util.List;
 public class TaiKhoanController {
     @Autowired
     private TaiKhoanDAO taiKhoanService;
-    private ShipperDAO shipperService;
 
     @GetMapping("/danh-sach")
     public ResponseEntity dsTaiKhoan(Model model) {
         List<TaiKhoanPOJO> dstk = taiKhoanService.layTatCaTaiKhoan();
         return new ResponseEntity<>(dstk, HttpStatus.OK);
     }
-
-//    @GetMapping("/tongShipper")
-//    public ResponseEntity<Integer> tinhTongShipper() {
-//        int tongShipper = shipperService.tinhTongShipper(dsTaiKhoan());
-//        return new ResponseEntity<>(tinhTongShipper(), HttpStatus.OK);
-//    }
 
     @GetMapping("/{id}")
     public ResponseEntity<TaiKhoanPOJO> getTaiKhoanById(@PathVariable ObjectId id) {
@@ -52,12 +44,12 @@ public class TaiKhoanController {
 //            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 //        }
         if (user != null) {
-            System.out.println("Found user: " + user);  // In ra thông tin user tìm thấy
+            System.out.println("Found user: " + user);
             if (user.getMatKhau().equals(loginRequest.getMatKhau())) {
-                System.out.println("Login successful for user: " + user.getId());  // In ra log nếu đăng nhập thành công
+                System.out.println("Login successful for user: " + user.getId());
                 return ResponseEntity.ok(user);
             } else {
-                System.out.println("Incorrect password for user: " + user.getId());  // In ra log nếu sai mật khẩu
+                System.out.println("Incorrect password for user: " + user.getId());
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
             }
         } else {
@@ -65,4 +57,19 @@ public class TaiKhoanController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
+
+    @PostMapping("/create")
+    public ResponseEntity<TaiKhoanPOJO> taoTaiKhoan(@RequestBody TaiKhoanPOJO taiKhoan){
+        boolean check = taiKhoanService.themTaiKhoanMoi(taiKhoan);
+        System.out.println(check);
+        if(check){
+            System.out.println(taiKhoan.getTenTaiKhoan());
+            return ResponseEntity.ok(taiKhoan);
+        }
+        else{
+            System.out.println("Loi");
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();}
+    }
+
 }

@@ -1,15 +1,53 @@
+import React, { useState, useEffect } from "react";
 import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
-import { mockLineData as data } from "../data/mockData";
+import { getDoanhThuThang } from "../../Api/DataVanDon";
 
 const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
+  const [doanhThuThangData, setDoanhThuThangData] = useState([]);
+
+  useEffect(() => {
+    fetchDoanhThuThangData();
+  }, []);
+
+  const fetchDoanhThuThangData = () => {
+    getDoanhThuThang()
+      .then(response => {
+        if (response && response.data) {
+          const formattedData = formatData(response.data);
+          setDoanhThuThangData(formattedData);
+        } else {
+          console.log("Không có dữ liệu doanh thu theo tháng.");
+        }
+      })
+      .catch(error => {
+        console.error('Lỗi khi lấy dữ liệu doanh thu theo tháng:', error);
+      });
+  };
+
+  const formatData = (data) => {
+    const groupedData = data.reduce((acc, cur) => {
+      const { nam, thang, tongTien } = cur;
+      if (!acc[nam]) {
+        acc[nam] = [];
+      }
+      acc[nam].push({ x: `Tháng ${thang}`, y: tongTien });
+      return acc;
+    }, {});
+
+    return Object.keys(groupedData).map(year => ({
+      id: `Năm ${year}`,
+      data: groupedData[year],
+    }));
+  };
+
   return (
     <ResponsiveLine
-      data={data}
+      data={doanhThuThangData}
       theme={{
         axis: {
           domain: {
@@ -20,6 +58,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
           legend: {
             text: {
               fill: colors.grey[100],
+              fontSize: 14,
             },
           },
           ticks: {
@@ -29,12 +68,14 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
             },
             text: {
               fill: colors.grey[100],
+              fontSize: 12,
             },
           },
         },
         legends: {
           text: {
             fill: colors.grey[100],
+            fontSize: 12,
           },
         },
         tooltip: {
@@ -43,7 +84,6 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
           },
         },
       }}
-      colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }} // added
       margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
       xScale={{ type: "point" }}
       yScale={{
@@ -53,28 +93,23 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         stacked: true,
         reverse: false,
       }}
-      yFormat=" >-.2f"
-      curve="catmullRom"
       axisTop={null}
       axisRight={null}
       axisBottom={{
-        orient: "bottom",
         tickSize: 0,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "transportation", // added
+        tickValues: Array.from({ length: 12 }, (_, i) => `Tháng ${i + 1}`),
         legendOffset: 36,
         legendPosition: "middle",
       }}
       axisLeft={{
-        orient: "left",
-        tickValues: 5, // added
         tickSize: 3,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "count", // added
         legendOffset: -40,
         legendPosition: "middle",
+        tickFormat: value => `${value}đ`,
       }}
       enableGridX={false}
       enableGridY={false}

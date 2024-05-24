@@ -4,7 +4,7 @@
   },
   "MaVanDon": "VCLT00001",
   "ThoiGianLap": {
-    "$date": "2023-01-31T17:00:00.000Z"
+    "$date": "2024-03-31T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV24",
@@ -117,7 +117,7 @@
     "TenShipper": "Nguyễn Duy Hưng",
     "SDTShipper": "0329296673"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Đang giao"
 },
 {
   "_id": {
@@ -185,7 +185,7 @@
   },
   "MaVanDon": "VCLT00004",
   "ThoiGianLap": {
-    "$date": "2023-04-02T17:00:00.000Z"
+    "$date": "2024-02-02T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV38",
@@ -237,7 +237,7 @@
     "TenShipper": "Nguyễn Hà Trang",
     "SDTShipper": "0563043312"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Đang giao"
 },
 {
   "_id": {
@@ -292,12 +292,7 @@
     "VAT": 3000,
     "TongPhi": 38008
   },
-  "ThongTinShipper": {
-    "MaShipper": "SP00005",
-    "TenShipper": "Trịnh Mạnh Cường",
-    "SDTShipper": "0904476300"
-  },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Chờ giao"
 },
 {
   "_id": {
@@ -539,7 +534,7 @@
   },
   "MaVanDon": "VCLT00010",
   "ThoiGianLap": {
-    "$date": "2023-10-01T17:00:00.000Z"
+    "$date": "2024-01-01T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV24",
@@ -600,7 +595,7 @@
   },
   "MaVanDon": "VCLT00011",
   "ThoiGianLap": {
-    "$date": "2023-11-02T17:00:00.000Z"
+    "$date": "2024-02-11T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV24",
@@ -648,12 +643,7 @@
     "PhiHa": 20000,
     "TongPhi": 82005
   },
-  "ThongTinShipper": {
-    "MaShipper": "SP00011",
-    "TenShipper": "Nguyễn Khánh Toàn",
-    "SDTShipper": "0339882066"
-  },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Chờ xác nhận"
 },
 {
   "_id": {
@@ -841,7 +831,7 @@
   },
   "MaVanDon": "VCLT00015",
   "ThoiGianLap": {
-    "$date": "2023-02-14T17:00:00.000Z"
+    "$date": "2023-03-03T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV30",
@@ -1007,7 +997,7 @@
     "TenShipper": "Nguyễn Long Hải",
     "SDTShipper": "0393369300"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Đang giao"
 },
 {
   "_id": {
@@ -1063,9 +1053,9 @@
     "TongPhi": 98406
   },
   "ThongTinShipper": {
-    "MaShipper": "SP00018",
-    "TenShipper": "Thái Hoàng Khải",
-    "SDTShipper": "0961738166"
+    "MaShipper": "SP00019",
+    "TenShipper": "Hoàng Trung Kiên",
+    "SDTShipper": "0346097698"
   },
   "TrangThai": "Giao hàng thành công"
 },
@@ -1306,7 +1296,7 @@
     "TenShipper": "Nguyễn Tuấn Long",
     "SDTShipper": "0819912142"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Đang giao"
 },
 {
   "_id": {
@@ -1599,12 +1589,7 @@
     "VAT": 3000,
     "TongPhi": 53001
   },
-  "ThongTinShipper": {
-    "MaShipper": "SP00027",
-    "TenShipper": "Trần Xuân Thái",
-    "SDTShipper": "0397723289"
-  },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Chờ giao"
 },
 {
   "_id": {
@@ -1785,7 +1770,7 @@
     "TenShipper": "Phạm Bá Thành",
     "SDTShipper": "0394142645"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Đang giao"
 },
 {
   "_id": {
@@ -1923,7 +1908,7 @@
     "TenShipper": "Nông Việt Hoàng",
     "SDTShipper": "0336658942"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Đang giao"
 },
 {
   "_id": {
@@ -1958,12 +1943,7 @@
     "VAT": 1000,
     "TongPhi": 21060
   },
-  "ThongTinShipper": {
-    "MaShipper": "SP00034",
-    "TenShipper": "Tô Thị Hiểu",
-    "SDTShipper": "0868777587"
-  },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Chờ xác nhận"
 },
 {
   "_id": {
@@ -1998,12 +1978,7 @@
     "VAT": 1000,
     "TongPhi": 26420
   },
-  "ThongTinShipper": {
-    "MaShipper": "SP00035",
-    "TenShipper": "Đỗ Mai Anh",
-    "SDTShipper": "0962447592"
-  },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Chờ giao"
 },
 {
   "_id": {
@@ -2043,7 +2018,7 @@
     "TenShipper": "Nguyễn Đức Anh",
     "SDTShipper": "0947551710"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Đang giao"
 },
 {
   "_id": {
@@ -2077,12 +2052,7 @@
     "VAT": 1000,
     "TongPhi": 19460
   },
-  "ThongTinShipper": {
-    "MaShipper": "SP00037",
-    "TenShipper": "Nguyễn Linh Đan",
-    "SDTShipper": "0973830290"
-  },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Chờ xác nhận"
 },
 {
   "_id": {
@@ -2117,9 +2087,9 @@
     "TongPhi": 29200
   },
   "ThongTinShipper": {
-    "MaShipper": "SP00038",
-    "TenShipper": "Nguyễn Nam Hưng",
-    "SDTShipper": "0965759524"
+    "MaShipper": "SP00019",
+    "TenShipper": "Hoàng Trung Kiên",
+    "SDTShipper": "0346097698"
   },
   "TrangThai": "Giao hàng thành công"
 },
@@ -2201,7 +2171,7 @@
     "TenShipper": "Nguyễn Long Khải",
     "SDTShipper": "0989307148"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Đang giao"
 },
 {
   "_id": {
@@ -2516,9 +2486,9 @@
     "TongPhi": 24720
   },
   "ThongTinShipper": {
-    "MaShipper": "SP00029",
-    "TenShipper": "Trần Đức Thắng",
-    "SDTShipper": "0339122978"
+    "MaShipper": "SP00040",
+    "TenShipper": "Nguyễn Long Khải",
+    "SDTShipper": "0989307148"
   },
   "TrangThai": "Giao hàng thành công"
 },
@@ -2678,7 +2648,7 @@
     "TenShipper": "Phạm Bá Tuấn Linh",
     "SDTShipper": "0399968559"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Đang giao"
 },
 {
   "_id": {
@@ -2996,7 +2966,7 @@
     "TenShipper": "Nguyễn Linh Đan",
     "SDTShipper": "0973830290"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Đang giao"
 },
 {
   "_id": {
@@ -3035,7 +3005,7 @@
     "TenShipper": "Phạm Bá Thành",
     "SDTShipper": "0394142645"
   },
-  "TrangThai": "Giao hàng thành công"
+  "TrangThai": "Đang giao"
 },
 {
   "_id": {
@@ -3171,7 +3141,12 @@
     "VAT": 11000,
     "TongPhi": 134540
   },
-  "TrangThai": "Chờ xác nhận"
+  "ThongTinShipper": {
+    "MaShipper": "SP00040",
+    "TenShipper": "Nguyễn Long Khải",
+    "SDTShipper": "0989307148"
+  },
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "MaVanDon": "VCNT00035",
@@ -3235,7 +3210,12 @@
     "PhiKhac": 3000,
     "TongPhi": 17300
   },
-  "TrangThai": "Chờ giao"
+  "ThongTinShipper": {
+    "MaShipper": "SP00019",
+    "TenShipper": "Hoàng Trung Kiên",
+    "SDTShipper": "0346097698"
+  },
+  "TrangThai": "Giao hàng thành công"
 },
 {
   "MaVanDon": "VCNT00037",

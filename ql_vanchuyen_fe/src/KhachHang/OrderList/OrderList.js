@@ -108,10 +108,10 @@ const OrderList = () => {
                         <th scope="col">Trạng thái</th>
                         <th scope="col"></th>
                     </tr>
-                </thead>
+                </thead>                         
                 <tbody>
                     {currentPageData.map((donHang, i) => (
-                        <tr key={donHang.id}>
+                        <tr key={i}>
                             <th scope="row">
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkedItems[i]} onChange={() => handleCheckItem(i)} />

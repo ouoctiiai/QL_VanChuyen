@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Document(collection = "VanDon")
@@ -33,6 +35,7 @@ public class VanDonPOJO {
     private PhiVanChuyen phiVanChuyen;
     private ThongTinShipper thongTinShipper;
     private String trangThai;
+    private String thoiGianLapToString;
 
     public VanDonPOJO(VanDonPOJO vd)
     {
@@ -125,7 +128,6 @@ public class VanDonPOJO {
         return phiVanChuyen;
     }
 
-
     public String getTrangThai() {
         return trangThai;
     }
@@ -140,8 +142,9 @@ public class VanDonPOJO {
         this.maVanDon = maVanDon;
     }
 
-    public void setThoiGianLap(Date thoiGianLap) {
+    public void setThoiGianLap(Date thoiGianLap) throws ParseException {
         this.thoiGianLap = thoiGianLap;
+        this.thoiGianLapToString = getDateFromISO(thoiGianLap);
     }
 
     public void setLoaiVanChuyen(String loaiVanChuyen) {
@@ -180,7 +183,7 @@ public class VanDonPOJO {
         this.diemXuatPhat = diemXuatPhat;
     }
 
-    public void setDiemDien(String diemDen){
+    public void setDiemDen(String diemDen){
         this.diemDen = diemDen;
     }
 
@@ -207,6 +210,13 @@ public class VanDonPOJO {
     public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
     }
+
+    public static String getDateFromISO(Date isoDate) throws ParseException {
+        SimpleDateFormat newFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = newFormatter.format(isoDate);
+        return formattedDate;
+    }
+
 }
 
 

@@ -1,11 +1,69 @@
+import React, { useState, useEffect } from "react";
 import { ResponsivePie } from "@nivo/pie";
 import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
-import { mockPieData as data } from "../data/mockData";
+import { getTongDonHangThanhCong } from "../../Api/DataVanDon";
+import { getTongDonHangChoGiao } from "../../Api/DataVanDon";
+import { getTongDonHangChoXN } from "../../Api/DataVanDon";
+import { getTongDonHangDaHuy } from "../../Api/DataVanDon";
+import { getTongDonHangDangGiao } from "../../Api/DataVanDon";
+import { getTongDonHang } from "../../Api/DataVanDon";
+
+
+const fetchOrderData = async () => {
+  try {
+    const [
+      totalOrdersRes,
+      successfulOrdersRes,
+      pendingOrdersRes,
+      deliveringOrdersRes,
+      waitingForConfirmationOrdersRes,
+      cancelledOrdersRes
+    ] = await Promise.all([
+      getTongDonHang(),
+      getTongDonHangThanhCong(),
+      getTongDonHangChoGiao(),
+      getTongDonHangDangGiao(),
+      getTongDonHangChoXN(),
+      getTongDonHangDaHuy()
+    ]);
+
+    return {
+      totalOrders: totalOrdersRes.data,
+      successfulOrders: successfulOrdersRes.data,
+      pendingOrders: pendingOrdersRes.data,
+      deliveringOrders: deliveringOrdersRes.data,
+      waitingForConfirmationOrders: waitingForConfirmationOrdersRes.data,
+      cancelledOrders: cancelledOrdersRes.data
+    };
+  } catch (error) {
+    console.error("Error fetching order data:", error);
+    return null;
+  }
+};
 
 const PieChart = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const orderData = await fetchOrderData();
+      if (orderData) {
+        setData([
+          { id: "Đơn đã giao", label: "Đơn đã giao", value: orderData.successfulOrders },
+          { id: "Đơn đang giao", label: "Đơn đang giao", value: orderData.deliveringOrders },
+          { id: "Đơn chờ giao", label: "Đơn chờ giao", value: orderData.pendingOrders },
+          { id: "Đơn chờ xác nhận", label: "Đơn chờ xác nhận", value: orderData.waitingForConfirmationOrders },
+          { id: "Đơn đã hủy", label: "Đơn đã hủy", value: orderData.cancelledOrders }
+        ]);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <ResponsivePie
       data={data}
@@ -84,7 +142,7 @@ const PieChart = () => {
           justify: false,
           translateX: 0,
           translateY: 56,
-          itemsSpacing: 0,
+          itemsSpacing: 25,
           itemWidth: 100,
           itemHeight: 18,
           itemTextColor: "#999",
