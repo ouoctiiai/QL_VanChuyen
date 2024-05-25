@@ -11,6 +11,7 @@ import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,7 +24,7 @@ public class TaiKhoanDAO {
         connection = new Connection("TaiKhoan");
     }
 
-    public List<TaiKhoanPOJO> layTatCaTaiKhoan() {
+    public List<TaiKhoanPOJO> layTatCaTaiKhoan() throws ParseException {
         List<TaiKhoanPOJO> danhSachTK = new ArrayList<>();
         MongoCollection<Document> collection = connection.getCollection();
         for (Document doc : collection.find()) {
@@ -79,21 +80,21 @@ public class TaiKhoanDAO {
         return String.format("SP%05d", number);
     }
 
-    public TaiKhoanPOJO timTaiKhoanTheoId(ObjectId id) {
+    public TaiKhoanPOJO timTaiKhoanTheoId(ObjectId id) throws ParseException {
         MongoCollection<Document> collection = connection.getCollection();
         Bson filter = Filters.eq("_id", id);
         Document doc = collection.find(filter).first();
         return convertToTaiKhoanPOJO(doc);
     }
 
-    public TaiKhoanPOJO timTaiKhoanTheoTenTaiKhoan(String tenTaiKhoan){
+    public TaiKhoanPOJO timTaiKhoanTheoTenTaiKhoan(String tenTaiKhoan) throws ParseException {
         MongoCollection<Document> collection = connection.getCollection();
         Bson filter = Filters.eq("TenTaiKhoan", tenTaiKhoan);
         Document doc = collection.find(filter).first();
         return doc != null ? convertToTaiKhoanPOJO(doc) : null;
     }
 
-    public List<TaiKhoanPOJO> danhSachTaiKhoanLaShipper() {
+    public List<TaiKhoanPOJO> danhSachTaiKhoanLaShipper() throws ParseException {
         List<TaiKhoanPOJO> ds = new ArrayList<>();
         MongoCollection<Document> collection = connection.getCollection();
         BasicDBObject query = new BasicDBObject("LoaiTaiKhoan", "Shipper");
@@ -106,7 +107,7 @@ public class TaiKhoanDAO {
         return ds;
     }
 
-    private TaiKhoanPOJO convertToTaiKhoanPOJO(Document doc) {
+    private TaiKhoanPOJO convertToTaiKhoanPOJO(Document doc) throws ParseException {
         TaiKhoanPOJO tk = new TaiKhoanPOJO();
         tk.setId(doc.getObjectId("_id").toString());
         tk.setLoaiTaiKhoan(doc.getString("LoaiTaiKhoan"));
@@ -130,8 +131,7 @@ public class TaiKhoanDAO {
         return tk;
     }
 
-    public Integer tinhTongTienDaNhanCuaShipper(TaiKhoanPOJO tk)
-    {
+    public Integer tinhTongTienDaNhanCuaShipper(TaiKhoanPOJO tk) throws ParseException {
         PhieuChiDAO dao = new PhieuChiDAO();
         Integer s = 0;
         List<PhieuChiPOJO> ls = dao.lichSuChiChoShipper(tk.getMaShipper());
@@ -142,8 +142,7 @@ public class TaiKhoanDAO {
         return s;
     }
 
-    public Integer tinhTongLuongCuaShipper(TaiKhoanPOJO tk)
-    {
+    public Integer tinhTongLuongCuaShipper(TaiKhoanPOJO tk) throws ParseException {
         VanDonDAO vd = new VanDonDAO();
         Integer luong = 0;
         List<VanDonPOJO> ls = vd.lichSuDonCuaShipper(tk.getMaShipper());

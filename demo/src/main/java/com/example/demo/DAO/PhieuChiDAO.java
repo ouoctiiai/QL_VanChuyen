@@ -37,7 +37,7 @@ public class PhieuChiDAO {
         return danhSachPhieuChi;
     }
 
-    public List<PhieuChiPOJO> lichSuChiChoShipper(String id){
+    public List<PhieuChiPOJO> lichSuChiChoShipper(String id) throws ParseException {
         List<PhieuChiPOJO> ds = new ArrayList<>();
         List<PhieuChiPOJO> dsPC = loadDanhSachPhieuChi();
         for(PhieuChiPOJO pc : dsPC){
