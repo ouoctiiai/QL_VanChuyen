@@ -11,6 +11,7 @@ import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -130,8 +131,7 @@ public class TaiKhoanDAO {
         return tk;
     }
 
-    public Integer tinhTongTienDaNhanCuaShipper(TaiKhoanPOJO tk)
-    {
+    public Integer tinhTongTienDaNhanCuaShipper(TaiKhoanPOJO tk) throws ParseException {
         PhieuChiDAO dao = new PhieuChiDAO();
         Integer s = 0;
         List<PhieuChiPOJO> ls = dao.lichSuChiChoShipper(tk.getMaShipper());
@@ -148,12 +148,13 @@ public class TaiKhoanDAO {
         Integer luong = 0;
         List<VanDonPOJO> ls = vd.lichSuDonCuaShipper(tk.getMaShipper());
         for (VanDonPOJO vd1 : ls) {
-            PhiVanChuyen p = vd1.getPhiVanChuyen();
-            luong += p.getLuongShipperTheoDon();
+            if(vd1.getTrangThai() == "Giao hàng thành công") {
+                PhiVanChuyen p = vd1.getPhiVanChuyen();
+                luong += p.getLuongShipperTheoDon();
+            }
         }
 
         luong -= tinhTongTienDaNhanCuaShipper(tk);
-
         return luong;
     }
 
