@@ -1,0 +1,228 @@
+[{
+  "_id": {
+    "$oid": "66512051ebc95976b9a55862"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 41162,
+  "ThoiGianLap": {
+    "$date": "2024-05-24T23:18:41.365Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00001",
+    "TenShipper": "Đặng Hoàng Anh"
+  }
+},
+{
+  "_id": {
+    "$oid": "66512053ebc95976b9a55863"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 56214,
+  "ThoiGianLap": {
+    "$date": "2024-05-24T23:18:43.741Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX001",
+    "TenTaiXe": "Huỳnh Quốc Anh"
+  }
+},
+{
+  "_id": {
+    "$oid": "66512059ebc95976b9a55864"
+  },
+  "LoaiPhieuChi": "Chi phí xe",
+  "TongTien": 316000,
+  "ThoiGianLap": {
+    "$date": "2024-05-24T23:18:49.002Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6651205febc95976b9a55865"
+  },
+  "LoaiPhieuChi": "Chi phí nhiên liệu",
+  "TongTien": 53700,
+  "ThoiGianLap": {
+    "$date": "2024-05-24T23:18:55.839Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66512065ebc95976b9a55866"
+  },
+  "LoaiPhieuChi": "Chi phí thiết bị",
+  "TongTien": 12700,
+  "ThoiGianLap": {
+    "$date": "2024-05-24T23:19:01.160Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66512067ebc95976b9a55867"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 15051,
+  "ThoiGianLap": {
+    "$date": "2024-05-24T23:19:03.364Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX006",
+    "TenTaiXe": "Nguyễn Minh Triết"
+  }
+},
+{
+  "_id": {
+    "$oid": "665136b59ae5cd460ba75692"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 16803,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T00:54:13.732Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00012",
+    "TenShipper": "Lê Thị Vân"
+  }
+},
+{
+  "_id": {
+    "$oid": "665136ba9ae5cd460ba75693"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 48657,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T00:54:18.453Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX002",
+    "TenTaiXe": "Trần Chí Nhân"
+  }
+},
+{
+  "_id": {
+    "$oid": "665136bf9ae5cd460ba75694"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 13301,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T00:54:23.436Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00016",
+    "TenShipper": "Ngô Lan Chinh"
+  }
+},
+{
+  "_id": {
+    "$oid": "665136c29ae5cd460ba75695"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 48657,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T00:54:26.528Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX002",
+    "TenTaiXe": "Trần Chí Nhân"
+  }
+},
+{
+  "_id": {
+    "$oid": "665136c69ae5cd460ba75696"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 57405,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T00:54:30.432Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX007",
+    "TenTaiXe": "Trần Văn Hướng"
+  }
+},
+{
+  "_id": {
+    "$oid": "665136ca9ae5cd460ba75697"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 23087,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T00:54:34.883Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00028",
+    "TenShipper": "Ngô Ngọc Thắng"
+  }
+},
+{
+  "_id": {
+    "$oid": "665136d09ae5cd460ba75698"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 40769,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T00:54:40.397Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00043",
+    "TenShipper": "Nguyễn Bá Minh"
+  }
+},
+{
+  "_id": {
+    "$oid": "665136d59ae5cd460ba75699"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 47288,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T00:54:45.959Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX008",
+    "TenTaiXe": "Nguyễn Văn Chí Anh"
+  }
+},
+{
+  "_id": {
+    "$oid": "665136d99ae5cd460ba7569a"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 28352,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T00:54:49.746Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX009",
+    "TenTaiXe": "Nguyễn Văn Lưu"
+  }
+},
+{
+  "_id": {
+    "$oid": "665136fb9ae5cd460ba7569d"
+  },
+  "LoaiPhieuChi": "Chi phí thiết bị",
+  "TongTien": 127000,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T00:55:23.548Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "665136ff9ae5cd460ba7569e"
+  },
+  "LoaiPhieuChi": "Chi phí nhiên liệu",
+  "TongTien": 58700,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T00:55:27.838Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "665137029ae5cd460ba7569f"
+  },
+  "LoaiPhieuChi": "Chi phí xe",
+  "TongTien": 16000,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T00:55:30.713Z"
+  }
+}]

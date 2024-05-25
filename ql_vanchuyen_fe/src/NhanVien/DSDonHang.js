@@ -1,13 +1,16 @@
 import React, { memo, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
-import { listNgoaiTinh, listNoiTinh, listVanDon } from '../Api/DataVanDon';
-import { Pagination } from 'react-bootstrap';
+import { listNgoaiTinh, listNoiTinh, listTheoTrangThai, listVanDon, updateTrangThai } from '../Api/DataVanDon';
+import { Button, Pagination } from 'react-bootstrap';
 
 const DSDonHang = () => {
     const [danhSachDonHang, setDanhSachDonHang] = useState([]);
+    const [dsDonHang, setDanhSachDonHangGoc] = useState([]);
     const [dsDonNoiTinh, setDanhSachNoiTinh] = useState([]);
     const [dsDonNgoaiTinh, setDanhSachNgoaiTinh] = useState([]);
     const [loaiVanChuyen, setLoaiVanChuyen] = useState('Tất cả');
+    const [trangThai, setTrangThai] = useState('All');
+
     const [currentPage, setCurrentPage] = useState(1);
     const [pageNumbers, setPageNumbers] = useState([]);
     const rowsPerPage = 7;
@@ -16,6 +19,7 @@ const DSDonHang = () => {
         try {
             listVanDon().then((Response) => {
                 setDanhSachDonHang(Response.data);
+                setDanhSachDonHangGoc(Response.data);
             });
             
             listNoiTinh().then((Response) => {
@@ -30,22 +34,57 @@ const DSDonHang = () => {
         }
     }, []);
 
-    const uniqueLoaiVanChuyen = Array.from(new Set(danhSachDonHang.map(donHang => donHang.loaiVanChuyen)));
+    useEffect(() => {
+        try {
+            if(trangThai === 'All'){
+                setDanhSachDonHang(dsDonHang);
+            }
+            else{
+                listTheoTrangThai(trangThai).then((Response) => {
+                    setDanhSachDonHang(Response.data);
+                });
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }, [trangThai, dsDonHang]);
 
-    const handleLoaiVanChuyenChange = (event) => {
-        setLoaiVanChuyen(event.target.value);
+    const handleConfirmOrder = (id) => {
+        updateTrangThai(id).then(() => {
+            listVanDon().then((Response) => {
+                setDanhSachDonHang(Response.data);
+                setDanhSachDonHangGoc(Response.data);
+            }).catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+        }).catch((error) => {
+            console.error('Error updating order status:', error);
+        });
+    };
+    const uniqueLoaiVanChuyen = Array.from(new Set(dsDonHang.map(donHang => donHang.loaiVanChuyen)));
+    const uniqueTrangThai = Array.from(new Set(dsDonHang.map(donHang => donHang.trangThai)));
+
+    const locDonHang = () => {
+        let locDS = danhSachDonHang;
+    
+        if (loaiVanChuyen !== 'Tất cả') {
+            locDS = loaiVanChuyen === 'Liên tỉnh' ? dsDonNgoaiTinh : dsDonNoiTinh;
+        }
+    
+        if (trangThai !== 'All') {
+            locDS = locDS.filter(donHang => donHang.trangThai === trangThai);
+        }
+    
+        return locDS;
     };
 
-    const locDonHang = loaiVanChuyen == 'Tất cả' ? danhSachDonHang :
-        loaiVanChuyen == 'Liên tỉnh' ? dsDonNgoaiTinh : dsDonNoiTinh;
+    const totalPages = Math.ceil(locDonHang().length / rowsPerPage);
 
-    const totalPages = Math.ceil(locDonHang.length / rowsPerPage);
-        // get current page's items
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
     const startIndex = (currentPage - 1) * rowsPerPage;
-    const currentPageData = locDonHang.slice(startIndex, startIndex + rowsPerPage);
+    const currentPageData = locDonHang().slice(startIndex, startIndex + rowsPerPage);
     
     // const getPageNumbers = () => {
     //     const pageNumbers = [];
@@ -79,7 +118,7 @@ const DSDonHang = () => {
         <div>
             <div className='row' style={{marginBottom:'10px', marginTop:'15px'}}>
                 <div className='col'>
-                    <select class="form-select" style={{width:'200px'}} onChange={handleLoaiVanChuyenChange}>
+                    <select class="form-select" style={{width:'200px'}} onChange={(e) => setLoaiVanChuyen(e.target.value)}>
                         <option value = "Tất cả">Tất cả</option>
                         {uniqueLoaiVanChuyen.map((donHang, index) => 
                             <option key={index} value={donHang}>{donHang}</option>
@@ -87,7 +126,12 @@ const DSDonHang = () => {
                     </select>
                 </div>
                 <div className='col'>
-                    
+                <select class="form-select" style={{width:'200px'}} onChange={(e) => setTrangThai(e.target.value)}>
+                        <option value = "All">Tất cả</option>
+                        {uniqueTrangThai.map((trangThai, index) => 
+                            <option key={index} value={trangThai}>{trangThai}</option>
+                        )}
+                    </select>
                 </div>
             </div>
             
@@ -116,15 +160,18 @@ const DSDonHang = () => {
                                     <td>{donHang.thongTinNguoiNhan.tenNguoiNhan}</td>
                                     <td>{donHang.thoiGianLapToString}</td>
                                     <td className='text-end'>{donHang.phiVanChuyen.tongPhi}</td>
-                                    <td>{donHang.trangThai}</td>
+                                    <td className='text-center'>{donHang.trangThai}</td>
                                     <td className='text-center'>
                                         <NavLink to = {`/chitietdh/${donHang.id}`}>
-                                            <i class="fa-solid fa-circle-info" style={{color: 'black'}}></i>
+                                            <i className="fa-solid fa-circle-info" style={{color: 'black'}}></i>
                                         </NavLink>
                                         <span>&nbsp; &nbsp;</span>
-                                        <NavLink to =''>
-                                            <i class="fas fa-check-circle" style={{color: 'black'}}></i>
-                                        </NavLink>
+                                        {donHang.trangThai === "Chờ xác nhận" && (
+                                            <button onClick={() => handleConfirmOrder(donHang.id)} style={{backgroundColor:'transparent', border: 'none'}} >
+                                                <i className="fas fa-check-circle" style={{color: 'black'}}></i>
+                                            </button>
+                                            
+                                        )}  
                                     </td>
                                 </tr>
                             ))}

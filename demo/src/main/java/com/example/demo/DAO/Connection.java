@@ -15,6 +15,7 @@ public class Connection {
     private MongoCollection<Document> collection;
 //  private String uri = "mongodb+srv://ouoctiiai:khongcopass@cluster0.xumcve1.mongodb.net/";
     private String uri = "mongodb://localhost:27017";
+//    private String uri = "mongodb+srv://npbn:npbn0402@cluster0.xumcve1.mongodb.net/";
     private String databaseName = "QL_VanChuyenHH";
 
     public Connection(String collectionName) {
