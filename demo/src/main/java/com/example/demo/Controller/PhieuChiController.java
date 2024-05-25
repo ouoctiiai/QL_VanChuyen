@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.demo.POJO.PhieuChiPOJO;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/phieuchi")
@@ -35,14 +36,17 @@ public class PhieuChiController {
         return new ResponseEntity<>(danhSachPhieuChi, HttpStatus.OK);
     }
 
-    @GetMapping("/tongtienphieuchi")
-    public ResponseEntity<Integer> tinhTongTienTheoLoaiPhieuChi(@RequestParam String loaiPhieuChi, @RequestParam int nam) {
-        try {
-            int tongTien = phieuChiService.tinhTongTienTheoLoaiPhieuChi(loaiPhieuChi, nam);
-            return ResponseEntity.ok(tongTien);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(null);
-        }
-    }
+//    @GetMapping("/tongtienphieuchi")
+//    public ResponseEntity<Map<Integer, Double>> tinhTongTienTraLuongShipperTheoNam(@RequestParam int nam) {
+//        try {
+//            List<PhieuChiPOJO> danhSachPhieuChi = phieuChiService.loadDanhSachPhieuChi();
+//            Map<Integer, Double> tongTienTheoNam = tinhTongTienTraLuongShipperTheoNam(danhSachPhieuChi);
+//            return ResponseEntity.ok(tongTienTheoNam);
+//        } catch (Exception e) {
+//            return ResponseEntity.badRequest().body(null);
+//        }
+//    }
+
+
 
 }
