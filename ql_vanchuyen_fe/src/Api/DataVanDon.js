@@ -55,6 +55,12 @@ export const listTheoTrangThai = (tt) => axios.get(REST_API_BASE_URL + '/ds' + '
 
 export const updateTrangThai = (id) => axios.post(REST_API_BASE_URL + '/update' + '/' + id);
 
-export const getTongDonCuaShipper = (maShipper) => axios.get(REST_API_BASE_URL + '/tongDonCuaShipper/' +maShipper);
+export const getTongDonCuaShipper = (maShipper) => axios.get(REST_API_BASE_URL + '/tongDonCuaShipper/' + maShipper);
 
-export const getTongDonDaGiaoCuaShipper = (maShipper) => axios.get(REST_API_BASE_URL + '/TongDonDaGiaoCuaShipper/' +maShipper);
+export const getTongDonDaGiaoCuaShipper = (maShipper) => axios.get(REST_API_BASE_URL + '/TongDonDaGiaoCuaShipper/' + maShipper);
+
+export const getTongDonDangGiaoCuaShipper = (maShipper) => axios.get(REST_API_BASE_URL + '/TongDonDangGiaoCuaShipper/' + maShipper);
+
+export const getTongSoDonCuaShipperTrongThang = (maShipper) => axios.get(REST_API_BASE_URL + '/TongSoDonCuaShipperTrongThang/' + maShipper);
+
+export const getTongSoDonCuaShipperTrongNgay = (maShipper) => axios.get(REST_API_BASE_URL + '/TongSoDonCuaShipperTrongNgay/' + maShipper);

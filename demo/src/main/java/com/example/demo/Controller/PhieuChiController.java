@@ -4,7 +4,9 @@ import com.example.demo.DAO.PhieuChiDAO;
 import com.example.demo.DAO.TaiKhoanDAO;
 import com.example.demo.POJO.VanDonPOJO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.POJO.PhieuChiPOJO;
 
@@ -26,14 +28,11 @@ public class PhieuChiController {
             return ResponseEntity.badRequest().body("Lỗi: " + e.getMessage());
         }
     }
+
     @GetMapping("/danhsachphieuchi")
-    public ResponseEntity<List<PhieuChiPOJO>> loadDanhSachPhieuChi() {
-        try {
-            List<PhieuChiPOJO> danhSachPhieuChi = phieuChiService.loadDanhSachPhieuChi();
-            return ResponseEntity.ok(danhSachPhieuChi);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(null);
-        }
+    public ResponseEntity ds(Model model) {
+        List<PhieuChiPOJO> danhSachPhieuChi = phieuChiService.loadDanhSachPhieuChi();
+        return new ResponseEntity<>(danhSachPhieuChi, HttpStatus.OK);
     }
 
     @GetMapping("/tongtienphieuchi")

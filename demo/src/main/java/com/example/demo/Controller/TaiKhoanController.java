@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.DAO.TaiKhoanDAO;
 import com.example.demo.POJO.TaiKhoanPOJO;
+import com.example.demo.POJO.ThongTinTaiKhoan;
 import com.example.demo.POJO.VanDonPOJO;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,5 +79,16 @@ public class TaiKhoanController {
 
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();}
     }
+
+    @PostMapping("/updateSP/{id}/{tenChuTK}/{tenTK}/{mk}/{sdt}/{email}/{stk}/{tennh}")
+    public ResponseEntity updateTrangThaiDaGiao(@PathVariable ObjectId id, @PathVariable String tenChuTK, @PathVariable String tenTK, @PathVariable String mk, @PathVariable String sdt, @PathVariable String email, @PathVariable String stk, @PathVariable String tennh) throws Exception {
+        TaiKhoanPOJO vd = taiKhoanService.updateTaiKhoanShipper(id, tenChuTK, tenTK, mk, sdt, email, stk, tennh);
+        if (vd != null) {
+            return ResponseEntity.ok(vd);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
 }

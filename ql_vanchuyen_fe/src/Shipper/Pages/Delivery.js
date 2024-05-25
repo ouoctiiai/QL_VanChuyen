@@ -4,7 +4,7 @@ import Navbar from '../Components/Navbar';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { getVanDonById } from '../../Api/DataVanDon';
 
-const DetailOrder = () => {
+const Delivery = () => {
   const{ id } = useParams();
   const[detailorder, setdetailorder] = useState('')
   const[thongTinNguoiGui, setThongTinNguoiGui] = useState('')
@@ -30,7 +30,7 @@ const DetailOrder = () => {
   return (
     <div>
       <>
-      <Navbar />
+      <Navbar/>
       <div class="container">
 		<div class="main-body">
 			<div class="row">
@@ -42,7 +42,7 @@ const DetailOrder = () => {
 									<h4>Mã vận đơn: {detailorder.maVanDon}</h4>
 									<p class="mb-1">Thời gian lập: {detailorder.thoiGianLapToString}</p>
 									<p class="text-muted font-size-sm">Tiền nhận được: {thongTinPhi.luongShipperTheoDon}đ</p>
-									<button class="styling"><a href={`/delivery/${id}`} >Nhận đơn</a></button>
+									<button class="btn btn-primary">Nhận đơn</button>
 								</div>
 							</div>
 							<hr class="my-4" />
@@ -168,4 +168,4 @@ const DetailOrder = () => {
   )
 }
 
-export default DetailOrder
+export default Delivery

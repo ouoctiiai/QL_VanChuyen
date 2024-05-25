@@ -40,6 +40,8 @@ import PhieuChi from './Admin/scenes/TaoPhieuChi';
 
 import UpdateProfileCustomer from './KhachHang/Profile/UpdateProfileCustomer';
 import DetailHistory from './Shipper/Pages/DetailHistory';
+import Delivery from './Shipper/Pages/Delivery';
+import OrderAtWH from './Shipper/Pages/OrderAtWH';
 
 const renderMasterRouter = () => {
     const masterRouter = [
@@ -122,6 +124,18 @@ const renderMasterRouter = () => {
         {
             path: ROUTERS.SHIPPER.DETAILHISTORY,
             component: DetailHistory,
+            isPrivate: true
+        },
+
+        {
+            path: ROUTERS.SHIPPER.DELIVERY,
+            component: Delivery,
+            isPrivate: true
+        },
+
+        {
+            path: ROUTERS.SHIPPER.ORDERATWH,
+            component: OrderAtWH,
             isPrivate: true
         },
 

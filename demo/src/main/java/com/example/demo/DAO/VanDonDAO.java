@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 import java.util.logging.Logger;
 
@@ -404,7 +405,6 @@ public class VanDonDAO {
         return dsVanDon;
     }
 
-
     public int tinhTongSoDonCuaShipper(String id) {
         int s = 0;
         List<VanDonPOJO> dsVanDon = allVanDon();
@@ -432,6 +432,59 @@ public class VanDonDAO {
                     {
                         s++;
                     }
+                }
+            }
+        }
+        return s;
+    }
+
+    public int tinhTongSoDonDangGiaoCuaShipper(String id) {
+        int s = 0;
+        List<VanDonPOJO> dsVanDon = allVanDon();
+        for(VanDonPOJO vd : dsVanDon){
+            ThongTinShipper tt = vd.getThongTinShipper();
+            if(tt != null){
+                if(java.util.Objects.equals(tt.getMaShipper(), id))
+                {
+                    if(java.util.Objects.equals(vd.getTrangThai(), "Đang giao"))
+                    {
+                        s++;
+                    }
+                }
+            }
+        }
+        return s;
+    }
+
+    public int tinhTongSoDonCuaShipperTrongThang(String id) {
+        int s = 0;
+        List<VanDonPOJO> dsVanDon = allVanDon();
+        LocalDate today = LocalDate.now(); // Use LocalDate for current date
+
+        for (VanDonPOJO vd : dsVanDon) {
+            ThongTinShipper tt = vd.getThongTinShipper();
+            if (tt != null && Objects.equals(tt.getMaShipper(), id)) {
+                LocalDate donDate = vd.getThoiGianLap().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                if (donDate.getMonth() == today.getMonth() && donDate.getYear() == today.getYear()) {
+                    s++;
+                }
+            }
+        }
+        return s;
+    }
+
+    public int tinhTongSoDonCuaShipperTrongNgay(String id) {
+        int s = 0;
+        List<VanDonPOJO> dsVanDon = allVanDon();
+        LocalDate today = LocalDate.now(); // Get today's date
+
+        for (VanDonPOJO vd : dsVanDon) {
+            ThongTinShipper tt = vd.getThongTinShipper();
+            if (tt != null && Objects.equals(tt.getMaShipper(), id)) {
+                // Assuming 'getThoiGianLap' returns a date object
+                LocalDate donDate = vd.getThoiGianLap().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                if (donDate.equals(today)) { // Check if delivery date matches today's date
+                    s++;
                 }
             }
         }
@@ -624,6 +677,33 @@ public class VanDonDAO {
             return null;
         }
     }
+
+    public VanDonPOJO updateTrangThaiDangGiao(ObjectId id){
+        try {
+            MongoCollection<Document> collection = connection.getCollection();
+            collection.updateOne(
+                    Filters.eq("_id", id),
+                    Updates.set("TrangThai", "Đang giao"));
+            return new VanDonPOJO();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    public VanDonPOJO updateTrangThaiGiaoThanhCong(ObjectId id){
+        try {
+            MongoCollection<Document> collection = connection.getCollection();
+            collection.updateOne(
+                    Filters.eq("_id", id),
+                    Updates.set("TrangThai", "Giao hàng thành công"));
+            return new VanDonPOJO();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
     public void themDonHangKhachHang(VanDonPOJO vanDonPOJO){
         MongoCollection<Document> collection = connection.getCollection();
         Document doc = new Document()

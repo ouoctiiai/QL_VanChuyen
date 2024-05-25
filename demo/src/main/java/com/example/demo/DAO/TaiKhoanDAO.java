@@ -7,6 +7,8 @@ import com.example.demo.POJO.VanDonPOJO;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
@@ -143,6 +145,34 @@ public class TaiKhoanDAO {
             luong += p.getLuongShipperTheoDon();
         }
         return luong;
+    }
+
+    public TaiKhoanPOJO updateTaiKhoanShipper(ObjectId id, String tenChuTaiKhoan, String tenDangNhap, String matKhau, String sdt, String email, String soTaiKhoan, String tenNganHang) throws Exception {
+        try {
+            MongoCollection<Document> collection = connection.getCollection();
+
+            Document updateDoc = new Document();
+            updateDoc.append("TenChuTaiKhoan", tenChuTaiKhoan);
+            updateDoc.append("TenDangNhap", tenDangNhap);
+            updateDoc.append("MatKhau", matKhau);
+            updateDoc.append("SDT", sdt);
+            updateDoc.append("Email", email);
+            updateDoc.append("ThongTinTaiKhoan.SoTaiKhoan", soTaiKhoan);
+            updateDoc.append("ThongTinTaiKhoan.TenNganHang", tenNganHang);
+
+            UpdateResult updateResult = collection.updateOne(
+                    Filters.eq("_id", id),
+                    updateDoc
+            );
+
+            if (updateResult.getModifiedCount() > 0) {
+                return new TaiKhoanPOJO();
+            } else {
+                throw new Exception("Update failed for shipper ID: " + id);
+            }
+        } catch (Exception ex) {
+            throw ex;
+        }
     }
 
     // Đóng kết nối cơ sở dữ liệu

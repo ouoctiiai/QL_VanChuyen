@@ -1,8 +1,61 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Styles/UpdateProfile.css'
 import Navbar from '../Components/Navbar';
+import { getTaiKhoanById, updateTKShipper } from '../../Api/DataTaiKhoan';
+import '../Styles/btnShip.css'
 
 const UpdateProfile = () => {
+    const [taiKhoan, setTaiKhoan] = useState([]);
+    const [thongTinTaiKhoan, setThongTinTaiKhoan] = useState([]);
+    
+  useEffect(() => {
+    try {
+      const id = localStorage.getItem("userId");
+      getTaiKhoanById(id).then((Response) => {
+        setTaiKhoan(Response.data);
+        setThongTinTaiKhoan(Response.data.thongTinTaiKhoan);
+      })
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }, []);
+
+    const handleFormSubmit = async (values) => {
+    try {
+        const response = await updateTKShipper(values.id, values.tenChuTaiKhoan, values.tenTaiKhoan, values.matKhau, values.sdt, values.email, values.tenNganHang, values.soTK);
+        console.log('Update tài khoản thành công:', response.data);
+        alert('Update tài khoản thành công!');
+    } catch (error) {
+        console.error('Lỗi:', error);
+        alert('Lỗi: ' + error.message);
+    }
+    };
+
+    const handleUpdate = async () => {
+    const id = localStorage.getItem("userId");
+    const values = {
+        id: id,
+        tenChuTaiKhoan: taiKhoan.tenChuTaiKhoan,
+        tenTaiKhoan: taiKhoan.tenTaiKhoan,
+        matKhau: taiKhoan.matKhau,
+        sdt: taiKhoan.sdt,
+        email: taiKhoan.email,
+        tenNganHang: thongTinTaiKhoan.tenNganHang,
+        soTK: thongTinTaiKhoan.soTaiKhoan
+    }
+    await handleFormSubmit(values);
+    };
+
+    const handleInputChangeTaiKhoan = (event) => {
+        const { name, value } = event.target;
+        setTaiKhoan({ ...taiKhoan, [name]: value });
+      };   
+    
+    const handleInputChangeTTTaiKhoan = (event) => {
+    const { name, value } = event.target;
+    setThongTinTaiKhoan({ ...thongTinTaiKhoan, [name]: value });
+    };   
+
   return (
     <>
     <Navbar />
@@ -14,14 +67,14 @@ const UpdateProfile = () => {
                         <div class="account-settings">
                             <div class="user-profile">
                                 <div class="user-avatar">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Maxwell Admin" />
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin" />
                                 </div>
-                                <h5 class="user-name">Yuki Hayashi</h5>
-                                <h6 class="user-email">yuki@Maxwell.com</h6>
+                                <h5 class="user-name text-primary">{taiKhoan.tenChuTaiKhoan}</h5>
+                                <h6 class="user-email text-primary">{taiKhoan.email}</h6>
                             </div>
                             <div class="about">
                                 <h5 class="mb-2 text-primary">About</h5>
-                                <p>I'm Yuki. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p>
+                                <p>I'm {taiKhoan.tenChuTaiKhoan}. I am a shipper of Spring shipping unit.</p>
                             </div>
                         </div>
                     </div>
@@ -36,63 +89,61 @@ const UpdateProfile = () => {
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" placeholder="Enter full name" />
+                                    <label for="fullName">Tên chủ tài khoản</label>
+                                    <input type="text" class="form-control" id="fullName" placeholder={taiKhoan.tenChuTaiKhoan} onChange={handleInputChangeTaiKhoan} name="tenChuTaiKhoan"/>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="eMail">Email</label>
-                                    <input type="email" class="form-control" id="eMail" placeholder="Enter email ID" />
+                                    <label for="eMail">Tên tài khoản</label>
+                                    <input type="email" class="form-control" id="eMail" placeholder={taiKhoan.tenTaiKhoan} onChange={handleInputChangeTaiKhoan} name="tenTaiKhoan"/>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone number" />
+                                    <label for="phone">Mật khẩu</label>
+                                    <input type="text" class="form-control" id="phone" placeholder={taiKhoan.matKhau} onChange={handleInputChangeTaiKhoan} name="matKhau"/>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="website">Website URL</label>
-                                    <input type="url" class="form-control" id="website" placeholder="Website url" />
+                                    <label for="website">Số điện thoại</label>
+                                    <input type="url" class="form-control" id="website" placeholder={taiKhoan.sdt} onChange={handleInputChangeTaiKhoan} name="sdt"/>
                                 </div>
                             </div>
                         </div>
                         <div class="row gutters">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="Street">Email</label>
+                                    <input type="name" class="form-control" id="Street" placeholder={taiKhoan.email} onChange={handleInputChangeTaiKhoan} name="email"/>
+                                </div>
+                            </div>
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-3 text-primary">Address</h6>
+                                <h6 class="mb-3 text-primary">Thông tin tài khoản ngân hàng</h6>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="Street">Street</label>
-                                    <input type="name" class="form-control" id="Street" placeholder="Enter Street" />
+                                    <label for="ciTy">Tên ngân hàng</label>
+                                    <input type="name" class="form-control" id="ciTy" placeholder={thongTinTaiKhoan.tenNganHang} onChange={handleInputChangeTTTaiKhoan} name="tenNganHang"/>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="ciTy">City</label>
-                                    <input type="name" class="form-control" id="ciTy" placeholder="Enter City" />
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="sTate">State</label>
-                                    <input type="text" class="form-control" id="sTate" placeholder="Enter State" />
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="zIp">Zip Code</label>
-                                    <input type="text" class="form-control" id="zIp" placeholder="Zip Code" />
+                                    <label for="sTate">Số tài khoản</label>
+                                    <input type="text" class="form-control" id="sTate" placeholder={thongTinTaiKhoan.soTaiKhoan} onChange={handleInputChangeTTTaiKhoan} name="soTaiKhoan"/>
                                 </div>
                             </div>
                         </div>
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="text-right">
-                                    <button type="button" id="submit" name="submit" >Cancel</button>
-                                    <button type="button" id="submit" name="submit" >Update</button>
+                                    <button type="button" class="styling">
+                                            <a className='text-primary' href='/profile'>Cancel</a>
+                                    </button>
+                                    <button type="button" class="styling" >
+                                            <a className='text-primary' onClick={() => handleUpdate()}>Update</a>
+                                    </button>
                                 </div>
                             </div>
                         </div>

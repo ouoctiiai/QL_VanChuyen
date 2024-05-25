@@ -198,6 +198,27 @@ public class VanDonCotroller {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PostMapping("/updateDangGiao/{id}")
+    public ResponseEntity updateTrangThaiDangGiao(@PathVariable ObjectId id) {
+        VanDonPOJO vd = vanDonService.updateTrangThaiDangGiao(id);
+        if (vd != null) {
+            return ResponseEntity.ok(vd);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/updateDaGiao/{id}")
+    public ResponseEntity updateTrangThaiDaGiao(@PathVariable ObjectId id) {
+        VanDonPOJO vd = vanDonService.updateTrangThaiGiaoThanhCong(id);
+        if (vd != null) {
+            return ResponseEntity.ok(vd);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping("/tongDonCuaShipper/{masp}")
     public ResponseEntity<Integer> tinhTongDonCuaShipper(@PathVariable String masp) {
         int tongDonHang = vanDonService.tinhTongSoDonCuaShipper(masp);
@@ -207,6 +228,24 @@ public class VanDonCotroller {
     @GetMapping("/TongDonDaGiaoCuaShipper/{masp}")
     public ResponseEntity<Integer> tinhTongDonDaGiaoCuaShipper(@PathVariable String masp) {
         int tongDonHang = vanDonService.tinhTongSoDonDaGiaoCuaShipper(masp);
+        return new ResponseEntity<>(tongDonHang, HttpStatus.OK);
+    }
+
+    @GetMapping("/TongDonDangGiaoCuaShipper/{masp}")
+    public ResponseEntity<Integer> tinhTongDonDangGiaoCuaShipper(@PathVariable String masp) {
+        int tongDonHang = vanDonService.tinhTongSoDonDangGiaoCuaShipper(masp);
+        return new ResponseEntity<>(tongDonHang, HttpStatus.OK);
+    }
+
+    @GetMapping("/TongSoDonCuaShipperTrongThang/{masp}")
+    public ResponseEntity<Integer> tinhTongSoDonCuaShipperTrongThang(@PathVariable String masp) {
+        int tongDonHang = vanDonService.tinhTongSoDonCuaShipperTrongThang(masp);
+        return new ResponseEntity<>(tongDonHang, HttpStatus.OK);
+    }
+
+    @GetMapping("/TongSoDonCuaShipperTrongNgay/{masp}")
+    public ResponseEntity<Integer> tinhTongSoDonCuaShipperTrongNgay(@PathVariable String masp) {
+        int tongDonHang = vanDonService.tinhTongSoDonCuaShipperTrongNgay(masp);
         return new ResponseEntity<>(tongDonHang, HttpStatus.OK);
     }
 }

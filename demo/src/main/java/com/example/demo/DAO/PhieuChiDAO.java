@@ -3,10 +3,14 @@ package com.example.demo.DAO;
 import com.example.demo.POJO.PhieuChiPOJO;
 import com.example.demo.POJO.ThongTinShipper;
 import com.example.demo.POJO.ThongTinTaiXe;
+import com.example.demo.POJO.VanDonPOJO;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -15,31 +19,26 @@ import java.util.*;
 public class PhieuChiDAO {
 
     private Connection connection;
-    public PhieuChiDAO() {connection = new Connection("PhieuChi");}
+    public PhieuChiDAO() {
+        connection = new Connection("PhieuChi");
+    }
 
 
     public List<PhieuChiPOJO> loadDanhSachPhieuChi() {
         List<PhieuChiPOJO> danhSachPhieuChi = new ArrayList<>();
-
         MongoCollection<Document> collection = connection.getCollection();
-        MongoCursor<Document> cursor = collection.find().iterator();
 
-        try {
-            while (cursor.hasNext()) {
-                Document doc = cursor.next();
-                PhieuChiPOJO phieuChi = convertToPhieuChiPOJO(doc);
-                danhSachPhieuChi.add(phieuChi);
-            }
-        } finally {
-            cursor.close();
+        for (Document doc : collection.find()) {
+            PhieuChiPOJO pc = convertToPhieuChiPOJO(doc);
+            danhSachPhieuChi.add(pc);
         }
-
         return danhSachPhieuChi;
     }
 
+
     public PhieuChiPOJO convertToPhieuChiPOJO(Document doc) {
         PhieuChiPOJO phieuChi = new PhieuChiPOJO();
-        phieuChi.setId(doc.getString("_id"));
+        phieuChi.setId(doc.getObjectId("_id").toString());
         phieuChi.setLoaiPhieuChi(doc.getString("LoaiPhieuChi"));
         phieuChi.setThoiGianLap(doc.getDate("ThoiGianLap"));
         phieuChi.setTongTien(doc.getInteger("TongTien"));

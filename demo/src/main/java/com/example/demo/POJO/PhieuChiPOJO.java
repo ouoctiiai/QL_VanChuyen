@@ -26,5 +26,4 @@ public class PhieuChiPOJO {
     private ThongTinShipper thongTinShipper;
     private Date thoiGianLap;
 
-
 }
