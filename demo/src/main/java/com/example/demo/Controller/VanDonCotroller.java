@@ -199,9 +199,9 @@ public class VanDonCotroller {
         }
     }
 
-    @PostMapping("/updateDangGiao/{id}")
-    public ResponseEntity updateTrangThaiDangGiao(@PathVariable ObjectId id) {
-        VanDonPOJO vd = vanDonService.updateTrangThaiDangGiao(id);
+    @PostMapping("/updateDangGiao/{id}/{maShipper}/{tenShipper}/{sdt}")
+    public ResponseEntity updateTrangThaiDangGiao(@PathVariable ObjectId id, @PathVariable String maShipper,  @PathVariable String tenShipper,  @PathVariable String sdt) throws Exception {
+        VanDonPOJO vd = vanDonService.updateTrangThaiDangGiao(id, maShipper, tenShipper, sdt);
         if (vd != null) {
             return ResponseEntity.ok(vd);
         } else {
@@ -210,7 +210,7 @@ public class VanDonCotroller {
     }
 
     @PostMapping("/updateDaGiao/{id}")
-    public ResponseEntity updateTrangThaiDaGiao(@PathVariable ObjectId id) {
+    public ResponseEntity updateTrangThaiDaGiao(@PathVariable ObjectId id) throws Exception {
         VanDonPOJO vd = vanDonService.updateTrangThaiGiaoThanhCong(id);
         if (vd != null) {
             return ResponseEntity.ok(vd);

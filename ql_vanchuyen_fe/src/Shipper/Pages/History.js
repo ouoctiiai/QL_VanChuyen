@@ -26,6 +26,20 @@ const History = () => {
     fetchData();
   }, [taiKhoan]);
 
+  const handleDetailClick = (orderId, trangThai) => {
+    let redirectUrl;
+    switch (trangThai) {
+      case 'Đang giao':
+        redirectUrl = '/delivery';
+        break;
+      case 'Chờ giao':
+        redirectUrl = '/detailorder';
+        break;
+      default:
+        redirectUrl = '/detailhistory'; 
+    }
+    window.location.href = redirectUrl + `/${orderId}`;
+  };
 
   return (   
     <>
@@ -51,8 +65,7 @@ const History = () => {
                     <td>
                       <img src="https://ich.edu.vn/App_Files/Upload/2019/icon-thanh-cong.png" alt="" />
                       <span class="user-link text-size17">{item.thoiGianLapToString}</span>
-                      <span class="user-subhead text-size17">{item.trangThai}</span>
-                    </td>
+                      <span className="user-subhead text-size17">{item.trangThai === 'Chờ giao' ? 'Đã hủy' : item.trangThai}</span>                    </td>
                     <td >
                       <span class="label label-default text-size17">{item.maVanDon}</span>
                     </td>
@@ -63,12 +76,12 @@ const History = () => {
                     <span class="label label-default text-size17">{item.trangThai}</span>
                     </td>
                     <td>
-                      <a href={`/detailhistory/${item.id}`} class="table-link">
-                        <span class="fa-stack">
-                          <i class="fa fa-square fa-stack-2x"></i>
-                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
+                      <a href="#" onClick={() => handleDetailClick(item.id, item.trangThai)} className="table-link">
+                            <span className="fa-stack">
+                              <i className="fa fa-square fa-stack-2x"></i>
+                              <i className="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
                     </td>
                   </tr>
                   ))}

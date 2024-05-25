@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
-import ReactMapGL from "react-map-gl"                 
-import { listVanDon } from '../../Api/DataVanDon';
+import ReactMapGL from "react-map-gl"
                    
 function Mapbox({from, to, setKC}) {
                    

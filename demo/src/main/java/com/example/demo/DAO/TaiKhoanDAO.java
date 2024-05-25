@@ -165,12 +165,12 @@ public class TaiKhoanDAO {
             Document updateDoc = new Document();
             updateDoc.append("$set", new Document()
                     .append("TenChuTaiKhoan", tenChuTaiKhoan)
-                    .append("TenDangNhap", tenDangNhap)
+                    .append("TenTaiKhoan", tenDangNhap)
                     .append("MatKhau", matKhau)
                     .append("SDT", sdt)
                     .append("Email", email)
-                    .append("ThongTinTaiKhoan.SoTaiKhoan", soTaiKhoan)
-                    .append("ThongTinTaiKhoan.TenNganHang", tenNganHang));
+                    .append("TKNganHang.SoTaiKhoan", soTaiKhoan)
+                    .append("TKNganHang.TenNganHang", tenNganHang));
 
             UpdateResult updateResult = collection.updateOne(
                     Filters.eq("_id", id),
