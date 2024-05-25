@@ -6,7 +6,8 @@ export const ROUTERS ={
         CREATE_ORDER:"/create-order",
         ORDER_LIST:"/order-list",
         ORDER_DETAILS:"/order-details",
-        UPDATE_PROFILE: "/update-profile-customer"
+        UPDATE_PROFILE: "/update-profile-customer",
+        UPDATE_PASSWORD: "/update-password-customer"
     },
 
     LOGIN:{

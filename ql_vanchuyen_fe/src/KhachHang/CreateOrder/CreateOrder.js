@@ -7,22 +7,28 @@ import './CreateOrder.scss';
 
 import { Button, Col, Form, FormLabel, Row } from 'react-bootstrap';
 import { listPhuongXaTheoQuanHuyen, listQuanHuyenTheoTinhThanh, listTinhThanh } from '../../Api/DataDiaChi';
-import { createOrder } from '../../Api/DataVanDon';
+import { createOrder, listVanDon, tinhPhiVat, tinhTongPhi } from '../../Api/DataVanDon';
+import Mapbox from '../../Shipper/Components/Mapbox';
+import { getTaiKhoanById } from '../../Api/DataTaiKhoan';
 
 const CreateOrder = () => {
+    const [danhSachDonHang, setDanhSachDonHang] = useState([]);
 
-    const [formState, setFormState] = useState({
-        tenNguoiGui: '', sdtNguoiGui: '', diaChiNguoiGui: '',
-        tenNguoiNhan: '', sdtNguoiNhan: '', diaChiNguoiNhan: '',
-        loaiHangHoa: '', tenHangHoa: '',
-        trongLuong: '', soLuong: ''
-    });
-    // const [isActiveLoai, setIsActiveLoai] = useState(false);
-    // const [isActiveTen, setIsActiveTen] = useState(false);
-    // const [isActiveTrongLuong, setIsActiveTrongLuong] = useState(false);
-    // const [isActiveSoLuong, setIsActiveSoLuong] = useState(false);
+    const [khoangCach, setKhoangCach] = useState(0);
+    const [phiCoDinh, setPhiCoDinh] = useState(10000);
+    const [phiThuong, setPhiThuong] = useState(0);
+    const [phiVAT, setPhiVAT] = useState(3000);
+    const [tongPhi, setTongPhi] = useState([]);
+    const [trongLuong, setTrongLuong] = useState(0.99);
+    const [soLuong, setSoLuong] = useState(1);
+    const [loaiHang, setLoaiHang] = useState('Khác');
+    const [tenHang, setTenHang] = useState('');
+
+
     const [selectedTrongLuong, setSelectTrongLuong] = useState([]);
 
+    const [tenNguoiGui, setTenNguoiGui] = useState('');
+    const [sdtNguoiGui, setSdtNguoiGui] = useState('');
     const [tinhNguoiGui, setTinhNguoiGui] = useState([]);
     const [quanNguoiGui, setQuanNguoiGui] = useState([]);
     const [phuongNguoiGui, setPhuongNguoiGui] = useState([]);
@@ -31,6 +37,8 @@ const CreateOrder = () => {
     const [selectedQuanNguoiGui, setSelectedQuanNguoiGui] = useState(0);
     const [selectedPhuongNguoiGui, setSelectedPhuongNguoiGui] = useState(0);
 
+    const [tenNguoiNhan, setTenNguoiNhan] = useState('');
+    const [sdtNguoiNhan, setSdtNguoiNhan] = useState('');
     const [tinhNguoiNhan, setTinhNguoiNhan] = useState([]);
     const [quanNguoiNhan, setQuanNguoiNhan] = useState([]);
     const [phuongNguoiNhan, setPhuongNguoiNhan] = useState([]);
@@ -39,30 +47,13 @@ const CreateOrder = () => {
     const [selectedQuanNguoiNhan, setSelectedQuanNguoiNhan] = useState(0);
     const [selectedPhuongNguoiNhan, setSelectedPhuongNguoiNhan] = useState(0);
 
-    // const handleChange = (event) => {
-    //     setFormState(prevState => ({
-    //         ...prevState,
-    //         [event.target.name]: event.target.value
-    //     }));
-    // }
-
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormState(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    };
-
-    // useState(() => {
-    //     setIsActiveLoai(!!formState.loaiHangHoa);
-    //     setIsActiveTen(!!formState.tenHangHoa);
-    //     setIsActiveTrongLuong(!!formState.trongLuong);
-    //     setIsActiveSoLuong(!!formState.soLuong);
-    // }, [formState.loaiHangHoa, formState.tenHangHoa, formState.trongLuong, formState.soLuong]);
+    const [taiKhoan, setTaiKhoan] = useState([]);
 
     useEffect(() => {
         try {
+            listVanDon().then((Response) => {
+                setDanhSachDonHang(Response.data);
+            })
             listTinhThanh().then((Response) => {
                 setTinhNguoiGui(Response.data);
             });
@@ -70,10 +61,40 @@ const CreateOrder = () => {
             listTinhThanh().then((Response) => {
                 setTinhNguoiNhan(Response.data);
             });
+
+            try {
+                const id = localStorage.getItem("userId");
+                getTaiKhoanById(id).then((Response) => {
+                    setTaiKhoan(Response.data);
+                })
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     }, []);
+
+    useEffect(() => {
+        try {
+            tinhPhiVat(phiCoDinh, 0, 0, 0, 0).then((response) => {
+                setPhiVAT(response.data);
+            })
+        } catch (error) {
+            console.error('Lỗi khi tính phí VAT:', error);
+        }
+    }, [phiCoDinh, 0, 0, 0, 0]);
+
+    useEffect(() => {
+        try {
+            tinhTongPhi(phiCoDinh, phiVAT, 0, 0, 0, phiThuong, 0, khoangCach, trongLuong, 0, 0, loaiHang, "Nội tỉnh").then((response) => {
+                setTongPhi(response.data);
+            })
+        } catch (error) {
+            console.error('Lỗi khi tính tổng phí:', error);
+        }
+    }, [phiCoDinh, phiVAT, 0, 0, 0, phiThuong, 0, khoangCach, trongLuong, 0, 0, loaiHang, "Nội tỉnh"]);
+
 
     const handlePhuongNguoiGuiChange = (e) => {
         const idPhuong = e.target.value;
@@ -92,6 +113,16 @@ const CreateOrder = () => {
 
         listQuanHuyenTheoTinhThanh(idTinh).then(response => {
             setQuanNguoiGui(response.data);
+        }).catch(error => {
+            console.error('Error fetching QuanHuyen data:', error);
+        });
+
+        setSelectedTinhNguoiNhan(idTinh);
+        setQuanNguoiNhan([]);
+        setPhuongNguoiNhan([]);
+
+        listQuanHuyenTheoTinhThanh(idTinh).then(response => {
+            setQuanNguoiNhan(response.data);
         }).catch(error => {
             console.error('Error fetching QuanHuyen data:', error);
         });
@@ -143,97 +174,106 @@ const CreateOrder = () => {
         });
     };
 
-    const handleSelectedTrongLuong = (e) => {
-        setSelectTrongLuong(e.target.value);
+    const getDiaChiNguoiGui = () => {
+        const selectedTinh = tinhNguoiGui.find(tinh => tinh.IdDiaChi === selectedTinhNguoiGui);
+        const selectedQuan = quanNguoiGui.find(quan => quan.MaQuanHuyen === selectedQuanNguoiGui);
+        const selectedPhuong = phuongNguoiGui.find(phuong => phuong.maPhuongXa === selectedPhuongNguoiGui);
+
+        if (selectedTinh && selectedQuan && selectedPhuong) {
+            return `${soNhaNguoiGui}, ${selectedPhuong.tenPhuongXa}, ${selectedQuan.TenQuanHuyen}, ${selectedTinh.Name}`;
+        } else {
+            return '';
+        }
+    };
+
+    const getDiaChiNguoiNhan = () => {
+        const selectedTinh = tinhNguoiNhan.find(tinh => tinh.IdDiaChi === selectedTinhNguoiNhan);
+        const selectedQuan = quanNguoiNhan.find(quan => quan.MaQuanHuyen === selectedQuanNguoiNhan);
+        const selectedPhuong = phuongNguoiNhan.find(phuong => phuong.maPhuongXa === selectedPhuongNguoiNhan);
+
+        if (selectedTinh && selectedQuan && selectedPhuong) {
+            return `${soNhaNguoiNhan}, ${selectedPhuong.tenPhuongXa}, ${selectedQuan.TenQuanHuyen}, ${selectedTinh.Name}`;
+        } else {
+            return '';
+        }
+    };
+
+    // const handleSelectedTrongLuong = (e) => {
+    //     setSelectTrongLuong(e.target.value);
+    // }
+
+    const handlePhiThuong = (e) => {
+        setPhiThuong(e.target.value);
     }
 
-    const generateRandomId = () => {
-        const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-        let id = '';
-        for (let i = 0; i < 12; i++) {
-            id += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        return id;
-    };
-
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        const selectedTinhNG = tinhNguoiGui.find(tinh => tinh.IdDiaChi === selectedTinhNguoiGui);
-        const selectedQuanNG = quanNguoiGui.find(quan => quan.MaQuanHuyen === selectedQuanNguoiGui);
-        const selectedPhuongNG = phuongNguoiGui.find(phuong => phuong.maPhuongXa === selectedPhuongNguoiGui);
-
-        const selectedTinhNN = tinhNguoiNhan.find(tinh => tinh.IdDiaChi === selectedTinhNguoiNhan);
-        const selectedQuanNN = quanNguoiNhan.find(quan => quan.MaQuanHuyen === selectedQuanNguoiNhan);
-        const selectedPhuongNN = phuongNguoiNhan.find(phuong => phuong.maPhuongXa === selectedPhuongNguoiNhan);
-
-        const orderData = {
-            maVanDon: generateRandomId(),
-            thoiGianLap: new Date(),
-            loaiVanChuyen: 'Nội tỉnh',
-            nguoiThanhToan: 'Người gửi',
+        const vanDonMoi = {
+            loaiVanChuyen: "Nội tỉnh",
             thongTinNguoiGui: {
-                tenNguoiGui: formState.tenNguoiGui || null,
-                sdtNguoiGui: formState.sdtNguoiGui || null,
-                diaChiNguoiGui: soNhaNguoiGui ? `${soNhaNguoiGui}, ${selectedPhuongNG.tenPhuongXa}, ${selectedQuanNG.TenQuanHuyen}, ${selectedTinhNG.Name}` : null
+                tenNguoiGui: taiKhoan.tenChuTaiKhoan,
+                sdtNguoiGui: taiKhoan.sdt,
+                diaChiNguoiGui: getDiaChiNguoiGui(),
             },
             thongTinNguoiNhan: {
-                tenNguoiNhan: formState.tenNguoiNhan || null,
-                sdtNguoiNhan: formState.sdtNguoiNhan || null,
-                diaChiNguoiNhan: soNhaNguoiNhan ? `${soNhaNguoiNhan}, ${selectedPhuongNN.tenPhuongXa}, ${selectedQuanNN.TenQuanHuyen}, ${selectedTinhNN.Name}` : null
+                tenNguoiNhan: e.target.elements.tenNguoiNhan.value,
+                sdtNguoiNhan: e.target.elements.sdtNguoiNhan.value,
+                diaChiNguoiNhan: getDiaChiNguoiNhan(),
             },
             thongTinHangHoa: {
-                loaiHang: formState.loaiHangHoa || null,
-                tenHang: formState.tenHangHoa || null,
-                trongLuong: selectedTrongLuong || null,
-                soLuong: formState.soLuong || null
-            }
-        };
-        console.log(orderData);
-
-        try {
-            const response = await createOrder(orderData).then(response => {
-                if (response.status === 200) {
-
-                    alert('Đơn hàng đã được tạo thành công!');
-                } else {
-                    alert('Đã có lỗi xảy ra khi tạo đơn hàng.');
-                }
-            })
-
-        } catch (error) {
-            console.error('Error creating order:', error);
-            alert('Đã có lỗi xảy ra khi tạo đơn hàng: ' + error.message);
-        }
-
-        fetch("http://localhost:4433/vandon/create-order", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
+                loaiHang: loaiHang,
+                tenHang: e.target.elements.tenHangHoa.value,
+                trongLuong: parseFloat(trongLuong),
+                soLuong: parseInt(soLuong)
             },
-            body: JSON.stringify(orderData)
-        });
+            khoangCach: parseFloat(khoangCach),
+            phiVanChuyen: {
+                phiCoDinh: parseInt(phiCoDinh),
+                vat: parseInt(phiVAT),
+                thuongShipper: parseInt(e.target.elements.phiThuong.value),
+                tongPhi: parseInt(tongPhi)
+            },
+            thongTinShipper: {
+                maShipper: "",
+                tenShipper: "",
+                sdtShipper: ""
+            }
+        }; 
+        console.log(vanDonMoi);
+
+        createOrder(vanDonMoi)
+            .then(Response => {
+                alert("Đơn hàng được thêm thành công!");
+            })
+            .catch(error => {
+                console.error("Có lỗi xảy ra:", error);
+                alert("Thêm đơn hàng thất bại!");
+            });
     };
+
+    const uniqueLoaiHang = Array.from(new Set(danhSachDonHang.map(donHang => donHang.thongTinHangHoa.loaiHang)));
+
 
     return (
         <div className='createorder_container'>
             <div className='form_create' style={{ backgroundColor: 'white' }}>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <Row>
                         <Col>
                             <div style={{ margin: '5px', backgroundColor: '#d1efff', padding: '10px', borderRadius: '10px' }}>
                                 <h3>Thông tin người gửi</h3>
                                 <Row>
                                     <Col xs={6}>
-                                        <Form.Group className="mb-3" controlId="loai">
+                                        <Form.Group className="mb-3">
                                             <Form.Label>Tên người gửi</Form.Label>
-                                            <Form.Control className='area-input' name='tenNguoiGui' type="text" placeholder="Nhập tên người gửi..." onChange={handleChange} />
+                                            <Form.Control className='area-input' value={taiKhoan.tenChuTaiKhoan} name='tenNguoiGui' type="text" disabled />
                                         </Form.Group>
                                     </Col>
                                     <Col xs={6}>
-                                        <Form.Group className="mb-3" controlId="tên">
+                                        <Form.Group className="mb-3" >
                                             <Form.Label>Số điện thoại người gửi</Form.Label>
-                                            <Form.Control className='area-input' name='sdtNguoiGui' type="number" placeholder="Nhập số điện thoại..." onChange={handleChange} />
+                                            <Form.Control className='area-input' value={taiKhoan.sdt} name='sdtNguoiGui' type="number" disabled />
                                         </Form.Group>
                                     </Col>
                                 </Row>
@@ -286,15 +326,15 @@ const CreateOrder = () => {
                                 <h3>Thông tin người nhận</h3>
                                 <Row>
                                     <Col xs={6}>
-                                        <Form.Group className="mb-3" controlId="loai">
+                                        <Form.Group className="mb-3">
                                             <Form.Label>Tên người nhận</Form.Label>
-                                            <Form.Control className='area-input' name='tenNguoiNhan' type="text" placeholder="Nhập tên người nhận..." onChange={handleChange} />
+                                            <Form.Control className='area-input' name='tenNguoiNhan' type="text" placeholder="Nhập tên người nhận..." />
                                         </Form.Group>
                                     </Col>
                                     <Col xs={6}>
-                                        <Form.Group className="mb-3" controlId="tên">
+                                        <Form.Group className="mb-3" >
                                             <Form.Label>Số điện thoại người nhận</Form.Label>
-                                            <Form.Control className='area-input' name='sdtNguoiNhan' type="number" placeholder="Nhập số điện thoại..." onChange={handleChange} />
+                                            <Form.Control className='area-input' name='sdtNguoiNhan' type="number" placeholder="Nhập số điện thoại..." />
                                         </Form.Group>
                                     </Col>
                                 </Row>
@@ -303,7 +343,7 @@ const CreateOrder = () => {
                                     <Row style={{ marginLeft: '10px' }}>
                                         <Form.Label column sm="4"><h6>Tỉnh Thành</h6></Form.Label>
                                         <Col sm="8">
-                                            <Form.Select type='text' value={selectedTinhNguoiNhan} onChange={handleTinhNguoiNhanChange}>
+                                            <Form.Select type='text' value={selectedTinhNguoiNhan} onChange={handleTinhNguoiNhanChange} disabled>
                                                 <option value={0}>Tỉnh Thành</option>
                                                 {tinhNguoiNhan.map((tinh) => (
                                                     <option key={tinh.IdDiaChi} value={tinh.IdDiaChi}>{tinh.Name}</option>
@@ -349,22 +389,26 @@ const CreateOrder = () => {
                                 <h3>Thông tin hàng hoá</h3>
                                 <Row>
                                     <Col xs={6}>
-                                        <Form.Group className="mb-3" controlId="loai">
+                                        <Form.Group className="mb-3">
                                             <Form.Label>Loại hàng hoá</Form.Label>
-                                            <Form.Control className='area-input' name='loaiHangHoa' type="text" placeholder="Nhập loại hàng hoá ở đây..." onChange={handleChange} />
+                                            <Form.Select value={loaiHang} onChange={(e) => setLoaiHang(e.target.value)}>
+                                                {uniqueLoaiHang.map((loaiHang, index) =>
+                                                    <option key={index} value={loaiHang}>{loaiHang}</option>
+                                                )}
+                                            </Form.Select>
                                         </Form.Group>
                                     </Col>
                                     <Col xs={6}>
-                                        <Form.Group className="mb-3" controlId="tên">
+                                        <Form.Group className="mb-3" >
                                             <Form.Label>Tên hàng hoá</Form.Label>
-                                            <Form.Control className='area-input' name='tenHangHoa' type="text" placeholder="Nhập tên hàng hoá ở đây..." onChange={handleChange} />
+                                            <Form.Control className='area-input' name='tenHangHoa' type="text" placeholder="Nhập tên hàng hoá ở đây..." />
                                         </Form.Group>
                                     </Col>
                                 </Row>
                                 <Row>
                                     <Col>
                                         <FormLabel>Trọng lượng</FormLabel>
-                                        <Form.Select aria-label="Default select example" onChange={handleSelectedTrongLuong}>
+                                        <Form.Select aria-label="Default select example" value={trongLuong} onChange={(e)=>setTrongLuong(e.target.value)}>
                                             <option>Chọn trọng lượng của hàng hoá</option>
                                             <option value="0.99">Dưới 1kg</option>
                                             <option value="4.99">Dưới 5kg</option>
@@ -374,9 +418,42 @@ const CreateOrder = () => {
                                         </Form.Select>
                                     </Col>
                                     <Col>
-                                        <Form.Group className="mb-3" controlId="tên">
-                                            <Form.Label>Số lượng</Form.Label>
-                                            <Form.Control className='area-input' type="number" name='soLuong' placeholder="Nhập số lượng ở đây..." onChange={handleChange} />
+                                        
+                                    </Col>
+                                </Row>
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <div style={{ margin: '5px', backgroundColor: '#d1efff', padding: '10px', borderRadius: '10px' }}>
+                                <h3>Tổng chi phí: {tongPhi}</h3>
+                                <Row>
+                                    <Col xs={3}>
+                                        <Form.Group className="mb-3">
+                                            <Form.Label>Khoảng cách</Form.Label>
+                                            <Form.Control type='number' min={1} disabled value={khoangCach}></Form.Control>
+                                            <div style={{ display: 'none' }}>
+                                                <Mapbox from={getDiaChiNguoiGui()} to={getDiaChiNguoiNhan()} setKC={setKhoangCach} disabled />
+                                            </div>
+                                        </Form.Group>
+                                    </Col>
+                                    <Col xs={3}>
+                                        <Form.Group className="mb-3">
+                                            <Form.Label>Phí cố định</Form.Label>
+                                            <Form.Control disabled readOnly className='area-input' value={phiCoDinh} name='phiCoDinh' type="text" />
+                                        </Form.Group>
+                                    </Col>
+                                    <Col xs={3}>
+                                        <Form.Group className="mb-3" >
+                                            <Form.Label>Phí VAT</Form.Label>
+                                            <Form.Control disabled readOnly className='area-input' value={phiVAT} name='phiVAT' type="text" />
+                                        </Form.Group>
+                                    </Col>
+                                    <Col xs={3}>
+                                        <Form.Group className="mb-3" >
+                                            <Form.Label>Phí thưởng Shipper</Form.Label>
+                                            <Form.Control className='area-input' name='phiThuong' type="money" placeholder="Tiền tip cho shipper (không bắt buộc)" onChange={handlePhiThuong}/>
                                         </Form.Group>
                                     </Col>
                                 </Row>
@@ -384,7 +461,7 @@ const CreateOrder = () => {
                         </Col>
                     </Row>
                     <div className='d-flex justify-content-center'>
-                        <Button type='submit' className='btn-create d-flex justify-content-center' style={{ width: '200px' }} onClick={handleSubmit}>
+                        <Button type='submit' className='btn-create d-flex justify-content-center' style={{ width: '200px' }} >
                             Tạo đơn hàng
                         </Button>
                     </div>

@@ -3,7 +3,6 @@ package com.example.demo.DAO;
 import com.example.demo.POJO.TaiKhoanPOJO;
 import com.example.demo.POJO.ThongTinTaiKhoan;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
@@ -12,6 +11,9 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+
+import static com.mongodb.client.model.Filters.eq;
 
 @Repository
 public class TaiKhoanDAO {
@@ -30,7 +32,6 @@ public class TaiKhoanDAO {
         }
         return danhSachTK;
     }
-
 
     public boolean themTaiKhoanMoi(TaiKhoanPOJO taiKhoanMoi) {
         try {
@@ -64,16 +65,52 @@ public class TaiKhoanDAO {
 
     public TaiKhoanPOJO timTaiKhoanTheoId(ObjectId id) {
         MongoCollection<Document> collection = connection.getCollection();
-        Bson filter = Filters.eq("_id", id);
+        Bson filter = eq("_id", id);
         Document doc = collection.find(filter).first();
         return convertToTaiKhoanPOJO(doc);
     }
 
     public TaiKhoanPOJO timTaiKhoanTheoTenTaiKhoan(String tenTaiKhoan){
         MongoCollection<Document> collection = connection.getCollection();
-        Bson filter = Filters.eq("TenTaiKhoan", tenTaiKhoan);
+        Bson filter = eq("TenTaiKhoan", tenTaiKhoan);
         Document doc = collection.find(filter).first();
         return doc != null ? convertToTaiKhoanPOJO(doc) : null;
+    }
+
+    public TaiKhoanPOJO themTaiKhoanKhachHang(TaiKhoanPOJO taiKhoanKhachHang) {
+        try {
+            Document document = new Document()
+                    .append("LoaiTaiKhoan", taiKhoanKhachHang.getLoaiTaiKhoan())
+                    .append("TenTaiKhoan", taiKhoanKhachHang.getTenTaiKhoan())
+                    .append("TenChuTaiKhoan", taiKhoanKhachHang.getTenChuTaiKhoan())
+                    .append("SDT", taiKhoanKhachHang.getSdt())
+                    .append("Email", taiKhoanKhachHang.getEmail())
+                    .append("MatKhau", taiKhoanKhachHang.getMatKhau());
+
+            if (Optional.ofNullable(taiKhoanKhachHang.getSoCCCD()).isPresent()){
+                document.append("SoCCCD", taiKhoanKhachHang.getSoCCCD());
+            }
+
+            if (Optional.ofNullable(taiKhoanKhachHang.getDiaChi()).isPresent()){
+                document.append("DiaChi", taiKhoanKhachHang.getDiaChi());
+            }
+
+            if(Optional.ofNullable(taiKhoanKhachHang.getThongTinTaiKhoan()).isPresent()){
+                document.append("TKNganHang", new Document()
+                        .append("TenNganHang", taiKhoanKhachHang.getThongTinTaiKhoan().getTenNganHang())
+                        .append("SoTaiKhoan", taiKhoanKhachHang.getThongTinTaiKhoan().getSoTaiKhoan()));
+            }
+
+            MongoCollection<Document> collection = connection.getCollection();
+
+            collection.insertOne(document);
+
+            return taiKhoanKhachHang;
+
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new RuntimeException("Lỗi thêm tài khoản", e);
+        }
     }
 
     // Phương thức để chuyển đổi Document thành KhoPOJO

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { Route, Router, Switch } from 'react-router-dom/cjs/react-router-dom';
 import { memo } from 'react';
 
@@ -36,183 +36,202 @@ import PrivateRoute from './Path/PrivateRouter';
 import Bar from './Admin/scenes/Charts/BarChart';
 import Line from './Admin/scenes/Charts/LineChart';
 import Pie from './Admin/scenes/Charts/PieChart';
-import Geography from './Admin/scenes/Charts/GeographyChart';
 import UpdateProfileCustomer from './KhachHang/Profile/UpdateProfileCustomer';
+import UpdatePasswordCustomer from './KhachHang/Profile/UpdatePasswordCustomer';
 
 const renderMasterRouter = () => {
-    const masterRouter = [
-        {
-            path: ROUTERS.CUSTOMER.HOME,
-            component: Customer,
-            isPrivate: true
-        },
-        {
-            path: ROUTERS.CUSTOMER.PROFILE,
-            component: ProfileCustomer,
-            isPrivate: true
-        },
-        {
-            path: ROUTERS.CUSTOMER.CREATE_ORDER,
-            component: CreateOrder,
-            isPrivate: true
-        },
-        {
-            path: ROUTERS.CUSTOMER.ORDER_LIST,
-            component: OrderList,
-            isPrivate: true
-        },
-        {
-            path: ROUTERS.CUSTOMER.ORDER_DETAILS,
-            component: OrderDetails,
-            isPrivate: true
-        },
-        {
-            path: ROUTERS.CUSTOMER.UPDATE_PROFILE,
-            component: UpdateProfileCustomer,
-            isPrivate: true
-        },
-        {
-            path: ROUTERS.LOGIN.LOGIN,
-            component: Login,
-        },
-        {
-            path: ROUTERS.LOGIN.REGISTER,
-            component: Register,
-        },
-        {
-            path: ROUTERS.SHIPPER.HOME,
-            component: SP_Home,
-            isPrivate: true
-        },
-        {
-            path: ROUTERS.SHIPPER.HISTORY,
-            component: History,
-            isPrivate: true
-        },
-        {
-            path: ROUTERS.SHIPPER.DASHBOARD,
-            component: Dashboard,
-            isPrivate: true
-        },
-        {
-            path: ROUTERS.SHIPPER.PROFILE,
-            component: Profile,
-            isPrivate: true
-        },
-        {
-            path: ROUTERS.SHIPPER.DETAILORDER,
-            component: DetailOrder,
-            isPrivate: true
-        },
+    const masterRouter = {
+        customer: [
+            {
+                path: ROUTERS.CUSTOMER.HOME,
+                component: Customer,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.CUSTOMER.PROFILE,
+                component: ProfileCustomer,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.CUSTOMER.CREATE_ORDER,
+                component: CreateOrder,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.CUSTOMER.ORDER_LIST,
+                component: OrderList,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.CUSTOMER.ORDER_DETAILS,
+                component: OrderDetails,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.CUSTOMER.UPDATE_PROFILE,
+                component: UpdateProfileCustomer,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.CUSTOMER.UPDATE_PASSWORD,
+                component: UpdatePasswordCustomer,
+                isPrivate: true
+            }
+        ],
+        shipper: [
+            {
+                path: ROUTERS.SHIPPER.HOME,
+                component: SP_Home,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.SHIPPER.HISTORY,
+                component: History,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.SHIPPER.DASHBOARD,
+                component: Dashboard,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.SHIPPER.PROFILE,
+                component: Profile,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.SHIPPER.DETAILORDER,
+                component: DetailOrder,
+                isPrivate: true
+            },
 
-        {
-            path: ROUTERS.SHIPPER.UPDATEPEOFILE,
-            component: UpdateProfile,
-            isPrivate: true
-        },
+            {
+                path: ROUTERS.SHIPPER.UPDATEPEOFILE,
+                component: UpdateProfile,
+                isPrivate: true
+            },
 
-        {
-            path: ROUTERS.SHIPPER.DETAILORDER,
-            component: DetailOrder,
-            isPrivate: true
-        },
+            {
+                path: ROUTERS.SHIPPER.DETAILORDER,
+                component: DetailOrder,
+                isPrivate: true
+            }
+        ],
+        admin: [
+            {
+                path: ROUTERS.ADMIN.TRANGCHUADMIN,
+                component: AdminRouter,
+                isPrivate: true
+            },
 
-        {
-            path: ROUTERS.ADMIN.TRANGCHUADMIN,
-            component: AdminRouter,
-            isPrivate: true
-        },
+            {
+                path: ROUTERS.ADMIN.QLTAIKHOAN,
+                component: Team,
+                isPrivate: true
+            },
 
-        {
-            path: ROUTERS.ADMIN.QLTAIKHOAN,
-            component: Team,
-            isPrivate: true
-        },
+            {
+                path: ROUTERS.ADMIN.QLTAIXE,
+                component: DSTaiXe,
+                isPrivate: true
+            },
 
-        {
-            path: ROUTERS.ADMIN.QLTAIXE,
-            component: DSTaiXe,
-            isPrivate: true
-        },
+            {
+                path: ROUTERS.ADMIN.QLXE,
+                component: DSXe,
+                isPrivate: true
+            },
 
-        {
-            path: ROUTERS.ADMIN.QLXE,
-            component: DSXe,
-            isPrivate: true
-        },
+            {
+                path: ROUTERS.ADMIN.TAOTKSHIPPER,
+                component: Form,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.ADMIN.DASHBOARD,
+                component: Dashboard,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.ADMIN.BARCHART,
+                component: Bar
+            },
+            {
+                path: ROUTERS.ADMIN.LINECHART,
+                component: Line
+            },
+            {
+                path: ROUTERS.ADMIN.PIECHART,
+                component: Pie
+            }
+        ],
+        employee: [
+            {
+                path: ROUTERS.EMPLOYEE.HOME,
+                component: NV_Home,
+                isPrivate: true
+            },
 
-        {
-            path: ROUTERS.ADMIN.TAOTKSHIPPER,
-            component: Form,
-            isPrivate: true
-        },
-        {
-            path: ROUTERS.ADMIN.DASHBOARD,
-            component: Dashboard,
-            isPrivate: true
-        },
-        {
-            path: ROUTERS.ADMIN.BARCHART,
-            component: Bar
-          },
-          {
-            path: ROUTERS.ADMIN.LINECHART,
-            component: Line
-          },
-          {
-            path: ROUTERS.ADMIN.PIECHART,
-            component: Pie
-          },
-        
-        {
-            path: ROUTERS.EMPLOYEE.HOME,
-            component: NV_Home,
-            isPrivate: true
-        },
+            {
+                path: ROUTERS.EMPLOYEE.LIST,
+                component: DSDonHang,
+                isPrivate: true
+            },
 
-        {
-            path: ROUTERS.EMPLOYEE.LIST,
-            component: DSDonHang,
-            isPrivate: true
-        },
+            {
+                path: ROUTERS.EMPLOYEE.CREATE,
+                component: TaoDonHang,
+                isPrivate: true
+            },
 
-        {
-            path: ROUTERS.EMPLOYEE.CREATE,
-            component: TaoDonHang,
-            isPrivate: true
-        },
+            {
+                path: ROUTERS.EMPLOYEE.DETAIL,
+                component: ChiTietDonHang,
+                isPrivate: true
+            }
+        ],
+        public: [
+            {
+                path: ROUTERS.LOGIN.LOGIN,
+                component: Login,
+            },
+            {
+                path: ROUTERS.LOGIN.REGISTER,
+                component: Register,
+            }
+        ]
+    };
 
-        {
-            path: ROUTERS.EMPLOYEE.DETAIL,
-            component: ChiTietDonHang,
-            isPrivate: true
-        }
-    ];
+    const createRouters = (masterRouter, isPrivate = false, role = null) => {
+        return masterRouter.map((item, key) => {
+            if (item.isPrivate) {
+                return (
+                    <PrivateRoute
+                        key={key}
+                        path={item.path}
+                        component={item.component}
+                        requiredRole={role}
+                    />
+                );
+            } else {
+                return (
+                    <Route
+                        key={key}
+                        path={item.path}
+                        component={item.component}
+                    />
+                );
+            }
+        })
+    }
 
     return (
         <Switch>
-            {
-                masterRouter.map((item, key) => {
-                    return <Route key={key} path={item.path} component={item.component} />
-                    // if (item.isPrivate) {
-                    //     return (
-                    //         <PrivateRoute 
-                    //             key={key} 
-                    //             path={item.path} 
-                    //             component={item.component} 
-                    //         />
-                    //     );
-                    // } else {
-                    //     return (
-                    //         <Route 
-                    //             key={key} 
-                    //             path={item.path} 
-                    //             component={item.component} 
-                    //         />
-                    //     );
-                    // }
-                })
-            }
+            {createRouters(masterRouter.customer, true, "Khách hàng")}
+            {createRouters(masterRouter.shipper, true, "Shipper")}
+            {createRouters(masterRouter.admin, true, "QuanLy")}
+            {createRouters(masterRouter.employee, true, "Kho")}
+            {createRouters(masterRouter.public)}
         </Switch>
     );
 };

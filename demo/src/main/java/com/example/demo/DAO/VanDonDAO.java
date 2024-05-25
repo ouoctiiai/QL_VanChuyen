@@ -5,7 +5,6 @@ import com.example.demo.POJO.*;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Sorts;
 import com.mongodb.client.model.Updates;
@@ -13,15 +12,10 @@ import lombok.SneakyThrows;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.logging.Logger;
 
 @Service
 public class VanDonDAO {
@@ -375,30 +369,6 @@ public class VanDonDAO {
         return convertToVanDonPOJO(doc);
     }
 
-    public void themDonHangKhachHang(VanDonPOJO vanDonPOJO){
-        MongoCollection<Document> collection = connection.getCollection();
-        Document doc = new Document()
-                .append("maVanDon", vanDonPOJO.getMaVanDon() != null ? vanDonPOJO.getMaVanDon() : null)
-                .append("thoiGianLap", vanDonPOJO.getThoiGianLap() != null ? vanDonPOJO.getThoiGianLap() : null)
-                .append("loaiVanChuyen", vanDonPOJO.getLoaiVanChuyen() != null ? vanDonPOJO.getLoaiVanChuyen() : null)
-                .append("noiTiepNhan", vanDonPOJO.getNoiTiepNhan() != null ? vanDonPOJO.getNoiTiepNhan() : null)
-                .append("nguoiThanhToan", vanDonPOJO.getNguoiThanhToan() != null ? vanDonPOJO.getNguoiThanhToan() : null)
-                .append("thongTinNguoiGui", vanDonPOJO.getThongTinNguoiGui() != null ? vanDonPOJO.getThongTinNguoiGui() : null)
-                .append("thongTinNguoiNhan", vanDonPOJO.getThongTinNguoiNhan() != null ? vanDonPOJO.getThongTinNguoiNhan() : null)
-                .append("thongTinTaiXe", vanDonPOJO.getThongTinTaiXe() != null ? vanDonPOJO.getThongTinTaiXe() : null)
-                .append("thongTinXe", vanDonPOJO.getThongTinXe() != null ? vanDonPOJO.getThongTinXe() : null)
-                .append("thongTinHangHoa", vanDonPOJO.getThongTinHangHoa() != null ? vanDonPOJO.getThongTinHangHoa() : null)
-                .append("diemXuatPhat", vanDonPOJO.getDiemXuatPhat() != null ? vanDonPOJO.getDiemXuatPhat() : null)
-                .append("diemDen", vanDonPOJO.getDiemDen() != null ? vanDonPOJO.getDiemDen() : null)
-                .append("tinh", vanDonPOJO.getTinh() != null ? vanDonPOJO.getTinh() : null)
-                .append("khoangCach", vanDonPOJO.getKhoangCach() != null ? vanDonPOJO.getKhoangCach() : null)
-                .append("tuyenDuong", vanDonPOJO.getTuyenDuong() != null ? vanDonPOJO.getTuyenDuong() : null)
-                .append("phiVanChuyen", vanDonPOJO.getPhiVanChuyen() != null ? vanDonPOJO.getPhiVanChuyen() : null)
-                .append("thongTinShipper", vanDonPOJO.getThongTinShipper() != null ? vanDonPOJO.getThongTinShipper() : null)
-                .append("trangThai", vanDonPOJO.getTrangThai() != null ? vanDonPOJO.getTrangThai() : null);
-        collection.insertOne(doc);
-    }
-
     public Double tinhKhoangCachDonLienTinh(VanDonPOJO vd){
         Double khoangCach = 0.0;
         KhoDAO khodao = new KhoDAO();
@@ -520,6 +490,8 @@ public class VanDonDAO {
                             .append("VAT", vanDonPOJO.getPhiVanChuyen().getVat())
                             .append("PhiNang", vanDonPOJO.getPhiVanChuyen().getPhiNang())
                             .append("PhiHa", vanDonPOJO.getPhiVanChuyen().getPhiHa())
+                            .append("ThuongShipper", vanDonPOJO.getPhiVanChuyen().getThuongShipper())
+                            .append("PhiKhac", vanDonPOJO.getPhiVanChuyen().getPhiKhac())
                             .append("TongPhi", vanDonPOJO.getPhiVanChuyen().getTongPhi()));
 
             if (Optional.ofNullable(vanDonPOJO.getKhoangCach()).isPresent()) {

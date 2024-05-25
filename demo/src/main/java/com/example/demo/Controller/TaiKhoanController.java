@@ -72,4 +72,10 @@ public class TaiKhoanController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();}
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<TaiKhoanPOJO> createUserCustomer(@RequestBody TaiKhoanPOJO taiKhoanKhachHang){
+        TaiKhoanPOJO taiKhoanKH = taiKhoanService.themTaiKhoanKhachHang(taiKhoanKhachHang);
+        return ResponseEntity.ok(taiKhoanKH);
+    }
+
 }
