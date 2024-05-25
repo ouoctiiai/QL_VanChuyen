@@ -15,6 +15,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class TaiKhoanDAO {
@@ -147,7 +148,7 @@ public class TaiKhoanDAO {
         Integer luong = 0;
         List<VanDonPOJO> ls = vd.lichSuDonCuaShipper(tk.getMaShipper());
         for (VanDonPOJO vd1 : ls) {
-            if(vd1.getTrangThai() == "Giao hàng thành công") {
+            if(Objects.equals(vd1.getTrangThai(), "Giao hàng thành công")) {
                 PhiVanChuyen p = vd1.getPhiVanChuyen();
                 luong += p.getLuongShipperTheoDon();
             }
