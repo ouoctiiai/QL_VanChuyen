@@ -81,6 +81,12 @@ public class TaiKhoanController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();}
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<TaiKhoanPOJO> createUserCustomer(@RequestBody TaiKhoanPOJO taiKhoanKhachHang){
+        TaiKhoanPOJO taiKhoanKH = taiKhoanService.themTaiKhoanKhachHang(taiKhoanKhachHang);
+        return ResponseEntity.ok(taiKhoanKH);
+    }
+
     @PostMapping("/updateSP/{id}/{tenChuTK}/{tenTK}/{mk}/{sdt}/{email}/{stk}/{tennh}")
     public ResponseEntity updateTrangThaiDaGiao(@PathVariable ObjectId id, @PathVariable String tenChuTK, @PathVariable String tenTK, @PathVariable String mk, @PathVariable String sdt, @PathVariable String email, @PathVariable String stk, @PathVariable String tennh) throws Exception {
         TaiKhoanPOJO vd = taiKhoanService.updateTaiKhoanShipper(id, tenChuTK, tenTK, mk, sdt, email, stk, tennh);

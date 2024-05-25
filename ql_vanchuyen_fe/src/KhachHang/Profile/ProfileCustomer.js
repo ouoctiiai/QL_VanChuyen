@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom/cjs/react-router-dom';
+import { NavLink, useHistory, useParams } from 'react-router-dom/cjs/react-router-dom';
 import './ProfileCustomer.scss';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -8,6 +8,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { memo } from 'react';
 import { getTaiKhoanById } from '../../Api/DataTaiKhoan';
 import { Button } from 'react-bootstrap';
+import History from './../../Shipper/Pages/History';
 
 const ProfileCustomer = () => {
 
@@ -16,6 +17,8 @@ const ProfileCustomer = () => {
     // const {id} = useParams();
 
     const [showPassword, setShowPassword] = useState(false);
+
+    const history = useHistory();
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -33,6 +36,12 @@ const ProfileCustomer = () => {
         }
     }, []);
 
+    const handleEditProfile = () =>{
+        history.push({
+            pathname: '/update-profile-customer',
+            state: {taiKhoan, thongTinTaiKhoan}
+        });
+    };
 
 
     return (
@@ -78,7 +87,7 @@ const ProfileCustomer = () => {
                                 <p className='title fw-bold'>CMND/CCCD: </p>
                             </div>
                             <div className='col-6'>
-                                <p className='content'>{taiKhoan.soCCCD || 'Không'}</p>
+                                <p className='content'>{taiKhoan.soCCCD}</p>
                             </div>
                         </div>
                         <div className='row'>
@@ -116,9 +125,14 @@ const ProfileCustomer = () => {
                         </div>
                     </div>
                     <div className='d-flex justify-content-start' style={{ backgroundColor: 'white' }}>
-                        <NavLink to="/update-profile-customer" >
-                            <Button className='btn-create d-flex justify-content-center' style={{ width: '200px' }}>
+                        {/* <NavLink to="/update-profile-customer" > */}
+                            <Button onClick={handleEditProfile} className='btn-create d-flex justify-content-center' style={{ width: 'auto' }}>
                                 Edit Profile
+                            </Button>
+                        {/* </NavLink> */}
+                        <NavLink to="/update-password-customer" >
+                            <Button className='btn-create d-flex justify-content-center' style={{ width: 'auto', marginLeft: '10px'}}>
+                                Edit Password
                             </Button>
                         </NavLink>
                     </div>

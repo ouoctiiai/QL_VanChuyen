@@ -56,13 +56,9 @@ public class VanDonCotroller {
     }
 
     @PostMapping("/create-order")
-    public ResponseEntity<String> createOrder(@RequestBody VanDonPOJO vanDonPOJO) {
-        try {
-            vanDonService.themDonHangKhachHang(vanDonPOJO);
-            return ResponseEntity.ok("Order created successfully!");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error creating order: " + e.getMessage());
-        }
+    public ResponseEntity<VanDonPOJO> createOrder(@RequestBody VanDonPOJO vanDonPOJO) {
+        VanDonPOJO newVanDon = vanDonService.themDonHang(vanDonPOJO);
+        return ResponseEntity.ok(newVanDon);
     }
 
     @GetMapping("/dsTaiXe")
@@ -199,9 +195,9 @@ public class VanDonCotroller {
         }
     }
 
-    @PostMapping("/updateDangGiao/{id}")
-    public ResponseEntity updateTrangThaiDangGiao(@PathVariable ObjectId id) {
-        VanDonPOJO vd = vanDonService.updateTrangThaiDangGiao(id);
+    @PostMapping("/updateDangGiao/{id}/{maShipper}/{tenShipper}/{sdt}")
+    public ResponseEntity updateTrangThaiDangGiao(@PathVariable ObjectId id, @PathVariable String maShipper,  @PathVariable String tenShipper,  @PathVariable String sdt) throws Exception {
+        VanDonPOJO vd = vanDonService.updateTrangThaiDangGiao(id, maShipper, tenShipper, sdt);
         if (vd != null) {
             return ResponseEntity.ok(vd);
         } else {
@@ -210,7 +206,7 @@ public class VanDonCotroller {
     }
 
     @PostMapping("/updateDaGiao/{id}")
-    public ResponseEntity updateTrangThaiDaGiao(@PathVariable ObjectId id) {
+    public ResponseEntity updateTrangThaiDaGiao(@PathVariable ObjectId id) throws Exception {
         VanDonPOJO vd = vanDonService.updateTrangThaiGiaoThanhCong(id);
         if (vd != null) {
             return ResponseEntity.ok(vd);

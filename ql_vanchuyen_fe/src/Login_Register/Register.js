@@ -5,6 +5,8 @@ import './Login_Regis.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { create } from '@mui/material/styles/createTransitions';
+import { createAccountCustomer } from '../Api/DataTaiKhoan';
 
 
 const Register = (props) => {
@@ -13,12 +15,13 @@ const Register = (props) => {
     // const [isActive, setIsActive] = useState('');
     const [isChecked, setIsChecked] = useState('');
     const [formState, setFormState] = useState({
-        name: '', phone: '', email: '', password: '', repassword: ''
+        namelogin: '', fullname: '', phone: '', email: '', password: '', repassword: ''
     });
 
     const [errorMessage, setErrorMessage] = useState('');
 
-    const [isActiveName, setIsActiveName] = useState(false);
+    const [isActiveNameLogin, setIsActiveNameLogin] = useState(false);
+    const [isActiveFullName, setIsActiveFullName] = useState(false);
     const [isActivePhone, setIsActivePhone] = useState(false);
     const [isActiveEmail, setIsActiveEmail] = useState(false);
     const [isActivePassword, setIsActivePassword] = useState(false);
@@ -34,12 +37,13 @@ const Register = (props) => {
     }
 
     useEffect(() => {
-        setIsActiveName(!!formState.name);
+        setIsActiveNameLogin(!!formState.namelogin);
+        setIsActiveFullName(!!formState.fullname);
         setIsActivePhone(!!formState.phone);
         setIsActiveEmail(!!formState.email);
         setIsActivePassword(!!formState.password);
         setIsActiveRePassword(!!formState.repassword);
-    }, [formState.name, formState.phone, formState.email, formState.password, formState.repassword]);
+    }, [formState.namelogin, formState.fullname, formState.phone, formState.email, formState.password, formState.repassword]);
 
 
     const handleCheckboxChange = () => {
@@ -48,13 +52,34 @@ const Register = (props) => {
 
     const handleSignIn = (event) => {
         event.preventDefault();
+
+        const taiKhoanMoi = {
+            loaiTaiKhoan: "Khách hàng",
+            tenTaiKhoan: formState.namelogin,
+            tenChuTaiKhoan: formState.fullname,
+            sdt: formState.phone,
+            email: formState.email,
+            matKhau: formState.password
+        };
+        console.log(taiKhoanMoi);
+
         if (!isChecked) {
             setErrorMessage('Vui lòng đánh dấu vào ô "Tôi đã đọc và đồng ý với các điều khoản" trước khi đăng nhập.');
             return;
+        } else if (formState.password !== formState.repassword) {
+            setErrorMessage('Mật khẩu và xác nhận mật khẩu không khớp.');
+            return;
+        } else {
+            createAccountCustomer(taiKhoanMoi).then(Response => {
+                alert("Tạo tài khoản thành công!");
+            }).catch(error => {
+                console.error("Có lỗi xảy ra: ", error);
+                alert("Tạo tài khoản thất bại!");
+            });
+            // history.push('/login');
+            setErrorMessage('');
         }
 
-        history.push('/login');
-        setErrorMessage(''); // Xóa thông báo lỗi sau khi đã đăng nhập thành công
     };
 
 
@@ -78,31 +103,15 @@ const Register = (props) => {
             <div className="tab-content">
                 <div className="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
                     <form onSubmit={handleSignIn}>
-                        {/* <div className="text-center mb-3">
-                            <p>Đăng nhập với:</p>
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-                                <i className="fab fa-facebook-f"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-                                <i className="fab fa-google"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-                                <i className="fab fa-twitter"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-                                <i className="fab fa-github"></i>
-                            </button>
-                        </div>
-
-                        <p className="text-center">hoặc:</p> */}
-
                         {/* <!-- Name input --> */}
                         <div data-mdb-input-init className="form-outline mb-4">
-                            <input type="text" id="registerName" name='name' value={formState.name} onChange={handleChange} className={`form-control ${isActiveName ? 'active' : ''}`} />
-                            <label className="form-label" for="registerName">Tên tài khoản</label>
+                            <input type="text" id="registerNameLogin" name='namelogin' value={formState.namelogin} onChange={handleChange} className={`form-control ${isActiveNameLogin ? 'active' : ''}`} />
+                            <label className="form-label" for="registerNameLogin">Tên đăng nhập</label>
+                        </div>
+
+                        <div data-mdb-input-init className="form-outline mb-4">
+                            <input type="text" id="registerFullName" name='fullname' value={formState.fullname} onChange={handleChange} className={`form-control ${isActiveFullName ? 'active' : ''}`} />
+                            <label className="form-label" for="registerFullName">Họ và tên</label>
                         </div>
 
                         {/* <!-- Phone Number input --> */}
