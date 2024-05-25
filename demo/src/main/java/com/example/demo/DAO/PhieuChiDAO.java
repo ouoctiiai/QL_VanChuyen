@@ -3,15 +3,13 @@ package com.example.demo.DAO;
 import com.example.demo.POJO.PhieuChiPOJO;
 import com.example.demo.POJO.ThongTinShipper;
 import com.example.demo.POJO.ThongTinTaiXe;
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import org.bson.Document;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class PhieuChiDAO {
@@ -38,12 +36,13 @@ public class PhieuChiDAO {
 
         return danhSachPhieuChi;
     }
+
     public PhieuChiPOJO convertToPhieuChiPOJO(Document doc) {
         PhieuChiPOJO phieuChi = new PhieuChiPOJO();
         phieuChi.setId(doc.getString("_id"));
         phieuChi.setLoaiPhieuChi(doc.getString("LoaiPhieuChi"));
         phieuChi.setThoiGianLap(doc.getDate("ThoiGianLap"));
-        phieuChi.setTongTien(doc.getDouble("TongTien"));
+        phieuChi.setTongTien(doc.getInteger("TongTien"));
         convertToThongTinShipper(doc, phieuChi);
         convertToThongTinTaiXe(doc, phieuChi);
         return phieuChi;
@@ -103,6 +102,30 @@ public class PhieuChiDAO {
         }
         collection.insertOne(phieuChiDoc);
 
+    }
+    public int tinhTongTienTheoLoaiPhieuChi(String loaiPhieuChi, int nam) {
+        int tongTien = 0;
+
+        MongoCollection<Document> collection = connection.getCollection();
+        BasicDBObject query = new BasicDBObject("LoaiPhieuChi", loaiPhieuChi);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, nam);
+        Date startDate = calendar.getTime();
+        calendar.add(Calendar.YEAR, 1);
+        Date endDate = calendar.getTime();
+
+        query.append("ThoiGianLap", new BasicDBObject("$gte", startDate).append("$lt", endDate));
+
+        try (MongoCursor<Document> cursor = collection.find(query).iterator()) {
+            while (cursor.hasNext()) {
+                Document doc = cursor.next();
+                int tien = doc.getInteger("TongTien");
+                tongTien += tien;
+            }
+        }
+
+        return tongTien;
     }
 
 }

@@ -21,7 +21,7 @@ public class PhieuChiPOJO {
     @Id
     private String id;
     private  String loaiPhieuChi;
-    private  double tongTien;
+    private  int tongTien;
     private ThongTinTaiXe thongTinTaiXe;
     private ThongTinShipper thongTinShipper;
     private Date thoiGianLap;

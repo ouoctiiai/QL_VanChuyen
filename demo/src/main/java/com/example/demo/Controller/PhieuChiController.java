@@ -36,4 +36,14 @@ public class PhieuChiController {
         }
     }
 
+    @GetMapping("/tongtienphieuchi")
+    public ResponseEntity<Integer> tinhTongTienTheoLoaiPhieuChi(@RequestParam String loaiPhieuChi, @RequestParam int nam) {
+        try {
+            int tongTien = phieuChiService.tinhTongTienTheoLoaiPhieuChi(loaiPhieuChi, nam);
+            return ResponseEntity.ok(tongTien);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+
 }
