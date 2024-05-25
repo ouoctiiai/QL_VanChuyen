@@ -1,9 +1,6 @@
 package com.example.demo.DAO;
 
-import com.example.demo.POJO.PhiVanChuyen;
-import com.example.demo.POJO.TaiKhoanPOJO;
-import com.example.demo.POJO.ThongTinTaiKhoan;
-import com.example.demo.POJO.VanDonPOJO;
+import com.example.demo.POJO.*;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
@@ -82,7 +79,6 @@ public class TaiKhoanDAO {
         return String.format("SP%05d", number);
     }
 
-
     public TaiKhoanPOJO timTaiKhoanTheoId(ObjectId id) {
         MongoCollection<Document> collection = connection.getCollection();
         Bson filter = Filters.eq("_id", id);
@@ -110,7 +106,6 @@ public class TaiKhoanDAO {
         return ds;
     }
 
-    // Phương thức để chuyển đổi Document thành KhoPOJO
     private TaiKhoanPOJO convertToTaiKhoanPOJO(Document doc) {
         TaiKhoanPOJO tk = new TaiKhoanPOJO();
         tk.setId(doc.getObjectId("_id").toString());
@@ -135,6 +130,18 @@ public class TaiKhoanDAO {
         return tk;
     }
 
+    public Integer tinhTongTienDaNhanCuaShipper(TaiKhoanPOJO tk)
+    {
+        PhieuChiDAO dao = new PhieuChiDAO();
+        Integer s = 0;
+        List<PhieuChiPOJO> ls = dao.lichSuChiChoShipper(tk.getMaShipper());
+        for(PhieuChiPOJO p : ls)
+        {
+            s += p.getTongTien();
+        }
+        return s;
+    }
+
     public Integer tinhTongLuongCuaShipper(TaiKhoanPOJO tk)
     {
         VanDonDAO vd = new VanDonDAO();
@@ -144,6 +151,9 @@ public class TaiKhoanDAO {
             PhiVanChuyen p = vd1.getPhiVanChuyen();
             luong += p.getLuongShipperTheoDon();
         }
+
+        luong -= tinhTongTienDaNhanCuaShipper(tk);
+
         return luong;
     }
 
@@ -152,13 +162,14 @@ public class TaiKhoanDAO {
             MongoCollection<Document> collection = connection.getCollection();
 
             Document updateDoc = new Document();
-            updateDoc.append("TenChuTaiKhoan", tenChuTaiKhoan);
-            updateDoc.append("TenDangNhap", tenDangNhap);
-            updateDoc.append("MatKhau", matKhau);
-            updateDoc.append("SDT", sdt);
-            updateDoc.append("Email", email);
-            updateDoc.append("ThongTinTaiKhoan.SoTaiKhoan", soTaiKhoan);
-            updateDoc.append("ThongTinTaiKhoan.TenNganHang", tenNganHang);
+            updateDoc.append("$set", new Document()
+                    .append("TenChuTaiKhoan", tenChuTaiKhoan)
+                    .append("TenDangNhap", tenDangNhap)
+                    .append("MatKhau", matKhau)
+                    .append("SDT", sdt)
+                    .append("Email", email)
+                    .append("ThongTinTaiKhoan.SoTaiKhoan", soTaiKhoan)
+                    .append("ThongTinTaiKhoan.TenNganHang", tenNganHang));
 
             UpdateResult updateResult = collection.updateOne(
                     Filters.eq("_id", id),
@@ -175,7 +186,6 @@ public class TaiKhoanDAO {
         }
     }
 
-    // Đóng kết nối cơ sở dữ liệu
     public void dongKetNoi() {
         connection.close();
     }

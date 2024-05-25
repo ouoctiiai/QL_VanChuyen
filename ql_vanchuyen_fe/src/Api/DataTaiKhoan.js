@@ -13,4 +13,4 @@ export const createAccount = async (accountData) => axios.post(URL + '/create', 
 export const getDSShipper = async() => axios.get(URL + '/dsTaiKhoanLaShipper')
 
 export const updateTKShipper = (id, tenChuTaiKhoan, tenTaiKhoan, matKhau, sdt, email, soTaiKhoan, tenNganHang) =>  
-    axios.get(`${URL}/updateSP/${id}/${tenChuTaiKhoan}/${tenTaiKhoan}/${matKhau}/${sdt}/${email}/${soTaiKhoan}/${tenNganHang}`);
+    axios.post(`${URL}/updateSP/${id}/${tenChuTaiKhoan}/${tenTaiKhoan}/${matKhau}/${sdt}/${email}/${soTaiKhoan}/${tenNganHang}`);
