@@ -25,5 +25,17 @@ public class PhieuChiPOJO {
     private ThongTinTaiXe thongTinTaiXe;
     private ThongTinShipper thongTinShipper;
     private Date thoiGianLap;
+    private String thoiGianLapToString;
+
+    public void setThoiGianLap(Date thoiGianLap) throws ParseException {
+        this.thoiGianLap = thoiGianLap;
+        this.thoiGianLapToString = getDateFromISO(thoiGianLap);
+    }
+
+    public static String getDateFromISO(Date isoDate) throws ParseException {
+        SimpleDateFormat newFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = newFormatter.format(isoDate);
+        return formattedDate;
+    }
 
 }

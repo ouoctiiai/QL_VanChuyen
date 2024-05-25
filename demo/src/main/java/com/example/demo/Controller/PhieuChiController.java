@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.POJO.PhieuChiPOJO;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -31,8 +32,13 @@ public class PhieuChiController {
     }
 
     @GetMapping("/danhsachphieuchi")
-    public ResponseEntity ds(Model model) {
-        List<PhieuChiPOJO> danhSachPhieuChi = phieuChiService.loadDanhSachPhieuChi();
+    public ResponseEntity ds(Model model) throws ParseException {
+        List<PhieuChiPOJO> danhSachPhieuChi = null;
+        try {
+            danhSachPhieuChi = phieuChiService.loadDanhSachPhieuChi();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
         return new ResponseEntity<>(danhSachPhieuChi, HttpStatus.OK);
     }
 

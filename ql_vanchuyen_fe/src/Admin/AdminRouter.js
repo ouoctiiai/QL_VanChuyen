@@ -13,6 +13,7 @@ import Bar from "./scenes/Charts/BarChart";
 import Line from "./scenes/Charts/LineChart";
 import Pie from "./scenes/Charts/PieChart";
 import PhieuChi from "./scenes/TaoPhieuChi";
+import DSPhieuChi from "./scenes/QLPhieuChi";
 
 
 const renderAdminRouter = () => {
@@ -52,6 +53,10 @@ const renderAdminRouter = () => {
     {
       path: ROUTERS.ADMIN.TAOPHIEUCHI,
       component: PhieuChi
+    },
+    {
+      path: ROUTERS.ADMIN.QLPHIEUCHI,
+      component: DSPhieuChi
     },
   ]
   return (

@@ -40,6 +40,7 @@ export const ROUTERS ={
         PIECHART: "/piechart",
         LINECHART:"/linechart",
         TAOPHIEUCHI: "/taophieuchi",
+        QLPHIEUCHI: "/qlphieuchi",
     },
 
     EMPLOYEE:{

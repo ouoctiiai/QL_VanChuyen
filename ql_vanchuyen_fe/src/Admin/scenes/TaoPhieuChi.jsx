@@ -47,12 +47,12 @@ const PhieuChi = () => {
       TongTien: item.tongTienCong || item.luongTaiXe,
       ThoiGianLap: new Date(),
       ThongTinShipper: type === 'shipper' ? {
-        maShipper: item.maShipper,
-        tenShipper: item.tenChuTaiKhoan,
+        MaShipper: item.maShipper,
+        TenShipper: item.tenChuTaiKhoan,
       } : null,
       ThongTinTaiXe: type === 'driver' ? {
-        maTaiXe: item.maTaiXe,
-        tenTaiXe: item.tenTaiXe,
+        MaTaiXe: item.maTaiXe,
+        TenTaiXe: item.tenTaiXe,
       } : null,
     };
     await handleFormSubmit(values);

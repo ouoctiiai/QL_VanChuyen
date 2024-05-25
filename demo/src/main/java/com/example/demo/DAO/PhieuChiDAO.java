@@ -13,6 +13,7 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 
+import java.text.ParseException;
 import java.util.*;
 import java.util.logging.Logger;
 
@@ -25,7 +26,7 @@ public class PhieuChiDAO {
     }
 
 
-    public List<PhieuChiPOJO> loadDanhSachPhieuChi() {
+    public List<PhieuChiPOJO> loadDanhSachPhieuChi() throws ParseException {
         List<PhieuChiPOJO> danhSachPhieuChi = new ArrayList<>();
         MongoCollection<Document> collection = connection.getCollection();
 
@@ -37,7 +38,7 @@ public class PhieuChiDAO {
     }
 
 
-    public PhieuChiPOJO convertToPhieuChiPOJO(Document doc) {
+    public PhieuChiPOJO convertToPhieuChiPOJO(Document doc) throws ParseException {
         PhieuChiPOJO phieuChi = new PhieuChiPOJO();
         phieuChi.setId(doc.getObjectId("_id").toString());
         phieuChi.setLoaiPhieuChi(doc.getString("LoaiPhieuChi"));
@@ -55,7 +56,6 @@ public class PhieuChiDAO {
             ThongTinShipper tt = new ThongTinShipper();
             tt.setMaShipper(ttsp.getString("MaShipper"));
             tt.setTenShipper(ttsp.getString("TenShipper"));
-            tt.setSdtShipper(ttsp.getString("SDTShipper"));
             phieuChi.setThongTinShipper(tt);
         }
     }
@@ -67,7 +67,6 @@ public class PhieuChiDAO {
             ThongTinTaiXe tt = new ThongTinTaiXe();
             tt.setMaTaiXe(tttx.getString("MaTaiXe"));
             tt.setTenTaiXe(tttx.getString("TenTaiXe"));
-            tt.setSdtTaiXe(tttx.getString("SDTTaiXe"));
             phieuChi.setThongTinTaiXe(tt);
         }
     }

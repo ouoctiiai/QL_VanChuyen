@@ -1,11 +1,11 @@
 [{
   "_id": {
-    "$oid": "66512051ebc95976b9a55862"
+    "$oid": "665218f2b29e555133686aaa"
   },
   "LoaiPhieuChi": "Trả lương Shipper",
   "TongTien": 41162,
   "ThoiGianLap": {
-    "$date": "2024-05-24T23:18:41.365Z"
+    "$date": "2022-05-25T16:59:30.377Z"
   },
   "ThongTinShipper": {
     "MaShipper": "SP00001",
@@ -14,70 +14,124 @@
 },
 {
   "_id": {
-    "$oid": "66512053ebc95976b9a55863"
+    "$oid": "665218f5b29e555133686aab"
   },
-  "LoaiPhieuChi": "Trả lương Tài Xế",
-  "TongTien": 56214,
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 23800,
   "ThoiGianLap": {
-    "$date": "2024-05-24T23:18:43.741Z"
+    "$date": "2023-05-25T16:59:33.431Z"
   },
-  "ThongTinTaiXe": {
-    "MaTaiXe": "TX001",
-    "TenTaiXe": "Huỳnh Quốc Anh"
+  "ThongTinShipper": {
+    "MaShipper": "SP00008",
+    "TenShipper": "Nguyễn Duy Hưng"
   }
 },
 {
   "_id": {
-    "$oid": "66512059ebc95976b9a55864"
+    "$oid": "665218f8b29e555133686aac"
   },
-  "LoaiPhieuChi": "Chi phí xe",
-  "TongTien": 316000,
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 16802,
   "ThoiGianLap": {
-    "$date": "2024-05-24T23:18:49.002Z"
+    "$date": "2022-05-25T16:59:36.301Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00003",
+    "TenShipper": "Phạm Kim Thành"
   }
 },
 {
   "_id": {
-    "$oid": "6651205febc95976b9a55865"
+    "$oid": "665218fbb29e555133686aad"
   },
-  "LoaiPhieuChi": "Chi phí nhiên liệu",
-  "TongTien": 53700,
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 22403,
   "ThoiGianLap": {
-    "$date": "2024-05-24T23:18:55.839Z"
+    "$date": "2022-05-25T16:59:39.263Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00004",
+    "TenShipper": "Nguyễn Hà Trang"
   }
 },
 {
   "_id": {
-    "$oid": "66512065ebc95976b9a55866"
+    "$oid": "665218ffb29e555133686aae"
   },
-  "LoaiPhieuChi": "Chi phí thiết bị",
-  "TongTien": 12700,
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 22752,
   "ThoiGianLap": {
-    "$date": "2024-05-24T23:19:01.160Z"
+    "$date": "2023-05-25T16:59:43.482Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00006",
+    "TenShipper": "Nguyễn Đức Linh Kiệt"
   }
 },
 {
   "_id": {
-    "$oid": "66512067ebc95976b9a55867"
+    "$oid": "66521902b29e555133686aaf"
   },
-  "LoaiPhieuChi": "Trả lương Tài Xế",
-  "TongTien": 15051,
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 42029,
   "ThoiGianLap": {
-    "$date": "2024-05-24T23:19:03.364Z"
+    "$date": "2023-05-25T16:59:46.702Z"
   },
-  "ThongTinTaiXe": {
-    "MaTaiXe": "TX006",
-    "TenTaiXe": "Nguyễn Minh Triết"
+  "ThongTinShipper": {
+    "MaShipper": "SP00007",
+    "TenShipper": "Phạm Bá Tuấn Linh"
   }
 },
 {
   "_id": {
-    "$oid": "665136b59ae5cd460ba75692"
+    "$oid": "66521906b29e555133686ab0"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 42659,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T16:59:50.655Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00002",
+    "TenShipper": "Nguyễn Đức Minh"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521909b29e555133686ab1"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 22051,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T16:59:53.649Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00009",
+    "TenShipper": "Phạm Bình Nam"
+  }
+},
+{
+  "_id": {
+    "$oid": "6652190cb29e555133686ab2"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 25354,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T16:59:56.129Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00010",
+    "TenShipper": "Hồ Xuân Thái"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521913b29e555133686ab3"
   },
   "LoaiPhieuChi": "Trả lương Shipper",
   "TongTien": 16803,
   "ThoiGianLap": {
-    "$date": "2024-05-25T00:54:13.732Z"
+    "$date": "2022-05-25T17:00:03.192Z"
   },
   "ThongTinShipper": {
     "MaShipper": "SP00012",
@@ -86,26 +140,54 @@
 },
 {
   "_id": {
-    "$oid": "665136ba9ae5cd460ba75693"
+    "$oid": "66521916b29e555133686ab4"
   },
-  "LoaiPhieuChi": "Trả lương Tài Xế",
-  "TongTien": 48657,
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 16803,
   "ThoiGianLap": {
-    "$date": "2024-05-25T00:54:18.453Z"
+    "$date": "2022-05-25T17:00:06.948Z"
   },
-  "ThongTinTaiXe": {
-    "MaTaiXe": "TX002",
-    "TenTaiXe": "Trần Chí Nhân"
+  "ThongTinShipper": {
+    "MaShipper": "SP00013",
+    "TenShipper": "Nguyễn Nhật An"
   }
 },
 {
   "_id": {
-    "$oid": "665136bf9ae5cd460ba75694"
+    "$oid": "66521919b29e555133686ab5"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 16802,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:00:09.087Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00014",
+    "TenShipper": "Đỗ Nam Anh"
+  }
+},
+{
+  "_id": {
+    "$oid": "6652191bb29e555133686ab6"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 11552,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:00:11.085Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00015",
+    "TenShipper": "Phạm Như Ba"
+  }
+},
+{
+  "_id": {
+    "$oid": "6652191db29e555133686ab7"
   },
   "LoaiPhieuChi": "Trả lương Shipper",
   "TongTien": 13301,
   "ThoiGianLap": {
-    "$date": "2024-05-25T00:54:23.436Z"
+    "$date": "2023-05-25T17:00:13.004Z"
   },
   "ThongTinShipper": {
     "MaShipper": "SP00016",
@@ -114,40 +196,138 @@
 },
 {
   "_id": {
-    "$oid": "665136c29ae5cd460ba75695"
+    "$oid": "66521920b29e555133686ab8"
   },
-  "LoaiPhieuChi": "Trả lương Tài Xế",
-  "TongTien": 48657,
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 29449,
   "ThoiGianLap": {
-    "$date": "2024-05-25T00:54:26.528Z"
+    "$date": "2024-05-25T17:00:16.055Z"
   },
-  "ThongTinTaiXe": {
-    "MaTaiXe": "TX002",
-    "TenTaiXe": "Trần Chí Nhân"
+  "ThongTinShipper": {
+    "MaShipper": "SP00017",
+    "TenShipper": "Nguyễn Long Hải"
   }
 },
 {
   "_id": {
-    "$oid": "665136c69ae5cd460ba75696"
+    "$oid": "66521922b29e555133686ab9"
   },
-  "LoaiPhieuChi": "Trả lương Tài Xế",
-  "TongTien": 57405,
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 74730,
   "ThoiGianLap": {
-    "$date": "2024-05-25T00:54:30.432Z"
+    "$date": "2024-05-25T17:00:18.221Z"
   },
-  "ThongTinTaiXe": {
-    "MaTaiXe": "TX007",
-    "TenTaiXe": "Trần Văn Hướng"
+  "ThongTinShipper": {
+    "MaShipper": "SP00019",
+    "TenShipper": "Hoàng Trung Kiên"
   }
 },
 {
   "_id": {
-    "$oid": "665136ca9ae5cd460ba75697"
+    "$oid": "66521924b29e555133686aba"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 39336,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:00:20.519Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00020",
+    "TenShipper": "Đào Nguyễn Mai Lan"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521960b29e555133686abb"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 34398,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:01:20.576Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00021",
+    "TenShipper": "Đào Doãn Linh"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521962b29e555133686abc"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 29185,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:01:22.952Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00022",
+    "TenShipper": "Nguyễn Tuấn Long"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521965b29e555133686abd"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 16800,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:01:25.163Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00023",
+    "TenShipper": "Nguyễn Minh Nghĩa"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521967b29e555133686abe"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 32762,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:01:27.463Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00024",
+    "TenShipper": "Hoàng Minh Nguyệt"
+  }
+},
+{
+  "_id": {
+    "$oid": "6652196ab29e555133686abf"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 32082,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:01:30.199Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00025",
+    "TenShipper": "Dương Mạnh Quý"
+  }
+},
+{
+  "_id": {
+    "$oid": "6652196cb29e555133686ac0"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 18551,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:01:32.010Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00026",
+    "TenShipper": "Nguyễn Hương Quỳnh"
+  }
+},
+{
+  "_id": {
+    "$oid": "6652196eb29e555133686ac1"
   },
   "LoaiPhieuChi": "Trả lương Shipper",
   "TongTien": 23087,
   "ThoiGianLap": {
-    "$date": "2024-05-25T00:54:34.883Z"
+    "$date": "2023-05-25T17:01:34.046Z"
   },
   "ThongTinShipper": {
     "MaShipper": "SP00028",
@@ -156,12 +336,194 @@
 },
 {
   "_id": {
-    "$oid": "665136d09ae5cd460ba75698"
+    "$oid": "66521995b29e555133686ac3"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 49771,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:02:13.255Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00029",
+    "TenShipper": "Trần Đức Thắng"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521997b29e555133686ac4"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 35562,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:02:15.412Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00030",
+    "TenShipper": "Phạm Bá Thành"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521999b29e555133686ac5"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 18550,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:02:17.087Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00031",
+    "TenShipper": "Lê Thị Phương Thảo"
+  }
+},
+{
+  "_id": {
+    "$oid": "6652199ab29e555133686ac6"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 65338,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:02:18.912Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00032",
+    "TenShipper": "Hồ Thị Trang"
+  }
+},
+{
+  "_id": {
+    "$oid": "6652199fb29e555133686ac7"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 9296,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:02:23.343Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00033",
+    "TenShipper": "Nông Việt Hoàng"
+  }
+},
+{
+  "_id": {
+    "$oid": "665219a1b29e555133686ac8"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 12782,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:02:25.001Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00034",
+    "TenShipper": "Tô Thị Hiểu"
+  }
+},
+{
+  "_id": {
+    "$oid": "665219a2b29e555133686ac9"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 35098,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:02:26.889Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00035",
+    "TenShipper": "Đỗ Mai Anh"
+  }
+},
+{
+  "_id": {
+    "$oid": "665219a4b29e555133686aca"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 5271,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:02:28.903Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00036",
+    "TenShipper": "Nguyễn Đức Anh"
+  }
+},
+{
+  "_id": {
+    "$oid": "665219a7b29e555133686acb"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 6055,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:02:31.980Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00037",
+    "TenShipper": "Nguyễn Linh Đan"
+  }
+},
+{
+  "_id": {
+    "$oid": "665219a9b29e555133686acc"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 76111,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:02:33.805Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00039",
+    "TenShipper": "Nguyễn Nhật Huy"
+  }
+},
+{
+  "_id": {
+    "$oid": "665219acb29e555133686acd"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 74844,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:02:36.315Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00040",
+    "TenShipper": "Nguyễn Long Khải"
+  }
+},
+{
+  "_id": {
+    "$oid": "665219adb29e555133686ace"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 18403,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:02:37.983Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00041",
+    "TenShipper": "Lê Thị Hoa Lê"
+  }
+},
+{
+  "_id": {
+    "$oid": "665219afb29e555133686acf"
+  },
+  "LoaiPhieuChi": "Trả lương Shipper",
+  "TongTien": 6069,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:02:39.769Z"
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00042",
+    "TenShipper": "Nguyễn Mai Linh"
+  }
+},
+{
+  "_id": {
+    "$oid": "665219b2b29e555133686ad0"
   },
   "LoaiPhieuChi": "Trả lương Shipper",
   "TongTien": 40769,
   "ThoiGianLap": {
-    "$date": "2024-05-25T00:54:40.397Z"
+    "$date": "2023-05-25T17:02:42.075Z"
   },
   "ThongTinShipper": {
     "MaShipper": "SP00043",
@@ -170,26 +532,124 @@
 },
 {
   "_id": {
-    "$oid": "665136d59ae5cd460ba75699"
+    "$oid": "665219b5b29e555133686ad1"
   },
   "LoaiPhieuChi": "Trả lương Tài Xế",
-  "TongTien": 47288,
+  "TongTien": 56214,
   "ThoiGianLap": {
-    "$date": "2024-05-25T00:54:45.959Z"
+    "$date": "2023-05-25T17:02:45.205Z"
   },
   "ThongTinTaiXe": {
-    "MaTaiXe": "TX008",
-    "TenTaiXe": "Nguyễn Văn Chí Anh"
+    "MaTaiXe": "TX001",
+    "TenTaiXe": "Huỳnh Quốc Anh"
   }
 },
 {
   "_id": {
-    "$oid": "665136d99ae5cd460ba7569a"
+    "$oid": "665219b7b29e555133686ad2"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 167658,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:02:47.378Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX005",
+    "TenTaiXe": "Nguyễn Văn Út Em"
+  }
+},
+{
+  "_id": {
+    "$oid": "665219b9b29e555133686ad3"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 57405,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:02:49.517Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX007",
+    "TenTaiXe": "Trần Văn Hướng"
+  }
+},
+{
+  "_id": {
+    "$oid": "665219bbb29e555133686ad4"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 57967,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:02:51.775Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX003",
+    "TenTaiXe": "Nguyễn Thành Lộc"
+  }
+},
+{
+  "_id": {
+    "$oid": "665219bdb29e555133686ad5"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 48657,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:02:53.764Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX002",
+    "TenTaiXe": "Trần Chí Nhân"
+  }
+},
+{
+  "_id": {
+    "$oid": "665219bfb29e555133686ad6"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 15051,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:02:55.930Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX006",
+    "TenTaiXe": "Nguyễn Minh Triết"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a0bb29e555133686ad7"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 80924,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:04:11.276Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX004",
+    "TenTaiXe": "Nguyễn Trọng Nghĩa"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a0db29e555133686ad8"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 35354,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:04:13.991Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX011",
+    "TenTaiXe": "Lưu Gia Bảo"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a10b29e555133686ad9"
   },
   "LoaiPhieuChi": "Trả lương Tài Xế",
   "TongTien": 28352,
   "ThoiGianLap": {
-    "$date": "2024-05-25T00:54:49.746Z"
+    "$date": "2024-05-25T17:04:16.509Z"
   },
   "ThongTinTaiXe": {
     "MaTaiXe": "TX009",
@@ -198,31 +658,239 @@
 },
 {
   "_id": {
-    "$oid": "665136fb9ae5cd460ba7569d"
+    "$oid": "66521a12b29e555133686ada"
   },
-  "LoaiPhieuChi": "Chi phí thiết bị",
-  "TongTien": 127000,
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 70632,
   "ThoiGianLap": {
-    "$date": "2024-05-25T00:55:23.548Z"
+    "$date": "2022-05-25T17:04:18.524Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX010",
+    "TenTaiXe": "Nguyễn Thanh Tùng"
   }
 },
 {
   "_id": {
-    "$oid": "665136ff9ae5cd460ba7569e"
+    "$oid": "66521a14b29e555133686adb"
+  },
+  "LoaiPhieuChi": "Trả lương Tài Xế",
+  "TongTien": 47288,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:04:20.394Z"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX008",
+    "TenTaiXe": "Nguyễn Văn Chí Anh"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a1bb29e555133686adc"
+  },
+  "LoaiPhieuChi": "Chi phí xe",
+  "TongTien": 25000,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:04:27.565Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a1eb29e555133686add"
   },
   "LoaiPhieuChi": "Chi phí nhiên liệu",
-  "TongTien": 58700,
+  "TongTien": 30000,
   "ThoiGianLap": {
-    "$date": "2024-05-25T00:55:27.838Z"
+    "$date": "2023-05-25T17:04:30.776Z"
   }
 },
 {
   "_id": {
-    "$oid": "665137029ae5cd460ba7569f"
+    "$oid": "66521a20b29e555133686ade"
+  },
+  "LoaiPhieuChi": "Chi phí thiết bị",
+  "TongTien": 78600,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:04:32.734Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a28b29e555133686adf"
+  },
+  "LoaiPhieuChi": "Chi phí xe",
+  "TongTien": 47100,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:04:40.246Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a30b29e555133686ae0"
+  },
+  "LoaiPhieuChi": "Chi phí xe",
+  "TongTien": 49100,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:04:48.314Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a35b29e555133686ae1"
+  },
+  "LoaiPhieuChi": "Chi phí xe",
+  "TongTien": 19100,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:04:53.342Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a3cb29e555133686ae2"
+  },
+  "LoaiPhieuChi": "Chi phí nhiên liệu",
+  "TongTien": 98000,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:05:00.131Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a42b29e555133686ae3"
+  },
+  "LoaiPhieuChi": "Chi phí nhiên liệu",
+  "TongTien": 10000,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:05:06.699Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a49b29e555133686ae4"
+  },
+  "LoaiPhieuChi": "Chi phí nhiên liệu",
+  "TongTien": 126000,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:05:13.758Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a50b29e555133686ae5"
+  },
+  "LoaiPhieuChi": "Chi phí thiết bị",
+  "TongTien": 56600,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:05:20.561Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a57b29e555133686ae6"
+  },
+  "LoaiPhieuChi": "Chi phí thiết bị",
+  "TongTien": 145200,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:05:27.982Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a5bb29e555133686ae7"
+  },
+  "LoaiPhieuChi": "Chi phí thiết bị",
+  "TongTien": 14520,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:05:31.792Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66521a63b29e555133686ae8"
+  },
+  "LoaiPhieuChi": "Chi phí thiết bị",
+  "TongTien": 149120,
+  "ThoiGianLap": {
+    "$date": "2024-05-25T17:05:39.012Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "665221bb0105a3650d1e07ad"
+  },
+  "LoaiPhieuChi": "Chi phí xe",
+  "TongTien": 126000,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:36:59.030Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "665221c30105a3650d1e07ae"
+  },
+  "LoaiPhieuChi": "Chi phí xe",
+  "TongTien": 56000,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:37:07.381Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "665221ca0105a3650d1e07af"
   },
   "LoaiPhieuChi": "Chi phí xe",
   "TongTien": 16000,
   "ThoiGianLap": {
-    "$date": "2024-05-25T00:55:30.713Z"
+    "$date": "2023-05-25T17:37:14.363Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "665221d10105a3650d1e07b0"
+  },
+  "LoaiPhieuChi": "Chi phí nhiên liệu",
+  "TongTien": 22300,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:37:21.964Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "665221dc0105a3650d1e07b1"
+  },
+  "LoaiPhieuChi": "Chi phí nhiên liệu",
+  "TongTien": 226000,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:37:32.395Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "665221e30105a3650d1e07b2"
+  },
+  "LoaiPhieuChi": "Chi phí thiết bị",
+  "TongTien": 12000,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:37:39.257Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "665221ef0105a3650d1e07b3"
+  },
+  "LoaiPhieuChi": "Chi phí thiết bị",
+  "TongTien": 56000,
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:37:51.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "665221f90105a3650d1e07b4"
+  },
+  "LoaiPhieuChi": "Chi phí thiết bị",
+  "TongTien": 560150,
+  "ThoiGianLap": {
+    "$date": "2023-05-25T17:38:01.734Z"
   }
 }]

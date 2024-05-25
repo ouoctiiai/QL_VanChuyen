@@ -166,7 +166,7 @@ const Sidebar = () =>{
             />
             <Item
               title="Quản lí phiếu chi"
-              to="/"
+              to="/qlphieuchi"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
