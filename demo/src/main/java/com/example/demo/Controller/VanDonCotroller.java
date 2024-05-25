@@ -56,13 +56,9 @@ public class VanDonCotroller {
     }
 
     @PostMapping("/create-order")
-    public ResponseEntity<String> createOrder(@RequestBody VanDonPOJO vanDonPOJO) {
-        try {
-            vanDonService.themDonHangKhachHang(vanDonPOJO);
-            return ResponseEntity.ok("Order created successfully!");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error creating order: " + e.getMessage());
-        }
+    public ResponseEntity<VanDonPOJO> createOrder(@RequestBody VanDonPOJO vanDonPOJO) {
+        VanDonPOJO newVanDon = vanDonService.themDonHang(vanDonPOJO);
+        return ResponseEntity.ok(newVanDon);
     }
 
     @GetMapping("/dsTaiXe")

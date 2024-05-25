@@ -12,6 +12,7 @@ import OrderList from './OrderList/OrderList';
 import OrderDetails from './OrderDetails/OrderDetails';
 import CustomerLayout from './CustomerLayout';
 import UpdateProfileCustomer from './Profile/UpdateProfileCustomer';
+import UpdatePasswordCustomer from './Profile/UpdatePasswordCustomer';
 
 const renderCustomerRouter = () => {
     const customerRouter = [
@@ -34,6 +35,10 @@ const renderCustomerRouter = () => {
         {
             path: ROUTERS.CUSTOMER.UPDATE_PROFILE,
             component: UpdateProfileCustomer
+        },
+        {
+            path: ROUTERS.CUSTOMER.UPDATE_PASSWORD,
+            component: UpdatePasswordCustomer
         }
     ];
 
