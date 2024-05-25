@@ -3,7 +3,7 @@ import '../Styles/ListDonCho.css';
 import Navbar from '../Components/Navbar';
 import { listDonChoTheoTinh } from '../../Api/DataVanDon';
 
-const ListDonCho = () => {
+const OrderAtWH = () => {
   const [vandons, setVanDons] = useState([]);
   const [selectedTinh, setSelectedTinh] = useState('TP Hồ Chí Minh'); // Initial selected value
 
@@ -123,4 +123,4 @@ const ListDonCho = () => {
   )
 }
 
-export default ListDonCho
+export default OrderAtWH

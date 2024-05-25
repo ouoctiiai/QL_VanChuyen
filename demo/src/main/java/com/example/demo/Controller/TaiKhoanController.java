@@ -2,6 +2,8 @@ package com.example.demo.Controller;
 
 import com.example.demo.DAO.TaiKhoanDAO;
 import com.example.demo.POJO.TaiKhoanPOJO;
+import com.example.demo.POJO.ThongTinTaiKhoan;
+import com.example.demo.POJO.VanDonPOJO;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -19,13 +22,19 @@ public class TaiKhoanController {
     private TaiKhoanDAO taiKhoanService;
 
     @GetMapping("/danh-sach")
-    public ResponseEntity dsTaiKhoan(Model model) {
+    public ResponseEntity dsTaiKhoan(Model model) throws ParseException {
         List<TaiKhoanPOJO> dstk = taiKhoanService.layTatCaTaiKhoan();
         return new ResponseEntity<>(dstk, HttpStatus.OK);
     }
 
+    @GetMapping("/dsTaiKhoanLaShipper")
+    public ResponseEntity dsTaiKhoanLaShipper(Model model) throws ParseException {
+        List<TaiKhoanPOJO> ds = taiKhoanService.danhSachTaiKhoanLaShipper();
+        return new ResponseEntity<>(ds, HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
-    public ResponseEntity<TaiKhoanPOJO> getTaiKhoanById(@PathVariable ObjectId id) {
+    public ResponseEntity<TaiKhoanPOJO> getTaiKhoanById(@PathVariable ObjectId id) throws ParseException {
         TaiKhoanPOJO taiKhoan = taiKhoanService.timTaiKhoanTheoId(id);
         if (taiKhoan != null){
             return ResponseEntity.ok(taiKhoan);
@@ -35,7 +44,7 @@ public class TaiKhoanController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<TaiKhoanPOJO> login(@RequestBody TaiKhoanPOJO loginRequest){
+    public ResponseEntity<TaiKhoanPOJO> login(@RequestBody TaiKhoanPOJO loginRequest) throws ParseException {
         System.out.println("Received login request: " + loginRequest);
         TaiKhoanPOJO user = taiKhoanService.timTaiKhoanTheoTenTaiKhoan(loginRequest.getTenTaiKhoan());
 //        if(user != null && user.getMatKhau().equals(loginRequest.getMatKhau())){
@@ -77,5 +86,16 @@ public class TaiKhoanController {
         TaiKhoanPOJO taiKhoanKH = taiKhoanService.themTaiKhoanKhachHang(taiKhoanKhachHang);
         return ResponseEntity.ok(taiKhoanKH);
     }
+
+    @PostMapping("/updateSP/{id}/{tenChuTK}/{tenTK}/{mk}/{sdt}/{email}/{stk}/{tennh}")
+    public ResponseEntity updateTrangThaiDaGiao(@PathVariable ObjectId id, @PathVariable String tenChuTK, @PathVariable String tenTK, @PathVariable String mk, @PathVariable String sdt, @PathVariable String email, @PathVariable String stk, @PathVariable String tennh) throws Exception {
+        TaiKhoanPOJO vd = taiKhoanService.updateTaiKhoanShipper(id, tenChuTK, tenTK, mk, sdt, email, stk, tennh);
+        if (vd != null) {
+            return ResponseEntity.ok(vd);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
 }

@@ -15,6 +15,7 @@ import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 @Service
@@ -22,13 +23,7 @@ public class VanDonDAO {
 
     private final Connection connection;
     private java.util.Objects Objects;
-//
-//    public void capNhatDonLienTinh(KhoPOJO kho) {
-//        MongoCollection<Document> collection = connection.getCollection();
-//        Bson filter = Filters.eq("id", kho.getId());
-//        Document updatedDocument = convertToDocument(kho);
-//        collection.replaceOne(filter, updatedDocument);
-//    }
+
 
     public VanDonDAO() {
         connection = new Connection("VanDon");
@@ -49,6 +44,103 @@ public class VanDonDAO {
         return dsVanDon;
     }
 
+    public List<VanDonPOJO> danhSachDonNoiTinh() {
+        List<VanDonPOJO> dsVanDon = new ArrayList<>();
+
+        MongoCollection<Document> collection = connection.getCollection();
+
+        BasicDBObject query = new BasicDBObject("LoaiVanChuyen", "Nội tỉnh");
+
+        for (Document doc : collection.find(query)) {
+            VanDonPOJO vd = convertToVanDonPOJO(doc);
+            dsVanDon.add(vd);
+        }
+
+        return dsVanDon;
+    }
+
+    public List<VanDonPOJO> danhSachDonLienTinh() {
+        List<VanDonPOJO> dsVanDon = new ArrayList<>();
+
+        MongoCollection<Document> collection = connection.getCollection();
+
+        BasicDBObject query = new BasicDBObject("LoaiVanChuyen", "Liên tỉnh");
+
+        for (Document doc : collection.find(query)) {
+            VanDonPOJO vd = convertToVanDonPOJO(doc);
+            dsVanDon.add(vd);
+            double totalShippingFee = tinhPhiVanChyen(vd);
+        }
+
+        return dsVanDon;
+    }
+
+    public List<VanDonPOJO> danhSachDonNoiTinhChuaGiaoTheoTinh(String tinh) {
+        List<VanDonPOJO> dsVanDon = new ArrayList<>();
+        List<VanDonPOJO> dsNoiTinh = danhSachDonNoiTinh();
+        for (VanDonPOJO vd : dsNoiTinh) {
+            if(java.util.Objects.equals(vd.getTrangThai(), "Chờ giao") && java.util.Objects.equals(vd.getTinh(), tinh))
+            {
+                dsVanDon.add(vd);
+            }
+        }
+        return  dsVanDon;
+    }
+
+    public List<VanDonPOJO> danhSach10DonGanDayNhat() {
+        List<VanDonPOJO> dsVanDon = new ArrayList<>();
+
+        MongoCollection<Document> collection = connection.getCollection();
+
+        FindIterable<Document> docs = collection.find()
+                .sort(Sorts.descending("ThoiGianLap"))
+                .limit(10);
+
+        for (Document doc : docs) {
+            VanDonPOJO vd = convertToVanDonPOJO(doc);
+            dsVanDon.add(vd);
+        }
+
+        return dsVanDon;
+    }
+
+    public List<VanDonPOJO> lichSuDonCuaShipper(String id){
+        List<VanDonPOJO> ds = new ArrayList<>();
+        List<VanDonPOJO> dsVanDon = allVanDon();
+        for(VanDonPOJO vd : dsVanDon){
+            ThongTinShipper tt = vd.getThongTinShipper();
+            if(tt != null){
+                if(java.util.Objects.equals(tt.getMaShipper(), id))
+                {
+                    ds.add(vd);
+                }
+            }
+        }
+        return ds;
+    }
+
+    public List<VanDonPOJO> lichSuDonCuaTaiXe(String id){
+        List<VanDonPOJO> ds = new ArrayList<>();
+        List<VanDonPOJO> dsVanDon = allVanDon();
+        for(VanDonPOJO vd : dsVanDon){
+            ThongTinTaiXe tt = vd.getThongTinTaiXe();
+            if(tt != null){
+                if(java.util.Objects.equals(tt.getMaTaiXe(), id))
+                {
+                    ds.add(vd);
+                }
+            }
+        }
+        return ds;
+    }
+
+    public VanDonPOJO timVanDonTheoId(ObjectId id) {
+        MongoCollection<Document> collection = connection.getCollection();
+        Bson filter = Filters.eq("_id", id);
+        Document doc = collection.find(filter).first();
+        return convertToVanDonPOJO(doc);
+    }
+
     public double tinhPhiVanChyen(VanDonPOJO vanDon) {
         PhiVanChuyen phiVanChuyen = vanDon.getPhiVanChuyen();
         ThongTinHangHoa thongTinHangHoa = vanDon.getThongTinHangHoa();
@@ -57,11 +149,11 @@ public class VanDonDAO {
         KichCo kichCo = thongTinHangHoa.getKichCo();
         String loaiHang = thongTinHangHoa.getLoaiHang();
 
-        if (loaiHang.equalsIgnoreCase("hàng điện tử"))
+        if (loaiHang.equalsIgnoreCase("Điện - điện tử"))
             tongPhi += 5000;
-        else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
+        else if (loaiHang.equalsIgnoreCase("Hàng dễ vỡ"))
             tongPhi += 5000;
-        else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
+        else if (loaiHang.equalsIgnoreCase("Thuốc & hóa chất"))
             tongPhi += 10000;
 
         if(kichCo != null){
@@ -133,11 +225,11 @@ public class VanDonDAO {
     public int tinhTongPhi(int phiCoDinh, int phiVAT, int phiCoc, int phiNang, int phiHa, int phiThuong, int phiKhac, double khoangCach, double khoiLuong, double chieuDai, double chieuRong, String loaiHang, String loaiVanChuyen){
         int tongPhi = phiCoDinh + phiVAT + phiCoc + phiNang + phiHa + phiThuong + phiKhac;
 
-        if (loaiHang.equalsIgnoreCase("hàng điện tử"))
+        if (loaiHang.equalsIgnoreCase("Điện - điện tử"))
             tongPhi += 5000;
-        else if (loaiHang.equalsIgnoreCase("hàng dễ vỡ"))
+        else if (loaiHang.equalsIgnoreCase("Hàng dễ vỡ"))
             tongPhi += 5000;
-        else if (loaiHang.equalsIgnoreCase("thuốc") || loaiHang.equalsIgnoreCase("hoá chất"))
+        else if (loaiHang.equalsIgnoreCase("Thuốc & hóa chất"))
             tongPhi += 10000;
 
         if (chieuDai + chieuRong > 150)
@@ -167,23 +259,6 @@ public class VanDonDAO {
 
     public int tinhPhiVAT(int phiCoDinh, int phiCoc, int phiNang, int phiHa, int phiKhac){
         return (int) ((phiCoDinh + phiCoc + phiNang + phiHa + phiKhac) * 0.1);
-    }
-
-    private class DoanhThuTheoNam{
-        public int nam;
-        public double tongTien;
-
-        public DoanhThuTheoNam(){
-            nam= 0;
-            tongTien = 0;
-        }
-        public DoanhThuTheoNam(int nam){
-            this.nam = nam;
-        }
-        public DoanhThuTheoNam(int nam, double tongTien){
-            this.nam = nam;
-            this.tongTien = tongTien;
-        }
     }
 
     public List<Map<String, Object>> tinhDoanhThuTheoNam() {
@@ -240,25 +315,6 @@ public class VanDonDAO {
 
         return doanhThuTheoThang;
     }
-
-    public List<VanDonPOJO> danhSach10DonGanDayNhat() {
-        List<VanDonPOJO> dsVanDon = new ArrayList<>();
-
-        MongoCollection<Document> collection = connection.getCollection();
-
-        FindIterable<Document> docs = collection.find()
-                .sort(Sorts.descending("ThoiGianLap"))
-                .limit(10);
-
-        for (Document doc : docs) {
-            VanDonPOJO vd = convertToVanDonPOJO(doc);
-            dsVanDon.add(vd);
-        }
-
-        return dsVanDon;
-    }
-
-
 
     public int tinhTongSoDonHangThanhCong() {
         int tongSoDonHangThanhCong = 0;
@@ -331,42 +387,102 @@ public class VanDonDAO {
         return (int) count;
     }
 
-    public List<VanDonPOJO> danhSachDonNoiTinh() {
+    public List<VanDonPOJO> dsDonTheoTrangThai(String trangThai) {
         List<VanDonPOJO> dsVanDon = new ArrayList<>();
-
         MongoCollection<Document> collection = connection.getCollection();
+        Bson filter = Filters.eq("TrangThai", trangThai);
 
-        BasicDBObject query = new BasicDBObject("LoaiVanChuyen", "Nội tỉnh");
-
-        for (Document doc : collection.find(query)) {
+        for (Document doc : collection.find(filter)) {
             VanDonPOJO vd = convertToVanDonPOJO(doc);
             dsVanDon.add(vd);
         }
-
         return dsVanDon;
     }
 
-    public List<VanDonPOJO> danhSachDonLienTinh() {
-        List<VanDonPOJO> dsVanDon = new ArrayList<>();
-
-        MongoCollection<Document> collection = connection.getCollection();
-
-        BasicDBObject query = new BasicDBObject("LoaiVanChuyen", "Liên tỉnh");
-
-        for (Document doc : collection.find(query)) {
-            VanDonPOJO vd = convertToVanDonPOJO(doc);
-            dsVanDon.add(vd);
-            double totalShippingFee = tinhPhiVanChyen(vd);
+    public int tinhTongSoDonCuaShipper(String id) {
+        int s = 0;
+        List<VanDonPOJO> dsVanDon = allVanDon();
+        for(VanDonPOJO vd : dsVanDon){
+            ThongTinShipper tt = vd.getThongTinShipper();
+            if(tt != null){
+                if(java.util.Objects.equals(tt.getMaShipper(), id))
+                {
+                    s++;
+                }
+            }
         }
-
-        return dsVanDon;
+        return s;
     }
 
-    public VanDonPOJO timVanDonTheoId(ObjectId id) {
-        MongoCollection<Document> collection = connection.getCollection();
-        Bson filter = Filters.eq("_id", id);
-        Document doc = collection.find(filter).first();
-        return convertToVanDonPOJO(doc);
+    public int tinhTongSoDonDaGiaoCuaShipper(String id) {
+        int s = 0;
+        List<VanDonPOJO> dsVanDon = allVanDon();
+        for(VanDonPOJO vd : dsVanDon){
+            ThongTinShipper tt = vd.getThongTinShipper();
+            if(tt != null){
+                if(java.util.Objects.equals(tt.getMaShipper(), id))
+                {
+                    if(java.util.Objects.equals(vd.getTrangThai(), "Giao hàng thành công"))
+                    {
+                        s++;
+                    }
+                }
+            }
+        }
+        return s;
+    }
+
+    public int tinhTongSoDonDangGiaoCuaShipper(String id) {
+        int s = 0;
+        List<VanDonPOJO> dsVanDon = allVanDon();
+        for(VanDonPOJO vd : dsVanDon){
+            ThongTinShipper tt = vd.getThongTinShipper();
+            if(tt != null){
+                if(java.util.Objects.equals(tt.getMaShipper(), id))
+                {
+                    if(java.util.Objects.equals(vd.getTrangThai(), "Đang giao"))
+                    {
+                        s++;
+                    }
+                }
+            }
+        }
+        return s;
+    }
+
+    public int tinhTongSoDonCuaShipperTrongThang(String id) {
+        int s = 0;
+        List<VanDonPOJO> dsVanDon = allVanDon();
+        LocalDate today = LocalDate.now(); // Use LocalDate for current date
+
+        for (VanDonPOJO vd : dsVanDon) {
+            ThongTinShipper tt = vd.getThongTinShipper();
+            if (tt != null && Objects.equals(tt.getMaShipper(), id)) {
+                LocalDate donDate = vd.getThoiGianLap().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                if (donDate.getMonth() == today.getMonth() && donDate.getYear() == today.getYear()) {
+                    s++;
+                }
+            }
+        }
+        return s;
+    }
+
+    public int tinhTongSoDonCuaShipperTrongNgay(String id) {
+        int s = 0;
+        List<VanDonPOJO> dsVanDon = allVanDon();
+        LocalDate today = LocalDate.now(); // Get today's date
+
+        for (VanDonPOJO vd : dsVanDon) {
+            ThongTinShipper tt = vd.getThongTinShipper();
+            if (tt != null && Objects.equals(tt.getMaShipper(), id)) {
+                // Assuming 'getThoiGianLap' returns a date object
+                LocalDate donDate = vd.getThoiGianLap().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                if (donDate.equals(today)) { // Check if delivery date matches today's date
+                    s++;
+                }
+            }
+        }
+        return s;
     }
 
     public Double tinhKhoangCachDonLienTinh(VanDonPOJO vd){
@@ -445,18 +561,16 @@ public class VanDonDAO {
         }
         return maVanDon.toString();
     }
+
     public VanDonPOJO themDonHang(VanDonPOJO vanDonPOJO) {
         try{
-            // Tạo mã vận đơn tự động
             String maVanDon = generateMaVanDon();
             vanDonPOJO.setMaVanDon(maVanDon);
 
-            // Lấy thời gian hiện tại của hệ thống laptop
             Date thoiGianLap = new Date();
             vanDonPOJO.setThoiGianLap(thoiGianLap);
 
-            // Trạng thái mặc định là "đang chờ xác nhận"
-            vanDonPOJO.setTrangThai("Đang chờ xác nhận");
+            vanDonPOJO.setTrangThai("Chờ xác nhận");
 
             Document thongTinHH = new Document()
                     .append("LoaiHang", vanDonPOJO.getThongTinHangHoa().getLoaiHang())
@@ -533,10 +647,8 @@ public class VanDonDAO {
                         .append("TenShipper", vanDonPOJO.getThongTinShipper().getTenShipper())
                         .append("SDTShipper", vanDonPOJO.getThongTinShipper().getSdtShipper()));
             }
-            // Lấy collection từ cơ sở dữ liệu
-            MongoCollection<Document> collection = connection.getCollection();
 
-            // Thêm một bản ghi mới vào collection
+            MongoCollection<Document> collection = connection.getCollection();
             collection.insertOne(document);
 
             return vanDonPOJO;
@@ -545,6 +657,69 @@ public class VanDonDAO {
             throw new RuntimeException("Lỗi khi thêm đơn hàng", e);
         }
 
+    }
+
+    public VanDonPOJO updateTrangThai(Object id) {
+        try {
+            MongoCollection<Document> collection = connection.getCollection();
+            collection.updateOne(
+                    Filters.eq("_id", id),
+                    Updates.set("TrangThai", "Chờ giao"));
+            return new VanDonPOJO();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    public VanDonPOJO updateTrangThaiDangGiao(ObjectId id){
+        try {
+            MongoCollection<Document> collection = connection.getCollection();
+            collection.updateOne(
+                    Filters.eq("_id", id),
+                    Updates.set("TrangThai", "Đang giao"));
+            return new VanDonPOJO();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    public VanDonPOJO updateTrangThaiGiaoThanhCong(ObjectId id){
+        try {
+            MongoCollection<Document> collection = connection.getCollection();
+            collection.updateOne(
+                    Filters.eq("_id", id),
+                    Updates.set("TrangThai", "Giao hàng thành công"));
+            return new VanDonPOJO();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    public void themDonHangKhachHang(VanDonPOJO vanDonPOJO){
+        MongoCollection<Document> collection = connection.getCollection();
+        Document doc = new Document()
+                .append("maVanDon", vanDonPOJO.getMaVanDon() != null ? vanDonPOJO.getMaVanDon() : null)
+                .append("thoiGianLap", vanDonPOJO.getThoiGianLap() != null ? vanDonPOJO.getThoiGianLap() : null)
+                .append("loaiVanChuyen", vanDonPOJO.getLoaiVanChuyen() != null ? vanDonPOJO.getLoaiVanChuyen() : null)
+                .append("noiTiepNhan", vanDonPOJO.getNoiTiepNhan() != null ? vanDonPOJO.getNoiTiepNhan() : null)
+                .append("nguoiThanhToan", vanDonPOJO.getNguoiThanhToan() != null ? vanDonPOJO.getNguoiThanhToan() : null)
+                .append("thongTinNguoiGui", vanDonPOJO.getThongTinNguoiGui() != null ? vanDonPOJO.getThongTinNguoiGui() : null)
+                .append("thongTinNguoiNhan", vanDonPOJO.getThongTinNguoiNhan() != null ? vanDonPOJO.getThongTinNguoiNhan() : null)
+                .append("thongTinTaiXe", vanDonPOJO.getThongTinTaiXe() != null ? vanDonPOJO.getThongTinTaiXe() : null)
+                .append("thongTinXe", vanDonPOJO.getThongTinXe() != null ? vanDonPOJO.getThongTinXe() : null)
+                .append("thongTinHangHoa", vanDonPOJO.getThongTinHangHoa() != null ? vanDonPOJO.getThongTinHangHoa() : null)
+                .append("diemXuatPhat", vanDonPOJO.getDiemXuatPhat() != null ? vanDonPOJO.getDiemXuatPhat() : null)
+                .append("diemDen", vanDonPOJO.getDiemDen() != null ? vanDonPOJO.getDiemDen() : null)
+                .append("tinh", vanDonPOJO.getTinh() != null ? vanDonPOJO.getTinh() : null)
+                .append("khoangCach", vanDonPOJO.getKhoangCach() != null ? vanDonPOJO.getKhoangCach() : null)
+                .append("tuyenDuong", vanDonPOJO.getTuyenDuong() != null ? vanDonPOJO.getTuyenDuong() : null)
+                .append("phiVanChuyen", vanDonPOJO.getPhiVanChuyen() != null ? vanDonPOJO.getPhiVanChuyen() : null)
+                .append("thongTinShipper", vanDonPOJO.getThongTinShipper() != null ? vanDonPOJO.getThongTinShipper() : null)
+                .append("trangThai", vanDonPOJO.getTrangThai() != null ? vanDonPOJO.getTrangThai() : null);
+        collection.insertOne(doc);
     }
 
     @SneakyThrows
@@ -570,6 +745,12 @@ public class VanDonDAO {
         convertToThongTinXe(doc, vanDon);
         convertToThongTuyenDuong(doc, vanDon);
         convertToThongTinHangHoa(doc, vanDon);
+
+        if(vanDon.getThongTinShipper() == null)
+        {
+            ThongTinShipper ttsp = new ThongTinShipper(null, null, null);
+            vanDon.setThongTinShipper(ttsp);
+        }
 
         return vanDon;
     }
@@ -608,7 +789,6 @@ public class VanDonDAO {
         }
     }
 
-
     public void convertToThongTinXe(Document doc, VanDonPOJO vanDon) {
         Document ttx = doc.getEmbedded(Collections.singletonList("ThongTinXe"), Document.class);
         if (ttx != null) {
@@ -643,6 +823,7 @@ public class VanDonDAO {
             p.setThuongShipper(phi.getInteger("ThuongShipper"));
             p.setTongPhi(phi.getInteger("TongPhi"));
             p.setPhiCoc(phi.getInteger("PhiCoc"));
+            p.setLuongShipperTheoDon();
             vanDon.setPhiVanChuyen(p);
         }
     }
@@ -682,54 +863,5 @@ public class VanDonDAO {
             tt.setSoLuong(tthh.getInteger("SoLuong"));
             vanDon.setThongTinHangHoa(tt);
         }
-    }
-
-    private Document convertToDocumentVDLienTinh(VanDonPOJO vd) {
-        Document doc = new Document();
-        doc.put("_id", vd.getId());
-        doc.put("MaVanDon", vd.getMaVanDon());
-        doc.put("ThoiGianLap", vd.getThoiGianLap());
-        doc.put("LoaiVanChuyen", vd.getLoaiVanChuyen());
-        doc.put("NoiTiepNhan", vd.getNoiTiepNhan());
-        doc.put("NguoiThanhToan", vd.getNguoiThanhToan());
-        doc.put("DiemXuatPhat", vd.getDiemXuatPhat());
-        doc.put("DiemDen", vd.getDiemXuatPhat());
-        doc.put("TrangThai", vd.getTrangThai());
-
-        ThongTinNguoiGui thongTinNguoiGui = vd.getThongTinNguoiGui();
-        doc.put("ThongTinNguoiGui.TenNguoiGui", thongTinNguoiGui.getTenNguoiGui());
-        doc.put("ThongTinNguoiGui.SDTNguoiGui", thongTinNguoiGui.getSdtNguoiGui());
-        doc.put("ThongTinNguoiGui.DiaChiNguoiGui", thongTinNguoiGui.getDiaChiNguoiGui());
-
-        ThongTinNguoiNhan thongTinNguoiNhan = vd.getThongTinNguoiNhan();
-        doc.put("ThongTinNguoiGui.TenNguoiNhan", thongTinNguoiNhan.getTenNguoiNhan());
-        doc.put("ThongTinNguoiGui.SDTNguoiNhan", thongTinNguoiNhan.getSdtNguoiNhan());
-        doc.put("ThongTinNguoiGui.DiaChiNguoiNhan", thongTinNguoiNhan.getDiaChiNguoiNhan());
-
-        ThongTinTaiXe thongTinTaiXe = vd.getThongTinTaiXe();
-        doc.put("ThongTinTaiXe.MaTaiXe", thongTinTaiXe.getMaTaiXe());
-        doc.put("ThongTinTaiXe.TenTaiXe", thongTinTaiXe.getTenTaiXe());
-        doc.put("ThongTinTaiXe.SDTTaiXe", thongTinTaiXe.getSdtTaiXe());
-
-        ThongTinXe thongTinXe = vd.getThongTinXe();
-        doc.put("ThongTinXe.BienSo", thongTinXe.getBienSo());
-        doc.put("ThongTinXe.TenXe", thongTinXe.getTenXe());
-        doc.put("ThongTinXe.LoaiXe", thongTinXe.getLoaiXe());
-        doc.put("ThongTinXe.HangXe", thongTinXe.getHangXe());
-
-        ThongTinHangHoa thongTinHangHoa = vd.getThongTinHangHoa();
-        doc.put("ThongTinHangHoa.LoaiHang", thongTinHangHoa.getLoaiHang());
-        doc.put("ThongTinHangHoa.TenHang", thongTinHangHoa.getTenHang());
-        doc.put("ThongTinHangHoa.SoLuong", thongTinHangHoa.getSoLuong());
-        doc.put("ThongTinHangHoa.TrongLuong, ", thongTinHangHoa.getTrongLuong());
-        KichCo kichCo = thongTinHangHoa.getKichCo();
-        doc.put("ThongTinHangHoa.KichCo.Dai", kichCo.getDai());
-        doc.put("ThongTinHangHoa.KichCo.Rong", kichCo.getRong());
-
-        TuyenDuong tuyenDuong = vd.getTuyenDuong();
-        doc.put("TuyenDuong.DuongDi", tuyenDuong.getDuongDi());
-        doc.put("TuyenDuong.KhoangCach", tuyenDuong.getKhoangCach());
-
-        return doc;
     }
 }

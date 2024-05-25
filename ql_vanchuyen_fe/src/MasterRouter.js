@@ -38,6 +38,13 @@ import Line from './Admin/scenes/Charts/LineChart';
 import Pie from './Admin/scenes/Charts/PieChart';
 import UpdateProfileCustomer from './KhachHang/Profile/UpdateProfileCustomer';
 import UpdatePasswordCustomer from './KhachHang/Profile/UpdatePasswordCustomer';
+import PhieuChi from './Admin/scenes/TaoPhieuChi';
+
+import UpdateProfileCustomer from './KhachHang/Profile/UpdateProfileCustomer';
+import DetailHistory from './Shipper/Pages/DetailHistory';
+import Delivery from './Shipper/Pages/Delivery';
+import OrderAtWH from './Shipper/Pages/OrderAtWH';
+import DSPhieuChi from './Admin/scenes/QLPhieuChi';
 
 const renderMasterRouter = () => {
     const masterRouter = {
@@ -129,6 +136,29 @@ const renderMasterRouter = () => {
                 component: Team,
                 isPrivate: true
             },
+            {
+                path: ROUTERS.SHIPPER.DETAILHISTORY,
+                component: DetailHistory,
+                isPrivate: true
+            },
+
+            {
+                path: ROUTERS.SHIPPER.DELIVERY,
+                component: Delivery,
+                isPrivate: true
+            },
+
+            {
+                path: ROUTERS.SHIPPER.ORDERATWH,
+                component: OrderAtWH,
+                isPrivate: true
+            },
+
+            {
+                path: ROUTERS.ADMIN.TRANGCHUADMIN,
+                component: AdminRouter,
+                isPrivate: true
+            },
 
             {
                 path: ROUTERS.ADMIN.QLTAIXE,
@@ -175,6 +205,44 @@ const renderMasterRouter = () => {
             {
                 path: ROUTERS.EMPLOYEE.LIST,
                 component: DSDonHang,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.ADMIN.TAOTKSHIPPER,
+                component: Form,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.ADMIN.TAOPHIEUCHI,
+                component: PhieuChi,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.ADMIN.QLPHIEUCHI,
+                component: DSPhieuChi,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.ADMIN.DASHBOARD,
+                component: Dashboard,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.ADMIN.BARCHART,
+                component: Bar
+            },
+            {
+                path: ROUTERS.ADMIN.LINECHART,
+                component: Line
+            },
+            {
+                path: ROUTERS.ADMIN.PIECHART,
+                component: Pie
+            },
+
+            {
+                path: ROUTERS.EMPLOYEE.HOME,
+                component: NV_Home,
                 isPrivate: true
             },
 
@@ -232,7 +300,7 @@ const renderMasterRouter = () => {
             {createRouters(masterRouter.admin, true, "QuanLy")}
             {createRouters(masterRouter.employee, true, "Kho")}
             {createRouters(masterRouter.public)}
-        </Switch>
+        </Switch >
     );
 };
 

@@ -110,7 +110,9 @@ const Profile = () => {
                   <hr />
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class=" " href="/UpdateProfile">Edit</a>
+                      <button type="button" class="styling">
+                        <a className='text-primary' href="/UpdateProfile">Edit</a>
+                      </button>
                     </div>
                   </div>
                 </div>

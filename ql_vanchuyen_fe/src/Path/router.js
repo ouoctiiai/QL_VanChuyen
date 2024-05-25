@@ -1,3 +1,5 @@
+import Delivery from "../Shipper/Pages/Delivery";
+
 export const ROUTERS ={
     
     CUSTOMER: {
@@ -22,7 +24,10 @@ export const ROUTERS ={
         DASHBOARD: "/dashboard",
         DETAILORDER: "/detailorder",
         UPDATEPEOFILE: "/UpdateProfile",
-        DETAILORDER: "/detailorder/:id"
+        DETAILORDER: "/detailorder/:id",
+        DETAILHISTORY: "/detailhistory/:id",
+        ORDERATWH: "/orderAtWH",
+        DELIVERY: "/delivery/:id"
     },
     
     ADMIN:{
@@ -35,6 +40,8 @@ export const ROUTERS ={
         BARCHART: "/barchart",
         PIECHART: "/piechart",
         LINECHART:"/linechart",
+        TAOPHIEUCHI: "/taophieuchi",
+        QLPHIEUCHI: "/qlphieuchi",
     },
 
     EMPLOYEE:{

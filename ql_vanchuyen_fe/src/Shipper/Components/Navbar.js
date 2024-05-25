@@ -19,7 +19,7 @@ const Navbar = ({ children, ...props }) => {
     <div {...props}>
       <nav className="navShip">
         <Link to="/shipper_home" className="title">
-          Don cho
+          Đơn chờ giao
         </Link>
         <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
           <span></span>
@@ -27,6 +27,9 @@ const Navbar = ({ children, ...props }) => {
           <span></span>
         </div>
         <ul className={menuOpen ? "open" : ""}>
+          <li>
+            <NavLink to="/orderAtWH">Nhận đơn tại kho</NavLink>
+          </li>
           <li>
             <NavLink to="/history">History</NavLink>
           </li>

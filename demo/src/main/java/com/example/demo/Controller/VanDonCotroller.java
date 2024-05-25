@@ -3,10 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.DAO.TaiXeDAO;
 import com.example.demo.DAO.VanDonDAO;
 import com.example.demo.DAO.XeDAO;
-import com.example.demo.POJO.ThongTinTaiXe;
-import com.example.demo.POJO.ThongTinXe;
-import com.example.demo.POJO.VanDonPOJO;
-import com.example.demo.POJO.VanDonRepository;
+import com.example.demo.POJO.*;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -164,5 +161,87 @@ public class VanDonCotroller {
     public ResponseEntity<List<Map<String, Object>>> getDoanhThuTheoNam() {
         List<Map<String, Object>> doanhThuTheoNamList = vanDonService.tinhDoanhThuTheoNam();
         return new ResponseEntity<>(doanhThuTheoNamList, HttpStatus.OK);
+    }
+
+    @GetMapping("danh-sach-don-cho-giao-theo-tinh/{tinh}")
+    public ResponseEntity<List<VanDonPOJO>> dsDonChoGiao(@PathVariable String tinh) {
+        List<VanDonPOJO> dsvd = vanDonService.danhSachDonNoiTinhChuaGiaoTheoTinh(tinh);
+        return new ResponseEntity<>(dsvd, HttpStatus.OK);
+    }
+
+    @GetMapping("danh-sach-don-da-giao-cua-shipper/{masp}")
+    public ResponseEntity<List<VanDonPOJO>> dsDonCuaShipper(@PathVariable String masp) {
+        List<VanDonPOJO> dsvd = vanDonService.lichSuDonCuaShipper(masp);
+        return new ResponseEntity<>(dsvd, HttpStatus.OK);
+    }
+
+    @GetMapping("/ds/{id}")
+    public ResponseEntity quanHuyen(@PathVariable String id) {
+        List<VanDonPOJO> ds = vanDonService.dsDonTheoTrangThai(id);
+        if (ds != null) {
+            return ResponseEntity.ok(ds);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/update/{id}")
+    public ResponseEntity updateTrangThai(@PathVariable ObjectId id) {
+        VanDonPOJO vd = vanDonService.updateTrangThai(id);
+        if (vd != null) {
+            return ResponseEntity.ok(vd);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/updateDangGiao/{id}")
+    public ResponseEntity updateTrangThaiDangGiao(@PathVariable ObjectId id) {
+        VanDonPOJO vd = vanDonService.updateTrangThaiDangGiao(id);
+        if (vd != null) {
+            return ResponseEntity.ok(vd);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/updateDaGiao/{id}")
+    public ResponseEntity updateTrangThaiDaGiao(@PathVariable ObjectId id) {
+        VanDonPOJO vd = vanDonService.updateTrangThaiGiaoThanhCong(id);
+        if (vd != null) {
+            return ResponseEntity.ok(vd);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/tongDonCuaShipper/{masp}")
+    public ResponseEntity<Integer> tinhTongDonCuaShipper(@PathVariable String masp) {
+        int tongDonHang = vanDonService.tinhTongSoDonCuaShipper(masp);
+        return new ResponseEntity<>(tongDonHang, HttpStatus.OK);
+    }
+
+    @GetMapping("/TongDonDaGiaoCuaShipper/{masp}")
+    public ResponseEntity<Integer> tinhTongDonDaGiaoCuaShipper(@PathVariable String masp) {
+        int tongDonHang = vanDonService.tinhTongSoDonDaGiaoCuaShipper(masp);
+        return new ResponseEntity<>(tongDonHang, HttpStatus.OK);
+    }
+
+    @GetMapping("/TongDonDangGiaoCuaShipper/{masp}")
+    public ResponseEntity<Integer> tinhTongDonDangGiaoCuaShipper(@PathVariable String masp) {
+        int tongDonHang = vanDonService.tinhTongSoDonDangGiaoCuaShipper(masp);
+        return new ResponseEntity<>(tongDonHang, HttpStatus.OK);
+    }
+
+    @GetMapping("/TongSoDonCuaShipperTrongThang/{masp}")
+    public ResponseEntity<Integer> tinhTongSoDonCuaShipperTrongThang(@PathVariable String masp) {
+        int tongDonHang = vanDonService.tinhTongSoDonCuaShipperTrongThang(masp);
+        return new ResponseEntity<>(tongDonHang, HttpStatus.OK);
+    }
+
+    @GetMapping("/TongSoDonCuaShipperTrongNgay/{masp}")
+    public ResponseEntity<Integer> tinhTongSoDonCuaShipperTrongNgay(@PathVariable String masp) {
+        int tongDonHang = vanDonService.tinhTongSoDonCuaShipperTrongNgay(masp);
+        return new ResponseEntity<>(tongDonHang, HttpStatus.OK);
     }
 }

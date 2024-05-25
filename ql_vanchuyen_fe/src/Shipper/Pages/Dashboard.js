@@ -1,8 +1,56 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Styles/Dashboard.css'
 import Navbar from '../Components/Navbar';
+import {
+    getTongDonCuaShipper, 
+    getTongDonDaGiaoCuaShipper, 
+    getTongDonDangGiaoCuaShipper, 
+    getTongSoDonCuaShipperTrongThang,
+    getTongSoDonCuaShipperTrongNgay
+} from '../../Api/DataVanDon';
+import { getTaiKhoanById } from '../../Api/DataTaiKhoan';
+
 
 const Dashboard = () => {
+
+    const[tongDon, setTongDon] = useState(null);
+    const[tongDonDaGiao, setTongDonDaGiao] = useState(null);
+    const[tongDonDangGiao, setTongDonDangGiao] = useState(null);
+    const[tongSoDonTrongThang, setTongSoDonTrongThang] = useState(null);
+    const[tongSoDonTrongNgay, setTongSoDonTrongNgay] = useState(null);
+    const [taiKhoan, setTaiKhoan] = useState([]);
+
+    useEffect(() => {
+
+        const fetchData = async () => {
+            try {
+              const id = localStorage.getItem("userId");
+              const response = await getTaiKhoanById(id);
+              setTaiKhoan(response.data);
+        
+              const getTongDon = await getTongDonCuaShipper(taiKhoan.maShipper);
+              setTongDon(getTongDon.data);
+
+              const getTongDonDaGiao = await getTongDonDaGiaoCuaShipper(taiKhoan.maShipper);
+              setTongDonDaGiao(getTongDonDaGiao.data);
+
+              const getTongDonDangGiao = await getTongDonDangGiaoCuaShipper(taiKhoan.maShipper);
+              setTongDonDangGiao(getTongDonDangGiao.data);
+
+              const getTongSoDonTrongThang = await getTongSoDonCuaShipperTrongThang(taiKhoan.maShipper);
+              setTongSoDonTrongThang(getTongSoDonTrongThang.data); 
+
+              const getTongSoDonTrongNgay = await getTongSoDonCuaShipperTrongNgay(taiKhoan.maShipper);
+              setTongSoDonTrongNgay(getTongSoDonTrongNgay.data); 
+            } catch (error) {
+              console.error(error);
+            }
+          };
+        
+          fetchData();
+        }, [taiKhoan]);
+
+
   return (
     <>
     <Navbar />
@@ -11,9 +59,9 @@ const Dashboard = () => {
         <div class="col-md-4 col-xl-3">
             <div class="card order-card bg-cardShip">
                 <div class="card-block">
-                    <h6 class="m-b-20">Số đơn trong tuần</h6>
-                    <h2 class="text-right"><span>29</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">29</span></p>
+                    <h6 class="m-b-20">Số đơn trong ngày</h6>
+                    <h2 class="text-right"><span>{tongSoDonTrongNgay}</span></h2>
+                    <p class="m-b-0">Bạn có thể nhận thêm đơn hàng mới</p>
                 </div>
             </div>
         </div>
@@ -22,8 +70,8 @@ const Dashboard = () => {
             <div class="card order-card bg-cardShip">
                 <div class="card-block">
                     <h6 class="m-b-20">Số đơn trong tháng</h6>
-                    <h2 class="text-right"><span>486</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">486</span></p>
+                    <h2 class="text-right"><span>{tongSoDonTrongThang}</span></h2>
+                    <p class="m-b-0">Bạn có thể nhận thêm đơn hàng mới</p>
                 </div>
             </div>
         </div>
@@ -31,9 +79,9 @@ const Dashboard = () => {
         <div class="col-md-4 col-xl-3">
             <div class="card  order-card bg-cardShip">
                 <div class="card-block">
-                    <h6 class="m-b-20">Số đơn đã hủy</h6>
-                    <h2 class="text-right"><span>486</span></h2>
-                    <p class="m-b-0">from last month<span class="f-right">+5.4 %</span></p>
+                    <h6 class="m-b-20">Số đơn đang giao</h6>
+                    <h2 class="text-right"><span>{tongDonDangGiao}</span></h2>
+                    <p class="m-b-0">Vui lòng hoàn thành nhanh<span class="f-right">!!!</span></p>
                 </div>
             </div>
         </div>
@@ -41,9 +89,9 @@ const Dashboard = () => {
         <div class="col-md-4 col-xl-3">
             <div class="card order-card bg-cardShip">
                 <div class="card-block">
-                    <h6 class="m-b-20">Tổng đơn đã chạy</h6>
-                    <h2 class="text-right"><span>926</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">911</span></p>
+                    <h6 class="m-b-20">Tổng đơn đã nhận</h6>
+                    <h2 class="text-right"><span>{tongDon}</span></h2>
+                    <p class="m-b-0">Completed Orders<span class="f-right">{tongDonDaGiao}</span></p>
                 </div>
             </div>
         </div>
@@ -55,14 +103,13 @@ const Dashboard = () => {
                 <div class="col-md-4">
                     <div class="pricing-table bg-cardShip">
                         <div class="pricing-table-title">
-                            <h5 class="pricing-title bg-info-hover text-white">STARTER</h5>
+                            <h5 class="pricing-title bg-info-hover text-white">TIỀN CHƯA THANH TOÁN</h5>
                         </div>
                         <div class="pricing-table-price text-center bg-info">
                             <p class="title-font">
-                                <span class="pricing-period text-white mr-1">From</span>
-                                <span class="pricing-currency text-white">$</span>
+                                <span class="pricing-period text-white mr-1">Được </span>
                                 <span class="pricing-price text-white">9.99</span>
-                                <span class="pricing-period text-white">/ Mo.</span>
+                                <span class="pricing-period text-white">vnđ</span>
                             </p>
                         </div>
                         <div class="pricing-table-content">
@@ -76,7 +123,7 @@ const Dashboard = () => {
                <div class="col-md-4">
                     <div class="pricing-table bg-cardShip">
                         <div class="pricing-table-title">
-                            <h5 class="pricing-title bg-primary-hover text-white">BUSINESS</h5>
+                            <h5 class="pricing-title bg-primary-hover text-white">TỔNG SỐ TIỀN THƯỞNG</h5>
                         </div>
                         <div class="pricing-table-price text-center bg-primary">
                             <p class="title-font">
@@ -97,7 +144,7 @@ const Dashboard = () => {
                 <div class="col-md-4">
                     <div class="pricing-table bg-cardShip">
                         <div class="pricing-table-title">
-                            <h5 class="pricing-title bg-info-hover text-white">ENTERPRISE</h5>
+                            <h5 class="pricing-title bg-info-hover text-white">TỔNG TIỀN ĐÃ NHẬN</h5>
                         </div>
                         <div class="pricing-table-price text-center bg-info">
                             <p class="title-font">

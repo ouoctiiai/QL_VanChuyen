@@ -70,12 +70,15 @@ const ChiTietDonHang = () => {
                                         </tr>
                                         <tr>
                                             <td>Thời gian lập: </td>
-                                            <td>{chiTietDon.thoiGianLap}</td>
+                                            <td>{chiTietDon.thoiGianLapToString}</td>
                                         </tr>
                                         <tr>
                                             <td>Tên shipper: </td>
-                                            <td>{thongTinShipper.tenShipper}</td>
+                                            {thongTinShipper && (
+                                                <td>{thongTinShipper.tenShipper}</td>
+                                            )}                 
                                         </tr>
+                                        
                                         <tr>
                                             <td>Tổng phí:</td> 
                                             <td>{phiVanChuyen.tongPhi}</td>
@@ -84,7 +87,7 @@ const ChiTietDonHang = () => {
                                             <td>Trạng thái:</td>
                                             <td>{chiTietDon.trangThai}</td>
                                         </tr>
-                                    </table>
+                                </table>
                             </div>
                         </div>
                     </div>

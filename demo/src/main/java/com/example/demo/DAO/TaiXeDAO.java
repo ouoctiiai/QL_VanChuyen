@@ -1,5 +1,7 @@
 package com.example.demo.DAO;
 
+import com.example.demo.POJO.PhiVanChuyen;
+import com.example.demo.POJO.TaiKhoanPOJO;
 import com.example.demo.POJO.ThongTinTaiXe;
 import com.example.demo.POJO.VanDonPOJO;
 import com.mongodb.client.MongoCollection;
@@ -28,6 +30,7 @@ public class TaiXeDAO {
             if(!kiemTraTaiXeTonTai(tt,lsTaiXe))
             {
                 lsTaiXe.add(tt);
+                tt.setLuongTaiXe(tinhTongLuongCuaTaiXe(tt.getMaTaiXe()));
             }
         }
         return lsTaiXe;
@@ -52,5 +55,17 @@ public class TaiXeDAO {
             tx.add(taiXe.getMaTaiXe());
         }
         return tx.size();
+    }
+
+    public Integer tinhTongLuongCuaTaiXe(String id)
+    {
+        VanDonDAO vd = new VanDonDAO();
+        Integer luong = 0;
+        List<VanDonPOJO> ls = vd.lichSuDonCuaTaiXe(id);
+        for (VanDonPOJO vd1 : ls) {
+            PhiVanChuyen p = vd1.getPhiVanChuyen();
+            luong += p.getLuongShipperTheoDon();
+        }
+        return luong;
     }
 }
