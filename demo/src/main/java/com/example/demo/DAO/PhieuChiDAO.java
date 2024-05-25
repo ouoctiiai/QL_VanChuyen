@@ -37,6 +37,21 @@ public class PhieuChiDAO {
         return danhSachPhieuChi;
     }
 
+    public List<PhieuChiPOJO> lichSuChiChoShipper(String id){
+        List<PhieuChiPOJO> ds = new ArrayList<>();
+        List<PhieuChiPOJO> dsPC = loadDanhSachPhieuChi();
+        for(PhieuChiPOJO pc : dsPC){
+            ThongTinShipper tt = pc.getThongTinShipper();
+            if(tt != null){
+                if(java.util.Objects.equals(tt.getMaShipper(), id))
+                {
+                    ds.add(pc);
+                }
+            }
+        }
+        return ds;
+    }
+
 
     public PhieuChiPOJO convertToPhieuChiPOJO(Document doc) throws ParseException {
         PhieuChiPOJO phieuChi = new PhieuChiPOJO();
