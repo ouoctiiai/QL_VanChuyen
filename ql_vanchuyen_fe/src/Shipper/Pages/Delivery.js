@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Mapbox from '../Components/Mapbox'
 import Navbar from '../Components/Navbar';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { getVanDonById } from '../../Api/DataVanDon';
+import { getVanDonById, updateTrangThaiDaGiao, updateTrangThai} from '../../Api/DataVanDon';
 
 const Delivery = () => {
   const{ id } = useParams();
@@ -11,6 +11,7 @@ const Delivery = () => {
   const[thongTinNguoiNhan, setThongTinNguoiNhan] = useState('')
   const[thongTinHangHoa, setThongTinHangHoa] = useState('')
   const[thongTinPhi, setThongTinPhi] = useState('')
+
 
   useEffect(() => {
     if(id){
@@ -25,7 +26,30 @@ const Delivery = () => {
         console.error(error);
       })
     }
+
   }, [id])
+
+  const handleFormSubmit = async () => {
+    try {
+        const response = await updateTrangThaiDaGiao(id);
+        console.log('Hoàn thành:', response.data);
+        alert('Hoàn thành!');
+    } catch (error) {
+        console.error('Lỗi:', error);
+        alert('Lỗi: ' + error.message);
+    }
+    };
+
+	const handleCancel = async () => {
+		try {
+			const response = await updateTrangThai(id);
+			console.log('Đã hủy:', response.data);
+			alert('Đã hủy!');
+		} catch (error) {
+			console.error('Lỗi:', error);
+			alert('Lỗi: ' + error.message);
+		}
+		};
 
   return (
     <div>
@@ -42,7 +66,9 @@ const Delivery = () => {
 									<h4>Mã vận đơn: {detailorder.maVanDon}</h4>
 									<p class="mb-1">Thời gian lập: {detailorder.thoiGianLapToString}</p>
 									<p class="text-muted font-size-sm">Tiền nhận được: {thongTinPhi.luongShipperTheoDon}đ</p>
-									<button class="btn btn-primary">Nhận đơn</button>
+									<div class="col-lg-4"></div>
+									<button class="styling" onClick={() => handleFormSubmit()}><a href='/shipper_home'>Đã giao</a></button>
+									<button class="styling" onClick={() => handleCancel()}><a href='/shipper_home'>Hủy đơn</a></button>
 								</div>
 							</div>
 							<hr class="my-4" />

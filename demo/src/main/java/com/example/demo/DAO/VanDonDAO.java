@@ -8,6 +8,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Sorts;
 import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.UpdateResult;
 import lombok.SneakyThrows;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -672,19 +673,6 @@ public class VanDonDAO {
         }
     }
 
-    public VanDonPOJO updateTrangThaiDangGiao(ObjectId id){
-        try {
-            MongoCollection<Document> collection = connection.getCollection();
-            collection.updateOne(
-                    Filters.eq("_id", id),
-                    Updates.set("TrangThai", "Đang giao"));
-            return new VanDonPOJO();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return null;
-        }
-    }
-
     public VanDonPOJO updateTrangThaiGiaoThanhCong(ObjectId id){
         try {
             MongoCollection<Document> collection = connection.getCollection();
@@ -697,6 +685,55 @@ public class VanDonDAO {
             return null;
         }
     }
+
+    public VanDonPOJO updateTrangThaiDangGiao(ObjectId id, String maShipper, String tenShipper, String SDTShipper) throws Exception {
+        try {
+            MongoCollection<Document> collection = connection.getCollection();
+
+            Document updateDoc = new Document();
+            updateDoc.append("$set", new Document()
+                    .append("TrangThai", "Đang giao")
+                    .append("ThongTinShipper.MaShipper", maShipper)
+                    .append("ThongTinShipper.TenShipper", tenShipper)
+                    .append("ThongTinShipper.SDTShipper", SDTShipper)
+            );
+            UpdateResult updateResult = collection.updateOne(
+                    Filters.eq("_id", id),
+                    updateDoc
+            );
+
+            if (updateResult.getModifiedCount() > 0) {
+                return new VanDonPOJO();
+            } else {
+                throw new Exception("Update failed for shipper ID: " + id);
+            }
+        } catch (Exception ex) {
+            throw ex;
+        }
+    }
+
+//    public VanDonPOJO updateTrangThaiGiaoThanhCong(ObjectId id, ObjectId idShipper){
+//        try {
+//            MongoCollection<Document> collection = connection.getCollection();
+//            TaiKhoanDAO dao = new TaiKhoanDAO();
+//            TaiKhoanPOJO tt = dao.timTaiKhoanTheoId(idShipper);
+//            collection.updateOne(
+//                    Filters.eq("_id", id),
+//                    Updates.combine(
+//                            Updates.set("TrangThai", "Giao hàng thành công"),
+//                            Updates.set("ThongTinShipper", new Document()
+//                                    .append("MaShipper", tt.getMaShipper())
+//                                    .append("TenShipper", tt.getTenChuTaiKhoan())
+//                                    .append("SDTShipper", tt.getSdt())
+//                            )
+//                    )
+//            );
+//            return new VanDonPOJO();
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//            return null;
+//        }
+//    }
 
     public void themDonHangKhachHang(VanDonPOJO vanDonPOJO){
         MongoCollection<Document> collection = connection.getCollection();

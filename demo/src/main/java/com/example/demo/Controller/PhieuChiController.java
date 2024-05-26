@@ -1,8 +1,6 @@
 package com.example.demo.Controller;
 
 import com.example.demo.DAO.PhieuChiDAO;
-import com.example.demo.DAO.TaiKhoanDAO;
-import com.example.demo.POJO.VanDonPOJO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,17 +40,54 @@ public class PhieuChiController {
         return new ResponseEntity<>(danhSachPhieuChi, HttpStatus.OK);
     }
 
-//    @GetMapping("/tongtienphieuchi")
-//    public ResponseEntity<Map<Integer, Double>> tinhTongTienTraLuongShipperTheoNam(@RequestParam int nam) {
-//        try {
-//            List<PhieuChiPOJO> danhSachPhieuChi = phieuChiService.loadDanhSachPhieuChi();
-//            Map<Integer, Double> tongTienTheoNam = tinhTongTienTraLuongShipperTheoNam(danhSachPhieuChi);
-//            return ResponseEntity.ok(tongTienTheoNam);
-//        } catch (Exception e) {
-//            return ResponseEntity.badRequest().body(null);
-//        }
-//    }
+    @GetMapping("/pc_chiphixe")
+    public ResponseEntity<List<Map<Integer, Integer>>> tinhTongTienChiPhiXeTheoNam() {
+        try {
+            List<Map<Integer, Integer>> tongTienTheoNam = phieuChiService.tinhTongChiPhiXeTheoNam();
+            return ResponseEntity.ok(tongTienTheoNam);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
 
+    @GetMapping("/pc_chiphinhienlieu")
+    public ResponseEntity<List<Map<Integer, Integer>>> tinhTongTienChiPhiNhienLieuTheoNam() {
+        try {
+            List<Map<Integer, Integer>> tongTienTheoNam = phieuChiService.tinhTongChiPhiNhienLieuTheoNam();
+            return ResponseEntity.ok(tongTienTheoNam);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
 
+    @GetMapping("/pc_chiphithietbi")
+    public ResponseEntity<List<Map<Integer, Integer>>> tinhTongTienChiPhiThietBiTheoNam() {
+        try {
+            List<Map<Integer, Integer>> tongTienTheoNam = phieuChiService.tinhTongChiPhiThietBiTheoNam();
+            return ResponseEntity.ok(tongTienTheoNam);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+
+    @GetMapping("/pc_luongshipper")
+    public ResponseEntity<List<Map<Integer, Integer>>> tinhTongTienLuongShipperTheoNam() {
+        try {
+            List<Map<Integer, Integer>> tongTienTheoNam = phieuChiService.tinhTongLuongShipperTheoNam();
+            return ResponseEntity.ok(tongTienTheoNam);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+
+    @GetMapping("/pc_luongtaixe")
+    public ResponseEntity<List<Map<Integer, Integer>>> tinhTongTienLuongTXTheoNam() {
+        try {
+            List<Map<Integer, Integer>> tongTienTheoNam = phieuChiService.tinhTongLuongTXTheoNam();
+            return ResponseEntity.ok(tongTienTheoNam);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
 
 }

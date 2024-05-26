@@ -47,29 +47,35 @@ const PhieuChi = () => {
       TongTien: item.tongTienCong || item.luongTaiXe,
       ThoiGianLap: new Date(),
       ThongTinShipper: type === 'shipper' ? {
-        MaShipper: item.maShipper,
-        TenShipper: item.tenChuTaiKhoan,
+        maShipper: item.maShipper,
+        tenShipper: item.tenChuTaiKhoan,
       } : null,
       ThongTinTaiXe: type === 'driver' ? {
-        MaTaiXe: item.maTaiXe,
-        TenTaiXe: item.tenTaiXe,
+        maTaiXe: item.maTaiXe,
+        tenTaiXe: item.tenTaiXe,
       } : null,
     };
-    await handleFormSubmit(values);
-
-    updateTotalAmount(0);
-  };
-
-  // Hàm cập nhật tổng tiền trên giao diện thành giá trị 'amount'
-  const updateTotalAmount = (amount) => {
-    // Thực hiện cập nhật tổng tiền trên giao diện
-    const totalAmountElement = document.getElementById('totalAmount');
-    if (totalAmountElement) {
-      totalAmountElement.innerText = amount;
-    } else {
-      console.error("Không tìm thấy phần tử có id 'totalAmount'");
+  
+    try {
+      await handleFormSubmit(values);
+      alert('Tạo phiếu thành công!');
+      
+      // Sau khi thành công, cập nhật lại danh sách tài xế và shipper trực tiếp
+      if (type === 'shipper') {
+        const response = await listTaiXe();
+        setTaiXes(response.data);
+      } else if (type === 'driver') {
+        const response = await getDSShipper();
+        setShippers(response.data);
+      }
+    } catch (error) {
+      console.error('Lỗi khi tạo phiếu:', error);
+      alert('Lỗi khi tạo phiếu: ' + error.message);
     }
   };
+  
+  
+
 
   const handleOtherPayments = async (type, amount) => {
     const values = {

@@ -5,6 +5,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.result.UpdateResult;
+import lombok.SneakyThrows;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
@@ -86,7 +87,8 @@ public class TaiKhoanDAO {
         return convertToTaiKhoanPOJO(doc);
     }
 
-    public TaiKhoanPOJO timTaiKhoanTheoTenTaiKhoan(String tenTaiKhoan) throws ParseException {
+    @SneakyThrows
+    public TaiKhoanPOJO timTaiKhoanTheoTenTaiKhoan(String tenTaiKhoan) {
         MongoCollection<Document> collection = connection.getCollection();
         Bson filter = eq("TenTaiKhoan", tenTaiKhoan);
         Document doc = collection.find(filter).first();
@@ -156,6 +158,7 @@ public class TaiKhoanDAO {
     }
 
     // Phương thức để chuyển đổi Document thành KhoPOJO
+
     public List<TaiKhoanPOJO> danhSachTaiKhoanLaShipper() throws ParseException {
         List<TaiKhoanPOJO> ds = new ArrayList<>();
         MongoCollection<Document> collection = connection.getCollection();
@@ -225,12 +228,12 @@ public class TaiKhoanDAO {
             Document updateDoc = new Document();
             updateDoc.append("$set", new Document()
                     .append("TenChuTaiKhoan", tenChuTaiKhoan)
-                    .append("TenDangNhap", tenDangNhap)
+                    .append("TenTaiKhoan", tenDangNhap)
                     .append("MatKhau", matKhau)
                     .append("SDT", sdt)
                     .append("Email", email)
-                    .append("ThongTinTaiKhoan.SoTaiKhoan", soTaiKhoan)
-                    .append("ThongTinTaiKhoan.TenNganHang", tenNganHang));
+                    .append("TKNganHang.SoTaiKhoan", soTaiKhoan)
+                    .append("TKNganHang.TenNganHang", tenNganHang));
 
             UpdateResult updateResult = collection.updateOne(
                     Filters.eq("_id", id),

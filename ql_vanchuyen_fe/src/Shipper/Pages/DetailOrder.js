@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Mapbox from '../Components/Mapbox'
 import Navbar from '../Components/Navbar';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { getVanDonById } from '../../Api/DataVanDon';
+import { getVanDonById, updateTrangThaiDangGiao } from '../../Api/DataVanDon';
+import { getTaiKhoanById } from '../../Api/DataTaiKhoan';
+
 
 const DetailOrder = () => {
   const{ id } = useParams();
@@ -11,6 +13,8 @@ const DetailOrder = () => {
   const[thongTinNguoiNhan, setThongTinNguoiNhan] = useState('')
   const[thongTinHangHoa, setThongTinHangHoa] = useState('')
   const[thongTinPhi, setThongTinPhi] = useState('')
+  const[taiKhoan, setTaiKhoan] = useState([]);
+
 
   useEffect(() => {
     if(id){
@@ -25,7 +29,23 @@ const DetailOrder = () => {
         console.error(error);
       })
     }
+	const idShipper = localStorage.getItem("userId");
+      	getTaiKhoanById(idShipper).then((Response) => {
+        setTaiKhoan(Response.data);
+      })
+
   }, [id])
+
+  const handleFormSubmit = async () => {
+    try {
+        const response = await updateTrangThaiDangGiao(id, taiKhoan.maShipper, taiKhoan.tenChuTaiKhoan, taiKhoan.sdt);
+        console.log('Đã nhận đơn:', response.data);
+        alert('Đã nhận đơn!');
+    } catch (error) {
+        console.error('Lỗi:', error);
+        alert('Lỗi: ' + error.message);
+    }
+    };
 
   return (
     <div>
@@ -42,7 +62,7 @@ const DetailOrder = () => {
 									<h4>Mã vận đơn: {detailorder.maVanDon}</h4>
 									<p class="mb-1">Thời gian lập: {detailorder.thoiGianLapToString}</p>
 									<p class="text-muted font-size-sm">Tiền nhận được: {thongTinPhi.luongShipperTheoDon}đ</p>
-									<button class="styling"><a href={`/delivery/${id}`} >Nhận đơn</a></button>
+									<button class="styling" onClick={() => handleFormSubmit()}><a href={`/delivery/${id}`} >Nhận đơn</a></button>
 								</div>
 							</div>
 							<hr class="my-4" />

@@ -8,8 +8,6 @@ import DSDonHang from './NhanVien/DSDonHang';
 import AdminRouter from './Admin/AdminRouter';
 import Team from './Admin/scenes/QLTaiKhoan';
 import "./Admin/index.css";
-import { Margin, Padding } from '@mui/icons-material';
-import { render } from '@testing-library/react';
 import Customer from './KhachHang/Home/Customer';
 import ProfileCustomer from './KhachHang/Profile/ProfileCustomer';
 import OrderList from './KhachHang/OrderList/OrderList';
@@ -124,12 +122,6 @@ const renderMasterRouter = () => {
         ],
         admin: [
             {
-                path: ROUTERS.ADMIN.TRANGCHUADMIN,
-                component: AdminRouter,
-                isPrivate: true
-            },
-
-            {
                 path: ROUTERS.ADMIN.QLTAIKHOAN,
                 component: Team,
                 isPrivate: true
@@ -155,7 +147,7 @@ const renderMasterRouter = () => {
             {
                 path: ROUTERS.ADMIN.TRANGCHUADMIN,
                 component: AdminRouter,
-                isPrivate: true
+                isPrivate: false
             },
 
             {

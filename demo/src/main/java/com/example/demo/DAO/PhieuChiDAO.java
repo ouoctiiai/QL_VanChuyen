@@ -117,4 +117,213 @@ public class PhieuChiDAO {
         }
         collection.insertOne(phieuChiDoc);
     }
+
+    public List<Map<Integer, Integer>> tinhTongChiPhiXeTheoNam() throws ParseException {
+        List<Map<Integer, Integer>> danhSachTongTien = new ArrayList<>();
+        Map<Integer, Integer> tongTienTheoNam = new HashMap<>();
+
+        // Lấy danh sách phiếu chi có loại là "Chi phí xe"
+        List<PhieuChiPOJO> danhSachPhieuChi = new ArrayList<>();
+        MongoCollection<Document> collection = connection.getCollection();
+        MongoCursor<Document> cursor = collection.find(Filters.eq("LoaiPhieuChi", "Chi phí xe")).iterator();
+        try {
+            while (cursor.hasNext()) {
+                Document doc = cursor.next();
+                PhieuChiPOJO pc = convertToPhieuChiPOJO(doc);
+                danhSachPhieuChi.add(pc);
+            }
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        } finally {
+            cursor.close();
+        }
+
+        // Tính tổng chi phí xe theo từng năm
+        for (PhieuChiPOJO pc : danhSachPhieuChi) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(pc.getThoiGianLap());
+            int nam = calendar.get(Calendar.YEAR);
+            int tongTien = pc.getTongTien();
+
+            if (tongTienTheoNam.containsKey(nam)) {
+                // Nếu đã có tổng số tiền của năm đó, cộng thêm vào
+                int tongTienHienTai = tongTienTheoNam.get(nam);
+                tongTienTheoNam.put(nam, tongTienHienTai + tongTien);
+            } else {
+                // Nếu chưa có, thêm vào Map
+                tongTienTheoNam.put(nam, tongTien);
+            }
+        }
+
+        // Chuyển đổi Map thành danh sách các Map và thêm vào danh sách tổng tiền
+        danhSachTongTien.add(tongTienTheoNam);
+
+        return danhSachTongTien;
+    }
+
+    public List<Map<Integer, Integer>> tinhTongChiPhiNhienLieuTheoNam() throws ParseException {
+        List<Map<Integer, Integer>> danhSachTongTien = new ArrayList<>();
+        Map<Integer, Integer> tongTienTheoNam = new HashMap<>();
+
+        List<PhieuChiPOJO> danhSachPhieuChi = new ArrayList<>();
+        MongoCollection<Document> collection = connection.getCollection();
+        MongoCursor<Document> cursor = collection.find(Filters.eq("LoaiPhieuChi", "Chi phí nhiên liệu")).iterator();
+        try {
+            while (cursor.hasNext()) {
+                Document doc = cursor.next();
+                PhieuChiPOJO pc = convertToPhieuChiPOJO(doc);
+                danhSachPhieuChi.add(pc);
+            }
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        } finally {
+            cursor.close();
+        }
+
+        for (PhieuChiPOJO pc : danhSachPhieuChi) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(pc.getThoiGianLap());
+            int nam = calendar.get(Calendar.YEAR);
+            int tongTien = pc.getTongTien();
+
+            if (tongTienTheoNam.containsKey(nam)) {
+                // Nếu đã có tổng số tiền của năm đó, cộng thêm vào
+                int tongTienHienTai = tongTienTheoNam.get(nam);
+                tongTienTheoNam.put(nam, tongTienHienTai + tongTien);
+            } else {
+                // Nếu chưa có, thêm vào Map
+                tongTienTheoNam.put(nam, tongTien);
+            }
+        }
+
+        // Chuyển đổi Map thành danh sách các Map và thêm vào danh sách tổng tiền
+        danhSachTongTien.add(tongTienTheoNam);
+
+        return danhSachTongTien;
+    }
+
+    public List<Map<Integer, Integer>> tinhTongChiPhiThietBiTheoNam() throws ParseException {
+        List<Map<Integer, Integer>> danhSachTongTien = new ArrayList<>();
+        Map<Integer, Integer> tongTienTheoNam = new HashMap<>();
+
+        List<PhieuChiPOJO> danhSachPhieuChi = new ArrayList<>();
+        MongoCollection<Document> collection = connection.getCollection();
+        MongoCursor<Document> cursor = collection.find(Filters.eq("LoaiPhieuChi", "Chi phí thiết bị")).iterator();
+        try {
+            while (cursor.hasNext()) {
+                Document doc = cursor.next();
+                PhieuChiPOJO pc = convertToPhieuChiPOJO(doc);
+                danhSachPhieuChi.add(pc);
+            }
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        } finally {
+            cursor.close();
+        }
+
+        for (PhieuChiPOJO pc : danhSachPhieuChi) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(pc.getThoiGianLap());
+            int nam = calendar.get(Calendar.YEAR);
+            int tongTien = pc.getTongTien();
+
+            if (tongTienTheoNam.containsKey(nam)) {
+                // Nếu đã có tổng số tiền của năm đó, cộng thêm vào
+                int tongTienHienTai = tongTienTheoNam.get(nam);
+                tongTienTheoNam.put(nam, tongTienHienTai + tongTien);
+            } else {
+                // Nếu chưa có, thêm vào Map
+                tongTienTheoNam.put(nam, tongTien);
+            }
+        }
+
+        // Chuyển đổi Map thành danh sách các Map và thêm vào danh sách tổng tiền
+        danhSachTongTien.add(tongTienTheoNam);
+
+        return danhSachTongTien;
+    }
+
+    public List<Map<Integer, Integer>> tinhTongLuongShipperTheoNam() throws ParseException {
+        List<Map<Integer, Integer>> danhSachTongTien = new ArrayList<>();
+        Map<Integer, Integer> tongTienTheoNam = new HashMap<>();
+
+        List<PhieuChiPOJO> danhSachPhieuChi = new ArrayList<>();
+        MongoCollection<Document> collection = connection.getCollection();
+        MongoCursor<Document> cursor = collection.find(Filters.eq("LoaiPhieuChi", "Trả lương Shipper")).iterator();
+        try {
+            while (cursor.hasNext()) {
+                Document doc = cursor.next();
+                PhieuChiPOJO pc = convertToPhieuChiPOJO(doc);
+                danhSachPhieuChi.add(pc);
+            }
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        } finally {
+            cursor.close();
+        }
+
+        for (PhieuChiPOJO pc : danhSachPhieuChi) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(pc.getThoiGianLap());
+            int nam = calendar.get(Calendar.YEAR);
+            int tongTien = pc.getTongTien();
+
+            if (tongTienTheoNam.containsKey(nam)) {
+                // Nếu đã có tổng số tiền của năm đó, cộng thêm vào
+                int tongTienHienTai = tongTienTheoNam.get(nam);
+                tongTienTheoNam.put(nam, tongTienHienTai + tongTien);
+            } else {
+                // Nếu chưa có, thêm vào Map
+                tongTienTheoNam.put(nam, tongTien);
+            }
+        }
+
+        // Chuyển đổi Map thành danh sách các Map và thêm vào danh sách tổng tiền
+        danhSachTongTien.add(tongTienTheoNam);
+
+        return danhSachTongTien;
+    }
+
+    public List<Map<Integer, Integer>> tinhTongLuongTXTheoNam() throws ParseException {
+        List<Map<Integer, Integer>> danhSachTongTien = new ArrayList<>();
+        Map<Integer, Integer> tongTienTheoNam = new HashMap<>();
+
+        List<PhieuChiPOJO> danhSachPhieuChi = new ArrayList<>();
+        MongoCollection<Document> collection = connection.getCollection();
+        MongoCursor<Document> cursor = collection.find(Filters.eq("LoaiPhieuChi", "Trả lương Tài Xế")).iterator();
+        try {
+            while (cursor.hasNext()) {
+                Document doc = cursor.next();
+                PhieuChiPOJO pc = convertToPhieuChiPOJO(doc);
+                danhSachPhieuChi.add(pc);
+            }
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        } finally {
+            cursor.close();
+        }
+
+        for (PhieuChiPOJO pc : danhSachPhieuChi) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(pc.getThoiGianLap());
+            int nam = calendar.get(Calendar.YEAR);
+            int tongTien = pc.getTongTien();
+
+            if (tongTienTheoNam.containsKey(nam)) {
+                // Nếu đã có tổng số tiền của năm đó, cộng thêm vào
+                int tongTienHienTai = tongTienTheoNam.get(nam);
+                tongTienTheoNam.put(nam, tongTienHienTai + tongTien);
+            } else {
+                // Nếu chưa có, thêm vào Map
+                tongTienTheoNam.put(nam, tongTien);
+            }
+        }
+
+        // Chuyển đổi Map thành danh sách các Map và thêm vào danh sách tổng tiền
+        danhSachTongTien.add(tongTienTheoNam);
+
+        return danhSachTongTien;
+    }
+
+
 }
