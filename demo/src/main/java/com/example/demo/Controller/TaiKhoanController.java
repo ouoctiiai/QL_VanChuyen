@@ -2,8 +2,6 @@ package com.example.demo.Controller;
 
 import com.example.demo.DAO.TaiKhoanDAO;
 import com.example.demo.POJO.TaiKhoanPOJO;
-import com.example.demo.POJO.ThongTinTaiKhoan;
-import com.example.demo.POJO.VanDonPOJO;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -85,6 +83,12 @@ public class TaiKhoanController {
     public ResponseEntity<TaiKhoanPOJO> createUserCustomer(@RequestBody TaiKhoanPOJO taiKhoanKhachHang){
         TaiKhoanPOJO taiKhoanKH = taiKhoanService.themTaiKhoanKhachHang(taiKhoanKhachHang);
         return ResponseEntity.ok(taiKhoanKH);
+    }
+
+    @PostMapping("/update-profile-customer/{id}/{sdt}/{email}/{cccd}/{dc}/{tennh}/{stk}")
+    public ResponseEntity updateProfileCustomer(@PathVariable ObjectId id, @PathVariable String sdt, @PathVariable String email, @PathVariable String cccd, @PathVariable String dc, @PathVariable String tennh, @PathVariable String stk){
+        TaiKhoanPOJO taiKhoanPOJO = taiKhoanService.updateUserCustomerInfo(id, sdt, email, cccd, dc, tennh, stk);
+        return ResponseEntity.ok(taiKhoanPOJO);
     }
 
     @PostMapping("/updateSP/{id}/{tenChuTK}/{tenTK}/{mk}/{sdt}/{email}/{stk}/{tennh}")

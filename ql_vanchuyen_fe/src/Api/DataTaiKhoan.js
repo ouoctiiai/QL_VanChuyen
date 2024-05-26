@@ -8,9 +8,9 @@ export const getTaiKhoanById = (customerId) => axios.get(URL + '/' + customerId)
 
 export const login = (loginData) => axios.post(URL + '/login', loginData);
 
-// export const createAccount = async () => axios.post(URL + '/create');
-
 export const createAccountCustomer = (taiKhoanMoi) => axios.post(URL + '/register', taiKhoanMoi);
+
+export const updateProfileCustomerInfo = (id, sdt, email, cccd, dc, tennh, stk) => axios.post(`${URL}/update-profile-customer/${id}/${sdt}/${email}/${cccd}/${dc}/${tennh}/${stk}`);
 
 export const createAccount = async (accountData) => axios.post(URL + '/create', accountData);
 
