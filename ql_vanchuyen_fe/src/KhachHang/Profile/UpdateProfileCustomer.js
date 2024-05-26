@@ -20,8 +20,6 @@ const UpdateProfileCustomer = () => {
         soTaiKhoan: thongTinTaiKhoan?.soTaiKhoan || ''
     });
 
-    const encodedDiaChi = encodeURIComponent(formState.diaChi)
-
     useEffect(() => {
         axios.get('https://api.vietqr.io/v2/banks')
             .then((response) => {
