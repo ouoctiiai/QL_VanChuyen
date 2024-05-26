@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.util.List;
 
@@ -87,7 +89,8 @@ public class TaiKhoanController {
 
     @PostMapping("/update-profile-customer/{id}/{sdt}/{email}/{cccd}/{dc}/{tennh}/{stk}")
     public ResponseEntity updateProfileCustomer(@PathVariable ObjectId id, @PathVariable String sdt, @PathVariable String email, @PathVariable String cccd, @PathVariable String dc, @PathVariable String tennh, @PathVariable String stk){
-        TaiKhoanPOJO taiKhoanPOJO = taiKhoanService.updateUserCustomerInfo(id, sdt, email, cccd, dc, tennh, stk);
+        String decodedAddress = URLDecoder.decode(dc, StandardCharsets.UTF_8);
+        TaiKhoanPOJO taiKhoanPOJO = taiKhoanService.updateUserCustomerInfo(id, sdt, email, cccd, decodedAddress, tennh, stk);
         return ResponseEntity.ok(taiKhoanPOJO);
     }
 

@@ -56,8 +56,13 @@ const UpdateProfileCustomer = () => {
             console.error("User ID không được tìm thấy trong localStorage");
             return;
         }
+
+        console.log(id, formState.sdt, formState.email, formState.soCCCD, formState.diaChi, formState.tenNganHang, formState.soTaiKhoan);
+
+        const decodedDiaChi = decodeURIComponent(formState.diaChi);
+        
         try {
-            const response = await updateProfileCustomerInfo(id, formState.sdt, formState.email, formState.soCCCD, formState.diaChi, formState.tenNganHang, formState.soTaiKhoan);
+            const response = await updateProfileCustomerInfo(id, formState.sdt, formState.email, formState.soCCCD, decodedDiaChi, formState.tenNganHang, formState.soTaiKhoan);
             console.log(response.data);
             alert('Cập nhật thông tin tài khoản thành công!');
         } catch (error) {

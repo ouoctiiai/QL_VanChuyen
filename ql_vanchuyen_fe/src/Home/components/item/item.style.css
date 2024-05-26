@@ -1,0 +1,13 @@
+#item-container {
+  margin-top: 20px;
+}
+
+img {
+  max-width: 150px;
+  height: auto;
+}
+
+#item-title {
+  margin-top: 20px;
+  font-size: 13px;
+}
