@@ -4,7 +4,6 @@ import com.example.demo.POJO.*;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -12,13 +11,9 @@ import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static com.mongodb.client.model.Filters.eq;
-import java.util.Objects;
 
 @Repository
 public class TaiKhoanDAO {
@@ -108,15 +103,15 @@ public class TaiKhoanDAO {
                     .append("Email", taiKhoanKhachHang.getEmail())
                     .append("MatKhau", taiKhoanKhachHang.getMatKhau());
 
-            if (Optional.ofNullable(taiKhoanKhachHang.getSoCCCD()).isPresent()){
+            if (Optional.ofNullable(taiKhoanKhachHang.getSoCCCD()).isPresent()) {
                 document.append("SoCCCD", taiKhoanKhachHang.getSoCCCD());
             }
 
-            if (Optional.ofNullable(taiKhoanKhachHang.getDiaChi()).isPresent()){
+            if (Optional.ofNullable(taiKhoanKhachHang.getDiaChi()).isPresent()) {
                 document.append("DiaChi", taiKhoanKhachHang.getDiaChi());
             }
 
-            if(Optional.ofNullable(taiKhoanKhachHang.getThongTinTaiKhoan()).isPresent()){
+            if (Optional.ofNullable(taiKhoanKhachHang.getThongTinTaiKhoan()).isPresent()) {
                 document.append("TKNganHang", new Document()
                         .append("TenNganHang", taiKhoanKhachHang.getThongTinTaiKhoan().getTenNganHang())
                         .append("SoTaiKhoan", taiKhoanKhachHang.getThongTinTaiKhoan().getSoTaiKhoan()));
@@ -128,14 +123,39 @@ public class TaiKhoanDAO {
 
             return taiKhoanKhachHang;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Lỗi thêm tài khoản", e);
         }
     }
 
+    public TaiKhoanPOJO updateUserCustomerInfo(ObjectId id, String sdt, String email, String soCCCD, String diaChi, String tenNganHang, String soTaiKhoan){
+        try {
+            MongoCollection<Document> collection = connection.getCollection();
+
+            Document updateDocument = new Document()
+                    .append("$set", new Document()
+                            .append("SDT", sdt)
+                            .append("Email", email)
+                            .append("SoCCCD", soCCCD)
+                            .append("DiaChi", diaChi)
+                            .append("TKNganHang.TenNganHang", tenNganHang)
+                            .append("TKNganHang.SoTaiKhoan", soTaiKhoan));
+
+            UpdateResult updateResult = collection.updateOne(Filters.eq("_id", id), updateDocument);
+
+            if (updateResult.getModifiedCount() > 0) {
+                return new TaiKhoanPOJO();
+            } else {
+                throw new Exception("Lỗi cập nhật thông tin tài khoản khách hàng: " + id);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Lỗi cập nhật tài khoản", e);
+        }
+    }
+
     // Phương thức để chuyển đổi Document thành KhoPOJO
-    private TaiKhoanPOJO convertToTaiKhoanPOJO(Document doc) {
     public List<TaiKhoanPOJO> danhSachTaiKhoanLaShipper() throws ParseException {
         List<TaiKhoanPOJO> ds = new ArrayList<>();
         MongoCollection<Document> collection = connection.getCollection();
@@ -177,8 +197,7 @@ public class TaiKhoanDAO {
         PhieuChiDAO dao = new PhieuChiDAO();
         Integer s = 0;
         List<PhieuChiPOJO> ls = dao.lichSuChiChoShipper(tk.getMaShipper());
-        for(PhieuChiPOJO p : ls)
-        {
+        for (PhieuChiPOJO p : ls) {
             s += p.getTongTien();
         }
         return s;
@@ -189,7 +208,7 @@ public class TaiKhoanDAO {
         Integer luong = 0;
         List<VanDonPOJO> ls = vd.lichSuDonCuaShipper(tk.getMaShipper());
         for (VanDonPOJO vd1 : ls) {
-            if(Objects.equals(vd1.getTrangThai(), "Giao hàng thành công")) {
+            if (Objects.equals(vd1.getTrangThai(), "Giao hàng thành công")) {
                 PhiVanChuyen p = vd1.getPhiVanChuyen();
                 luong += p.getLuongShipperTheoDon();
             }

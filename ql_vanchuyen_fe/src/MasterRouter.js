@@ -39,8 +39,6 @@ import Pie from './Admin/scenes/Charts/PieChart';
 import UpdateProfileCustomer from './KhachHang/Profile/UpdateProfileCustomer';
 import UpdatePasswordCustomer from './KhachHang/Profile/UpdatePasswordCustomer';
 import PhieuChi from './Admin/scenes/TaoPhieuChi';
-
-import UpdateProfileCustomer from './KhachHang/Profile/UpdateProfileCustomer';
 import DetailHistory from './Shipper/Pages/DetailHistory';
 import Delivery from './Shipper/Pages/Delivery';
 import OrderAtWH from './Shipper/Pages/OrderAtWH';

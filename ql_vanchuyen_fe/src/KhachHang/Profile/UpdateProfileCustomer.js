@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom';
-import { updateAccountCustomer } from '../../Api/DataTaiKhoan';
+import { updateAccountCustomer, updateProfileCustomerInfo } from '../../Api/DataTaiKhoan';
 
 const UpdateProfileCustomer = () => {
 
@@ -12,12 +12,12 @@ const UpdateProfileCustomer = () => {
     const { taiKhoan, thongTinTaiKhoan } = location.state || {};
 
     const [formState, setFormState] = useState({
-        sdt: taiKhoan?.sdt || '',
-        email: taiKhoan?.email || '',
-        soCCCD: taiKhoan?.soCCCD || '',
-        diaChi: taiKhoan?.diaChi || '',
-        tenNganHang: thongTinTaiKhoan?.tenNganHang || '',
-        soTaiKhoan: thongTinTaiKhoan?.soTaiKhoan || ''
+        sdt: taiKhoan?.sdt || null,
+        email: taiKhoan?.email || null,
+        soCCCD: taiKhoan?.soCCCD || null,
+        diaChi: taiKhoan?.diaChi || null,
+        tenNganHang: thongTinTaiKhoan?.tenNganHang || null,
+        soTaiKhoan: thongTinTaiKhoan?.soTaiKhoan || null
     });
 
     useEffect(() => {
@@ -48,7 +48,7 @@ const UpdateProfileCustomer = () => {
         });
     };
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const id = localStorage.getItem("userId");
@@ -56,13 +56,14 @@ const UpdateProfileCustomer = () => {
             console.error("User ID không được tìm thấy trong localStorage");
             return;
         }
-
-        const updatedData = {
-            ...formState,
-            id
-        };
-
-        console.log(updatedData);
+        try {
+            const response = await updateProfileCustomerInfo(id, formState.sdt, formState.email, formState.soCCCD, formState.diaChi, formState.tenNganHang, formState.soTaiKhoan);
+            console.log(response.data);
+            alert('Cập nhật thông tin tài khoản thành công!');
+        } catch (error) {
+            console.error("Có lỗi xảy ra:", error);
+            alert("Cập nhật thông tin tài khoản thất bại!");
+        }
 
     }
 

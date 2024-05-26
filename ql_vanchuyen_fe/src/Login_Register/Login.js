@@ -67,14 +67,17 @@ const Login = (props) => {
                     history.replace(`/customer/${id}`);
                 } else if (loaiTaiKhoan === 'Shipper') {
                     localStorage.setItem("userId", id);
+                    localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
                     localStorage.setItem("accessToken", true)
                     history.replace(`/shipper_home/${id}`);
                 } else if(loaiTaiKhoan === "Kho"){
                     localStorage.setItem("userId", id);
+                    localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
                     localStorage.setItem("accessToken", true)
                     history.replace(`/nv_home/${id}`);
                 }else if(loaiTaiKhoan === "QuanLy"){
                     localStorage.setItem("userId", id);
+                    localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
                     localStorage.setItem("accessToken", true)
                     history.replace(`/trangchuadmin/${id}`);
                 }else {

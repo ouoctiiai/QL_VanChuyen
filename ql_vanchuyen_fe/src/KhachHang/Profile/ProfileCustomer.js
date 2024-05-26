@@ -13,7 +13,7 @@ import History from './../../Shipper/Pages/History';
 const ProfileCustomer = () => {
 
     const [taiKhoan, setTaiKhoan] = useState([]);
-    const [thongTinTaiKhoan, setThongTinTaiKhoan] = useState('');
+    const [thongTinTaiKhoan, setThongTinTaiKhoan] = useState([]);
     // const {id} = useParams();
 
     const [showPassword, setShowPassword] = useState(false);
@@ -112,7 +112,7 @@ const ProfileCustomer = () => {
                                 <p className='title fw-bold'>Ngân hàng: </p>
                             </div>
                             <div className='col-6'>
-                                <p className='content'>{thongTinTaiKhoan.tenNganHang}</p>
+                                <p className='content'>{thongTinTaiKhoan?.tenNganHang}</p>
                             </div>
                         </div>
                         <div className='row'>
@@ -120,7 +120,7 @@ const ProfileCustomer = () => {
                                 <p className='title fw-bold'>Số tài khoản: </p>
                             </div>
                             <div className='col-6'>
-                                <p className='content'>{thongTinTaiKhoan.soTaiKhoan}</p>
+                                <p className='content'>{thongTinTaiKhoan?.soTaiKhoan}</p>
                             </div>
                         </div>
                     </div>
