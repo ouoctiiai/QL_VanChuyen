@@ -13,20 +13,18 @@ const BarChart = ({ isDashboard = false }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const doanhThuData = await getDoanhThuNam();
-        const phieuChiData = await getPhieuChiNam();
-
-        console.log('Doanh Thu Data:', doanhThuData);
-        console.log('Phieu Chi Data:', phieuChiData);
+        const [doanhThuData, phieuChiData] = await Promise.all([
+          getDoanhThuNam(),
+          getPhieuChiNam()
+        ]);
 
         if (doanhThuData && phieuChiData) {
-          const formattedData = Object.keys(doanhThuData).map((year) => ({
+          const formattedData = Object.keys(doanhThuData[0]).map((year) => ({
             year: year,
-            doanhThu: doanhThuData[year],
-            phieuChi: phieuChiData[year] || 0, 
+            doanhThu: doanhThuData[0][year],
+            phieuChi: phieuChiData[0][year] || 0, 
           }));
 
-          console.log('Formatted Data:', formattedData);
           setData(formattedData);
         } else {
           console.error("Failed to fetch data");

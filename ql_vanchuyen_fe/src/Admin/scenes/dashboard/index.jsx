@@ -111,16 +111,19 @@ const Dashboard = () => {
     const fetchDoanhThuNamData = () => {
       getDoanhThuNam()
         .then(response => {
-          if (response && response.data) {
-            // Lưu dữ liệu doanh thu theo năm
-            setDoanhThuNamData(response.data);
-
-            // Tính tổng doanh thu theo năm
-            const tongDoanhThuTheoNam = response.data.reduce((tong, item) => {
+          if (response && response.data && response.data.length > 0) {
+            const doanhThuData = response.data[0]; // Lấy đối tượng dữ liệu từ mảng
+            const doanhThuNamArray = Object.entries(doanhThuData).map(([nam, tongTien]) => ({
+              nam: parseInt(nam),
+              tongTien: parseInt(tongTien)
+            }));
+    
+            setDoanhThuNamData(doanhThuNamArray);
+    
+            const tongDoanhThuTheoNam = doanhThuNamArray.reduce((tong, item) => {
               return tong + item.tongTien;
             }, 0);
-
-            // Lưu tổng doanh thu theo năm
+    
             setTongDoanhThuTheoNam(tongDoanhThuTheoNam);
           } else {
             console.log("Không có dữ liệu doanh thu theo năm.");
@@ -129,9 +132,8 @@ const Dashboard = () => {
         .catch(error => {
           console.error('Lỗi khi lấy dữ liệu doanh thu theo năm:', error);
         });
-    };
-
-
+    };    
+    
 
     fetchTotalOrders();
     fetchSuccessfulOrders();
@@ -278,7 +280,7 @@ const Dashboard = () => {
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                {tongDoanhThuTheoNam.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
+                {tongDoanhThuTheoNam ? tongDoanhThuTheoNam.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) : ''}
               </Typography>
             </Box>
             <Box>
