@@ -13,7 +13,7 @@ import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import { CarRentalOutlined} from "@mui/icons-material";
+import { CarRentalOutlined, RadarOutlined} from "@mui/icons-material";
 import PostAddIcon from '@mui/icons-material/PostAdd';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -207,8 +207,15 @@ const Sidebar = () =>{
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+             <Item
               title="Thống kê chi"
+              to="/radarchart"
+              icon={<RadarOutlined />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Thống kê thu & chi"
               to="/barchart"
               icon={<BarChartOutlinedIcon />}
               selected={selected}

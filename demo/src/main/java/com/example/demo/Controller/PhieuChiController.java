@@ -90,4 +90,14 @@ public class PhieuChiController {
         }
     }
 
+    @GetMapping("/phieuchinam")
+    public ResponseEntity<List<Map<Integer, Integer>>> tinhTongTienPhieuChiTheoNam() {
+        try {
+            List<Map<Integer, Integer>> tongTienTheoNam = phieuChiService.tinhTongPhieuChiTheoNam();
+            return ResponseEntity.ok(tongTienTheoNam);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+
 }

@@ -14,6 +14,7 @@ import Line from "./scenes/Charts/LineChart";
 import Pie from "./scenes/Charts/PieChart";
 import PhieuChi from "./scenes/TaoPhieuChi";
 import DSPhieuChi from "./scenes/QLPhieuChi";
+import Radar from "./scenes/Charts/Radar";
 
 
 const renderAdminRouter = () => {
@@ -41,6 +42,10 @@ const renderAdminRouter = () => {
     {
       path: ROUTERS.ADMIN.BARCHART,
       component: Bar
+    },
+    {
+      path: ROUTERS.ADMIN.RADARCHART,
+      component: Radar
     },
     {
       path: ROUTERS.ADMIN.LINECHART,

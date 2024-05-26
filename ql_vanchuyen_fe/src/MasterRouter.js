@@ -41,6 +41,7 @@ import DetailHistory from './Shipper/Pages/DetailHistory';
 import Delivery from './Shipper/Pages/Delivery';
 import OrderAtWH from './Shipper/Pages/OrderAtWH';
 import DSPhieuChi from './Admin/scenes/QLPhieuChi';
+import Radar from './Admin/scenes/Charts/Radar';
 
 const renderMasterRouter = () => {
     const masterRouter = {
@@ -170,6 +171,11 @@ const renderMasterRouter = () => {
             {
                 path: ROUTERS.ADMIN.DASHBOARD,
                 component: Dashboard,
+                isPrivate: true
+            },
+            {
+                path: ROUTERS.ADMIN.RADARCHART,
+                component: Radar,
                 isPrivate: true
             },
             {

@@ -5,7 +5,7 @@ import BarChart from "../../components/BarChart";
 const Bar = () => {
   return (
     <Box m="20px">
-      <Header title="Thống kê phiếu chi" subtitle="Biểu đồ cột biểu diễn cho số lượng chi tiêu của hệ thống" />
+      <Header title="Thống kê thu & chi" subtitle="Biểu đồ cột biểu diễn cho tổng thu và chi của hệ thống" />
       <Box height="75vh">
         <BarChart />
       </Box>

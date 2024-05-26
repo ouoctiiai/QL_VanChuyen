@@ -264,24 +264,25 @@ public class VanDonDAO {
 
     public List<Map<String, Object>> tinhDoanhThuTheoNam() {
         List<VanDonPOJO> danhSach = allVanDon();
-        Map<Integer, Double> tongTien1Nam = new HashMap<>();
+        Map<Integer, Double> tongDoanhThu1Nam = new HashMap<>();
 
         for (VanDonPOJO vanDon : danhSach) {
             int nam = vanDon.getThoiGianLap().getYear();
-            double tongPhi = vanDon.getPhiVanChuyen().getTongPhi();
-            tongTien1Nam.put(nam, tongTien1Nam.getOrDefault(nam, 0.0) + tongPhi);
+            double tongTien = vanDon.getPhiVanChuyen().getTongPhi();
+            tongDoanhThu1Nam.put(nam, tongDoanhThu1Nam.getOrDefault(nam, 0.0) + tongTien);
         }
 
         List<Map<String, Object>> doanhThuTheoNam = new ArrayList<>();
-        for (Map.Entry<Integer, Double> entry : tongTien1Nam.entrySet()) {
+        for (Map.Entry<Integer, Double> entry : tongDoanhThu1Nam.entrySet()) {
             Map<String, Object> map = new HashMap<>();
             map.put("nam", entry.getKey());
-            map.put("tongTien", entry.getValue());
+            map.put("tongDoanhThu", entry.getValue());
             doanhThuTheoNam.add(map);
         }
 
         return doanhThuTheoNam;
     }
+
 
     public List<Map<String, Object>> tinhDoanhThuTheoThang() {
         List<VanDonPOJO> danhSach = allVanDon();
