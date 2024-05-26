@@ -125,7 +125,7 @@
   },
   "MaVanDon": "VCLT00003",
   "ThoiGianLap": {
-    "$date": "2023-03-01T17:00:00.000Z"
+    "$date": "2022-03-01T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV37",
@@ -185,7 +185,7 @@
   },
   "MaVanDon": "VCLT00004",
   "ThoiGianLap": {
-    "$date": "2024-02-02T17:00:00.000Z"
+    "$date": "2024-04-02T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV38",
@@ -300,7 +300,7 @@
   },
   "MaVanDon": "VCLT00006",
   "ThoiGianLap": {
-    "$date": "2023-06-02T17:00:00.000Z"
+    "$date": "2022-06-02T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV24",
@@ -361,7 +361,7 @@
   },
   "MaVanDon": "VCLT00007",
   "ThoiGianLap": {
-    "$date": "2023-07-01T17:00:00.000Z"
+    "$date": "2022-07-01T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV41",
@@ -415,7 +415,7 @@
   },
   "MaVanDon": "VCLT00008",
   "ThoiGianLap": {
-    "$date": "2023-08-01T17:00:00.000Z"
+    "$date": "2022-08-01T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV42",
@@ -474,7 +474,7 @@
   },
   "MaVanDon": "VCLT00009",
   "ThoiGianLap": {
-    "$date": "2023-09-01T17:00:00.000Z"
+    "$date": "2022-09-01T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV15",
@@ -651,7 +651,7 @@
   },
   "MaVanDon": "VCLT00012",
   "ThoiGianLap": {
-    "$date": "2023-12-01T17:00:00.000Z"
+    "$date": "2022-12-01T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV46",
@@ -711,7 +711,7 @@
   },
   "MaVanDon": "VCLT00013",
   "ThoiGianLap": {
-    "$date": "2023-01-01T17:00:00.000Z"
+    "$date": "2021-01-01T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV30",
@@ -771,7 +771,7 @@
   },
   "MaVanDon": "VCLT00014",
   "ThoiGianLap": {
-    "$date": "2023-02-13T17:00:00.000Z"
+    "$date": "2022-02-13T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV30",
@@ -831,7 +831,7 @@
   },
   "MaVanDon": "VCLT00015",
   "ThoiGianLap": {
-    "$date": "2023-03-03T17:00:00.000Z"
+    "$date": "2023-08-03T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV30",
@@ -1124,7 +1124,7 @@
   },
   "MaVanDon": "VCLT00020",
   "ThoiGianLap": {
-    "$date": "2023-02-01T17:00:00.000Z"
+    "$date": "2022-04-01T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV24",
@@ -1186,7 +1186,7 @@
   },
   "MaVanDon": "VCLT00021",
   "ThoiGianLap": {
-    "$date": "2023-05-25T17:00:00.000Z"
+    "$date": "2022-05-25T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Liên tỉnh",
   "NoiTiepNhan": "KLV15",
@@ -2060,7 +2060,7 @@
   },
   "MaVanDon": "VCNT00007",
   "ThoiGianLap": {
-    "$date": "2023-10-02T17:00:00.000Z"
+    "$date": "2022-10-02T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Nội tỉnh",
   "NguoiThanhToan": "Người nhận",
@@ -2099,7 +2099,7 @@
   },
   "MaVanDon": "VCNT00008",
   "ThoiGianLap": {
-    "$date": "2023-11-02T17:00:00.000Z"
+    "$date": "2022-11-02T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Nội tỉnh",
   "NguoiThanhToan": "Người gửi",
@@ -2139,7 +2139,7 @@
   },
   "MaVanDon": "VCNT00009",
   "ThoiGianLap": {
-    "$date": "2023-12-02T17:00:00.000Z"
+    "$date": "2023-10-02T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Nội tỉnh",
   "NguoiThanhToan": "Người gửi",
@@ -2854,7 +2854,7 @@
   },
   "MaVanDon": "VCNT00027",
   "ThoiGianLap": {
-    "$date": "2023-01-02T17:00:00.000Z"
+    "$date": "2022-01-02T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Nội tỉnh",
   "NguoiThanhToan": "Người gửi",
@@ -3082,7 +3082,7 @@
 {
   "MaVanDon": "VCNT00033",
   "ThoiGianLap": {
-    "$date": "2023-03-02T17:00:00.000Z"
+    "$date": "2023-10-02T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Nội tỉnh",
   "NguoiThanhToan": "Người gửi",
@@ -3183,7 +3183,7 @@
 {
   "MaVanDon": "VCNT00036",
   "ThoiGianLap": {
-    "$date": "2024-01-03T17:00:00.000Z"
+    "$date": "2024-04-03T17:00:00.000Z"
   },
   "LoaiVanChuyen": "Nội tỉnh",
   "NguoiThanhToan": "Người gửi",
