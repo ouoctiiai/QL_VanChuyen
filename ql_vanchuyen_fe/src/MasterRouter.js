@@ -147,7 +147,7 @@ const renderMasterRouter = () => {
             {
                 path: ROUTERS.ADMIN.TRANGCHUADMIN,
                 component: AdminRouter,
-                isPrivate: false
+                isPrivate: true
             },
 
             {
