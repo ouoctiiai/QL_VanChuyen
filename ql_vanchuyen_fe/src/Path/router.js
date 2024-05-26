@@ -17,6 +17,10 @@ export const ROUTERS ={
         REGISTER: "/register"
     },
 
+    HOME:{
+        HOME: "/"
+    },
+
     SHIPPER:{
         HOME: "/shipper_home",
         PROFILE: "/profile",

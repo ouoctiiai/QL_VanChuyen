@@ -41,6 +41,7 @@ import DetailHistory from './Shipper/Pages/DetailHistory';
 import Delivery from './Shipper/Pages/Delivery';
 import OrderAtWH from './Shipper/Pages/OrderAtWH';
 import DSPhieuChi from './Admin/scenes/QLPhieuChi';
+import TrangChu from './Home/TrangChu';
 import Radar from './Admin/scenes/Charts/Radar';
 
 const renderMasterRouter = () => {
@@ -249,6 +250,10 @@ const renderMasterRouter = () => {
             {
                 path: ROUTERS.LOGIN.REGISTER,
                 component: Register,
+            },
+            {
+                path: ROUTERS.HOME.HOME,
+                component: TrangChu
             }
         ]
     };
