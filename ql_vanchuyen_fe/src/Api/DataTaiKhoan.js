@@ -10,7 +10,7 @@ export const login = (loginData) => axios.post(URL + '/login', loginData);
 
 export const createAccountCustomer = (taiKhoanMoi) => axios.post(URL + '/register', taiKhoanMoi);
 
-export const updateProfileCustomerInfo = (id, sdt, email, cccd, dc, tennh, stk) => axios.post(`${URL}/update-profile-customer/${id}/${sdt}/${email}/${cccd}/${dc}/${tennh}/${stk}`);
+// export const updateProfileCustomerInfo = (id, sdt, email, cccd, dc, tennh, stk) => axios.post(`${URL}/update-profile-customer/${id}/${sdt}/${email}/${cccd}/${dc}/${tennh}/${stk}`);
 
 export const createAccount = async (accountData) => axios.post(URL + '/create', accountData);
 
@@ -18,3 +18,9 @@ export const getDSShipper = async() => axios.get(URL + '/dsTaiKhoanLaShipper')
 
 export const updateTKShipper = (id, tenChuTaiKhoan, tenTaiKhoan, matKhau, sdt, email, soTaiKhoan, tenNganHang) =>  
     axios.post(`${URL}/updateSP/${id}/${tenChuTaiKhoan}/${tenTaiKhoan}/${matKhau}/${sdt}/${email}/${soTaiKhoan}/${tenNganHang}`);
+
+export const updateProfileCustomerInfo = (id, sdt, email, cccd, dc, tennh, stk) => {
+    return axios.post(`${URL}/update-profile-customer`, null, {
+        params: {id, sdt, email, cccd, dc,tennh,stk}
+    });
+};

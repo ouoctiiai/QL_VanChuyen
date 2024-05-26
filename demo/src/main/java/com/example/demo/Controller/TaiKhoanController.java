@@ -85,9 +85,10 @@ public class TaiKhoanController {
         return ResponseEntity.ok(taiKhoanKH);
     }
 
-    @PostMapping("/update-profile-customer/{id}/{sdt}/{email}/{cccd}/{dc}/{tennh}/{stk}")
-    public ResponseEntity updateProfileCustomer(@PathVariable ObjectId id, @PathVariable String sdt, @PathVariable String email, @PathVariable String cccd, @PathVariable String dc, @PathVariable String tennh, @PathVariable String stk){
-        TaiKhoanPOJO taiKhoanPOJO = taiKhoanService.updateUserCustomerInfo(id, sdt, email, cccd, dc, tennh, stk);
+    @PostMapping("/update-profile-customer")
+    public ResponseEntity updateProfileCustomer(@RequestParam String id, @RequestParam String sdt, @RequestParam String email, @RequestParam String cccd, @RequestParam String dc, @RequestParam String tennh, @RequestParam String stk){
+        ObjectId objectId = new ObjectId(id);
+        TaiKhoanPOJO taiKhoanPOJO = taiKhoanService.updateUserCustomerInfo(objectId, sdt, email, cccd, dc, tennh, stk);
         return ResponseEntity.ok(taiKhoanPOJO);
     }
 

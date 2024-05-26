@@ -119,14 +119,8 @@ const renderMasterRouter = () => {
                 path: ROUTERS.SHIPPER.DETAILORDER,
                 component: DetailOrder,
                 isPrivate: true
-            }
-        ],
-        admin: [
-            {
-                path: ROUTERS.ADMIN.QLTAIKHOAN,
-                component: Team,
-                isPrivate: true
             },
+
             {
                 path: ROUTERS.SHIPPER.DETAILHISTORY,
                 component: DetailHistory,
@@ -142,6 +136,13 @@ const renderMasterRouter = () => {
             {
                 path: ROUTERS.SHIPPER.ORDERATWH,
                 component: OrderAtWH,
+                isPrivate: true
+            },
+        ],
+        admin: [
+            {
+                path: ROUTERS.ADMIN.QLTAIKHOAN,
+                component: Team,
                 isPrivate: true
             },
 
@@ -180,27 +181,17 @@ const renderMasterRouter = () => {
             },
             {
                 path: ROUTERS.ADMIN.BARCHART,
-                component: Bar
+                component: Bar,
+                isPrivate: true
             },
             {
                 path: ROUTERS.ADMIN.LINECHART,
-                component: Line
+                component: Line,
+                isPrivate: true
             },
             {
                 path: ROUTERS.ADMIN.PIECHART,
-                component: Pie
-            }
-        ],
-        employee: [
-            {
-                path: ROUTERS.EMPLOYEE.HOME,
-                component: NV_Home,
-                isPrivate: true
-            },
-
-            {
-                path: ROUTERS.EMPLOYEE.LIST,
-                component: DSDonHang,
+                component: Pie,
                 isPrivate: true
             },
             {
@@ -218,22 +209,18 @@ const renderMasterRouter = () => {
                 component: DSPhieuChi,
                 isPrivate: true
             },
+        ],
+        employee: [
             {
-                path: ROUTERS.ADMIN.DASHBOARD,
-                component: Dashboard,
+                path: ROUTERS.EMPLOYEE.HOME,
+                component: NV_Home,
                 isPrivate: true
             },
+
             {
-                path: ROUTERS.ADMIN.BARCHART,
-                component: Bar
-            },
-            {
-                path: ROUTERS.ADMIN.LINECHART,
-                component: Line
-            },
-            {
-                path: ROUTERS.ADMIN.PIECHART,
-                component: Pie
+                path: ROUTERS.EMPLOYEE.LIST,
+                component: DSDonHang,
+                isPrivate: true
             },
 
             {
