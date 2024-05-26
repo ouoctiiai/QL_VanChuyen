@@ -43,8 +43,13 @@ import OrderAtWH from './Shipper/Pages/OrderAtWH';
 import DSPhieuChi from './Admin/scenes/QLPhieuChi';
 import TrangChu from './Home/TrangChu';
 import Radar from './Admin/scenes/Charts/Radar';
+import history from './history';
+import AdminLayout from './Admin/AdminLayout';
+import AdminDashboard from './Admin/scenes/dashboard';
+import CustomerLayout from './KhachHang/CustomerLayout';
+import NhanVienLayout from './NhanVien/NhanVienLayout';
 
-const renderMasterRouter = () => {
+const renderMasterRouter = (role) => {
     const masterRouter = {
         customer: [
             {
@@ -149,7 +154,7 @@ const renderMasterRouter = () => {
 
             {
                 path: ROUTERS.ADMIN.TRANGCHUADMIN,
-                component: AdminRouter,
+                component: AdminDashboard,
                 isPrivate: true
             },
 
@@ -170,11 +175,11 @@ const renderMasterRouter = () => {
                 component: Form,
                 isPrivate: true
             },
-            {
-                path: ROUTERS.ADMIN.DASHBOARD,
-                component: Dashboard,
-                isPrivate: true
-            },
+            // {
+            //     path: ROUTERS.ADMIN.DASHBOARD,
+            //     component: AdminDashboard,
+            //     isPrivate: true
+            // },
             {
                 path: ROUTERS.ADMIN.RADARCHART,
                 component: Radar,
@@ -259,11 +264,13 @@ const renderMasterRouter = () => {
     };
 
     const createRouters = (masterRouter, isPrivate = false, role = null) => {
+        console.log('masterRouter', masterRouter);
         return masterRouter.map((item, key) => {
             if (item.isPrivate) {
                 return (
                     <PrivateRoute
-                        key={key}
+                        history={history}
+                        key={item.path}
                         path={item.path}
                         component={item.component}
                         requiredRole={role}
@@ -272,7 +279,8 @@ const renderMasterRouter = () => {
             } else {
                 return (
                     <Route
-                        key={key}
+                        history={history}
+                        key={item.path}
                         path={item.path}
                         component={item.component}
                     />
@@ -283,17 +291,31 @@ const renderMasterRouter = () => {
 
     return (
         <Switch>
-            {createRouters(masterRouter.customer, true, "Khách hàng")}
+            {role === 'QuanLy' && <AdminLayout>
+                {createRouters(masterRouter.admin, true, "QuanLy")}
+            </AdminLayout>}
+            {role === 'Khách hàng' && <CustomerLayout>
+                {createRouters(masterRouter.customer, true, "Khách hàng")}
+            </CustomerLayout>}
+            {role === 'Shipper' && <div>
+                {createRouters(masterRouter.shipper, true, "Shipper")}
+            </div>}
+            {role === 'Kho' && <NhanVienLayout>
+                {createRouters(masterRouter.shipper, true, "Shipper")}
+            </NhanVienLayout>}
+            {createRouters(masterRouter.public)}
+            {/* {createRouters(masterRouter.customer, true, "Khách hàng")}
             {createRouters(masterRouter.shipper, true, "Shipper")}
             {createRouters(masterRouter.admin, true, "QuanLy")}
             {createRouters(masterRouter.employee, true, "Kho")}
-            {createRouters(masterRouter.public)}
+            {createRouters(masterRouter.public)} */}
         </Switch >
     );
 };
 
 const MasterRouter = () => {
-    return renderMasterRouter();
+    const userRole = localStorage.getItem('loaiTaiKhoan')
+    return renderMasterRouter(userRole);
 };
 
 export default memo(MasterRouter);

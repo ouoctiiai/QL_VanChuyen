@@ -15,6 +15,8 @@ import Pie from "./scenes/Charts/PieChart";
 import PhieuChi from "./scenes/TaoPhieuChi";
 import DSPhieuChi from "./scenes/QLPhieuChi";
 import Radar from "./scenes/Charts/Radar";
+import history from './../history';
+import AdminDashboard from "./scenes/dashboard";
 
 
 const renderAdminRouter = () => {
@@ -37,7 +39,7 @@ const renderAdminRouter = () => {
     },
     {
       path: ROUTERS.ADMIN.DASHBOARD,
-      component: Dashboard
+      component: AdminDashboard
     },
     {
       path: ROUTERS.ADMIN.BARCHART,
@@ -65,17 +67,13 @@ const renderAdminRouter = () => {
     },
   ]
   return (
-    <BrowserRouter>
-      <AdminLayout>
-        <Switch>
-          {
+    <AdminLayout>
+        {
             adminRouter.map((item, key) => {
-              return <Route key={key} path={item.path} component={item.component} />
+              return <Route key={key} path={item.path} component={item.component} history={history} />
             })
           }
-        </Switch>
       </AdminLayout>
-    </BrowserRouter>
   );
 }
 

@@ -22,7 +22,7 @@ import { getDoanhThuNam } from "./../../../Api/DataVanDon";
 import RadarChart from "../../components/RadarChart";
 
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [totalOrders, setTotalOrders] = useState(0);
@@ -410,4 +410,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default AdminDashboard;

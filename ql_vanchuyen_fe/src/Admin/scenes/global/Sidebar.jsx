@@ -15,6 +15,7 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { CarRentalOutlined, RadarOutlined} from "@mui/icons-material";
 import PostAddIcon from '@mui/icons-material/PostAdd';
+import history from "../../../history";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -25,7 +26,11 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       style={{
         color: colors.grey[100],
       }}
-      onClick={() => setSelected(title)}
+      onClick={() => {
+        setSelected(title);
+        // history.push(to);
+        // console.log(history.location.pathname);
+      }}
       icon={icon}
     >
       <Typography>{title}</Typography>

@@ -16,4 +16,4 @@ export const getLuongShipperData = () => axios.get(URL + '/pc_luongshipper');
 
 export const getLuongTaiXeData = () => axios.get(URL + '/pc_luongtaixe');
 
-export const getPhieuChiNam = () => axios.get(URL + '/doanhthuchinam');
+export const getPhieuChiNam = () => axios.get(URL + '/phieuchinam');

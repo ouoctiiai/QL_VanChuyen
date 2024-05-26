@@ -18,11 +18,14 @@ const BarChart = ({ isDashboard = false }) => {
           getPhieuChiNam()
         ]);
 
-        if (doanhThuData && phieuChiData) {
-          const formattedData = Object.keys(doanhThuData[0]).map((year) => ({
+        console.log('doanhThuData', doanhThuData);
+        console.log('phieuChiData', phieuChiData);
+
+        if (doanhThuData && phieuChiData && doanhThuData?.data && phieuChiData?.data) {
+          const formattedData = Object.keys(doanhThuData.data[0]).map((year) => ({
             year: year,
-            doanhThu: doanhThuData[0][year],
-            phieuChi: phieuChiData[0][year] || 0, 
+            doanhThu: doanhThuData.data[0][year],
+            phieuChi: phieuChiData.data[0][year] || 0, 
           }));
 
           setData(formattedData);
