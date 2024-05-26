@@ -6,6 +6,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.UpdateResult;
+import lombok.SneakyThrows;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
@@ -91,7 +92,8 @@ public class TaiKhoanDAO {
         return convertToTaiKhoanPOJO(doc);
     }
 
-    public TaiKhoanPOJO timTaiKhoanTheoTenTaiKhoan(String tenTaiKhoan) throws ParseException {
+    @SneakyThrows
+    public TaiKhoanPOJO timTaiKhoanTheoTenTaiKhoan(String tenTaiKhoan) {
         MongoCollection<Document> collection = connection.getCollection();
         Bson filter = eq("TenTaiKhoan", tenTaiKhoan);
         Document doc = collection.find(filter).first();
@@ -135,7 +137,7 @@ public class TaiKhoanDAO {
     }
 
     // Phương thức để chuyển đổi Document thành KhoPOJO
-    private TaiKhoanPOJO convertToTaiKhoanPOJO(Document doc) {
+
     public List<TaiKhoanPOJO> danhSachTaiKhoanLaShipper() throws ParseException {
         List<TaiKhoanPOJO> ds = new ArrayList<>();
         MongoCollection<Document> collection = connection.getCollection();
