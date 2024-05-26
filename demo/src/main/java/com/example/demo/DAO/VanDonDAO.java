@@ -15,6 +15,7 @@ import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
@@ -262,25 +263,34 @@ public class VanDonDAO {
         return (int) ((phiCoDinh + phiCoc + phiNang + phiHa + phiKhac) * 0.1);
     }
 
-    public List<Map<String, Object>> tinhDoanhThuTheoNam() {
-        List<VanDonPOJO> danhSach = allVanDon();
-        Map<Integer, Double> tongTien1Nam = new HashMap<>();
+    public List<Map<Integer, Integer>> tinhDoanhThuTheoNam(){
+        List<Map<Integer, Integer>> danhSachTongTien = new ArrayList<>();
+        Map<Integer, Integer> tongTienTheoNam = new HashMap<>();
 
-        for (VanDonPOJO vanDon : danhSach) {
-            int nam = vanDon.getThoiGianLap().getYear();
-            double tongPhi = vanDon.getPhiVanChuyen().getTongPhi();
-            tongTien1Nam.put(nam, tongTien1Nam.getOrDefault(nam, 0.0) + tongPhi);
+        // Lấy danh sách tất cả các phiếu chi
+        List<VanDonPOJO> danhSachVanDon = allVanDon();
+
+        // Tính tổng doanh thu theo từng năm
+        for (VanDonPOJO pc : danhSachVanDon) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(pc.getThoiGianLap());
+            int nam = calendar.get(Calendar.YEAR);
+            int tongTien = pc.getPhiVanChuyen().getTongPhi();
+
+            if (tongTienTheoNam.containsKey(nam)) {
+                // Nếu đã có tổng số tiền của năm đó, cộng thêm vào
+                int tongTienHienTai = tongTienTheoNam.get(nam);
+                tongTienTheoNam.put(nam, tongTienHienTai + tongTien);
+            } else {
+                // Nếu chưa có, thêm vào Map
+                tongTienTheoNam.put(nam, tongTien);
+            }
         }
 
-        List<Map<String, Object>> doanhThuTheoNam = new ArrayList<>();
-        for (Map.Entry<Integer, Double> entry : tongTien1Nam.entrySet()) {
-            Map<String, Object> map = new HashMap<>();
-            map.put("nam", entry.getKey());
-            map.put("tongTien", entry.getValue());
-            doanhThuTheoNam.add(map);
-        }
+        // Chuyển đổi Map thành danh sách các Map và thêm vào danh sách tổng tiền
+        danhSachTongTien.add(tongTienTheoNam);
 
-        return doanhThuTheoNam;
+        return danhSachTongTien;
     }
 
     public List<Map<String, Object>> tinhDoanhThuTheoThang() {

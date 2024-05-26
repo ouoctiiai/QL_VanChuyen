@@ -158,9 +158,13 @@ public class VanDonCotroller {
     }
 
     @GetMapping("/doanh-thu-theo-nam")
-    public ResponseEntity<List<Map<String, Object>>> getDoanhThuTheoNam() {
-        List<Map<String, Object>> doanhThuTheoNamList = vanDonService.tinhDoanhThuTheoNam();
-        return new ResponseEntity<>(doanhThuTheoNamList, HttpStatus.OK);
+    public ResponseEntity<List<Map<Integer, Integer>>> getDoanhThuTheoNam() {
+        try {
+            List<Map<Integer, Integer>> tongTienTheoNam = vanDonService.tinhDoanhThuTheoNam();
+            return ResponseEntity.ok(tongTienTheoNam);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
+        }
     }
 
     @GetMapping("danh-sach-don-cho-giao-theo-tinh/{tinh}")

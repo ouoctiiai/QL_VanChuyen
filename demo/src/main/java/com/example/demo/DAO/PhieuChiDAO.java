@@ -325,5 +325,35 @@ public class PhieuChiDAO {
         return danhSachTongTien;
     }
 
+    public List<Map<Integer, Integer>> tinhTongPhieuChiTheoNam() throws ParseException {
+        List<Map<Integer, Integer>> danhSachTongTien = new ArrayList<>();
+        Map<Integer, Integer> tongTienTheoNam = new HashMap<>();
+
+        // Lấy danh sách tất cả các phiếu chi
+        List<PhieuChiPOJO> danhSachPhieuChi = loadDanhSachPhieuChi();
+
+        // Tính tổng doanh thu theo từng năm
+        for (PhieuChiPOJO pc : danhSachPhieuChi) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(pc.getThoiGianLap());
+            int nam = calendar.get(Calendar.YEAR);
+            int tongTien = pc.getTongTien();
+
+            if (tongTienTheoNam.containsKey(nam)) {
+                // Nếu đã có tổng số tiền của năm đó, cộng thêm vào
+                int tongTienHienTai = tongTienTheoNam.get(nam);
+                tongTienTheoNam.put(nam, tongTienHienTai + tongTien);
+            } else {
+                // Nếu chưa có, thêm vào Map
+                tongTienTheoNam.put(nam, tongTien);
+            }
+        }
+
+        // Chuyển đổi Map thành danh sách các Map và thêm vào danh sách tổng tiền
+        danhSachTongTien.add(tongTienTheoNam);
+
+        return danhSachTongTien;
+    }
+
 
 }

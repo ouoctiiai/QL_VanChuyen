@@ -1,47 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { ResponsiveRadar } from '@nivo/radar';
 import { useTheme } from "@mui/material";
+import { ResponsiveBar } from "@nivo/bar";
 import { tokens } from "../theme";
-import { getChiPhiNhienLieuData, getChiPhiThietBiData, getChiPhiXeData, getLuongShipperData, getLuongTaiXeData } from "../../Api/DataPhieuChi";
+import { useEffect, useState } from "react";
+import { getDoanhThuNam } from "../../Api/DataVanDon";
+import { getPhieuChiNam } from "../../Api/DataPhieuChi";
 
 const BarChart = ({ isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
   const [data, setData] = useState([]);
-  const [keys, setKeys] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const chiPhiXeResponse = await getChiPhiXeData();
-        const chiPhiNhienLieuResponse = await getChiPhiNhienLieuData();
-        const chiPhiThietBiResponse = await getChiPhiThietBiData();
-        const luongShipperResponse = await getLuongShipperData();
-        const luongTaiXeResponse = await getLuongTaiXeData();
+        const [doanhThuData, phieuChiData] = await Promise.all([
+          getDoanhThuNam(),
+          getPhieuChiNam()
+        ]);
 
-        const combinedData = [
-          { loaiPhieuChi: "Chi phí xe", data: chiPhiXeResponse.data[0] },
-          { loaiPhieuChi: "Chi phí nhiên liệu", data: chiPhiNhienLieuResponse.data[0] },
-          { loaiPhieuChi: "Chi phí thiết bị", data: chiPhiThietBiResponse.data[0] },
-          { loaiPhieuChi: "Trả lương Shipper", data: luongShipperResponse.data[0] },
-          { loaiPhieuChi: "Trả lương Tài Xế", data: luongTaiXeResponse.data[0] }
-        ];
+        if (doanhThuData && phieuChiData) {
+          const formattedData = Object.keys(doanhThuData[0]).map((year) => ({
+            year: year,
+            doanhThu: doanhThuData[0][year],
+            phieuChi: phieuChiData[0][year] || 0, 
+          }));
 
-        const radarData = [];
-        const allYears = new Set();
-
-        combinedData.forEach(item => {
-          const radarItem = { loaiPhieuChi: item.loaiPhieuChi };
-          Object.keys(item.data).forEach(year => {
-            radarItem[year] = item.data[year];
-            allYears.add(year);
-          });
-          radarData.push(radarItem);
-        });
-
-        setData(radarData);
-        setKeys(Array.from(allYears).sort((a, b) => a - b));
+          setData(formattedData);
+        } else {
+          console.error("Failed to fetch data");
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -51,7 +38,7 @@ const BarChart = ({ isDashboard = false }) => {
   }, []);
 
   return (
-    <ResponsiveRadar
+    <ResponsiveBar
       data={data}
       theme={{
         axis: {
@@ -81,39 +68,90 @@ const BarChart = ({ isDashboard = false }) => {
           },
         },
       }}
-      keys={keys}
-      indexBy="loaiPhieuChi"
-      valueFormat="~d"
-      margin={{ top: 70, right: 80, bottom: 40, left: 80 }}
-      borderColor={{ from: 'color' }}
-      gridLabelOffset={15}
-      dotSize={10}
-      dotColor={{ theme: 'background' }}
-      dotBorderWidth={2}
-      colors={{ scheme: 'nivo' }}
-      blendMode="multiply"
-      motionConfig="wobbly"
+      keys={["doanhThu", "phieuChi"]}
+      indexBy="year"
+      margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+      padding={0.3}
+      valueScale={{ type: "linear" }}
+      indexScale={{ type: "band", round: true }}
+      colors={{ scheme: "nivo" }}
+      defs={[
+        {
+          id: "dots",
+          type: "patternDots",
+          background: "inherit",
+          color: "#38bcb2",
+          size: 4,
+          padding: 1,
+          stagger: true,
+        },
+        {
+          id: "lines",
+          type: "patternLines",
+          background: "inherit",
+          color: "#eed312",
+          rotation: -45,
+          lineWidth: 6,
+          spacing: 10,
+        },
+      ]}
+      borderColor={{
+        from: "color",
+        modifiers: [["darker", "1.6"]],
+      }}
+      axisTop={null}
+      axisRight={null}
+      axisBottom={{
+        tickSize: 5,
+        tickPadding: 5,
+        tickRotation: 0,
+        legend: isDashboard ? undefined : "Year",
+        legendPosition: "middle",
+        legendOffset: 32,
+      }}
+      axisLeft={{
+        tickSize: 5,
+        tickPadding: 5,
+        tickRotation: 0,
+        legend: isDashboard ? undefined : "Amount",
+        legendPosition: "middle",
+        legendOffset: -40,
+      }}
+      enableLabel={false}
+      labelSkipWidth={12}
+      labelSkipHeight={12}
+      labelTextColor={{
+        from: "color",
+        modifiers: [["darker", 1.6]],
+      }}
       legends={[
         {
-          anchor: 'top-left',
-          direction: 'column',
-          translateX: -50,
-          translateY: -40,
-          itemWidth: 80,
+          dataFrom: "keys",
+          anchor: "bottom-right",
+          direction: "column",
+          justify: false,
+          translateX: 120,
+          translateY: 0,
+          itemsSpacing: 2,
+          itemWidth: 100,
           itemHeight: 20,
-          itemTextColor: '#999',
-          symbolSize: 12,
-          symbolShape: 'circle',
+          itemDirection: "left-to-right",
+          itemOpacity: 0.85,
+          symbolSize: 20,
           effects: [
             {
-              on: 'hover',
+              on: "hover",
               style: {
-                itemTextColor: '#000',
+                itemOpacity: 1,
               },
             },
           ],
         },
       ]}
+      role="application"
+      barAriaLabel={function (e) {
+        return e.id + ": " + e.formattedValue + " in year: " + e.indexValue;
+      }}
     />
   );
 };

@@ -44,6 +44,7 @@ export const ROUTERS ={
         BARCHART: "/barchart",
         PIECHART: "/piechart",
         LINECHART:"/linechart",
+        RADARCHART: "/radarchart",
         TAOPHIEUCHI: "/taophieuchi",
         QLPHIEUCHI: "/qlphieuchi",
     },

@@ -14,11 +14,13 @@ const UpdateProfileCustomer = () => {
     const [formState, setFormState] = useState({
         sdt: taiKhoan?.sdt || null,
         email: taiKhoan?.email || null,
-        soCCCD: taiKhoan?.soCCCD || null,
-        diaChi: taiKhoan?.diaChi || null,
-        tenNganHang: thongTinTaiKhoan?.tenNganHang || null,
-        soTaiKhoan: thongTinTaiKhoan?.soTaiKhoan || null
+        soCCCD: taiKhoan?.soCCCD || '',
+        diaChi: taiKhoan?.diaChi || '',
+        tenNganHang: thongTinTaiKhoan?.tenNganHang || '',
+        soTaiKhoan: thongTinTaiKhoan?.soTaiKhoan || ''
     });
+
+    const encodedDiaChi = encodeURIComponent(formState.diaChi)
 
     useEffect(() => {
         axios.get('https://api.vietqr.io/v2/banks')
@@ -65,6 +67,7 @@ const UpdateProfileCustomer = () => {
             const response = await updateProfileCustomerInfo(id, formState.sdt, formState.email, formState.soCCCD, decodedDiaChi, formState.tenNganHang, formState.soTaiKhoan);
             console.log(response.data);
             alert('Cập nhật thông tin tài khoản thành công!');
+            
         } catch (error) {
             console.error("Có lỗi xảy ra:", error);
             alert("Cập nhật thông tin tài khoản thất bại!");
@@ -103,7 +106,7 @@ const UpdateProfileCustomer = () => {
                                     name="email"
                                     value={formState.email}
                                     onChange={handleChange}
-                                    placeholder="Nhập email" />
+                                    placeholder="Nhập email"/>
                             </Col>
                         </Row>
                     </Form.Group>
@@ -117,7 +120,7 @@ const UpdateProfileCustomer = () => {
                                     name="soCCCD"
                                     value={formState.soCCCD}
                                     onChange={handleChange}
-                                    placeholder="Nhập CMND hoặc CCCD" />
+                                    placeholder="Nhập CMND hoặc CCCD"/>
                             </Col>
                         </Row>
                     </Form.Group>
@@ -131,7 +134,7 @@ const UpdateProfileCustomer = () => {
                                     name="diaChi"
                                     value={formState.diaChi}
                                     onChange={handleChange}
-                                    placeholder="Nhập địa chỉ" />
+                                    placeholder="Nhập địa chỉ"/>
                             </Col>
                         </Row>
                     </Form.Group>
