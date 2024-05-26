@@ -233,11 +233,6 @@ const CreateOrder = () => {
                 vat: parseInt(phiVAT),
                 thuongShipper: parseInt(e.target.elements.phiThuong.value),
                 tongPhi: parseInt(tongPhi)
-            },
-            thongTinShipper: {
-                maShipper: "",
-                tenShipper: "",
-                sdtShipper: ""
             }
         }; 
         console.log(vanDonMoi);
