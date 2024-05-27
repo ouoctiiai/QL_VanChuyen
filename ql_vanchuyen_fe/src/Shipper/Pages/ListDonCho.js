@@ -27,7 +27,6 @@ const ListDonCho = () => {
 
   return (
     <>
-      <Navbar />
       <div className="container">
         <div className="orderlistcard">
           <div className="row">

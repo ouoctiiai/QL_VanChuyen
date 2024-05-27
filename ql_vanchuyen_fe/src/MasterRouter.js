@@ -48,6 +48,7 @@ import AdminLayout from './Admin/AdminLayout';
 import AdminDashboard from './Admin/scenes/dashboard';
 import CustomerLayout from './KhachHang/CustomerLayout';
 import NhanVienLayout from './NhanVien/NhanVienLayout';
+import Navbar from './Shipper/Components/Navbar';
 
 const renderMasterRouter = (role) => {
     const masterRouter = {
@@ -144,6 +145,11 @@ const renderMasterRouter = (role) => {
                 component: OrderAtWH,
                 isPrivate: true
             },
+            {
+                path: ROUTERS.SHIPPER.LISTDONCHO,
+                component: ListDonCho,
+                isPrivate: true
+            }
         ],
         admin: [
             {
@@ -297,11 +303,11 @@ const renderMasterRouter = (role) => {
             {role === 'Khách hàng' && <CustomerLayout>
                 {createRouters(masterRouter.customer, true, "Khách hàng")}
             </CustomerLayout>}
-            {role === 'Shipper' && <div>
+            {role === 'Shipper' && <Navbar>
                 {createRouters(masterRouter.shipper, true, "Shipper")}
-            </div>}
+            </Navbar>}
             {role === 'Kho' && <NhanVienLayout>
-                {createRouters(masterRouter.shipper, true, "Shipper")}
+                {createRouters(masterRouter.shipper, true, "Kho")}
             </NhanVienLayout>}
             {createRouters(masterRouter.public)}
             {/* {createRouters(masterRouter.customer, true, "Khách hàng")}

@@ -23,10 +23,10 @@ export const ROUTERS ={
 
     SHIPPER:{
         HOME: "/shipper_home",
+        LISTDONCHO: "/list-don-cho",
         PROFILE: "/profile",
         HISTORY: "/history",
         DASHBOARD: "/dashboard",
-        DETAILORDER: "/detailorder",
         UPDATEPEOFILE: "/UpdateProfile",
         DETAILORDER: "/detailorder/:id",
         DETAILHISTORY: "/detailhistory/:id",

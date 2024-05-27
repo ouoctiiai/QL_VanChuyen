@@ -43,8 +43,8 @@ const renderCustomerRouter = () => {
     ];
 
     return (
-        <BrowserRouter>
-            <CustomerLayout>
+        // <BrowserRouter>
+        //     <CustomerLayout>
                 <Switch>
                     {
                         customerRouter.map((item, key) => {
@@ -52,8 +52,8 @@ const renderCustomerRouter = () => {
                         })
                     }
                 </Switch>
-            </CustomerLayout>
-        </BrowserRouter>
+        //     </CustomerLayout>
+        // </BrowserRouter>
     );
 };
 
