@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Redirect, Route, Router, Switch } from 'react-router-dom/cjs/react-router-dom';
-import { memo } from 'react';
 import { ROUTERS } from '../Path/router';
 import NhanVienLayout from './NhanVienLayout';
 import DSDonHang from './DSDonHang';
@@ -28,17 +27,16 @@ const renderNhanVienRouter = () => {
     ];
 
     return (
-        <BrowserRouter>
-            <NhanVienLayout>
-                <Switch>
-                    {
-                        nhanVienRouter.map((item, key) => {
-                            return <Route key={key} path={item.path} component={item.component} />
-                        })
-                    }
-                </Switch>
-            </NhanVienLayout>
-        </BrowserRouter>
+        // <NhanVienLayout>   
+            <Switch>
+                {
+                nhanVienRouter.map((item, key) => {
+                    return <Route key={key} path={item.path} component={item.component} />
+                })
+                }
+            </Switch>
+            
+        // </NhanVienLayout>
     );
 };
 
@@ -46,4 +44,4 @@ const NhanVienRouter = () => {
     return renderNhanVienRouter();
 };
 
-export default memo(NhanVienRouter);
+export default NhanVienRouter;
