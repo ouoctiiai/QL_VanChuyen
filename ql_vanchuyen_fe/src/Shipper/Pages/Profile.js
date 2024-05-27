@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import '../Styles/Profile.css'
-import Navbar from '../Components/Navbar'
 import { getTaiKhoanById } from '../../Api/DataTaiKhoan';
 
 

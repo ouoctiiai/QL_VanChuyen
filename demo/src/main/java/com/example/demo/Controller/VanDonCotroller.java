@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Map;
 
@@ -44,10 +43,26 @@ public class VanDonCotroller {
         return new ResponseEntity<>(dsvd, HttpStatus.OK);
     }
 
+    @GetMapping("/dsDonChoGiao")
+    public ResponseEntity dsDonChoGiao(Model model) {
+        List<VanDonPOJO> dsvd = vanDonService.danhSachDonChoGiao();
+        return new ResponseEntity<>(dsvd, HttpStatus.OK);
+    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<VanDonPOJO> getVanDonById(@PathVariable ObjectId id) {
         VanDonPOJO vanDon = vanDonService.timVanDonTheoId(id);
+        if (vanDon != null) {
+            return ResponseEntity.ok(vanDon);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/getVDtheoMa/{maVD}")
+    public ResponseEntity<VanDonPOJO> getVanDonBymaVD(@PathVariable String maVD) {
+        VanDonPOJO vanDon = vanDonService.timVanDonTheoMaVD(maVD);
         if (vanDon != null) {
             return ResponseEntity.ok(vanDon);
         } else {
@@ -202,6 +217,16 @@ public class VanDonCotroller {
     @PostMapping("/updateDangGiao/{id}/{maShipper}/{tenShipper}/{sdt}")
     public ResponseEntity updateTrangThaiDangGiao(@PathVariable ObjectId id, @PathVariable String maShipper,  @PathVariable String tenShipper,  @PathVariable String sdt) throws Exception {
         VanDonPOJO vd = vanDonService.updateTrangThaiDangGiao(id, maShipper, tenShipper, sdt);
+        if (vd != null) {
+            return ResponseEntity.ok(vd);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/updateDangGiaoHangLoat/{ids}/{maShipper}/{tenShipper}/{sdt}")
+    public ResponseEntity updateTrangThaiDangGiaoHangLoat(@PathVariable List<String> ids, @PathVariable String maShipper,  @PathVariable String tenShipper,  @PathVariable String sdt) throws Exception {
+        VanDonPOJO vd = vanDonService.updateTrangThaiDangGiaoHangLoat(ids, maShipper, tenShipper, sdt);
         if (vd != null) {
             return ResponseEntity.ok(vd);
         } else {

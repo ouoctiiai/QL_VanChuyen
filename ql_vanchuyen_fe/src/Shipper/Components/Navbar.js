@@ -8,15 +8,17 @@ const Navbar = ({ children, ...props }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const history = useHistory();
+
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("userId");
     localStorage.removeItem("loaiTaiKhoan");
     localStorage.removeItem("tenChuTaiKhoan");
     history.replace("/login");
-  }
+  };
+
   return (
-    <div {...props}>
+    <div {...props} className="navbar-containerSP"> 
       <nav className="navShip">
         <Link to="/shipper_home" className="title">
           Đơn chờ giao
@@ -37,18 +39,18 @@ const Navbar = ({ children, ...props }) => {
             <NavLink to="/dashboard">Dashboard</NavLink>
           </li>
           <li>
-            <NavLink to="/profile">ProFile</NavLink>
+            <NavLink to="/profile">Profile</NavLink>
           </li>
           <li>
             <NavLink to="/login" onClick={handleLogout}>
-              <i class="fa-solid fa-person-walking-arrow-right"></i>
+              <i className="fa-solid fa-person-walking-arrow-right"></i>
             </NavLink>
           </li>
         </ul>
       </nav>
-      {children}
+      <div className="content-container">{children}</div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

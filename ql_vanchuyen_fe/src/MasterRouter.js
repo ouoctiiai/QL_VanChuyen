@@ -121,13 +121,7 @@ const renderMasterRouter = (role) => {
                 component: UpdateProfile,
                 isPrivate: true
             },
-
-            {
-                path: ROUTERS.SHIPPER.DETAILORDER,
-                component: DetailOrder,
-                isPrivate: true
-            },
-
+            
             {
                 path: ROUTERS.SHIPPER.DETAILHISTORY,
                 component: DetailHistory,

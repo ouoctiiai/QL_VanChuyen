@@ -5,9 +5,9 @@ import { listDonChoTheoTinh } from '../../Api/DataVanDon';
 
 const ListDonCho = () => {
   const [vandons, setVanDons] = useState([]);
-  const [selectedTinh, setSelectedTinh] = useState('TP Hồ Chí Minh'); // Initial selected value
+  const [selectedTinh, setSelectedTinh] = useState('TP Hồ Chí Minh'); 
 
-  // Fetch data on component mount and on selectedTinh change
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,8 +18,8 @@ const ListDonCho = () => {
       }
     };
 
-    fetchData(); // Fetch data initially
-  }, [selectedTinh]); // Dependency array includes selectedTinh
+    fetchData(); 
+  }, [selectedTinh]); 
 
   const handleTinhChange = (event) => {
     setSelectedTinh(event.target.value);

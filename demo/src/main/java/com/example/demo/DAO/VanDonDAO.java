@@ -61,6 +61,21 @@ public class VanDonDAO {
         return dsVanDon;
     }
 
+    public List<VanDonPOJO> danhSachDonChoGiao() {
+        List<VanDonPOJO> dsVanDon = new ArrayList<>();
+
+        MongoCollection<Document> collection = connection.getCollection();
+
+        BasicDBObject query = new BasicDBObject("TrangThai", "Chờ giao");
+
+        for (Document doc : collection.find(query)) {
+            VanDonPOJO vd = convertToVanDonPOJO(doc);
+            dsVanDon.add(vd);
+        }
+
+        return dsVanDon;
+    }
+
     public List<VanDonPOJO> danhSachDonLienTinh() {
         List<VanDonPOJO> dsVanDon = new ArrayList<>();
 
@@ -139,6 +154,13 @@ public class VanDonDAO {
     public VanDonPOJO timVanDonTheoId(ObjectId id) {
         MongoCollection<Document> collection = connection.getCollection();
         Bson filter = Filters.eq("_id", id);
+        Document doc = collection.find(filter).first();
+        return convertToVanDonPOJO(doc);
+    }
+
+    public VanDonPOJO timVanDonTheoMaVD(String maVD) {
+        MongoCollection<Document> collection = connection.getCollection();
+        Bson filter = Filters.eq("MaVanDon", maVD);
         Document doc = collection.find(filter).first();
         return convertToVanDonPOJO(doc);
     }
@@ -722,28 +744,42 @@ public class VanDonDAO {
         }
     }
 
-//    public VanDonPOJO updateTrangThaiGiaoThanhCong(ObjectId id, ObjectId idShipper){
-//        try {
-//            MongoCollection<Document> collection = connection.getCollection();
-//            TaiKhoanDAO dao = new TaiKhoanDAO();
-//            TaiKhoanPOJO tt = dao.timTaiKhoanTheoId(idShipper);
-//            collection.updateOne(
-//                    Filters.eq("_id", id),
-//                    Updates.combine(
-//                            Updates.set("TrangThai", "Giao hàng thành công"),
-//                            Updates.set("ThongTinShipper", new Document()
-//                                    .append("MaShipper", tt.getMaShipper())
-//                                    .append("TenShipper", tt.getTenChuTaiKhoan())
-//                                    .append("SDTShipper", tt.getSdt())
-//                            )
-//                    )
-//            );
-//            return new VanDonPOJO();
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//            return null;
-//        }
-//    }
+    public VanDonPOJO updateTrangThaiDangGiaoHangLoat(List<String> idStrings, String maShipper, String tenShipper, String SDTShipper) throws Exception {
+        try {
+            MongoCollection<Document> collection = connection.getCollection();
+
+            List<ObjectId> ids = new ArrayList<>();
+            for (String idString : idStrings) {
+                try {
+                    ids.add(new ObjectId(idString));
+                } catch (IllegalArgumentException e) {
+                    throw new Exception("Invalid ID format: " + idString);
+                }
+            }
+
+            Document updateDoc = new Document();
+            updateDoc.append("$set", new Document()
+                    .append("TrangThai", "Đang giao")
+                    .append("ThongTinShipper.MaShipper", maShipper)
+                    .append("ThongTinShipper.TenShipper", tenShipper)
+                    .append("ThongTinShipper.SDTShipper", SDTShipper)
+            );
+
+            UpdateResult updateResult = collection.updateMany(
+                    Filters.in("_id", ids),
+                    updateDoc
+            );
+
+            if (updateResult.getModifiedCount() == 0) {
+                throw new Exception("No documents were updated for the provided IDs");
+            }
+
+            return new VanDonPOJO(); // Assuming this creates a new VanDonPOJO object (modify if needed)
+        } catch (Exception ex) {
+            throw new Exception("An error occurred while updating the documents: " + ex.getMessage(), ex);
+        }
+    }
+
 
     public void themDonHangKhachHang(VanDonPOJO vanDonPOJO){
         MongoCollection<Document> collection = connection.getCollection();
