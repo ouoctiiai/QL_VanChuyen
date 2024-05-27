@@ -72,11 +72,12 @@ const TaoDonHang = () => {
             if (loaiVanChuyen === "Liên tỉnh") {
                 listTinhThanh().then((response) => {
                     setTinhNguoiGui(response.data);
-                    setTenNguoiNhan(response.data);
+                    setTinhNguoiNhan(response.data);
                 });
             } else if (loaiVanChuyen === "Nội tỉnh"){
                 dsTinhDonNoiTinh().then((response) => {
                     setTinhNguoiGui(response.data);
+                    setTinhNguoiNhan(response.data);
                 });
             }
 
