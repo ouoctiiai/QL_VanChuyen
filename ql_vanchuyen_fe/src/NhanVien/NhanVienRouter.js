@@ -27,13 +27,16 @@ const renderNhanVienRouter = () => {
     ];
 
     return (
-        <NhanVienLayout>   
-            {
+        // <NhanVienLayout>   
+            <Switch>
+                {
                 nhanVienRouter.map((item, key) => {
                     return <Route key={key} path={item.path} component={item.component} />
                 })
-            }
-        </NhanVienLayout>
+                }
+            </Switch>
+            
+        // </NhanVienLayout>
     );
 };
 
