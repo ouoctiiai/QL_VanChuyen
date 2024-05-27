@@ -9,7 +9,7 @@ const Menu = () => {
         localStorage.removeItem("userId");
         localStorage.removeItem("loaiTaiKhoan");
         localStorage.removeItem("tenChuTaiKhoan");
-        history.replace("/login");
+        history.replace("/");
         window.location.reload(true);
     }
     const tenChuTaiKhoan = localStorage.getItem("tenChuTaiKhoan");
