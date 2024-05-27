@@ -52,6 +52,21 @@ public class PhieuChiDAO {
         return ds;
     }
 
+    public List<PhieuChiPOJO> lichSuChiChoTaiXe(String id) throws ParseException {
+        List<PhieuChiPOJO> ds = new ArrayList<>();
+        List<PhieuChiPOJO> dsPC = loadDanhSachPhieuChi();
+        for(PhieuChiPOJO pc : dsPC){
+            ThongTinTaiXe tt = pc.getThongTinTaiXe();
+            if(tt != null){
+                if(java.util.Objects.equals(tt.getMaTaiXe(), id))
+                {
+                    ds.add(pc);
+                }
+            }
+        }
+        return ds;
+    }
+
 
     public PhieuChiPOJO convertToPhieuChiPOJO(Document doc) throws ParseException {
         PhieuChiPOJO phieuChi = new PhieuChiPOJO();
