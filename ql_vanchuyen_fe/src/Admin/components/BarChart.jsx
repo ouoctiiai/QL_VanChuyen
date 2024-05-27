@@ -108,7 +108,7 @@ const BarChart = ({ isDashboard = false }) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "Year",
+        legend: isDashboard,
         legendPosition: "middle",
         legendOffset: 32,
       }}
@@ -116,7 +116,7 @@ const BarChart = ({ isDashboard = false }) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "Amount",
+        legend: isDashboard,
         legendPosition: "middle",
         legendOffset: -40,
       }}
