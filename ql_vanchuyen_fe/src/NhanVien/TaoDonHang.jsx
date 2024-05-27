@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Col, Form, Row, Card, Button, NavLink } from 'react-bootstrap';
 import { listTaiXe, listVanDon, listXe, themDonHang, tinhKhoangCachLienTinh, tinhPhiVat, tinhTongPhi } from '../Api/DataVanDon';
-import { listPhuongXaTheoQuanHuyen, listQuanHuyenTheoTinhThanh, listTinhThanh } from '../Api/DataDiaChi';
+import { listPhuongXaTheoQuanHuyen, listQuanHuyenTheoTinhThanh, listTinhThanh, dsTinhDonNoiTinh } from '../Api/DataDiaChi';
 import Mapbox from '../Shipper/Components/Mapbox';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
@@ -69,10 +69,17 @@ const TaoDonHang = () => {
                 setDanhSachTaiXe(Response.data);
             });
 
-            listTinhThanh().then((Response) => {
-                setTinhNguoiGui(Response.data);
-                setTinhNguoiNhan(Response.data);
-            });
+            if (loaiVanChuyen === "Liên tỉnh") {
+                listTinhThanh().then((response) => {
+                    setTinhNguoiGui(response.data);
+                    setTinhNguoiNhan(response.data);
+                });
+            } else if (loaiVanChuyen === "Nội tỉnh"){
+                dsTinhDonNoiTinh().then((response) => {
+                    setTinhNguoiGui(response.data);
+                    setTinhNguoiNhan(response.data);
+                });
+            }
 
             if (loaiVanChuyen === 'Liên tỉnh') {
                 const dc1 = getTinhNguoiGui();
@@ -113,6 +120,22 @@ const TaoDonHang = () => {
             console.error('Lỗi khi tính tổng phí:', error);
         }
     }, [phiCoDinh, phiVAT, phiCoc, phiNang, phiHa, phiThuong, phiKhac, khoangCach, khoiLuong, chieuDai, chieuRong, loaiHang, loaiVanChuyen]);
+
+
+    const handleChangeLoaiVanChuyen = (event) => {
+        setLoaiVanChuyen(event.target.value);
+        const selectedLoaiVanChuyen = event.target.value;
+        if (selectedLoaiVanChuyen === "Liên tỉnh") {
+            listTinhThanh().then((response) => {
+                setTinhNguoiGui(response.data);
+            });
+        } else if (selectedLoaiVanChuyen === "Nội tỉnh"){
+            dsTinhDonNoiTinh().then((response) => {
+                setTinhNguoiGui(response.data);
+            });
+        }
+      };      
+
 
     const handleTinhNguoiGuiChange = (e) => {
         const idTinh = e.target.value;
@@ -286,7 +309,7 @@ const TaoDonHang = () => {
             diemXuatPhat: loaiVanChuyen === "Liên tỉnh" ? getTinhNguoiGui() : null,
             diemDen: loaiVanChuyen === "Liên tỉnh" ? getTinhNguoiNhan() : null,
             tuyenDuong: loaiVanChuyen === "Liên tỉnh" ? { khoangCach: parseFloat(khoangCach) } : null,
-            tinh: loaiVanChuyen === "Nội tỉnh" ? selectedTinhNguoiGui : null,
+            tinh: loaiVanChuyen === "Nội tỉnh" ? getTinhNguoiGui() : null,
             khoangCach: loaiVanChuyen === "Nội tỉnh" ? parseFloat(khoangCach) : null,
             phiVanChuyen: {
                 phiCoDinh: parseInt(phiCoDinh),
@@ -319,7 +342,7 @@ const TaoDonHang = () => {
             <Row>
                 <Form onSubmit={handleSubmit}>
                     <Row style={{marginBottom: '10px'}}>
-                        <Form.Select style={{width: '300px', marginLeft:'12px'}} value={loaiVanChuyen} onChange={(e) => setLoaiVanChuyen(e.target.value)}>
+                        <Form.Select style={{width: '300px', marginLeft:'12px'}} value={loaiVanChuyen} onChange={handleChangeLoaiVanChuyen}>
                             {uniqueLoaiVanChuyen.map((donHang, index) => 
                                 <option key={index} value={donHang}>{donHang}</option>
                             )}
