@@ -733,4 +733,4 @@ const TaoDonHang = () => {
     );
 };
 
-export default memo(TaoDonHang);
+export default (TaoDonHang);

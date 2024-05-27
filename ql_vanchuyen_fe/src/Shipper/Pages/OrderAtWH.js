@@ -114,7 +114,6 @@ const OrderAtWH = () => {
 
 
   return (
-    <>
     <div class="container">
     <div class="row">
         <div class="col-xl-8">
@@ -310,7 +309,6 @@ const OrderAtWH = () => {
         </div>
     </div>
     </div>
-  </>
   )
 }
 

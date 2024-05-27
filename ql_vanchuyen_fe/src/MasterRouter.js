@@ -218,7 +218,7 @@ const renderMasterRouter = (role) => {
         ],
         employee: [
             {
-                path: ROUTERS.EMPLOYEE.HOME,
+                path: ROUTERS.EMPLOYEE.NVHOME,
                 component: NV_Home,
                 isPrivate: true
             },
@@ -226,12 +226,6 @@ const renderMasterRouter = (role) => {
             {
                 path: ROUTERS.EMPLOYEE.LIST,
                 component: DSDonHang,
-                isPrivate: true
-            },
-
-            {
-                path: ROUTERS.EMPLOYEE.HOME,
-                component: NV_Home,
                 isPrivate: true
             },
 
@@ -301,7 +295,7 @@ const renderMasterRouter = (role) => {
                 {createRouters(masterRouter.shipper, true, "Shipper")}
             </Navbar>}
             {role === 'Kho' && <NhanVienLayout>
-                {createRouters(masterRouter.shipper, true, "Kho")}
+                {createRouters(masterRouter.employee, true, "Kho")}
             </NhanVienLayout>}
             {createRouters(masterRouter.public)}
             {/* {createRouters(masterRouter.customer, true, "Khách hàng")}
