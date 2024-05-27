@@ -36,7 +36,7 @@ const DSPhieuChi = () => {
 
   return (
       <Box m="20px">
-      <Header title="ADMIN" subtitle="Quản lí xe" />
+      <Header title="ADMIN" subtitle="Quản lí phiếu chi" />
       <Box
         m="40px 0 0 0"
         height="75vh"
