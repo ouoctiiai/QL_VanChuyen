@@ -78,7 +78,7 @@ const Team = () => {
 
   return (
     <Box m="20px">
-      <Header title="ADMIN" subtitle="Quản lí tài khoản" />
+      <Header title="Quản lí tài khoản" subtitle="Danh sách tất cả các tài khoản" />
       <Box
         m="40px 0 0 0"
         height="75vh"

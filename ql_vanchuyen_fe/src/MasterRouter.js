@@ -174,11 +174,6 @@ const renderMasterRouter = (role) => {
                 component: Form,
                 isPrivate: true
             },
-            // {
-            //     path: ROUTERS.ADMIN.DASHBOARD,
-            //     component: AdminDashboard,
-            //     isPrivate: true
-            // },
             {
                 path: ROUTERS.ADMIN.RADARCHART,
                 component: Radar,
@@ -197,11 +192,6 @@ const renderMasterRouter = (role) => {
             {
                 path: ROUTERS.ADMIN.PIECHART,
                 component: Pie,
-                isPrivate: true
-            },
-            {
-                path: ROUTERS.ADMIN.TAOTKSHIPPER,
-                component: Form,
                 isPrivate: true
             },
             {
