@@ -21,7 +21,7 @@ const renderCustomerRouter = () => {
             component: ProfileCustomer
         },
         {
-            path: ROUTERS.CUSTOMER.CREATE_ORDER,
+            path: "/",
             component: CreateOrder
         },
         {

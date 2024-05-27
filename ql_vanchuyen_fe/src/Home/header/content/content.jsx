@@ -9,6 +9,7 @@ export const Content = () => {
 
   const handleButton = () => {
     history.push("/login");
+    window.location.reload();
   }
 
   return (
