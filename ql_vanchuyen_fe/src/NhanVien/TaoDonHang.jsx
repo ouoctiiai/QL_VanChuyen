@@ -723,9 +723,13 @@ const TaoDonHang = () => {
                     )}
 
                     <Row>
-                        <div style={{width: '500px', marginLeft:'250px'}}>
-                            <Button type='submit' style={{backgroundColor: '#009d63'}} onClick={handleSubmit}> Thêm đơn hàng</Button>
-                        </div>           
+                        <Col></Col>
+                        <Col>
+                            <div style={{width: '500px'}}>
+                                <Button type='submit' style={{backgroundColor: '#009d63'}} onClick={handleSubmit}> Thêm đơn hàng</Button>
+                            </div>
+                        </Col>
+                        <Col></Col>            
                     </Row>
                 </Form>
             </Row>
@@ -733,4 +737,4 @@ const TaoDonHang = () => {
     );
 };
 
-export default memo(TaoDonHang);
+export default (TaoDonHang);

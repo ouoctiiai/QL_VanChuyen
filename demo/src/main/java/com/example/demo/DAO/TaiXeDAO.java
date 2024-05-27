@@ -1,13 +1,11 @@
 package com.example.demo.DAO;
 
-import com.example.demo.POJO.PhiVanChuyen;
-import com.example.demo.POJO.TaiKhoanPOJO;
-import com.example.demo.POJO.ThongTinTaiXe;
-import com.example.demo.POJO.VanDonPOJO;
+import com.example.demo.POJO.*;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.util.*;
 
 
@@ -19,7 +17,7 @@ public class TaiXeDAO {
         connection = new Connection("VanDon");
     }
 
-    public List<ThongTinTaiXe> danhSachTaiXe() {
+    public List<ThongTinTaiXe> danhSachTaiXe() throws ParseException {
         MongoCollection<Document> collection = connection.getCollection();
         List<ThongTinTaiXe> lsTaiXe = new ArrayList<>();
         VanDonDAO vandon = new VanDonDAO();
@@ -48,7 +46,7 @@ public class TaiXeDAO {
         return false;
     }
 
-    public int tinhTongTaiXe() {
+    public int tinhTongTaiXe() throws ParseException {
         List<ThongTinTaiXe> danhSachTaiXe = danhSachTaiXe();
         Set<String> tx = new HashSet<>();
         for (ThongTinTaiXe taiXe : danhSachTaiXe) {
@@ -57,8 +55,19 @@ public class TaiXeDAO {
         return tx.size();
     }
 
-    public Integer tinhTongLuongCuaTaiXe(String id)
-    {
+
+
+    public Integer tinhTongTienDaNhanCuaTaiXe(String id) throws ParseException {
+        PhieuChiDAO dao = new PhieuChiDAO();
+        Integer s = 0;
+        List<PhieuChiPOJO> ls = dao.lichSuChiChoTaiXe(id);
+        for (PhieuChiPOJO p : ls) {
+            s += p.getTongTien();
+        }
+        return s;
+    }
+
+    public Integer tinhTongLuongCuaTaiXe(String id) throws ParseException {
         VanDonDAO vd = new VanDonDAO();
         Integer luong = 0;
         List<VanDonPOJO> ls = vd.lichSuDonCuaTaiXe(id);
@@ -66,6 +75,8 @@ public class TaiXeDAO {
             PhiVanChuyen p = vd1.getPhiVanChuyen();
             luong += p.getLuongShipperTheoDon();
         }
+
+        luong -= tinhTongTienDaNhanCuaTaiXe(id);
         return luong;
     }
 }

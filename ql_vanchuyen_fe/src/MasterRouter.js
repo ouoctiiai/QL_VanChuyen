@@ -217,7 +217,7 @@ const renderMasterRouter = (role) => {
         ],
         employee: [
             {
-                path: ROUTERS.EMPLOYEE.HOME,
+                path: ROUTERS.EMPLOYEE.NVHOME,
                 component: NV_Home,
                 isPrivate: true
             },
@@ -225,12 +225,6 @@ const renderMasterRouter = (role) => {
             {
                 path: ROUTERS.EMPLOYEE.LIST,
                 component: DSDonHang,
-                isPrivate: true
-            },
-
-            {
-                path: ROUTERS.EMPLOYEE.HOME,
-                component: NV_Home,
                 isPrivate: true
             },
 

@@ -49,7 +49,7 @@ export const ROUTERS ={
     },
 
     EMPLOYEE:{
-        HOME: "/nv_home",
+        NVHOME: "/nv_home",
         LIST: "/dsdonhang",
         CREATE: "/taodonhang",
         DETAIL: "/chitietdh/:id"

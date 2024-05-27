@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory, NavLink } from 'react-router-dom/cjs/react-router-dom';
 import '../NhanVien/NV_Layout.css'
 
-const NhanVienLayout = ({children,  ...props}) => {
+const NhanVienLayout = ({children, ...props}) => {
 
     const history = useHistory();
     const [dropdownOpen, setDropdownOpen] = useState(false);

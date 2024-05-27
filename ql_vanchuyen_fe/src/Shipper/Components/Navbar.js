@@ -18,7 +18,7 @@ const Navbar = ({ children, ...props }) => {
   };
 
   return (
-    <div {...props} className="navbar-containerSP"> 
+    <div {...props} className="navbar-containerSP" style={{overflowX: 'hidden'}}> 
       <nav className="navShip">
         <Link to="/shipper_home" className="title">
           Đơn chờ giao
@@ -48,7 +48,7 @@ const Navbar = ({ children, ...props }) => {
           </li>
         </ul>
       </nav>
-      <div className="content-container">{children}</div>
+      <div className="content-container" style={{overflowX: 'hidden'}}>{children}</div>
     </div>
   );
 };
