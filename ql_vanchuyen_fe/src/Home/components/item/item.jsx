@@ -20,22 +20,22 @@ export const Item = (props) => {
             <div style={{ width: "18rem", display: "flex", alignItems: "center", flexDirection: "column", borderRight: "2px dashed white", padding: "10px"}}>
               <img src="https://giaohangtietkiem.vn/wp-content/themes/giaohangtk/images/bkg-active-1.png" class="card-img-top" alt="..." />
               <h3 style={{ color: "#01904a", textAlign: "center"}}>Tiếp nhận đơn hàng</h3>
-              <p class="card-text" style={{textAlign: "center"}}>Shop đăng nhập và đăng đơn hàng cho trung tâm điều vận GHTK qua hệ thống quản lý riêng.</p>
+              <p class="card-text" style={{textAlign: "center"}}>Shop đăng nhập và đăng đơn hàng cho trung tâm điều vận qua hệ thống quản lý riêng.</p>
             </div>
             <div style={{ width: "18rem", display: "flex", alignItems: "center", flexDirection: "column", borderRight: "2px dashed white", padding: "10px"}}>
               <img src="https://giaohangtietkiem.vn/wp-content/themes/giaohangtk/images/bkg-active-2.png" class="card-img-top" alt="..." />
               <h3 style={{ color: "#01904a" }}>Lấy hàng</h3>
-              <p class="card-text" style={{textAlign: "center"}}>Nhân viên GHTK qua địa chỉ shop để lấy hàng tận nơi.</p>
+              <p class="card-text" style={{textAlign: "center"}}>Nhân viên qua địa chỉ shop để lấy hàng tận nơi.</p>
             </div>
             <div style={{ width: "18rem", display: "flex", alignItems: "center", flexDirection: "column", borderRight: "2px dashed white", padding: "10px"}}>
               <img src="https://giaohangtietkiem.vn/wp-content/themes/giaohangtk/images/bkg-active-3.png" class="card-img-top" alt="..." />
               <h3 style={{ color: "#01904a" }}>Giao hàng</h3>
-              <p class="card-text" style={{textAlign: "center"}}>GHTK giao hàng cho khách hàng và thu hộ tiền trực tiếp (Cash on Delivery).</p>
+              <p class="card-text" style={{textAlign: "center"}}>Giao hàng cho khách hàng và thu hộ tiền trực tiếp (Cash on Delivery).</p>
             </div>
             <div style={{ width: "18rem", display: "flex", alignItems: "center", flexDirection: "column", borderRight: "2px dashed white", padding: "10px"}}>
               <img src="https://giaohangtietkiem.vn/wp-content/themes/giaohangtk/images/bkg-active-4.png" class="card-img-top" alt="..." />
               <h3 style={{ color: "#01904a" }}>Đối soát</h3>
-              <p class="card-text" style={{textAlign: "center"}}>GHTK đối soát trả tiền cho shop (3 lần/tuần) qua tài khoản ngân hàng. Đồng thời gửi biên bản đối soát định kì vào email.</p>
+              <p class="card-text" style={{textAlign: "center"}}>Đối soát trả tiền cho shop (3 lần/tuần) qua tài khoản ngân hàng. Đồng thời gửi biên bản đối soát định kì vào email.</p>
             </div>
             <div style={{ width: "18rem", display: "flex", alignItems: "center", flexDirection: "column", padding: "7px"}}>
               <img src="https://giaohangtietkiem.vn/wp-content/themes/giaohangtk/images/bkg-active-5.png" class="card-img-top" alt="..." />

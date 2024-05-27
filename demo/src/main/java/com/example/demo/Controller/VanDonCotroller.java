@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -77,7 +79,7 @@ public class VanDonCotroller {
     }
 
     @GetMapping("/dsTaiXe")
-    public ResponseEntity<List<ThongTinTaiXe>> danhSachTaiXe() {
+    public ResponseEntity<List<ThongTinTaiXe>> danhSachTaiXe() throws ParseException {
         List<ThongTinTaiXe> dsTaiXe = taiXeService.danhSachTaiXe();
         return new ResponseEntity<>(dsTaiXe, HttpStatus.OK);
     }
@@ -95,7 +97,7 @@ public class VanDonCotroller {
     }
 
     @GetMapping("/tongTaiXe")
-    public ResponseEntity<Integer> tinhTongTaiXe() {
+    public ResponseEntity<Integer> tinhTongTaiXe() throws ParseException {
         int tongTaiXe = taiXeService.tinhTongTaiXe();
         return new ResponseEntity<>(tongTaiXe, HttpStatus.OK);
     }

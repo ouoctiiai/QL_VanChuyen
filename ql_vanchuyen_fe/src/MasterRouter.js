@@ -11,7 +11,6 @@ import "./Admin/index.css";
 import Customer from './KhachHang/Home/Customer';
 import ProfileCustomer from './KhachHang/Profile/ProfileCustomer';
 import OrderList from './KhachHang/OrderList/OrderList';
-import MasterLayout from './MasterLayout';
 import { ROUTERS } from './Path/router';
 import CreateOrder from './KhachHang/CreateOrder/CreateOrder';
 import OrderDetails from './KhachHang/OrderDetails/OrderDetails';

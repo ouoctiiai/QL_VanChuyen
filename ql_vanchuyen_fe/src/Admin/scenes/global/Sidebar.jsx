@@ -120,7 +120,7 @@ const Sidebar = () =>{
                   Bảo Ngọc
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  Amin
+                  Admin
                 </Typography>
               </Box>
             </Box>

@@ -71,7 +71,7 @@ const Login = (props) => {
                 } else if(loaiTaiKhoan === "QuanLy"){
                     redirectPath = `/trangchuadmin/${id}`;
                 } else {
-                    alert('Login successful but not a customer.');
+                    alert('Login failed!');
                 }
 
                 if (isChecked) {

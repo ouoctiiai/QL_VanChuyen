@@ -2,11 +2,13 @@ package com.example.demo.DAO;
 
 import com.example.demo.POJO.DiaChiPOJO;
 import com.example.demo.POJO.KhoPOJO;
+import com.example.demo.POJO.VanDonPOJO;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 
 import javax.print.Doc;
@@ -42,6 +44,21 @@ public class DiaChiDAO {
             listQuanHuyen.addAll(quanHuyenList);
         }
         return listQuanHuyen;
+    }
+
+    public DiaChiPOJO timTinhTheoTen(String name){
+        MongoCollection<Document> collection = connection.getCollection();
+        Bson filter = Filters.eq("name", name);
+        Document doc = collection.find(filter).first();
+        return convertToDiaChiPOJO(doc);
+    }
+
+    public List<DiaChiPOJO> dsTinhDonNoiTinh(){
+        List<DiaChiPOJO> danhSachtinh = new ArrayList<>();
+        danhSachtinh.add(timTinhTheoTen("Thành phố Hà Nội"));
+        danhSachtinh.add(timTinhTheoTen("Thành phố Hồ Chí Minh"));
+        danhSachtinh.add(timTinhTheoTen("Thành phố Đà Nẵng"));
+        return danhSachtinh;
     }
 
     public List<DiaChiPOJO.QuanHuyen.PhuongXa> timPhuongXaTheoQuanHuyen(String maQuanHuyen) {

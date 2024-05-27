@@ -130,11 +130,11 @@ const ProfileCustomer = () => {
                                 Edit Profile
                             </Button>
                         {/* </NavLink> */}
-                        <NavLink to="/update-password-customer" >
+                        {/* <NavLink to="/update-password-customer" >
                             <Button className='btn-create d-flex justify-content-center' style={{ width: 'auto', marginLeft: '10px'}}>
                                 Edit Password
                             </Button>
-                        </NavLink>
+                        </NavLink> */}
                     </div>
                 </div>
             </div>

@@ -3,6 +3,8 @@ package com.example.demo.Controller;
 import ch.qos.logback.core.model.Model;
 import com.example.demo.DAO.DiaChiDAO;
 import com.example.demo.POJO.DiaChiPOJO;
+import com.example.demo.POJO.VanDonPOJO;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
@@ -44,5 +46,12 @@ public class DiaChiController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/dsTinhDonNoiTinh")
+    public ResponseEntity dsTinhDonNoiTinh(Model model) {
+        List<DiaChiPOJO> dsTinhThanh = diaChiDAO.dsTinhDonNoiTinh();
+        return new ResponseEntity<>(dsTinhThanh, HttpStatus.OK);
+    }
+
 
 }

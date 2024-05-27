@@ -603,7 +603,7 @@ public class VanDonDAO {
             Date thoiGianLap = new Date();
             vanDonPOJO.setThoiGianLap(thoiGianLap);
 
-            vanDonPOJO.setTrangThai("Chờ xác nhận");
+            vanDonPOJO.setTrangThai("Chờ giao");
 
             Document thongTinHH = new Document()
                     .append("LoaiHang", vanDonPOJO.getThongTinHangHoa().getLoaiHang())
@@ -643,6 +643,10 @@ public class VanDonDAO {
 
             if (Optional.ofNullable(vanDonPOJO.getKhoangCach()).isPresent()) {
                 document.append("KhoangCach", vanDonPOJO.getKhoangCach());
+            }
+
+            if (Optional.ofNullable(vanDonPOJO.getTinh()).isPresent()) {
+                document.append("Tinh", vanDonPOJO.getTinh());
             }
 
             if (Optional.ofNullable(vanDonPOJO.getDiemDen()).isPresent()) {
