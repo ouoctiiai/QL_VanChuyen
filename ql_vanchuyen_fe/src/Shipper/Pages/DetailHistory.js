@@ -31,7 +31,6 @@ const DetailHistory = () => {
   return (
     <div>
       <>
-      <Navbar />
       <div class="container">
 		<div class="main-body">
 			<div class="row">
