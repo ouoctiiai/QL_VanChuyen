@@ -309,7 +309,7 @@ const TaoDonHang = () => {
             diemXuatPhat: loaiVanChuyen === "Liên tỉnh" ? getTinhNguoiGui() : null,
             diemDen: loaiVanChuyen === "Liên tỉnh" ? getTinhNguoiNhan() : null,
             tuyenDuong: loaiVanChuyen === "Liên tỉnh" ? { khoangCach: parseFloat(khoangCach) } : null,
-            tinh: loaiVanChuyen === "Nội tỉnh" ? selectedTinhNguoiGui : null,
+            tinh: loaiVanChuyen === "Nội tỉnh" ? getTinhNguoiGui() : null,
             khoangCach: loaiVanChuyen === "Nội tỉnh" ? parseFloat(khoangCach) : null,
             phiVanChuyen: {
                 phiCoDinh: parseInt(phiCoDinh),
