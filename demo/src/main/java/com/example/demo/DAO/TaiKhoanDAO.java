@@ -157,7 +157,6 @@ public class TaiKhoanDAO {
         }
     }
 
-    // Phương thức để chuyển đổi Document thành KhoPOJO
 
     public List<TaiKhoanPOJO> danhSachTaiKhoanLaShipper() throws ParseException {
         List<TaiKhoanPOJO> ds = new ArrayList<>();
@@ -185,6 +184,8 @@ public class TaiKhoanDAO {
         tk.setDiaChi(doc.getString("DiaChi"));
         tk.setMaShipper(doc.getString("MaShipper"));
         tk.setTongTienCong(tinhTongLuongCuaShipper(tk));
+        tk.setTongTienDaNhan(tinhTongTienDaNhanCuaShipper(tk));
+        tk.setTongThuongShipper(tinhTongThuongCuaShipper(tk));
 
         Document ttttk = doc.getEmbedded(Collections.singletonList("TKNganHang"), Document.class);
         if (ttttk != null) {
@@ -219,6 +220,21 @@ public class TaiKhoanDAO {
 
         luong -= tinhTongTienDaNhanCuaShipper(tk);
         return luong;
+    }
+
+    public Integer tinhTongThuongCuaShipper(TaiKhoanPOJO tk) throws ParseException {
+        VanDonDAO vd = new VanDonDAO();
+        Integer thuong = 0;
+        List<VanDonPOJO> ls = vd.lichSuDonCuaShipper(tk.getMaShipper());
+        for (VanDonPOJO vd1 : ls) {
+            if (Objects.equals(vd1.getPhiVanChuyen(), "Giao hàng thành công")) {
+                PhiVanChuyen p = vd1.getPhiVanChuyen();
+                thuong += p.getThuongShipper();
+            }
+        }
+
+        thuong -= tinhTongTienDaNhanCuaShipper(tk);
+        return thuong;
     }
 
     public TaiKhoanPOJO updateTaiKhoanShipper(ObjectId id, String tenChuTaiKhoan, String tenDangNhap, String matKhau, String sdt, String email, String soTaiKhoan, String tenNganHang) throws Exception {

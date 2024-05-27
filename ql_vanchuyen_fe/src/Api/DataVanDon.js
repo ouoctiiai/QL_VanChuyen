@@ -6,6 +6,8 @@ export const listVanDon = () => axios.get(REST_API_BASE_URL + '/danh-sach');
 
 export const getVanDonById = (employeeId) => axios.get(REST_API_BASE_URL + '/' + employeeId);
 
+export const getVanDonByMaVD = (maVD) => axios.get(REST_API_BASE_URL + '/getVDtheoMa/' + maVD);
+
 export const listTaiXe = () => axios.get(REST_API_BASE_URL + '/dsTaiXe');
 
 export const listXe = () => axios.get(REST_API_BASE_URL + '/dsXe');
@@ -13,6 +15,8 @@ export const listXe = () => axios.get(REST_API_BASE_URL + '/dsXe');
 export const listNoiTinh = () => axios.get(REST_API_BASE_URL + '/dsDonNoiTinh');
 
 export const listNgoaiTinh = () => axios.get(REST_API_BASE_URL + '/dsDonLienTinh');
+
+export const listChoGiao = () => axios.get(REST_API_BASE_URL + '/dsDonChoGiao');
 
 export const tinhKhoangCachLienTinh = (dc1, dc2) => axios.get(`${REST_API_BASE_URL}/khoangCach/${dc1}/${dc2}`);
 
@@ -67,5 +71,7 @@ export const getTongSoDonCuaShipperTrongThang = (maShipper) => axios.get(REST_AP
 export const getTongSoDonCuaShipperTrongNgay = (maShipper) => axios.get(REST_API_BASE_URL + '/TongSoDonCuaShipperTrongNgay/' + maShipper);
 
 export const updateTrangThaiDangGiao = (id, maShipper, tenShipper, sdtShipper) => axios.post(`${REST_API_BASE_URL}/updateDangGiao/${id}/${maShipper}/${tenShipper}/${sdtShipper}`);
+
+export const updateTrangThaiDangGiaoHangLoat = (ids, maShipper, tenShipper, sdtShipper) => axios.post(`${REST_API_BASE_URL}/updateDangGiaoHangLoat/${ids}/${maShipper}/${tenShipper}/${sdtShipper}`);
 
 export const updateTrangThaiDaGiao = (id) => axios.post(`${REST_API_BASE_URL}/updateDaGiao/${id}`);

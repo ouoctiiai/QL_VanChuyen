@@ -25,6 +25,8 @@ public class TaiKhoanPOJO {
     private ThongTinTaiKhoan thongTinTaiKhoan;
     private String maShipper;
     private Integer tongTienCong;
+    private Integer tongTienDaNhan;
+    private Integer tongThuongShipper;
 
     // Constructor cho tài khoản khách hàng
     public TaiKhoanPOJO(String loaiTaiKhoan, String tenTaiKhoan, String tenChuTaiKhoan,
@@ -43,11 +45,13 @@ public class TaiKhoanPOJO {
     // Constructor cho tài khoản shipper (có thêm thông tin mã shipper và tổng tiền công)
     public TaiKhoanPOJO(String loaiTaiKhoan, String tenTaiKhoan, String tenChuTaiKhoan,
                     String sdt, String email, String soCCCD, String matKhau, String diaChi,
-                    ThongTinTaiKhoan thongTinTaiKhoan, String maShipper, int tongTienCong) {
+                    ThongTinTaiKhoan thongTinTaiKhoan, String maShipper, int tongTienCong, int tongTienDaNhan, int tongThuongShipper) {
         this(loaiTaiKhoan, tenTaiKhoan, tenChuTaiKhoan, sdt, email, matKhau, diaChi, thongTinTaiKhoan);
         this.soCCCD = soCCCD;
         this.maShipper = maShipper;
         this.tongTienCong = tongTienCong;
+        this.tongTienDaNhan = tongTienDaNhan;
+        this.tongThuongShipper = tongThuongShipper;
     }
 
 

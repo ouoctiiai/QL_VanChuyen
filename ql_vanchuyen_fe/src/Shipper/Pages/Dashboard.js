@@ -107,7 +107,7 @@ const Dashboard = () => {
                         <div class="pricing-table-price text-center bg-info">
                             <p class="title-font">
                                 <span class="pricing-period text-white mr-1">Được </span>
-                                <span class="pricing-price text-white">9.99</span>
+                                <span class="pricing-price text-white">{taiKhoan.tongTienCong}</span>
                                 <span class="pricing-period text-white">vnđ</span>
                             </p>
                         </div>
@@ -126,10 +126,9 @@ const Dashboard = () => {
                         </div>
                         <div class="pricing-table-price text-center bg-primary">
                             <p class="title-font">
-                                <span class="pricing-period text-white mr-1">From</span>
-                                <span class="pricing-currency text-white">$</span>
-                                <span class="pricing-price text-white">29.99</span>
-                                <span class="pricing-period text-white">/ Mo.</span>
+                            <span class="pricing-period text-white mr-1">Được </span>
+                                <span class="pricing-price text-white">{taiKhoan.tongThuongShipper}</span>
+                                <span class="pricing-period text-white">vnđ</span>
                             </p>
                         </div>
                         <div class="pricing-table-content">
@@ -147,10 +146,9 @@ const Dashboard = () => {
                         </div>
                         <div class="pricing-table-price text-center bg-info">
                             <p class="title-font">
-                                <span class="pricing-period text-white mr-1">From</span>
-                                <span class="pricing-currency text-white">$</span>
-                                <span class="pricing-price text-white">49.99</span>
-                                <span class="pricing-period text-white">/ Mo.</span>
+                            <span class="pricing-period text-white mr-1">Được </span>
+                                <span class="pricing-price text-white">{taiKhoan.tongTienDaNhan}</span>
+                                <span class="pricing-period text-white">vnđ</span>
                             </p>
                         </div>
                         <div class="pricing-table-content">
