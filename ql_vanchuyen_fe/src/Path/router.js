@@ -26,7 +26,7 @@ export const ROUTERS ={
         PROFILE: "/profile",
         HISTORY: "/history",
         DASHBOARD: "/dashboard",
-        DETAILORDER: "/detailorder",
+        // DETAILORDER: "/detailorder",
         UPDATEPEOFILE: "/UpdateProfile",
         DETAILORDER: "/detailorder/:id",
         DETAILHISTORY: "/detailhistory/:id",

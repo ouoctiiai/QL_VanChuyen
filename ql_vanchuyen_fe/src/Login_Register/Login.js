@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useHistory } from 'react-router-dom/cjs/react-router-dom';
+import { NavLink, Redirect, useHistory } from 'react-router-dom/cjs/react-router-dom';
 import './Login_Regis.scss';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -53,6 +53,8 @@ const Login = (props) => {
                 matKhau: formState.password
             });
 
+            let redirectPath = '';
+
             console.log('Response:', response);
 
             if (response.status === 200) {
@@ -64,22 +66,27 @@ const Login = (props) => {
                     localStorage.setItem("tenChuTaiKhoan", tenChuTaiKhoan);
                     localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
                     localStorage.setItem("accessToken", true);
-                    history.push(`/customer/${id}`);
+                    // history.push(`/customer/${id}`);
+                    redirectPath = `/customer/${id}`;
+
                 } else if (loaiTaiKhoan === 'Shipper') {
                     localStorage.setItem("userId", id);
                     localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
                     localStorage.setItem("accessToken", true)
-                    history.push(`/shipper_home/${id}`);
+                    // history.push(`/shipper_home/${id}`);
+                    redirectPath = `/shipper_home/${id}`;
                 } else if(loaiTaiKhoan === "Kho"){
                     localStorage.setItem("userId", id);
                     localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
                     localStorage.setItem("accessToken", true)
-                    history.push(`/nv_home/${id}`);
+                    // history.push(`/nv_home/${id}`);
+                    redirectPath = `/nv_home/${id}`;
                 }else if(loaiTaiKhoan === "QuanLy"){
                     localStorage.setItem("userId", id);
                     localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
                     localStorage.setItem("accessToken", true)
-                    history.push(`/trangchuadmin/${id}`);
+                    // history.push(`/trangchuadmin/${id}`);
+                    redirectPath = `/trangchuadmin/${id}`;
                 }else {
                     // Handle other user types or show an error message
                     alert('Login successful but not a customer.');
@@ -87,6 +94,10 @@ const Login = (props) => {
             } else {
                 console.error('Login failed with status:', response.status);
                 alert('Login failed. Please check your username and password.');
+            }
+
+            if(redirectPath){
+                return <Redirect to = {redirectPath}/>
             }
 
             if (isChecked) {

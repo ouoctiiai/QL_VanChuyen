@@ -301,7 +301,7 @@ const renderMasterRouter = (role) => {
                 {createRouters(masterRouter.shipper, true, "Shipper")}
             </div>}
             {role === 'Kho' && <NhanVienLayout>
-                {createRouters(masterRouter.shipper, true, "Shipper")}
+                {createRouters(masterRouter.shipper, true, "Kho")}
             </NhanVienLayout>}
             {createRouters(masterRouter.public)}
             {/* {createRouters(masterRouter.customer, true, "Khách hàng")}
