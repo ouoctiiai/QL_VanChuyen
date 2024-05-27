@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, Redirect, useHistory } from 'react-router-dom/cjs/react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import './Login_Regis.scss';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -7,13 +7,10 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { login } from '../Api/DataTaiKhoan';
 import axios from 'axios';
-
-
-
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import { WindowSharp } from '@mui/icons-material';
 
 const Login = (props) => {
-    // const [value, setValue] = useState('');
-    // const [isActive, setIsActive] = useState('');
     const [isChecked, setIsChecked] = useState('');
     const [formState, setFormState] = useState({
         tenTaiKhoan: '', password: ''
@@ -37,7 +34,6 @@ const Login = (props) => {
         setIsChecked(rememberMe);
     }, [formState.tenTaiKhoan, formState.password]);
 
-
     const handleCheckboxChange = () => {
         setIsChecked(!isChecked);
         localStorage.setItem("rememberMe", !isChecked);
@@ -45,7 +41,7 @@ const Login = (props) => {
 
     const handleSignIn = async (event) => {
         event.preventDefault();
-        console.log('Form state:', formState);
+        // console.log('Form state:', formState);
 
         try {
             const response = await login({
@@ -53,79 +49,59 @@ const Login = (props) => {
                 matKhau: formState.password
             });
 
-            let redirectPath = '';
-
-            console.log('Response:', response);
+            // console.log('Response:', response);
 
             if (response.status === 200) {
                 const data = response.data;
                 const { id, loaiTaiKhoan, tenChuTaiKhoan } = data;
 
-                if (loaiTaiKhoan === 'Khách hàng') {
-                    localStorage.setItem("userId", id);
-                    localStorage.setItem("tenChuTaiKhoan", tenChuTaiKhoan);
-                    localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
-                    localStorage.setItem("accessToken", true);
-                    // history.push(`/customer/${id}`);
-                    redirectPath = `/customer/${id}`;
+                let redirectPath = '';
 
+                localStorage.setItem("userId", id);
+                localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
+                localStorage.setItem("accessToken", true)
+
+                if (loaiTaiKhoan === 'Khách hàng') {
+                    localStorage.setItem("tenChuTaiKhoan", tenChuTaiKhoan);
+                    redirectPath = `/customer/${id}`;
                 } else if (loaiTaiKhoan === 'Shipper') {
-                    localStorage.setItem("userId", id);
-                    localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
-                    localStorage.setItem("accessToken", true)
-                    // history.push(`/shipper_home/${id}`);
                     redirectPath = `/shipper_home/${id}`;
                 } else if(loaiTaiKhoan === "Kho"){
-                    localStorage.setItem("userId", id);
-                    localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
-                    localStorage.setItem("accessToken", true)
-                    // history.push(`/nv_home/${id}`);
                     redirectPath = `/nv_home/${id}`;
-                }else if(loaiTaiKhoan === "QuanLy"){
-                    localStorage.setItem("userId", id);
-                    localStorage.setItem("loaiTaiKhoan", loaiTaiKhoan);
-                    localStorage.setItem("accessToken", true)
-                    // history.push(`/trangchuadmin/${id}`);
+                } else if(loaiTaiKhoan === "QuanLy"){
                     redirectPath = `/trangchuadmin/${id}`;
-                }else {
-                    // Handle other user types or show an error message
+                } else {
                     alert('Login successful but not a customer.');
                 }
+
+                if (isChecked) {
+                    localStorage.setItem("loginData", JSON.stringify(formState));
+                } else {
+                    localStorage.removeItem("loginData");
+                }
+                
+                history.push(redirectPath);
+                window.location.reload();
             } else {
                 console.error('Login failed with status:', response.status);
                 alert('Login failed. Please check your username and password.');
             }
-
-            if(redirectPath){
-                return <Redirect to = {redirectPath}/>
-            }
-
-            if (isChecked) {
-                localStorage.setItem("loginData", JSON.stringify(formState));
-            } else {
-                localStorage.removeItem("loginData");
-            }
         } catch (error) {
             if (error.response) {
-                // The request was made and the server responded with a status code that falls out of the range of 2xx
                 console.error('Error during login (response data):', error.response.data);
                 console.error('Error during login (response status):', error.response.status);
                 console.error('Error during login (response headers):', error.response.headers);
             } else if (error.request) {
-                // The request was made but no response was received
                 console.error('Error during login (request):', error.request);
             } else {
-                // Something happened in setting up the request that triggered an Error
                 console.error('Error during login (message):', error.message);
             }
             alert('An error occurred during login. Please try again later.');
         }
     }
 
-
     return (
-        <div className='login_container' >
-            {/* <!-- Pills navs --> */}
+        <div className='login_container'>
             <ul className="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
                 <li className="nav-item" role="presentation">
                     <NavLink className="nav-link active" id="tab-login" data-mdb-pill-init to="/login" role="tab"
@@ -136,50 +112,22 @@ const Login = (props) => {
                         aria-controls="pills-register" aria-selected="false">Đăng ký</NavLink>
                 </li>
             </ul>
-            {/* <!-- Pills navs -->
 
-            <!-- Pills content --> */}
             <div className="tab-content">
                 <div className="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-
                     <form>
-                        {/* <div className="text-center mb-3">
-                            <p>Đăng nhập với:</p>
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-                                <i className="fab fa-facebook-f"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-                                <i className="fab fa-google"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-                                <i className="fab fa-twitter"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-                                <i className="fab fa-github"></i>
-                            </button>
-                        </div> */}
-
-                        {/* <p className="text-center">hoặc:</p> */}
-
-                        {/* <!-- Email input --> */}
                         <div data-mdb-input-init className='form-outline mb-4'>
                             <input type="text" id="loginName" name='tenTaiKhoan' value={formState.tenTaiKhoan} onChange={handleChange} className={`form-control ${isActiveUsername ? 'active' : ''}`} />
                             <label className="form-label" htmlFor="loginName">Tên Đăng Nhập</label>
                         </div>
 
-                        {/* <!-- Password input --> */}
                         <div data-mdb-input-init className="form-outline mb-4">
                             <input type="password" id="loginPassword" name='password' value={formState.password} onChange={handleChange} className={`form-control ${isActivePassword ? 'active' : ''}`} />
                             <label className="form-label" htmlFor="loginPassword">Mật khẩu</label>
                         </div>
 
-                        {/* <!-- 2 column grid layout --> */}
                         <div className="row mb-4">
                             <div className="col-md-6 d-flex justify-content-center">
-                                {/* <!-- Checkbox --> */}
                                 <div className="form-check mb-3 mb-md-0">
                                     <input className="form-check-input" type="checkbox" value="" id="loginCheck" onChange={handleCheckboxChange} />
                                     {isChecked}
@@ -188,22 +136,18 @@ const Login = (props) => {
                             </div>
 
                             <div className="col-md-6 d-flex justify-content-center">
-                                {/* <!-- Simple link --> */}
                                 <NavLink to="/#!">Quên mật khẩu?</NavLink>
                             </div>
                         </div>
 
-                        {/* <!-- Submit button --> */}
                         <button type="submit" onClick={handleSignIn} data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-block mb-4">Đăng nhập</button>
 
-                        {/* <!-- Register buttons --> */}
                         <div className="text-center">
                             <p>Chưa có tài khoản? <NavLink to="/register">Đăng Ký</NavLink></p>
                         </div>
                     </form>
                 </div>
             </div>
-            {/* <!-- Pills content --> */}
         </div>
     );
 }
