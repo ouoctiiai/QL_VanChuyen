@@ -7,7 +7,6 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { login } from '../Api/DataTaiKhoan';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { WindowSharp } from '@mui/icons-material';
 
 const Login = (props) => {
@@ -18,7 +17,7 @@ const Login = (props) => {
     const [isActiveUsername, setIsActiveUsername] = useState(false);
     const [isActivePassword, setIsActivePassword] = useState(false);
     const history = useHistory();
-
+    
     const handleChange = (event) => {
         setFormState(prevState => ({
             ...prevState,
@@ -63,6 +62,7 @@ const Login = (props) => {
 
                 if (loaiTaiKhoan === 'Khách hàng') {
                     localStorage.setItem("tenChuTaiKhoan", tenChuTaiKhoan);
+                    
                     redirectPath = `/customer/${id}`;
                 } else if (loaiTaiKhoan === 'Shipper') {
                     redirectPath = `/shipper_home/${id}`;
@@ -79,9 +79,9 @@ const Login = (props) => {
                 } else {
                     localStorage.removeItem("loginData");
                 }
-                
                 history.push(redirectPath);
                 window.location.reload();
+                
             } else {
                 console.error('Login failed with status:', response.status);
                 alert('Login failed. Please check your username and password.');
@@ -99,6 +99,7 @@ const Login = (props) => {
             alert('An error occurred during login. Please try again later.');
         }
     }
+
 
     return (
         <div className='login_container'>
