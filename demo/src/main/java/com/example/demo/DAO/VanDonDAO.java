@@ -88,7 +88,6 @@ public class VanDonDAO {
         for (Document doc : collection.find(query)) {
             VanDonPOJO vd = convertToVanDonPOJO(doc);
             dsVanDon.add(vd);
-            double totalShippingFee = tinhPhiVanChyen(vd);
         }
 
         return dsVanDon;
