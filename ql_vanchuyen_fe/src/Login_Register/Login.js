@@ -5,7 +5,7 @@ import './Login_Regis.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { login } from '../Api/DataTaiKhoan';
+import { listTaiKhoan, login } from '../Api/DataTaiKhoan';
 import axios from 'axios';
 import { WindowSharp } from '@mui/icons-material';
 
@@ -17,6 +17,9 @@ const Login = (props) => {
     const [isActiveUsername, setIsActiveUsername] = useState(false);
     const [isActivePassword, setIsActivePassword] = useState(false);
     const history = useHistory();
+
+    const [errorMessage, setErrorMessage] = useState('');
+
     
     const handleChange = (event) => {
         setFormState(prevState => ({
@@ -96,7 +99,7 @@ const Login = (props) => {
             } else {
                 console.error('Error during login (message):', error.message);
             }
-            alert('An error occurred during login. Please try again later.');
+            alert('Tài khoản không tồn tại! Hãy đăng ký tài khoản để đăng nhập!');
         }
     }
 
