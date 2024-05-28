@@ -15,6 +15,7 @@ const Navbar = ({ children, ...props }) => {
     localStorage.removeItem("loaiTaiKhoan");
     localStorage.removeItem("tenChuTaiKhoan");
     history.replace("/login");
+    window.location.reload(true);
   };
 
   return (

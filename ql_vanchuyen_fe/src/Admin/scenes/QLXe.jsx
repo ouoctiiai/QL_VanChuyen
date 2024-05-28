@@ -37,7 +37,7 @@ const DSXe = () => {
 
   return (
       <Box m="20px">
-      <Header title="ADMIN" subtitle="Quản lí xe" />
+      <Header title="Quản lí xe" subtitle="Danh sách tất cả các xe" />
       <Box
         m="40px 0 0 0"
         height="75vh"

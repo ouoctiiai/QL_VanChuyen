@@ -340,7 +340,7 @@ const AdminDashboard = () => {
                 p="5px 10px"
                 borderRadius="4px"
               >
-                ${order.phiVanChuyen.tongPhi}
+                {order.phiVanChuyen.tongPhi}
               </Box>
             </Box>
           ))}
