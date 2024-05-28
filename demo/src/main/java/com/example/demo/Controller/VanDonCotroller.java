@@ -97,12 +97,6 @@ public class VanDonCotroller {
         return new ResponseEntity<>(khoangCach, HttpStatus.OK);
     }
 
-    @GetMapping("/duongDi/{dc1}/{dc2}")
-    public ResponseEntity<String> tinhKhoangCach(@PathVariable String dc1, @PathVariable String dc2) {
-        String khoangCach = vanDonService.timDuongDiNganNhatLT(dc1, dc2);
-        return new ResponseEntity<>(khoangCach, HttpStatus.OK);
-    }
-
     @GetMapping("/tongTaiXe")
     public ResponseEntity<Integer> tinhTongTaiXe() throws ParseException {
         int tongTaiXe = taiXeService.tinhTongTaiXe();
