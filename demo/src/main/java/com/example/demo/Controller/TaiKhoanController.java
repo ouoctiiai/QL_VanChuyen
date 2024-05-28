@@ -14,7 +14,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/taikhoan")
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("*")
 public class TaiKhoanController {
     @Autowired
     private TaiKhoanDAO taiKhoanService;
