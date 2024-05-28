@@ -9,8 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.util.List;
 
@@ -30,6 +28,12 @@ public class TaiKhoanController {
     @GetMapping("/dsTaiKhoanLaShipper")
     public ResponseEntity dsTaiKhoanLaShipper(Model model) throws ParseException {
         List<TaiKhoanPOJO> ds = taiKhoanService.danhSachTaiKhoanLaShipper();
+        return new ResponseEntity<>(ds, HttpStatus.OK);
+    }
+
+    @GetMapping("/dsTaiKhoanLaKhachHang")
+    public ResponseEntity dsTaiKhoanLaKhachHang(Model model) throws ParseException {
+        List<TaiKhoanPOJO> ds = taiKhoanService.danhSachTaiKhoanLaKhachHang();
         return new ResponseEntity<>(ds, HttpStatus.OK);
     }
 

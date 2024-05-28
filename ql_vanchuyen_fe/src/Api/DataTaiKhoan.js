@@ -6,6 +6,8 @@ export const listTaiKhoan = () => axios.get(URL + '/danh-sach');
 
 export const getTaiKhoanById = (customerId) => axios.get(URL + '/' + customerId);
 
+export const getDSKhachHang = async() => axios.get(URL + '/dsTaiKhoanLaKhachHang')
+
 export const login = (loginData) => axios.post(URL + '/login', loginData);
 
 export const createAccountCustomer = (taiKhoanMoi) => axios.post(URL + '/register', taiKhoanMoi);
