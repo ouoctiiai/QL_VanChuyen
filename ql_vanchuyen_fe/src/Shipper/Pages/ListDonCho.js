@@ -73,7 +73,7 @@ const ListDonCho = () => {
 
                               <td>
                                   <div>
-                                      <h5 class="font-size-18"><a href={`/detailorder/${item.id}`}>{item.thongTinHangHoa.loaiHang}</a></h5>
+                                      <h5 class="font-size-18"><a href={`/detailorder/${item.id}`}>{item.thoiGianLapToString}</a></h5>
                                   </div>
                               </td>
 

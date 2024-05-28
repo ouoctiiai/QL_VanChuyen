@@ -1,210 +1,4894 @@
 [{
   "_id": {
-    "$oid": "66521a1bb29e555133686adc"
+    "$oid": "661a744b014d44c4b75947ea"
   },
-  "LoaiPhieuChi": "Chi phí xe",
-  "TongTien": 25000,
+  "MaVanDon": "VCLT00001",
   "ThoiGianLap": {
-    "$date": "2022-05-25T17:04:27.565Z"
+    "$date": "2024-03-31T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV24",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Mỹ Anh",
+    "SDTNguoiGui": "0375623391",
+    "DiaChiNguoiGui": "16 P. Nguyễn Quang Bích. Cửa Đông. Hoàn Kiếm. Hà Nội 10000. Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Cát Tường Vi",
+    "SDTNguoiNhan": "0912875461",
+    "DiaChiNguoiNhan": "368 Đ. Hùng Vương. Phường 3. Tân An. Long An. Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX001",
+    "TenTaiXe": "Huỳnh Quốc Anh",
+    "SDTTaiXe": "0396787546"
+  },
+  "ThongTinXe": {
+    "BienSo": "12A-12345",
+    "TenXe": "Isuzu QKR",
+    "LoaiXe": "Tải",
+    "HangXe": "Isuzu"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Bao bì",
+    "TrongLuong": 55.3,
+    "KichCo": {
+      "Dai": 130.2,
+      "Rong": 102.5
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Hà Nội",
+  "DiemDen": "Long An",
+  "TuyenDuong": {
+    "DuongDi": "Hà Nội, Cần Thơ, Đồng Tháp, Long An",
+    "KhoangCach": 2127.13
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 7000,
+    "PhiNang": 20000,
+    "PhiHa": 20000,
+    "TongPhi": 117607
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00001",
+    "TenShipper": "Đặng Hoàng Anh",
+    "SDTShipper": "0329457652"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947eb"
+  },
+  "MaVanDon": "VCLT00002",
+  "ThoiGianLap": {
+    "$date": "2023-02-01T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV30",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Hoàng Gia Lan",
+    "SDTNguoiGui": "0916789256",
+    "DiaChiNguoiGui": "88 Lê Văn Duyệt, Đa Kao, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Hoàng Sơn",
+    "SDTNguoiNhan": "0389764124",
+    "DiaChiNguoiNhan": "H55 Nguyễn Thị Nghĩa, Phường 2, Thành phố Đà Lạt, Lâm Đồng 66109, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX005",
+    "TenTaiXe": "Nguyễn Văn Út Em",
+    "SDTTaiXe": "0367986528"
+  },
+  "ThongTinXe": {
+    "BienSo": "29C-88878",
+    "TenXe": "Hyundai Mighty",
+    "LoaiXe": "Thùng",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TrongLuong": 23.5,
+    "KichCo": {
+      "Dai": 108.3,
+      "Rong": 109.4
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "TP Hồ Chí Minh",
+  "DiemDen": "Lâm Đồng",
+  "TuyenDuong": {
+    "DuongDi": "TP Hồ Chí Minh, Lâm Đồng",
+    "KhoangCach": 342.71
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 68002
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00008",
+    "TenShipper": "Nguyễn Duy Hưng",
+    "SDTShipper": "0329296673"
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947ec"
+  },
+  "MaVanDon": "VCLT00003",
+  "ThoiGianLap": {
+    "$date": "2022-03-01T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV37",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lý Thị Hân",
+    "SDTNguoiGui": "0983267975",
+    "DiaChiNguoiGui": "21 5 Tháng 6, Tổ dân phố số 16, Thị xã Lai Châu, Lai Châu, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Trần Văn Phúc",
+    "SDTNguoiNhan": "0389764128",
+    "DiaChiNguoiNhan": "92 Trương Thị Sáu, Phường 3, Tân An, Long An, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX007",
+    "TenTaiXe": "Trần Văn Hướng",
+    "SDTTaiXe": "0398757298"
+  },
+  "ThongTinXe": {
+    "BienSo": "51H-95044",
+    "TenXe": "Thaco Kia K250",
+    "LoaiXe": "Thùng",
+    "HangXe": "Thaco"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TenHang": "Cá sống",
+    "TrongLuong": 4.35,
+    "KichCo": {
+      "Dai": 89.4,
+      "Rong": 93.5
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Lai Châu",
+  "DiemDen": "Long An",
+  "TuyenDuong": {
+    "DuongDi": "Lai Châu, Yên Bái, Phú Thọ, Hà Nội, Cần Thơ, Đồng Tháp, Long An",
+    "KhoangCach": 2547.01
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 48007
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00003",
+    "TenShipper": "Phạm Kim Thành",
+    "SDTShipper": "0963666831"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947ed"
+  },
+  "MaVanDon": "VCLT00004",
+  "ThoiGianLap": {
+    "$date": "2024-04-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV38",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Lê Gia Kỳ",
+    "SDTNguoiGui": "0335876923",
+    "DiaChiNguoiGui": "107 Minh Khai, Phố Mới, Lào Cai, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Mai Xuân Phú",
+    "SDTNguoiNhan": "0386678855",
+    "DiaChiNguoiNhan": "Đường N3, Lộc Hoà, TP. Nam Định, Nam Định, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX003",
+    "TenTaiXe": "Nguyễn Thành Lộc",
+    "SDTTaiXe": "0375111876"
+  },
+  "ThongTinXe": {
+    "BienSo": "51H-59565",
+    "TenXe": "Thaco Kia K360",
+    "LoaiXe": "Thùng",
+    "HangXe": "Thaco"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thuốc & hóa chất",
+    "TrongLuong": 5.3,
+    "KichCo": {
+      "Dai": 23.4,
+      "Rong": 12.5
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Lào Cai",
+  "DiemDen": "Nam Định",
+  "TuyenDuong": {
+    "DuongDi": "Lào Cai, Yên Bái, Phú Thọ, Hòa Bình, Hà Nam, Nam Định",
+    "KhoangCach": 429.04
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 4000,
+    "PhiKhac": 10000,
+    "TongPhi": 64009
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00004",
+    "TenShipper": "Nguyễn Hà Trang",
+    "SDTShipper": "0563043312"
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947ee"
+  },
+  "MaVanDon": "VCLT00005",
+  "ThoiGianLap": {
+    "$date": "2023-05-01T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV15",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Trần Đại Lộc",
+    "SDTNguoiGui": "0378986470",
+    "DiaChiNguoiGui": "876 Trần Cao Vân, Thanh Khê Đông, Thanh Khê, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Huỳnh Tuấn Đạt",
+    "SDTNguoiNhan": "0386972169",
+    "DiaChiNguoiNhan": "Số 40 Đại lộ Xô Viết Nghệ, Nghi Phú, Thành phố Vinh, Nghệ An, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX002",
+    "TenTaiXe": "Trần Chí Nhân",
+    "SDTTaiXe": "0389654129"
+  },
+  "ThongTinXe": {
+    "BienSo": "75A-14519",
+    "TenXe": "Huyndai HD Series",
+    "LoaiXe": "Thùng",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Đồ gia dụng",
+    "TrongLuong": 3.6,
+    "KichCo": {
+      "Dai": 23.4,
+      "Rong": 18.2
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Đà Nẵng",
+  "DiemDen": "Nghệ An",
+  "TuyenDuong": {
+    "DuongDi": "Đà Nẵng, Nghệ An",
+    "KhoangCach": 488.17
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 38008
+  },
+  "TrangThai": "Giao hàng thành công",
+  "ThongTinShipper": {
+    "MaShipper": "SP00030",
+    "SDTShipper": "0375833381",
+    "TenShipper": "Phạm Bá Thàn"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T08:00:46.100Z"
   }
 },
 {
   "_id": {
-    "$oid": "66521a1eb29e555133686add"
+    "$oid": "661a744b014d44c4b75947ef"
   },
-  "LoaiPhieuChi": "Chi phí nhiên liệu",
-  "TongTien": 30000,
+  "MaVanDon": "VCLT00006",
   "ThoiGianLap": {
-    "$date": "2023-05-25T17:04:30.776Z"
+    "$date": "2022-06-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV24",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lê Trương Trường Vượng",
+    "SDTNguoiGui": "0386086689",
+    "DiaChiNguoiGui": "Ng. 34 P. Hào Nam, Chợ Dừa, Đống Đa, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Trịnh Hoàng Minh",
+    "SDTNguoiNhan": "0384672922",
+    "DiaChiNguoiNhan": "89 đường Ninh Tôn, Ninh Phú, Ninh Bình, 08000, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX005",
+    "TenTaiXe": "Nguyễn Văn Út Em",
+    "SDTTaiXe": "0367986528"
+  },
+  "ThongTinXe": {
+    "BienSo": "51H-86514",
+    "TenXe": "Thaco Kia K250",
+    "LoaiXe": "Thùng",
+    "HangXe": "Thaco"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TenHang": "Điện thoại",
+    "TrongLuong": 1.4,
+    "KichCo": {
+      "Dai": 12.4,
+      "Rong": 34.2
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Hà Nội",
+  "DiemDen": "Ninh Bình",
+  "TuyenDuong": {
+    "DuongDi": "Hà Nội, Hà Nam, Ninh Bình",
+    "KhoangCach": 108.2
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 5000,
+    "PhiNang": 20000,
+    "TongPhi": 65008
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00006",
+    "TenShipper": "Nguyễn Đức Linh Kiệt",
+    "SDTShipper": "0835264446"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947f0"
+  },
+  "MaVanDon": "VCLT00007",
+  "ThoiGianLap": {
+    "$date": "2022-07-01T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV41",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Phạm Nhật Hào",
+    "SDTNguoiGui": "0396589764",
+    "DiaChiNguoiGui": "164 Nguyễn Thông, Bình Tâm, Tân An, Long An, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Thân Văn Mãi",
+    "SDTNguoiNhan": "0985206124",
+    "DiaChiNguoiNhan": "1E Thống Nhất, Đài Sơn, Phan Rang-Tháp Chàm, Ninh Thuận, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX003",
+    "TenTaiXe": "Nguyễn Thành Lộc",
+    "SDTTaiXe": "0375111876"
+  },
+  "ThongTinXe": {
+    "BienSo": "51H-84567",
+    "TenXe": "Isuzu NPR",
+    "LoaiXe": "Thùng",
+    "HangXe": "Isuzu"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thư từ",
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Long An",
+  "DiemDen": "Ninh Thuận",
+  "TuyenDuong": {
+    "DuongDi": "Long An, Tiền Giang, Bến Tre, Vĩnh Long, Cần Thơ, Đà Nẵng, Quảng Nam, Quảng Ngãi, Bình Định, Phú Yên, Khánh Hòa, Ninh Thuận",
+    "KhoangCach": 2043.94
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 33003
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00007",
+    "TenShipper": "Phạm Bá Tuấn Linh",
+    "SDTShipper": "0399968559"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947f1"
+  },
+  "MaVanDon": "VCLT00008",
+  "ThoiGianLap": {
+    "$date": "2022-08-01T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV42",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Đặng Phương Trình",
+    "SDTNguoiGui": "0387438656",
+    "DiaChiNguoiGui": "108 Thái Bình, Trần Tế Xương, TP. Nam Định, Nam Định, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Ngọc Duy Phương",
+    "SDTNguoiNhan": "0361986279",
+    "DiaChiNguoiNhan": "98C6+H48, Hy Cương, Thành phố Việt Trì, Phú Thọ, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX006",
+    "TenTaiXe": "Nguyễn Minh Triết",
+    "SDTTaiXe": "0396479176"
+  },
+  "ThongTinXe": {
+    "BienSo": "29C-36650",
+    "TenXe": "Hyundai Mighty",
+    "LoaiXe": "Thùng",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TrongLuong": 8.2,
+    "KichCo": {
+      "Dai": 65.6,
+      "Rong": 89.4
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Nam Định",
+  "DiemDen": "Phú Thọ",
+  "TuyenDuong": {
+    "DuongDi": "Nam Định, Hà Nam, Hòa Bình, Phú Thọ",
+    "KhoangCach": 173.09
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 43003
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00002",
+    "TenShipper": "Nguyễn Đức Minh",
+    "SDTShipper": "0373220264"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947f2"
+  },
+  "MaVanDon": "VCLT00009",
+  "ThoiGianLap": {
+    "$date": "2022-09-01T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV15",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Phan Thanh Hải",
+    "SDTNguoiGui": "0375674975",
+    "DiaChiNguoiGui": "573 Điện Biên Phủ, Thanh Khê Đông, Thanh Khê, Đà Nẵng 550000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Hoài Ân",
+    "SDTNguoiNhan": "0389713559",
+    "DiaChiNguoiNhan": "154 Đ. Nguyễn Trãi, Phường 5, Tuy Hòa, Phú Yên 56100, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX005",
+    "TenTaiXe": "Nguyễn Văn Út Em",
+    "SDTTaiXe": "0367986528"
+  },
+  "ThongTinXe": {
+    "BienSo": "29C-36826",
+    "TenXe": "Hyundai New Mighty",
+    "LoaiXe": "Tải",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Quần áo",
+    "TrongLuong": 12.4,
+    "KichCo": {
+      "Dai": 78.5,
+      "Rong": 103.4
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Đà Nẵng",
+  "DiemDen": "Phú Yên",
+  "TuyenDuong": {
+    "DuongDi": "Đà Nẵng, Quảng Nam, Quảng Ngãi, Bình Định, Phú Yên",
+    "KhoangCach": 433.32
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 63003
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00009",
+    "TenShipper": "Phạm Bình Nam",
+    "SDTShipper": "0868191908"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947f3"
+  },
+  "MaVanDon": "VCLT00010",
+  "ThoiGianLap": {
+    "$date": "2024-01-01T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV24",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Tấn Đẳng",
+    "SDTNguoiGui": "0375975345",
+    "DiaChiNguoiGui": "79 Đ. La Thành, Chợ Dừa, Đống Đa, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Hữu Thọ",
+    "SDTNguoiNhan": "0398655180",
+    "DiaChiNguoiNhan": "5RX7+MGF, Mỹ Thuỷ, Lệ Thủy, Quảng Bình, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX004",
+    "TenTaiXe": "Nguyễn Trọng Nghĩa",
+    "SDTTaiXe": "0376975287"
+  },
+  "ThongTinXe": {
+    "BienSo": "29C-88878",
+    "TenXe": "Hyundai Mighty",
+    "LoaiXe": "Thùng",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Ốp lưng",
+    "TrongLuong": 0.8,
+    "KichCo": {
+      "Dai": 13.5,
+      "Rong": 27.1
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Hà Nội",
+  "DiemDen": "Quảng Bình",
+  "TuyenDuong": {
+    "DuongDi": "Hà Nội, Nghệ An, Hà Tĩnh, Quảng Bình",
+    "KhoangCach": 532.26
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 4200,
+    "PhiKhac": 12000,
+    "TongPhi": 46202
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00010",
+    "TenShipper": "Hồ Xuân Thái",
+    "SDTShipper": "0339882065"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947f4"
+  },
+  "MaVanDon": "VCLT00011",
+  "ThoiGianLap": {
+    "$date": "2024-02-11T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV24",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Văn Quí Em",
+    "SDTNguoiGui": "0965785442",
+    "DiaChiNguoiGui": "198 Nguyễn Lương Bằng, Quang Trung, Đống Đa, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Trần Văn Đại",
+    "SDTNguoiNhan": "0398167812",
+    "DiaChiNguoiNhan": "V7F9+36 Điện Bàn, Quảng Nam, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX004",
+    "TenTaiXe": "Nguyễn Trọng Nghĩa",
+    "SDTTaiXe": "0376975287"
+  },
+  "ThongTinXe": {
+    "BienSo": "29C-88878",
+    "TenXe": "Hyundai Mighty",
+    "LoaiXe": "Thùng",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thuốc & hóa chất",
+    "TrongLuong": 1.5,
+    "KichCo": {
+      "Dai": 34.6,
+      "Rong": 78.2
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Hà Nội",
+  "DiemDen": "Quảng Nam",
+  "TuyenDuong": {
+    "DuongDi": "Hà Nội, Đà Nẵng, Quảng Nam",
+    "KhoangCach": 835.34
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 7000,
+    "PhiNang": 20000,
+    "PhiHa": 20000,
+    "TongPhi": 92005
+  },
+  "TrangThai": "Chờ xác nhận"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947f5"
+  },
+  "MaVanDon": "VCLT00012",
+  "ThoiGianLap": {
+    "$date": "2022-12-01T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV46",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thanh Tâm",
+    "SDTNguoiGui": "0936787267",
+    "DiaChiNguoiGui": "12 Hà Liễu, Ph.Gia Cẩm, Thành phố Việt Trì, Phú Thọ, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Phương Bảo Ngân",
+    "SDTNguoiNhan": "0342781977",
+    "DiaChiNguoiNhan": "4VHF+MPC, Nghĩa Hà, Tư Nghĩa, Quảng Ngãi, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX002",
+    "TenTaiXe": "Trần Chí Nhân",
+    "SDTTaiXe": "0389654129"
+  },
+  "ThongTinXe": {
+    "BienSo": "51H-86514",
+    "TenXe": "Thaco Kia K250",
+    "LoaiXe": "Thùng",
+    "HangXe": "Thaco"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TenHang": "Bánh tráng",
+    "TrongLuong": 3.8,
+    "KichCo": {
+      "Dai": 87.4,
+      "Rong": 109.4
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Phú Thọ",
+  "DiemDen": "Quảng Ngãi",
+  "TuyenDuong": {
+    "DuongDi": "Phú Thọ, Hà Nội, Đà Nẵng, Quảng Nam, Quảng Ngãi",
+    "KhoangCach": 1039.86
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 48009
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00012",
+    "TenShipper": "Lê Thị Vân",
+    "SDTShipper": "0869917732"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947f6"
+  },
+  "MaVanDon": "VCLT00013",
+  "ThoiGianLap": {
+    "$date": "2023-01-01T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV30",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Phạm Tâm Vi",
+    "SDTNguoiGui": "0387657876",
+    "DiaChiNguoiGui": "112 Đ. Đinh Tiên Hoàng, Đa Kao, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Cù Đức Trường",
+    "SDTNguoiNhan": "0673167168",
+    "DiaChiNguoiNhan": "VRXH+W4H, Unnamed Road, Liên Hoà, Yên Hưng, Quảng Ninh, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX011",
+    "TenTaiXe": "Lưu Gia Bảo",
+    "SDTTaiXe": "0367087256"
+  },
+  "ThongTinXe": {
+    "BienSo": "51H-84567",
+    "TenXe": "Isuzu NPR",
+    "LoaiXe": "Thùng",
+    "HangXe": "Isuzu"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TenHang": "Bình hoa",
+    "TrongLuong": 5.7,
+    "KichCo": {
+      "Dai": 45.5,
+      "Rong": 78.5
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "TP Hồ Chí Minh",
+  "DiemDen": "Quảng Ninh",
+  "TuyenDuong": {
+    "DuongDi": "TP Hồ Chí Minh, Hà Nội, Bắc Giang, Quảng Ninh",
+    "KhoangCach": 1989.5
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 48009
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00013",
+    "TenShipper": "Nguyễn Nhật An",
+    "SDTShipper": "0978961065"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947f7"
+  },
+  "MaVanDon": "VCLT00014",
+  "ThoiGianLap": {
+    "$date": "2022-02-13T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV30",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Phạm Thị Kim Thoa",
+    "SDTNguoiGui": "0345875346",
+    "DiaChiNguoiGui": "9 Đ. Phan Đăng Lưu, Phường 3, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Thị Kim Ngọc",
+    "SDTNguoiNhan": "0396178346",
+    "DiaChiNguoiNhan": "WH88+45W, Hòa Sơn, Lương Sơn, Hòa Bình, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX007",
+    "TenTaiXe": "Trần Văn Hướng",
+    "SDTTaiXe": "0398757298"
+  },
+  "ThongTinXe": {
+    "BienSo": "29C-36650",
+    "TenXe": "Hyundai Mighty",
+    "LoaiXe": "Thùng",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Thùng rác",
+    "TrongLuong": 3.6,
+    "KichCo": {
+      "Dai": 90.4,
+      "Rong": 136.5
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "TP Hồ Chí Minh",
+  "DiemDen": "Hòa Bình",
+  "TuyenDuong": {
+    "DuongDi": "TP Hồ Chí Minh, Hà Nội, Hòa Bình",
+    "KhoangCach": 1807.97
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 48007
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00014",
+    "TenShipper": "Đỗ Nam Anh",
+    "SDTShipper": "0966832889"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947f8"
+  },
+  "MaVanDon": "VCLT00015",
+  "ThoiGianLap": {
+    "$date": "2023-08-03T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV30",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Thạch Thị Kim Thảo",
+    "SDTNguoiGui": "0375833381",
+    "DiaChiNguoiGui": "12 Nơ Trang Long, Phường 14, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Trương Trọng Tấn",
+    "SDTNguoiNhan": "0375899233",
+    "DiaChiNguoiNhan": "Nguyễn Hữu Thọ, Phường 3, Tây Ninh, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX009",
+    "TenTaiXe": "Nguyễn Văn Lưu",
+    "SDTTaiXe": "0376119999"
+  },
+  "ThongTinXe": {
+    "BienSo": "29C-88878",
+    "TenXe": "Hyundai Mighty",
+    "LoaiXe": "Thùng",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thư từ",
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "TP Hồ Chí Minh",
+  "DiemDen": "Tây Ninh",
+  "TuyenDuong": {
+    "DuongDi": "TP Hồ Chí Minh, Tây Ninh",
+    "KhoangCach": 96.63
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 33006
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00015",
+    "TenShipper": "Phạm Như Ba",
+    "SDTShipper": "0963211328"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947f9"
+  },
+  "MaVanDon": "VCLT00016",
+  "ThoiGianLap": {
+    "$date": "2023-02-15T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV50",
+  "NguoiThanhToan": "Người nhận",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Ngọc Thi",
+    "SDTNguoiGui": "0348127876",
+    "DiaChiNguoiGui": "90 Phạm Văn Đồng, Nghĩa Chánh Bắc, Quảng Ngãi, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Tấn Tài",
+    "SDTNguoiNhan": "0366782167",
+    "DiaChiNguoiNhan": "Phạm Quang Lịch Lý Bôn, Tiền Phong, Thái Bình, 61000, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX005",
+    "TenTaiXe": "Nguyễn Văn Út Em",
+    "SDTTaiXe": "0367986528"
+  },
+  "ThongTinXe": {
+    "BienSo": "51H-95044",
+    "TenXe": "Thaco Kia K250",
+    "LoaiXe": "Thùng",
+    "HangXe": "Thaco"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 1.3,
+    "KichCo": {
+      "Dai": 34.5,
+      "Rong": 67.4
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Quảng Ngãi",
+  "DiemDen": "Thái Bình",
+  "TuyenDuong": {
+    "DuongDi": "Quảng Ngãi, Quảng Nam, Đà Nẵng, Hà Nội, Hưng Yên, Thái Bình",
+    "KhoangCach": 1143.84
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 38003
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00016",
+    "TenShipper": "Ngô Lan Chinh",
+    "SDTShipper": "0916169135"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947fa"
+  },
+  "MaVanDon": "VCLT00017",
+  "ThoiGianLap": {
+    "$date": "2023-02-16T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV30",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lê Hoài Anh",
+    "SDTNguoiGui": "0387176867",
+    "DiaChiNguoiGui": "1 Đ. Phan Đăng Lưu, phường 03, Bình Thạnh, Thành phố Hồ Chí Minh 72300, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Võ Đình Duy ",
+    "SDTNguoiNhan": "0375623392",
+    "DiaChiNguoiNhan": "HR8R+4X6, Đ. Việt Bắc, Phú Xá, Thành phố Thái Nguyên, Thái Nguyên, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX010",
+    "TenTaiXe": "Nguyễn Thanh Tùng",
+    "SDTTaiXe": "0965787111"
+  },
+  "ThongTinXe": {
+    "BienSo": "51H-59565",
+    "TenXe": "Thaco Kia K360",
+    "LoaiXe": "Thùng",
+    "HangXe": "Thaco"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TenHang": "Ấm điện",
+    "TrongLuong": 2.3,
+    "KichCo": {
+      "Dai": 12.4,
+      "Rong": 78.3
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "TP Hồ Chí Minh",
+  "DiemDen": "Thái Nguyên",
+  "TuyenDuong": {
+    "DuongDi": "TP Hồ Chí Minh, Hà Nội, Thái Nguyên",
+    "KhoangCach": 1852.95
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3800,
+    "PhiKhac": 8000,
+    "TongPhi": 51802
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00017",
+    "TenShipper": "Nguyễn Long Hải",
+    "SDTShipper": "0393369300"
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947fb"
+  },
+  "MaVanDon": "VCLT00018",
+  "ThoiGianLap": {
+    "$date": "2023-03-17T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV16",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Võ Đình Huy",
+    "SDTNguoiGui": "0398257197",
+    "DiaChiNguoiGui": "105 Hai Bà Trưng, Phường 3, Quảng Trị, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Huỳnh Vũ Chí Thiện",
+    "SDTNguoiNhan": "0916789257",
+    "DiaChiNguoiNhan": "50 Ngô Đức, TT. Nhồi, Đông Sơn, Thanh Hoá, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX005",
+    "TenTaiXe": "Nguyễn Văn Út Em",
+    "SDTTaiXe": "0367986528"
+  },
+  "ThongTinXe": {
+    "BienSo": "51H-95044",
+    "TenXe": "Thaco Kia K250",
+    "LoaiXe": "Thùng",
+    "HangXe": "Thaco"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 56.7,
+    "KichCo": {
+      "Dai": 79.3,
+      "Rong": 108.5
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Quảng Trị",
+  "DiemDen": "Thanh Hóa",
+  "TuyenDuong": {
+    "DuongDi": "Quảng Trị, Quảng Bình, Hà Tĩnh, Nghệ An, Thanh Hóa",
+    "KhoangCach": 456.44
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 5000,
+    "PhiHa": 20000,
+    "TongPhi": 98406
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00019",
+    "TenShipper": "Hoàng Trung Kiên",
+    "SDTShipper": "0346097698"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947fc"
+  },
+  "MaVanDon": "VCLT00019",
+  "ThoiGianLap": {
+    "$date": "2023-03-18T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV17",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Đinh Thị Mỹ Nha",
+    "SDTNguoiGui": "0387976212",
+    "DiaChiNguoiGui": "10 Lê Thánh Tông, Thắng Lợi, Thành phố Buôn Ma Thuột, Đắk Lắk, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Hoàng Khánh Văn",
+    "SDTNguoiNhan": "0983267976",
+    "DiaChiNguoiNhan": "38 An Dương Vương, An Cựu, Thành phố Huế, Thừa Thiên Huế, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX003",
+    "TenTaiXe": "Nguyễn Thành Lộc",
+    "SDTTaiXe": "0375111876"
+  },
+  "ThongTinXe": {
+    "BienSo": "29C-88878",
+    "TenXe": "Hyundai Mighty",
+    "LoaiXe": "Thùng",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TrongLuong": 55.3,
+    "KichCo": {
+      "Dai": 34.5,
+      "Rong": 189.3
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Đắk Lắk",
+  "DiemDen": "Thừa Thiên – Huế",
+  "TuyenDuong": {
+    "DuongDi": "Đắk Lắk, Lâm Đồng, Nghệ An, Hà Tĩnh, Quảng Bình, Quảng Trị, Thừa Thiên – Huế",
+    "KhoangCach": 1849.44
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 68609
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00019",
+    "TenShipper": "Hoàng Trung Kiên",
+    "SDTShipper": "0346097698"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947fd"
+  },
+  "MaVanDon": "VCLT00020",
+  "ThoiGianLap": {
+    "$date": "2022-04-01T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV24",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Trần Kim Nhã",
+    "SDTNguoiGui": "0378198654",
+    "DiaChiNguoiGui": "122 Nguyễn Lương Bằng, Quang Trung, Đống Đa, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Chí Bảo",
+    "SDTNguoiNhan": "0335876924",
+    "DiaChiNguoiNhan": "9FP4+572, Đăng Hưng Phước, Chợ Gạo, Tiền Giang, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX008",
+    "TenTaiXe": "Nguyễn Văn Chí Anh",
+    "SDTTaiXe": "0987567986"
+  },
+  "ThongTinXe": {
+    "BienSo": "51H-95044",
+    "TenXe": "Thaco Kia K250",
+    "LoaiXe": "Thùng",
+    "HangXe": "Thaco"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thuốc & hóa chất",
+    "TenHang": "Thuốc an thần",
+    "TrongLuong": 2.3,
+    "KichCo": {
+      "Dai": 35.4,
+      "Rong": 189.3
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Hà Nội",
+  "DiemDen": "Tiền Giang",
+  "TuyenDuong": {
+    "DuongDi": "Hà Nội, Cần Thơ, Đồng Tháp, Tiền Giang",
+    "KhoangCach": 2099.35
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 6100,
+    "PhiNang": 20000,
+    "PhiKhac": 11000,
+    "TongPhi": 82109
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00020",
+    "TenShipper": "Đào Nguyễn Mai Lan",
+    "SDTShipper": "0971571230"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947fe"
+  },
+  "MaVanDon": "VCLT00021",
+  "ThoiGianLap": {
+    "$date": "2022-05-25T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV15",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Trần Thị Hòa",
+    "SDTNguoiGui": "0912875467",
+    "DiaChiNguoiGui": "258 Cù Chính Lan, Thanh Khê Đông, Thanh Khê, Đà Nẵng 550000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Hoàng Tuấn",
+    "SDTNguoiNhan": "0378986471",
+    "DiaChiNguoiNhan": "492f Võ Văn Kiệt, Phường 1, Trà Vinh, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX004",
+    "TenTaiXe": "Nguyễn Trọng Nghĩa",
+    "SDTTaiXe": "0376975287"
+  },
+  "ThongTinXe": {
+    "BienSo": "75A-14519",
+    "TenXe": "Huyndai HD Series",
+    "LoaiXe": "Thùng",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TrongLuong": 38.4,
+    "KichCo": {
+      "Dai": 37.5,
+      "Rong": 167.1
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Đà Nẵng",
+  "DiemDen": "Trà Vinh",
+  "TuyenDuong": {
+    "DuongDi": "Đà Nẵng, Cần Thơ, Đồng Tháp, Vĩnh Long, Trà Vinh",
+    "KhoangCach": 1311.73
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 53001
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00021",
+    "TenShipper": "Đào Doãn Linh",
+    "SDTShipper": "0973281930"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b75947ff"
+  },
+  "MaVanDon": "VCLT00022",
+  "ThoiGianLap": {
+    "$date": "2023-04-08T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV24",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Phạm Thị Truyết Nhi",
+    "SDTNguoiGui": "0389764128",
+    "DiaChiNguoiGui": "199 P. Vương Thừa Vũ, Khương Trung, Thanh Xuân, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Trần Thái Khôi",
+    "SDTNguoiNhan": "0386086680",
+    "DiaChiNguoiNhan": "48 Nguyễn Văn Cừ, P. Minh Xuân, Tuyên Quang, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX002",
+    "TenTaiXe": "Trần Chí Nhân",
+    "SDTTaiXe": "0389654129"
+  },
+  "ThongTinXe": {
+    "BienSo": "51H-84567",
+    "TenXe": "Isuzu NPR",
+    "LoaiXe": "Thùng",
+    "HangXe": "Isuzu"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thuốc & hóa chất",
+    "TrongLuong": 5.6,
+    "KichCo": {
+      "Dai": 32.5,
+      "Rong": 89.3
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Hà Nội",
+  "DiemDen": "Tuyên Quang",
+  "TuyenDuong": {
+    "DuongDi": "Hà Nội, Phú Thọ, Tuyên Quang",
+    "KhoangCach": 148.73
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 53008
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00022",
+    "TenShipper": "Nguyễn Tuấn Long",
+    "SDTShipper": "0819912142"
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b7594800"
+  },
+  "MaVanDon": "VCLT00023",
+  "ThoiGianLap": {
+    "$date": "2023-03-08T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV21",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Yến Nhi",
+    "SDTNguoiGui": "0389764127",
+    "DiaChiNguoiGui": "132 ĐT848, Phường An Hoà, Sa Đéc, Đồng Tháp, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Phan Như Quỳnh",
+    "SDTNguoiNhan": "0396589765",
+    "DiaChiNguoiNhan": "294 Nguyễn Văn Thiệt, Phường 3, Vĩnh Long, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX009",
+    "TenTaiXe": "Nguyễn Văn Lưu",
+    "SDTTaiXe": "0376119999"
+  },
+  "ThongTinXe": {
+    "BienSo": "29C-36650",
+    "TenXe": "Hyundai Mighty",
+    "LoaiXe": "Thùng",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Phụ kiện",
+    "TrongLuong": 1.3,
+    "KichCo": {
+      "Dai": 130.2,
+      "Rong": 102.5
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Đồng Tháp",
+  "DiemDen": "Vĩnh Long",
+  "TuyenDuong": {
+    "DuongDi": "Đồng Tháp, Vĩnh Long",
+    "KhoangCach": 51.83
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 48001
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00023",
+    "TenShipper": "Nguyễn Minh Nghĩa",
+    "SDTShipper": "0971295745"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b7594801"
+  },
+  "MaVanDon": "VCLT00024",
+  "ThoiGianLap": {
+    "$date": "2023-04-22T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV30",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Trần Văn Lân",
+    "SDTNguoiGui": "0386678854",
+    "DiaChiNguoiGui": "87P1 Đ. Lê Văn Duyệt, Phường 3, Bình Thạnh, Thành phố Hồ Chí Minh 700000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Vân Anh",
+    "SDTNguoiNhan": "0387438657",
+    "DiaChiNguoiNhan": "Ngã 5 - Nguyễn Tất Thành, Trần Phú, Liên Bảo, Vĩnh Yên, Vĩnh Phúc, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX005",
+    "TenTaiXe": "Nguyễn Văn Út Em",
+    "SDTTaiXe": "0367986528"
+  },
+  "ThongTinXe": {
+    "BienSo": "29C-36826",
+    "TenXe": "Hyundai New Mighty",
+    "LoaiXe": "Tải",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 59.8,
+    "KichCo": {
+      "Dai": 108.3,
+      "Rong": 109.4
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "TP Hồ Chí Minh",
+  "DiemDen": "Vĩnh Phúc",
+  "TuyenDuong": {
+    "DuongDi": "TP Hồ Chí Minh, Hà Nội, Vĩnh Phúc",
+    "KhoangCach": 1796.77
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 4000,
+    "PhiKhac": 10000,
+    "TongPhi": 93606
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00024",
+    "TenShipper": "Hoàng Minh Nguyệt",
+    "SDTShipper": "0968862811"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b7594802"
+  },
+  "MaVanDon": "VCLT00025",
+  "ThoiGianLap": {
+    "$date": "2023-02-07T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV23",
+  "NguoiThanhToan": "Người nhận",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Hữu Lộc",
+    "SDTNguoiGui": "0386972168",
+    "DiaChiNguoiGui": "24 Bạch Đằng, P. Nguyễn Trãi, Hà Giang, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Thị Kim Ngân",
+    "SDTNguoiNhan": "0375674976",
+    "DiaChiNguoiNhan": "Đá Bia, Tổ 4, Thành phố Yên Bái, Yên Bái, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX007",
+    "TenTaiXe": "Trần Văn Hướng",
+    "SDTTaiXe": "0398757298"
+  },
+  "ThongTinXe": {
+    "BienSo": "29C-88878",
+    "TenXe": "Hyundai Mighty",
+    "LoaiXe": "Thùng",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TrongLuong": 23.4,
+    "KichCo": {
+      "Dai": 89.4,
+      "Rong": 93.5
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Hà Giang",
+  "DiemDen": "Yên Bái",
+  "TuyenDuong": {
+    "DuongDi": "Hà Giang, Yên Bái",
+    "KhoangCach": 205.05
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 68005
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00025",
+    "TenShipper": "Dương Mạnh Quý",
+    "SDTShipper": "0979420564"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b7594803"
+  },
+  "MaVanDon": "VCLT00026",
+  "ThoiGianLap": {
+    "$date": "2023-09-06T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV24",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Trác Luân",
+    "SDTNguoiGui": "0384672921",
+    "DiaChiNguoiGui": "164 / 44 P. Vương Thừa Vũ, Khương Trung, Thanh Xuân, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Đức Vương",
+    "SDTNguoiNhan": "0375975346",
+    "DiaChiNguoiNhan": "M89M+GJ6, Phú An, Phú Tân, An Giang, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX011",
+    "TenTaiXe": "Lưu Gia Bảo",
+    "SDTTaiXe": "0367087256"
+  },
+  "ThongTinXe": {
+    "BienSo": "12A-12345",
+    "TenXe": "Isuzu QKR",
+    "LoaiXe": "Tải",
+    "HangXe": "Isuzu"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TenHang": "Rau củ",
+    "TrongLuong": 19.4,
+    "KichCo": {
+      "Dai": 23.4,
+      "Rong": 12.5
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Hà Nội",
+  "DiemDen": "An Giang",
+  "TuyenDuong": {
+    "DuongDi": "Hà Nội, Cần Thơ, An Giang",
+    "KhoangCach": 1995.13
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 53005
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00026",
+    "TenShipper": "Nguyễn Hương Quỳnh",
+    "SDTShipper": "0942487655"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b7594804"
+  },
+  "MaVanDon": "VCLT00027",
+  "ThoiGianLap": {
+    "$date": "2023-06-26T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV24",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lê Minh Lợi",
+    "SDTNguoiGui": "0985206123",
+    "DiaChiNguoiGui": "5 Nguyễn Tri Phương, Quán Thánh, Ba Đình, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Quy Lộc",
+    "SDTNguoiNhan": "0965785441",
+    "DiaChiNguoiNhan": "783W+C27, Lộ Cơ Khí, Bình Phú, Bến Tre, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX005",
+    "TenTaiXe": "Nguyễn Văn Út Em",
+    "SDTTaiXe": "0367986528"
+  },
+  "ThongTinXe": {
+    "BienSo": "75A-14519",
+    "TenXe": "Huyndai HD Series",
+    "LoaiXe": "Thùng",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 45.6,
+    "KichCo": {
+      "Dai": 23.4,
+      "Rong": 18.2
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Hà Nội",
+  "DiemDen": "Bến Tre",
+  "TuyenDuong": {
+    "DuongDi": "Hà Nội, Cần Thơ, Đồng Tháp, Vĩnh Long, Bến Tre",
+    "KhoangCach": 2111.88
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 53001
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b7594805"
+  },
+  "MaVanDon": "VCLT00028",
+  "ThoiGianLap": {
+    "$date": "2023-03-27T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV15",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Từ Hải Y Ta Ly Vơ",
+    "SDTNguoiGui": "0361986278",
+    "DiaChiNguoiGui": "745 Trần Cao Vân, Thanh Khê Đông, Hải Châu, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Bùi Phan Bảo Ngọc",
+    "SDTNguoiNhan": "0936787268",
+    "DiaChiNguoiNhan": "376 Nguyễn An Ninh, Dĩ An, Bình Dương, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX010",
+    "TenTaiXe": "Nguyễn Thanh Tùng",
+    "SDTTaiXe": "0965787111"
+  },
+  "ThongTinXe": {
+    "BienSo": "51H-86514",
+    "TenXe": "Thaco Kia K250",
+    "LoaiXe": "Thùng",
+    "HangXe": "Thaco"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TenHang": "Máy sấy tóc",
+    "TrongLuong": 2.3,
+    "KichCo": {
+      "Dai": 12.4,
+      "Rong": 34.2
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Đà Nẵng",
+  "DiemDen": "Bình Dương",
+  "TuyenDuong": {
+    "DuongDi": "Đà Nẵng, TP Hồ Chí Minh, Bình Dương",
+    "KhoangCach": 925.51
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 43005
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00028",
+    "TenShipper": "Ngô Ngọc Thắng",
+    "SDTShipper": "0988185627"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b7594806"
+  },
+  "MaVanDon": "VCLT00029",
+  "ThoiGianLap": {
+    "$date": "2023-01-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV30",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Hồng Thư",
+    "SDTNguoiGui": "0389713558",
+    "DiaChiNguoiGui": "1/2 Phó Đức Chính, Phường 1, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Triệu Việt Hưng",
+    "SDTNguoiNhan": "0387657877",
+    "DiaChiNguoiNhan": "11 Huỳnh Tấn Phát, Đống Đa, Thành phố Qui Nhơn, Bình Định 560000, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX010",
+    "TenTaiXe": "Nguyễn Thanh Tùng",
+    "SDTTaiXe": "0965787111"
+  },
+  "ThongTinXe": {
+    "BienSo": "51H-84567",
+    "TenXe": "Isuzu NPR",
+    "LoaiXe": "Thùng",
+    "HangXe": "Isuzu"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 34.2,
+    "KichCo": {
+      "Dai": 78.5,
+      "Rong": 103.4
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "TP Hồ Chí Minh",
+  "DiemDen": "Bình Định",
+  "TuyenDuong": {
+    "DuongDi": "TP Hồ Chí Minh, Đà Nẵng, Quảng Nam, Quảng Ngãi, Bình Định",
+    "KhoangCach": 1304.34
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 7000,
+    "PhiNang": 20000,
+    "PhiHa": 20000,
+    "TongPhi": 107004
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00029",
+    "TenShipper": "Trần Đức Thắng",
+    "SDTShipper": "0339122978"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b7594807"
+  },
+  "MaVanDon": "VCLT00030",
+  "ThoiGianLap": {
+    "$date": "2023-02-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV28",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Thân Văn Trường Duy",
+    "SDTNguoiGui": "0398655189",
+    "DiaChiNguoiGui": "93 Bà Triệu, P. Thanh Trung, Thành phố Hải Dương, Hải Dương, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Châu Minh Cát",
+    "SDTNguoiNhan": "0345875347",
+    "DiaChiNguoiNhan": "GWM6+FVW, Phường Tân Thiện, Đồng Xoài, Bình Phước, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX001",
+    "TenTaiXe": "Huỳnh Quốc Anh",
+    "SDTTaiXe": "0396787546"
+  },
+  "ThongTinXe": {
+    "BienSo": "29C-36650",
+    "TenXe": "Hyundai Mighty",
+    "LoaiXe": "Thùng",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TenHang": "Gia vị",
+    "TrongLuong": 5.4,
+    "KichCo": {
+      "Dai": 13.5,
+      "Rong": 27.1
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "Hải Dương",
+  "DiemDen": "Bình Phước",
+  "TuyenDuong": {
+    "DuongDi": "Hải Dương, Bắc Ninh, Hà Nội, TP Hồ Chí Minh, Bình Dương, Bình Phước",
+    "KhoangCach": 1896.98
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 43006
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00030",
+    "TenShipper": "Phạm Bá Thành",
+    "SDTShipper": "0394142645"
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "661a744b014d44c4b7594808"
+  },
+  "MaVanDon": "VCLT00031",
+  "ThoiGianLap": {
+    "$date": "2023-03-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Liên tỉnh",
+  "NoiTiepNhan": "KLV30",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thanh Sơn",
+    "SDTNguoiGui": "0398167811",
+    "DiaChiNguoiGui": "8 Lê Quang Định, Phường 14, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Trịnh Quân Hoa",
+    "SDTNguoiNhan": "0375833382",
+    "DiaChiNguoiNhan": "Nguyễn Minh Châu, Mũi Né, Thành phố Phan Thiết, Bình Thuận, Việt Nam"
+  },
+  "ThongTinTaiXe": {
+    "MaTaiXe": "TX008",
+    "TenTaiXe": "Nguyễn Văn Chí Anh",
+    "SDTTaiXe": "0987567986"
+  },
+  "ThongTinXe": {
+    "BienSo": "29C-36826",
+    "TenXe": "Hyundai New Mighty",
+    "LoaiXe": "Tải",
+    "HangXe": "Huyndai"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 22.1,
+    "KichCo": {
+      "Dai": 34.6,
+      "Rong": 78.2
+    },
+    "SoLuong": 1
+  },
+  "DiemXuatPhat": "TP Hồ Chí Minh",
+  "DiemDen": "Bình Thuận",
+  "TuyenDuong": {
+    "DuongDi": "TP Hồ Chí Minh, Đà Nẵng, Quảng Nam, Quảng Ngãi, Bình Định, Phú Yên, Khánh Hòa, Ninh Thuận, Bình Thuận",
+    "KhoangCach": 1770.96
+  },
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3000,
+    "TongPhi": 53000
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00031",
+    "TenShipper": "Lê Thị Phương Thảo",
+    "SDTShipper": "0972645796"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b759480a"
+  },
+  "MaVanDon": "VCNT00001",
+  "ThoiGianLap": {
+    "$date": "2023-04-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Đoàn Thị Mỹ Hòa",
+    "SDTNguoiGui": "0342781976",
+    "DiaChiNguoiGui": "1 P. Hoả Lò, Trần Hưng Đạo, Hoàn Kiếm, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Hoàng Trọng Hiếu",
+    "SDTNguoiNhan": "0348127877",
+    "DiaChiNguoiNhan": "36 Điện Biên Phủ, Điện Biên, Ba Đình, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 2.2,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.78,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3400,
+    "PhiKhac": 4000,
+    "TongPhi": 45960
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00032",
+    "TenShipper": "Hồ Thị Trang",
+    "SDTShipper": "0396026639"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b759480b"
+  },
+  "MaVanDon": "VCNT00002",
+  "ThoiGianLap": {
+    "$date": "2023-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Phạm Thanh Tâm",
+    "SDTNguoiGui": "0673167167",
+    "DiaChiNguoiGui": "404 Nguyễn Sơn, Phú Thọ Hoà, Tân Phú, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Võ Thị Thanh Trúc",
+    "SDTNguoiNhan": "0387176868",
+    "DiaChiNguoiNhan": "63 Đình Tân Khai, Bình Trị Đông, Bình Tân, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 2.78,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 26560
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00033",
+    "TenShipper": "Nông Việt Hoàng",
+    "SDTShipper": "0336658942"
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b759480c"
+  },
+  "MaVanDon": "VCNT00003",
+  "ThoiGianLap": {
+    "$date": "2023-06-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Võ Hoàng Thái",
+    "SDTNguoiGui": "0396178345",
+    "DiaChiNguoiGui": "85 Huỳnh Ngọc Huệ, Thanh Khê Đông, Thanh Khê, Đà Nẵng 550000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Trần Khang Huy",
+    "SDTNguoiNhan": "0398257198",
+    "DiaChiNguoiNhan": "185 Bùi Tá Hán, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Túi xách",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 10.03,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 21060
+  },
+  "TrangThai": "Chờ xác nhận"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b759480d"
+  },
+  "MaVanDon": "VCNT00004",
+  "ThoiGianLap": {
+    "$date": "2023-07-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Như Ý",
+    "SDTNguoiGui": "0375899231",
+    "DiaChiNguoiGui": "45 Nguyễn Triệu Luật, Khu Phố 4, Bình Tân, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Thanh Dư",
+    "SDTNguoiNhan": "0387976213",
+    "DiaChiNguoiNhan": "42/4c Đ. Bình Trị Đông, Bình Trị Đông, Bình Tân, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Hoa",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 2.71,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 26420
+  },
+  "TrangThai": "Giao hàng thành công",
+  "ThongTinShipper": {
+    "MaShipper": "SP00030",
+    "SDTShipper": "0375833381",
+    "TenShipper": "Phạm Bá Thàn"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T07:10:45.004Z"
   }
 },
 {
   "_id": {
-    "$oid": "66521a20b29e555133686ade"
+    "$oid": "661a789b014d44c4b759480e"
   },
-  "LoaiPhieuChi": "Chi phí thiết bị",
-  "TongTien": 78600,
+  "MaVanDon": "VCNT00005",
   "ThoiGianLap": {
-    "$date": "2023-05-25T17:04:32.734Z"
+    "$date": "2023-08-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Đoàn Lê Minh",
+    "SDTNguoiGui": "0366782166",
+    "DiaChiNguoiGui": "31 P. Yên Thế, Văn Miếu, Đống Đa, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Trần Ngọc Trân",
+    "SDTNguoiNhan": "0378198655",
+    "DiaChiNguoiNhan": "Ng. 82 P. Kim Mã, Kim Mã, Ba Đình, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Dây sạc",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 2.03,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 15060
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00036",
+    "TenShipper": "Nguyễn Đức Anh",
+    "SDTShipper": "0947551710"
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b759480f"
+  },
+  "MaVanDon": "VCNT00006",
+  "ThoiGianLap": {
+    "$date": "2023-09-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Võ Thị Cẩm Tiên",
+    "SDTNguoiGui": "0378981769",
+    "DiaChiNguoiGui": "A7/54 Đường 1C, Vĩnh Lộc B, Bình Chánh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Phạm Thị Thanh Trà",
+    "SDTNguoiNhan": "0911733444",
+    "DiaChiNguoiNhan": "77 Mã Lò, Bình Trị Đông A, Bình Tân, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thư từ",
+    "TrongLuong": 1.2,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 4.23,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 19460
+  },
+  "TrangThai": "Chờ xác nhận"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594810"
+  },
+  "MaVanDon": "VCNT00007",
+  "ThoiGianLap": {
+    "$date": "2022-10-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người nhận",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Quốc Bảo",
+    "SDTNguoiGui": "0914162689",
+    "DiaChiNguoiGui": "28/1B Lê Đình Cẩn, P, Bình Tân, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Đoàn Tâm Anh",
+    "SDTNguoiNhan": "0384930055",
+    "DiaChiNguoiNhan": "Lô 15B3, 1 Bùi Tá Hán, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 934.1,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 29200
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00019",
+    "TenShipper": "Hoàng Trung Kiên",
+    "SDTShipper": "0346097698"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594811"
+  },
+  "MaVanDon": "VCNT00008",
+  "ThoiGianLap": {
+    "$date": "2022-11-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Võ Thành Nhân",
+    "SDTNguoiGui": "0978178764",
+    "DiaChiNguoiGui": "K 123 Cù Chính Lan, Hòa Khê, Thanh Khê, Đà Nẵng 550000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Trần Thị Hồng Hương",
+    "SDTNguoiNhan": "0347549333",
+    "DiaChiNguoiNhan": "65 Trung Lương 14, Hoà Xuân, Cẩm Lệ, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 9.36,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "PhiCoc": 30000,
+    "VAT": 4000,
+    "TongPhi": 77920
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00039",
+    "TenShipper": "Nguyễn Nhật Huy",
+    "SDTShipper": "0346231811"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594812"
+  },
+  "MaVanDon": "VCNT00009",
+  "ThoiGianLap": {
+    "$date": "2023-10-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Dương Nhã Đan",
+    "SDTNguoiGui": "0979809204",
+    "DiaChiNguoiGui": "A7/54 Đường 1C, Vĩnh Lộc B, Bình Chánh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Trương Anh Thư",
+    "SDTNguoiNhan": "0865981618",
+    "DiaChiNguoiNhan": "365 Đ. Trường Chinh, Phường 14, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thuốc & hóa chất",
+    "TenHang": "Thuốc nhuộm tóc",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 9.29,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 49580
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00040",
+    "TenShipper": "Nguyễn Long Khải",
+    "SDTShipper": "0989307148"
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594813"
+  },
+  "MaVanDon": "VCNT00010",
+  "ThoiGianLap": {
+    "$date": "2023-12-12T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Trương Tô Nhực Trường",
+    "SDTNguoiGui": "0905682529",
+    "DiaChiNguoiGui": "281 P. Đội Cấn, Liễu Giai, Ba Đình, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Bùi Ánh Dương",
+    "SDTNguoiNhan": "0862131299",
+    "DiaChiNguoiNhan": "143 P. Đốc Ngữ, Liễu Giai, Ba Đình, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.3,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 23600
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00041",
+    "TenShipper": "Lê Thị Hoa Lê",
+    "SDTShipper": "0981610816"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594814"
+  },
+  "MaVanDon": "VCNT00011",
+  "ThoiGianLap": {
+    "$date": "2023-04-22T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Minh Nhật",
+    "SDTNguoiGui": "0982725726",
+    "DiaChiNguoiGui": "120 Lạc Long Quân, Phường 10, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "La Văn Anh",
+    "SDTNguoiNhan": "0961352236",
+    "DiaChiNguoiNhan": "281/55, Lý Thường Kiệt, Phường 15, Quận 11, Phường 14, Quận 10, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thư từ",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 3.17,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 17340
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00042",
+    "TenShipper": "Nguyễn Mai Linh",
+    "SDTShipper": "0988902888"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594815"
+  },
+  "MaVanDon": "VCNT00012",
+  "ThoiGianLap": {
+    "$date": "2023-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Trần Khang Huy",
+    "SDTNguoiGui": "0937303282",
+    "DiaChiNguoiGui": "7/3C Đ. Âu Cơ, Phường 10, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Huỳnh Văn Thanh",
+    "SDTNguoiNhan": "0855700959",
+    "DiaChiNguoiNhan": "281/55, Lý Thường Kiệt, Phường 15, Quận 11, Phường 14, Quận 10, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 3.17,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 3000,
+    "PhiHa": 20000,
+    "ThuongShipper": 20000,
+    "TongPhi": 59340
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00043",
+    "TenShipper": "Nguyễn Bá Minh",
+    "SDTShipper": "0387186661"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594816"
+  },
+  "MaVanDon": "VCNT00013",
+  "ThoiGianLap": {
+    "$date": "2023-06-12T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thế Hưng",
+    "SDTNguoiGui": "0984084034",
+    "DiaChiNguoiGui": "202 Đ. Tô Hiến Thành, Phường 15, Quận 11, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Đình Hải",
+    "SDTNguoiNhan": "0362258323",
+    "DiaChiNguoiNhan": "298 Lý Thường Kiệt, Phường 14, Quận 11, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TenHang": "Bia",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 0.88,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 22960
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00028",
+    "TenShipper": "Ngô Ngọc Thắng",
+    "SDTShipper": "0988185627"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594817"
+  },
+  "MaVanDon": "VCNT00014",
+  "ThoiGianLap": {
+    "$date": "2023-07-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Ngô Nhựt Hào",
+    "SDTNguoiGui": "0977557349",
+    "DiaChiNguoiGui": "24 Phạm Nhữ Tăng, Hòa Khê, Thanh Khê, Đà Nẵng 550000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Hải",
+    "SDTNguoiNhan": "0903465911",
+    "DiaChiNguoiNhan": "104 Đ. Đoàn Khuê, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TenHang": "Nồi cơm điện",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 9.64,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "PhiCoc": 50000,
+    "VAT": 6000,
+    "TongPhi": 100280
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00035",
+    "TenShipper": "Đỗ Mai Anh",
+    "SDTShipper": "0962447592"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594818"
+  },
+  "MaVanDon": "VCNT00015",
+  "ThoiGianLap": {
+    "$date": "2023-08-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thanh Tùng",
+    "SDTNguoiGui": "0349616718",
+    "DiaChiNguoiGui": "30 Đ. Nguyễn Văn Huyên, Quan Hoa, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Quốc Hưng",
+    "SDTNguoiNhan": "0962114704",
+    "DiaChiNguoiNhan": "36 Ngõ 68 Phố Phùng Chí Kiên, Nghĩa Đô, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.42,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1200,
+    "PhiKhac": 2000,
+    "TongPhi": 26240
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00010",
+    "TenShipper": "Hồ Xuân Thái",
+    "SDTShipper": "0339882065"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594819"
+  },
+  "MaVanDon": "VCNT00016",
+  "ThoiGianLap": {
+    "$date": "2023-09-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lưu Gia Bảo",
+    "SDTNguoiGui": "0986958908",
+    "DiaChiNguoiGui": "226, Đường Hà Huy Tập, Phường Hòa Khê, Quận Thanh Khê, Hòa Khê, Thanh Khê, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Đoàn Văn Dự",
+    "SDTNguoiNhan": "0977773690",
+    "DiaChiNguoiNhan": "43 Lê Hữu Khánh, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 9.64,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 45280
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00021",
+    "TenShipper": "Đào Doãn Linh",
+    "SDTShipper": "0973281930"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b759481a"
+  },
+  "MaVanDon": "VCNT00017",
+  "ThoiGianLap": {
+    "$date": "2023-10-22T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Đinh Tuấn Phong",
+    "SDTNguoiGui": "0977311312",
+    "DiaChiNguoiGui": "16F/B1 Ba Tháng Hai Tổ 40 KP 6, Phường 14, Quận 10, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Hùng Phong",
+    "SDTNguoiNhan": "0826272889",
+    "DiaChiNguoiNhan": "495 Đ. Nhật Tảo, Phường 7, Quận 10, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Bình nước",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 1.76,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 24720
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00040",
+    "TenShipper": "Nguyễn Long Khải",
+    "SDTShipper": "0989307148"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b759481b"
+  },
+  "MaVanDon": "VCNT00018",
+  "ThoiGianLap": {
+    "$date": "2023-11-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lưu Đức Hoàng",
+    "SDTNguoiGui": "0977652886",
+    "DiaChiNguoiGui": "237 Đ. Cầu Giấy, Dịch Vọng, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Kha Duy",
+    "SDTNguoiNhan": "0363087885",
+    "DiaChiNguoiNhan": "30 Đ. Nguyễn Văn Huyên, Quan Hoa, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.43,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 28860
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00030",
+    "TenShipper": "Phạm Bá Thành",
+    "SDTShipper": "0394142645"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b759481c"
+  },
+  "MaVanDon": "VCNT00019",
+  "ThoiGianLap": {
+    "$date": "2023-12-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người nhận",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lâm Hải Quốc",
+    "SDTNguoiGui": "0986561497",
+    "DiaChiNguoiGui": "249 Hà Huy Tập, Hòa Khê, Thanh Khê, Đà Nẵng 550000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Võ Tấn Tài",
+    "SDTNguoiNhan": "0967975042",
+    "DiaChiNguoiNhan": "79 Đ. Đoàn Khuê, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 9.64,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 30280
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00020",
+    "TenShipper": "Đào Nguyễn Mai Lan",
+    "SDTShipper": "0971571230"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b759481d"
+  },
+  "MaVanDon": "VCNT00020",
+  "ThoiGianLap": {
+    "$date": "2023-11-22T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Trọng Nghĩa",
+    "SDTNguoiGui": "0983535586",
+    "DiaChiNguoiGui": "578 Đ. Nguyễn Chí Thanh, Phường 7, Quận 5, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Thanh Sang",
+    "SDTNguoiNhan": "0329296673",
+    "DiaChiNguoiNhan": "80 Đ. Châu Văn Liêm, Phường 11, Quận 5, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 1.33,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 23660
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00025",
+    "TenShipper": "Dương Mạnh Quý",
+    "SDTShipper": "0979420564"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b759481e"
+  },
+  "MaVanDon": "VCNT00021",
+  "ThoiGianLap": {
+    "$date": "2023-12-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Trương Thị Diễm Thy",
+    "SDTNguoiGui": "0382373512",
+    "DiaChiNguoiGui": "3 P. Chùa Một Cột, Điện Biên, Ba Đình, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Như Anh",
+    "SDTNguoiNhan": "0963666831",
+    "DiaChiNguoiNhan": "38 P. Khúc Thừa Dụ, Dịch Vọng, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thư từ",
+    "TenHang": "Biên lai",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 5.27,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 3000,
+    "PhiNang": 20000,
+    "TongPhi": 43540
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00007",
+    "TenShipper": "Phạm Bá Tuấn Linh",
+    "SDTShipper": "0399968559"
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b759481f"
+  },
+  "MaVanDon": "VCNT00022",
+  "ThoiGianLap": {
+    "$date": "2023-12-12T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Bích Nguyên",
+    "SDTNguoiGui": "0977531484",
+    "DiaChiNguoiGui": "217/57 Bùi Đình Tuý, Phường 24, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Phan Thế Minh",
+    "SDTNguoiNhan": "0563043312",
+    "DiaChiNguoiNhan": "148 Ni Sư Huỳnh Liên, Phường 10, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 9.12,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 39440
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00002",
+    "TenShipper": "Nguyễn Đức Minh",
+    "SDTShipper": "0373220264"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594820"
+  },
+  "MaVanDon": "VCNT00023",
+  "ThoiGianLap": {
+    "$date": "2023-06-12T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Hoàng Bảo Khanh",
+    "SDTNguoiGui": "0346820256",
+    "DiaChiNguoiGui": "36 Xuân Thủy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Văn Út",
+    "SDTNguoiNhan": "0904476300",
+    "DiaChiNguoiNhan": "135 Đ. Nguyễn Phong Sắc, Nghĩa Tân, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TenHang": "Cơm hộp",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.94,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1500,
+    "PhiKhac": 5000,
+    "TongPhi": 30380
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00022",
+    "TenShipper": "Nguyễn Tuấn Long",
+    "SDTShipper": "0819912142"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594821"
+  },
+  "MaVanDon": "VCNT00024",
+  "ThoiGianLap": {
+    "$date": "2023-07-29T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Đỗ Tường Vy",
+    "SDTNguoiGui": "0988653666",
+    "DiaChiNguoiGui": "99B Thái Bình, Phường 4, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Văn Chí",
+    "SDTNguoiNhan": "0835264446",
+    "DiaChiNguoiNhan": "110/D6 Hẻm 108 Cộng Hòa, Phường 4, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 1.49,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 28980
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00041",
+    "TenShipper": "Lê Thị Hoa Lê",
+    "SDTShipper": "0981610816"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594822"
+  },
+  "MaVanDon": "VCNT00025",
+  "ThoiGianLap": {
+    "$date": "2023-02-11T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Duy Khánh ",
+    "SDTNguoiGui": "0966232658",
+    "DiaChiNguoiGui": "36/23 Hẻm 36 Đồng Khởi, Phường 4, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Hoài Tâm ",
+    "SDTNguoiNhan": "0399968559",
+    "DiaChiNguoiNhan": "217 Tây Thạnh, Tân Phú, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 5.26,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 36520
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00034",
+    "TenShipper": "Tô Thị Hiểu",
+    "SDTShipper": "0868777587"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594823"
+  },
+  "MaVanDon": "VCNT00026",
+  "ThoiGianLap": {
+    "$date": "2023-03-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Kiều Trinh",
+    "SDTNguoiGui": "0395494386",
+    "DiaChiNguoiGui": "122 Hải Phòng, Thạch Thang, Hải Châu, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Võ Thị Kim Chi",
+    "SDTNguoiNhan": "0373220264",
+    "DiaChiNguoiNhan": "02 Trần Hữu Độ, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Chăn gối",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 7.1,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 35200
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00029",
+    "TenShipper": "Trần Đức Thắng",
+    "SDTShipper": "0339122978"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594824"
+  },
+  "MaVanDon": "VCNT00027",
+  "ThoiGianLap": {
+    "$date": "2022-01-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Kim Hoa",
+    "SDTNguoiGui": "0376521111",
+    "DiaChiNguoiGui": "104 Đường B2, Tây Thạnh, Tân Phú, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Lê Quế Trân",
+    "SDTNguoiNhan": "0868191908",
+    "DiaChiNguoiNhan": "22 Nguyễn Tất Thành, Phường 12, Quận 4, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 11.77,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "PhiCoc": 100000,
+    "VAT": 11000,
+    "TongPhi": 139540
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00039",
+    "TenShipper": "Nguyễn Nhật Huy",
+    "SDTShipper": "0346231811"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594825"
+  },
+  "MaVanDon": "VCNT00028",
+  "ThoiGianLap": {
+    "$date": "2023-11-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lê Thảo Nguyên",
+    "SDTNguoiGui": "0949339826",
+    "DiaChiNguoiGui": "33 Đ. Hoàng Diệu, Phường 12, Quận 4, Thành phố Hồ Chí Minh 700000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Hoàng Trọng Bảo",
+    "SDTNguoiNhan": "0339882065",
+    "DiaChiNguoiNhan": "289 Tây Thạnh, P. Phú Thuận, Tân Phú, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TenHang": "Gương",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 13.17,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 32340
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00017",
+    "TenShipper": "Nguyễn Long Hải",
+    "SDTShipper": "0393369300"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594826"
+  },
+  "MaVanDon": "VCNT00029",
+  "ThoiGianLap": {
+    "$date": "2024-01-03T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lưu Thanh Hương",
+    "SDTNguoiGui": "0948321798",
+    "DiaChiNguoiGui": "Ngõ 30 Đường Phạm Văn Đồng, Mai Dịch, Bắc Từ Liêm, Hà Nội 10000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Huỳnh Hoàng Tuấn",
+    "SDTNguoiNhan": "0363164666",
+    "DiaChiNguoiNhan": "Ngõ 234 Hoàng Quốc Việt, Cổ Nhuế, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.5,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1300,
+    "PhiKhac": 3000,
+    "TongPhi": 17300
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00037",
+    "TenShipper": "Nguyễn Linh Đan",
+    "SDTShipper": "0973830290"
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594827"
+  },
+  "MaVanDon": "VCNT00030",
+  "ThoiGianLap": {
+    "$date": "2024-02-03T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người nhận",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Thủy Tiên",
+    "SDTNguoiGui": "0965670517",
+    "DiaChiNguoiGui": "167/4 Bùi Đình Tuý, Phường 24, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Hoàn Đại",
+    "SDTNguoiNhan": "0369940209",
+    "DiaChiNguoiNhan": "01 Công xã Paris, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 4.27,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 29740
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00030",
+    "TenShipper": "Phạm Bá Thành",
+    "SDTShipper": "0394142645"
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "661a789b014d44c4b7594828"
+  },
+  "MaVanDon": "VCNT00031",
+  "ThoiGianLap": {
+    "$date": "2024-03-03T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thúy An",
+    "SDTNguoiGui": "0965672616",
+    "DiaChiNguoiGui": "71-73-75 Hai Bà Trưng, Street, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Đoàn Nguyễn Trà Giang",
+    "SDTNguoiNhan": "0869917732",
+    "DiaChiNguoiNhan": "39 Đ. Mạc Đĩnh Chi, Đa Kao, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 2.36,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "PhiCoc": 100000,
+    "VAT": 11000,
+    "TongPhi": 140720
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00032",
+    "TenShipper": "Hồ Thị Trang",
+    "SDTShipper": "0396026639"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "6652f9412d28403f7c981ae7"
+  },
+  "MaVanDon": "VCNT00032",
+  "ThoiGianLap": {
+    "$date": "2024-03-03T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thúy An",
+    "SDTNguoiGui": "0965672616",
+    "DiaChiNguoiGui": "71-73-75 Hai Bà Trưng, Street, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Đoàn Nguyễn Trà Giang",
+    "SDTNguoiNhan": "0869917732",
+    "DiaChiNguoiNhan": "39 Đ. Mạc Đĩnh Chi, Đa Kao, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 2.36,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "PhiCoc": 100000,
+    "VAT": 11000,
+    "TongPhi": 140720
+  },
+  "TrangThai": "Chờ xác nhận"
+},
+{
+  "_id": {
+    "$oid": "6652f9412d28403f7c981ae8"
+  },
+  "MaVanDon": "VCNT00033",
+  "ThoiGianLap": {
+    "$date": "2023-10-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Kiều Trinh",
+    "SDTNguoiGui": "0395494386",
+    "DiaChiNguoiGui": "122 Hải Phòng, Thạch Thang, Hải Châu, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Võ Thị Kim Chi",
+    "SDTNguoiNhan": "0373220264",
+    "DiaChiNguoiNhan": "02 Trần Hữu Độ, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Chăn gối",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 7.1,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 35200
+  },
+  "TrangThai": "Chờ xác nhận"
+},
+{
+  "_id": {
+    "$oid": "6652f9412d28403f7c981ae9"
+  },
+  "MaVanDon": "VCNT00034",
+  "ThoiGianLap": {
+    "$date": "2023-01-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Kim Hoa",
+    "SDTNguoiGui": "0376521111",
+    "DiaChiNguoiGui": "104 Đường B2, Tây Thạnh, Tân Phú, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Lê Quế Trân",
+    "SDTNguoiNhan": "0868191908",
+    "DiaChiNguoiNhan": "22 Nguyễn Tất Thành, Phường 12, Quận 4, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 11.77,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "PhiCoc": 100000,
+    "VAT": 11000,
+    "TongPhi": 139540
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00040",
+    "TenShipper": "Nguyễn Long Khải",
+    "SDTShipper": "0989307148"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "6652f9412d28403f7c981aea"
+  },
+  "MaVanDon": "VCNT00035",
+  "ThoiGianLap": {
+    "$date": "2023-11-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lê Thảo Nguyên",
+    "SDTNguoiGui": "0949339826",
+    "DiaChiNguoiGui": "33 Đ. Hoàng Diệu, Phường 12, Quận 4, Thành phố Hồ Chí Minh 700000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Hoàng Trọng Bảo",
+    "SDTNguoiNhan": "0339882065",
+    "DiaChiNguoiNhan": "289 Tây Thạnh, P. Phú Thuận, Tân Phú, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TenHang": "Gương",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 13.17,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 32340
+  },
+  "TrangThai": "Chờ xác nhận"
+},
+{
+  "_id": {
+    "$oid": "6652f9412d28403f7c981aeb"
+  },
+  "MaVanDon": "VCNT00036",
+  "ThoiGianLap": {
+    "$date": "2024-04-03T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lưu Thanh Hương",
+    "SDTNguoiGui": "0948321798",
+    "DiaChiNguoiGui": "Ngõ 30 Đường Phạm Văn Đồng, Mai Dịch, Bắc Từ Liêm, Hà Nội 10000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Huỳnh Hoàng Tuấn",
+    "SDTNguoiNhan": "0363164666",
+    "DiaChiNguoiNhan": "Ngõ 234 Hoàng Quốc Việt, Cổ Nhuế, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.5,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1300,
+    "PhiKhac": 3000,
+    "TongPhi": 17300
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00019",
+    "TenShipper": "Hoàng Trung Kiên",
+    "SDTShipper": "0346097698"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T17:00:00.000Z"
+  },
+  "TrangThai": "Giao hàng thành công"
+},
+{
+  "_id": {
+    "$oid": "6652f9412d28403f7c981aec"
+  },
+  "MaVanDon": "VCNT00037",
+  "ThoiGianLap": {
+    "$date": "2024-02-03T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người nhận",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Thủy Tiên",
+    "SDTNguoiGui": "0965670517",
+    "DiaChiNguoiGui": "167/4 Bùi Đình Tuý, Phường 24, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Hoàn Đại",
+    "SDTNguoiNhan": "0369940209",
+    "DiaChiNguoiNhan": "01 Công xã Paris, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 4.27,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 29740
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "6652f9412d28403f7c981aed"
+  },
+  "MaVanDon": "VCNT00038",
+  "ThoiGianLap": {
+    "$date": "2023-12-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Trương Thị Diễm Thy",
+    "SDTNguoiGui": "0382373512",
+    "DiaChiNguoiGui": "3 P. Chùa Một Cột, Điện Biên, Ba Đình, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Như Anh",
+    "SDTNguoiNhan": "0963666831",
+    "DiaChiNguoiNhan": "38 P. Khúc Thừa Dụ, Dịch Vọng, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thư từ",
+    "TenHang": "Biên lai",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 5.27,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 3000,
+    "PhiNang": 20000,
+    "TongPhi": 43540
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00007",
+    "TenShipper": "Phạm Bá Tuấn Linh",
+    "SDTShipper": "0399968559"
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "6652f9412d28403f7c981aee"
+  },
+  "MaVanDon": "VCNT00039",
+  "ThoiGianLap": {
+    "$date": "2023-12-12T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Bích Nguyên",
+    "SDTNguoiGui": "0977531484",
+    "DiaChiNguoiGui": "217/57 Bùi Đình Tuý, Phường 24, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Phan Thế Minh",
+    "SDTNguoiNhan": "0563043312",
+    "DiaChiNguoiNhan": "148 Ni Sư Huỳnh Liên, Phường 10, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 9.12,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 39440
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00002",
+    "TenShipper": "Nguyễn Đức Minh",
+    "SDTShipper": "0373220264"
+  },
+  "TrangThai": "Đã hủy"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd711"
+  },
+  "MaVanDon": "VCNT00101",
+  "ThoiGianLap": {
+    "$date": "2024-04-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Đoàn Thị Mỹ Hòa",
+    "SDTNguoiGui": "0342781976",
+    "DiaChiNguoiGui": "1 P. Hoả Lò, Trần Hưng Đạo, Hoàn Kiếm, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Hoàng Trọng Hiếu",
+    "SDTNguoiNhan": "0348127877",
+    "DiaChiNguoiNhan": "36 Điện Biên Phủ, Điện Biên, Ba Đình, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 2.2,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.78,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 30000,
+    "VAT": 3400,
+    "PhiKhac": 4000,
+    "TongPhi": 45960
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd712"
+  },
+  "MaVanDon": "VCNT00102",
+  "ThoiGianLap": {
+    "$date": "2024-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Phạm Thanh Tâm",
+    "SDTNguoiGui": "0673167167",
+    "DiaChiNguoiGui": "404 Nguyễn Sơn, Phú Thọ Hoà, Tân Phú, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Võ Thị Thanh Trúc",
+    "SDTNguoiNhan": "0387176868",
+    "DiaChiNguoiNhan": "63 Đình Tân Khai, Bình Trị Đông, Bình Tân, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 2.78,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 26560
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd713"
+  },
+  "MaVanDon": "VCNT00103",
+  "ThoiGianLap": {
+    "$date": "2024-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Võ Hoàng Thái",
+    "SDTNguoiGui": "0396178345",
+    "DiaChiNguoiGui": "85 Huỳnh Ngọc Huệ, Thanh Khê Đông, Thanh Khê, Đà Nẵng 550000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Trần Khang Huy",
+    "SDTNguoiNhan": "0398257198",
+    "DiaChiNguoiNhan": "185 Bùi Tá Hán, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Túi xách",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 10.03,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 21060
+  },
+  "TrangThai": "Chờ xác nhận"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd714"
+  },
+  "MaVanDon": "VCNT00104",
+  "ThoiGianLap": {
+    "$date": "2024-04-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Như Ý",
+    "SDTNguoiGui": "0375899231",
+    "DiaChiNguoiGui": "45 Nguyễn Triệu Luật, Khu Phố 4, Bình Tân, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Thanh Dư",
+    "SDTNguoiNhan": "0387976213",
+    "DiaChiNguoiNhan": "42/4c Đ. Bình Trị Đông, Bình Trị Đông, Bình Tân, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Hoa",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 2.71,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 26420
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd715"
+  },
+  "MaVanDon": "VCNT00105",
+  "ThoiGianLap": {
+    "$date": "2024-04-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Đoàn Lê Minh",
+    "SDTNguoiGui": "0366782166",
+    "DiaChiNguoiGui": "31 P. Yên Thế, Văn Miếu, Đống Đa, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Trần Ngọc Trân",
+    "SDTNguoiNhan": "0378198655",
+    "DiaChiNguoiNhan": "Ng. 82 P. Kim Mã, Kim Mã, Ba Đình, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Dây sạc",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 2.03,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 15060
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd716"
+  },
+  "MaVanDon": "VCNT00106",
+  "ThoiGianLap": {
+    "$date": "2024-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Võ Thị Cẩm Tiên",
+    "SDTNguoiGui": "0378981769",
+    "DiaChiNguoiGui": "A7/54 Đường 1C, Vĩnh Lộc B, Bình Chánh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Phạm Thị Thanh Trà",
+    "SDTNguoiNhan": "0911733444",
+    "DiaChiNguoiNhan": "77 Mã Lò, Bình Trị Đông A, Bình Tân, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thư từ",
+    "TrongLuong": 1.2,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 4.23,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 19460
+  },
+  "TrangThai": "Chờ xác nhận"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd717"
+  },
+  "MaVanDon": "VCNT00107",
+  "ThoiGianLap": {
+    "$date": "2022-10-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người nhận",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Quốc Bảo",
+    "SDTNguoiGui": "0914162689",
+    "DiaChiNguoiGui": "28/1B Lê Đình Cẩn, P, Bình Tân, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Đoàn Tâm Anh",
+    "SDTNguoiNhan": "0384930055",
+    "DiaChiNguoiNhan": "Lô 15B3, 1 Bùi Tá Hán, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 934.1,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 29200
+  },
+  "TrangThai": "Giao hàng thành công",
+  "ThongTinShipper": {
+    "MaShipper": "SP00030",
+    "SDTShipper": "0375833381",
+    "TenShipper": "Phạm Bá Thàn"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T07:49:58.333Z"
   }
 },
 {
   "_id": {
-    "$oid": "66521a28b29e555133686adf"
+    "$oid": "66557ea755d7a0765dacd718"
   },
-  "LoaiPhieuChi": "Chi phí xe",
-  "TongTien": 47100,
+  "MaVanDon": "VCNT00108",
   "ThoiGianLap": {
-    "$date": "2022-05-25T17:04:40.246Z"
+    "$date": "2022-11-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Võ Thành Nhân",
+    "SDTNguoiGui": "0978178764",
+    "DiaChiNguoiGui": "K 123 Cù Chính Lan, Hòa Khê, Thanh Khê, Đà Nẵng 550000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Trần Thị Hồng Hương",
+    "SDTNguoiNhan": "0347549333",
+    "DiaChiNguoiNhan": "65 Trung Lương 14, Hoà Xuân, Cẩm Lệ, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 9.36,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "PhiCoc": 30000,
+    "VAT": 4000,
+    "TongPhi": 77920
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd719"
+  },
+  "MaVanDon": "VCNT00109",
+  "ThoiGianLap": {
+    "$date": "2024-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Dương Nhã Đan",
+    "SDTNguoiGui": "0979809204",
+    "DiaChiNguoiGui": "A7/54 Đường 1C, Vĩnh Lộc B, Bình Chánh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Trương Anh Thư",
+    "SDTNguoiNhan": "0865981618",
+    "DiaChiNguoiNhan": "365 Đ. Trường Chinh, Phường 14, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thuốc & hóa chất",
+    "TenHang": "Thuốc nhuộm tóc",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 9.29,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 49580
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd71a"
+  },
+  "MaVanDon": "VCNT00110",
+  "ThoiGianLap": {
+    "$date": "2024-05-12T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Trương Tô Nhực Trường",
+    "SDTNguoiGui": "0905682529",
+    "DiaChiNguoiGui": "281 P. Đội Cấn, Liễu Giai, Ba Đình, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Bùi Ánh Dương",
+    "SDTNguoiNhan": "0862131299",
+    "DiaChiNguoiNhan": "143 P. Đốc Ngữ, Liễu Giai, Ba Đình, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.3,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 23600
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd71b"
+  },
+  "MaVanDon": "VCNT00111",
+  "ThoiGianLap": {
+    "$date": "2024-04-22T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Minh Nhật",
+    "SDTNguoiGui": "0982725726",
+    "DiaChiNguoiGui": "120 Lạc Long Quân, Phường 10, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "La Văn Anh",
+    "SDTNguoiNhan": "0961352236",
+    "DiaChiNguoiNhan": "281/55, Lý Thường Kiệt, Phường 15, Quận 11, Phường 14, Quận 10, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thư từ",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 3.17,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 17340
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd71c"
+  },
+  "MaVanDon": "VCNT00112",
+  "ThoiGianLap": {
+    "$date": "2024-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Trần Khang Huy",
+    "SDTNguoiGui": "0937303282",
+    "DiaChiNguoiGui": "7/3C Đ. Âu Cơ, Phường 10, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Huỳnh Văn Thanh",
+    "SDTNguoiNhan": "0855700959",
+    "DiaChiNguoiNhan": "281/55, Lý Thường Kiệt, Phường 15, Quận 11, Phường 14, Quận 10, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 3.17,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 3000,
+    "PhiHa": 20000,
+    "ThuongShipper": 20000,
+    "TongPhi": 59340
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd71d"
+  },
+  "MaVanDon": "VCNT00113",
+  "ThoiGianLap": {
+    "$date": "2024-05-12T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thế Hưng",
+    "SDTNguoiGui": "0984084034",
+    "DiaChiNguoiGui": "202 Đ. Tô Hiến Thành, Phường 15, Quận 11, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Đình Hải",
+    "SDTNguoiNhan": "0362258323",
+    "DiaChiNguoiNhan": "298 Lý Thường Kiệt, Phường 14, Quận 11, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TenHang": "Bia",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 0.88,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 22960
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd71e"
+  },
+  "MaVanDon": "VCNT00114",
+  "ThoiGianLap": {
+    "$date": "2024-04-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Ngô Nhựt Hào",
+    "SDTNguoiGui": "0977557349",
+    "DiaChiNguoiGui": "24 Phạm Nhữ Tăng, Hòa Khê, Thanh Khê, Đà Nẵng 550000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Hải",
+    "SDTNguoiNhan": "0903465911",
+    "DiaChiNguoiNhan": "104 Đ. Đoàn Khuê, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TenHang": "Nồi cơm điện",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 9.64,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "PhiCoc": 50000,
+    "VAT": 6000,
+    "TongPhi": 100280
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd71f"
+  },
+  "MaVanDon": "VCNT00115",
+  "ThoiGianLap": {
+    "$date": "2024-04-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thanh Tùng",
+    "SDTNguoiGui": "0349616718",
+    "DiaChiNguoiGui": "30 Đ. Nguyễn Văn Huyên, Quan Hoa, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Quốc Hưng",
+    "SDTNguoiNhan": "0962114704",
+    "DiaChiNguoiNhan": "36 Ngõ 68 Phố Phùng Chí Kiên, Nghĩa Đô, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.42,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1200,
+    "PhiKhac": 2000,
+    "TongPhi": 26240
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd720"
+  },
+  "MaVanDon": "VCNT00116",
+  "ThoiGianLap": {
+    "$date": "2024-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lưu Gia Bảo",
+    "SDTNguoiGui": "0986958908",
+    "DiaChiNguoiGui": "226, Đường Hà Huy Tập, Phường Hòa Khê, Quận Thanh Khê, Hòa Khê, Thanh Khê, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Đoàn Văn Dự",
+    "SDTNguoiNhan": "0977773690",
+    "DiaChiNguoiNhan": "43 Lê Hữu Khánh, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 9.64,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 45280
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd721"
+  },
+  "MaVanDon": "VCNT00117",
+  "ThoiGianLap": {
+    "$date": "2024-05-22T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Đinh Tuấn Phong",
+    "SDTNguoiGui": "0977311312",
+    "DiaChiNguoiGui": "16F/B1 Ba Tháng Hai Tổ 40 KP 6, Phường 14, Quận 10, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Hùng Phong",
+    "SDTNguoiNhan": "0826272889",
+    "DiaChiNguoiNhan": "495 Đ. Nhật Tảo, Phường 7, Quận 10, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Bình nước",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 1.76,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 24720
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd722"
+  },
+  "MaVanDon": "VCNT00118",
+  "ThoiGianLap": {
+    "$date": "2024-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lưu Đức Hoàng",
+    "SDTNguoiGui": "0977652886",
+    "DiaChiNguoiGui": "237 Đ. Cầu Giấy, Dịch Vọng, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Kha Duy",
+    "SDTNguoiNhan": "0363087885",
+    "DiaChiNguoiNhan": "30 Đ. Nguyễn Văn Huyên, Quan Hoa, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.43,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 28860
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd723"
+  },
+  "MaVanDon": "VCNT00119",
+  "ThoiGianLap": {
+    "$date": "2024-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người nhận",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lâm Hải Quốc",
+    "SDTNguoiGui": "0986561497",
+    "DiaChiNguoiGui": "249 Hà Huy Tập, Hòa Khê, Thanh Khê, Đà Nẵng 550000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Võ Tấn Tài",
+    "SDTNguoiNhan": "0967975042",
+    "DiaChiNguoiNhan": "79 Đ. Đoàn Khuê, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 9.64,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 30280
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd724"
+  },
+  "MaVanDon": "VCNT00120",
+  "ThoiGianLap": {
+    "$date": "2024-05-22T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Trọng Nghĩa",
+    "SDTNguoiGui": "0983535586",
+    "DiaChiNguoiGui": "578 Đ. Nguyễn Chí Thanh, Phường 7, Quận 5, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Thanh Sang",
+    "SDTNguoiNhan": "0329296673",
+    "DiaChiNguoiNhan": "80 Đ. Châu Văn Liêm, Phường 11, Quận 5, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 1.33,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 23660
+  },
+  "TrangThai": "Giao hàng thành công",
+  "ThongTinShipper": {
+    "MaShipper": "SP00030",
+    "SDTShipper": "0375833381",
+    "TenShipper": "Phạm Bá Thàn"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T07:11:32.683Z"
   }
 },
 {
   "_id": {
-    "$oid": "66521a30b29e555133686ae0"
+    "$oid": "66557ea755d7a0765dacd725"
   },
-  "LoaiPhieuChi": "Chi phí xe",
-  "TongTien": 49100,
+  "MaVanDon": "VCNT00121",
   "ThoiGianLap": {
-    "$date": "2023-05-25T17:04:48.314Z"
+    "$date": "2024-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Trương Thị Diễm Thy",
+    "SDTNguoiGui": "0382373512",
+    "DiaChiNguoiGui": "3 P. Chùa Một Cột, Điện Biên, Ba Đình, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Như Anh",
+    "SDTNguoiNhan": "0963666831",
+    "DiaChiNguoiNhan": "38 P. Khúc Thừa Dụ, Dịch Vọng, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thư từ",
+    "TenHang": "Biên lai",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 5.27,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 3000,
+    "PhiNang": 20000,
+    "TongPhi": 43540
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd726"
+  },
+  "MaVanDon": "VCNT00122",
+  "ThoiGianLap": {
+    "$date": "2024-05-12T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Bích Nguyên",
+    "SDTNguoiGui": "0977531484",
+    "DiaChiNguoiGui": "217/57 Bùi Đình Tuý, Phường 24, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Phan Thế Minh",
+    "SDTNguoiNhan": "0563043312",
+    "DiaChiNguoiNhan": "148 Ni Sư Huỳnh Liên, Phường 10, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 9.12,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 39440
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd727"
+  },
+  "MaVanDon": "VCNT00123",
+  "ThoiGianLap": {
+    "$date": "2024-05-12T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Hoàng Bảo Khanh",
+    "SDTNguoiGui": "0346820256",
+    "DiaChiNguoiGui": "36 Xuân Thủy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Văn Út",
+    "SDTNguoiNhan": "0904476300",
+    "DiaChiNguoiNhan": "135 Đ. Nguyễn Phong Sắc, Nghĩa Tân, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TenHang": "Cơm hộp",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.94,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1500,
+    "PhiKhac": 5000,
+    "TongPhi": 30380
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd728"
+  },
+  "MaVanDon": "VCNT00124",
+  "ThoiGianLap": {
+    "$date": "2024-04-29T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Đỗ Tường Vy",
+    "SDTNguoiGui": "0988653666",
+    "DiaChiNguoiGui": "99B Thái Bình, Phường 4, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Văn Chí",
+    "SDTNguoiNhan": "0835264446",
+    "DiaChiNguoiNhan": "110/D6 Hẻm 108 Cộng Hòa, Phường 4, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 1.49,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 28980
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd729"
+  },
+  "MaVanDon": "VCNT00125",
+  "ThoiGianLap": {
+    "$date": "2024-02-11T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Duy Khánh ",
+    "SDTNguoiGui": "0966232658",
+    "DiaChiNguoiGui": "36/23 Hẻm 36 Đồng Khởi, Phường 4, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Hoài Tâm ",
+    "SDTNguoiNhan": "0399968559",
+    "DiaChiNguoiNhan": "217 Tây Thạnh, Tân Phú, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 5.26,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 36520
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd72a"
+  },
+  "MaVanDon": "VCNT00126",
+  "ThoiGianLap": {
+    "$date": "2024-03-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Kiều Trinh",
+    "SDTNguoiGui": "0395494386",
+    "DiaChiNguoiGui": "122 Hải Phòng, Thạch Thang, Hải Châu, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Võ Thị Kim Chi",
+    "SDTNguoiNhan": "0373220264",
+    "DiaChiNguoiNhan": "02 Trần Hữu Độ, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Chăn gối",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 7.1,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 35200
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd72b"
+  },
+  "MaVanDon": "VCNT00127",
+  "ThoiGianLap": {
+    "$date": "2022-01-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Kim Hoa",
+    "SDTNguoiGui": "0376521111",
+    "DiaChiNguoiGui": "104 Đường B2, Tây Thạnh, Tân Phú, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Lê Quế Trân",
+    "SDTNguoiNhan": "0868191908",
+    "DiaChiNguoiNhan": "22 Nguyễn Tất Thành, Phường 12, Quận 4, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 11.77,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "PhiCoc": 100000,
+    "VAT": 11000,
+    "TongPhi": 139540
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd72c"
+  },
+  "MaVanDon": "VCNT00128",
+  "ThoiGianLap": {
+    "$date": "2024-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lê Thảo Nguyên",
+    "SDTNguoiGui": "0949339826",
+    "DiaChiNguoiGui": "33 Đ. Hoàng Diệu, Phường 12, Quận 4, Thành phố Hồ Chí Minh 700000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Hoàng Trọng Bảo",
+    "SDTNguoiNhan": "0339882065",
+    "DiaChiNguoiNhan": "289 Tây Thạnh, P. Phú Thuận, Tân Phú, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TenHang": "Gương",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 13.17,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 32340
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd72d"
+  },
+  "MaVanDon": "VCNT00129",
+  "ThoiGianLap": {
+    "$date": "2024-01-03T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lưu Thanh Hương",
+    "SDTNguoiGui": "0948321798",
+    "DiaChiNguoiGui": "Ngõ 30 Đường Phạm Văn Đồng, Mai Dịch, Bắc Từ Liêm, Hà Nội 10000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Huỳnh Hoàng Tuấn",
+    "SDTNguoiNhan": "0363164666",
+    "DiaChiNguoiNhan": "Ngõ 234 Hoàng Quốc Việt, Cổ Nhuế, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.5,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1300,
+    "PhiKhac": 3000,
+    "TongPhi": 17300
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd72e"
+  },
+  "MaVanDon": "VCNT00130",
+  "ThoiGianLap": {
+    "$date": "2024-02-03T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người nhận",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Thủy Tiên",
+    "SDTNguoiGui": "0965670517",
+    "DiaChiNguoiGui": "167/4 Bùi Đình Tuý, Phường 24, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Hoàn Đại",
+    "SDTNguoiNhan": "0369940209",
+    "DiaChiNguoiNhan": "01 Công xã Paris, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 4.27,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 29740
+  },
+  "TrangThai": "Đang giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd72f"
+  },
+  "MaVanDon": "VCNT00131",
+  "ThoiGianLap": {
+    "$date": "2024-03-03T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thúy An",
+    "SDTNguoiGui": "0965672616",
+    "DiaChiNguoiGui": "71-73-75 Hai Bà Trưng, Street, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Đoàn Nguyễn Trà Giang",
+    "SDTNguoiNhan": "0869917732",
+    "DiaChiNguoiNhan": "39 Đ. Mạc Đĩnh Chi, Đa Kao, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 2.36,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "PhiCoc": 100000,
+    "VAT": 11000,
+    "TongPhi": 140720
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd730"
+  },
+  "MaVanDon": "VCNT00132",
+  "ThoiGianLap": {
+    "$date": "2024-03-03T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thúy An",
+    "SDTNguoiGui": "0965672616",
+    "DiaChiNguoiGui": "71-73-75 Hai Bà Trưng, Street, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Đoàn Nguyễn Trà Giang",
+    "SDTNguoiNhan": "0869917732",
+    "DiaChiNguoiNhan": "39 Đ. Mạc Đĩnh Chi, Đa Kao, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 2.36,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "PhiCoc": 100000,
+    "VAT": 11000,
+    "TongPhi": 140720
+  },
+  "TrangThai": "Chờ xác nhận"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd731"
+  },
+  "MaVanDon": "VCNT00133",
+  "ThoiGianLap": {
+    "$date": "2024-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Kiều Trinh",
+    "SDTNguoiGui": "0395494386",
+    "DiaChiNguoiGui": "122 Hải Phòng, Thạch Thang, Hải Châu, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Võ Thị Kim Chi",
+    "SDTNguoiNhan": "0373220264",
+    "DiaChiNguoiNhan": "02 Trần Hữu Độ, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TenHang": "Chăn gối",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Đà Nẵng",
+  "KhoangCach": 7.1,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 35200
+  },
+  "TrangThai": "Chờ xác nhận"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd732"
+  },
+  "MaVanDon": "VCNT00134",
+  "ThoiGianLap": {
+    "$date": "2024-01-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Kim Hoa",
+    "SDTNguoiGui": "0376521111",
+    "DiaChiNguoiGui": "104 Đường B2, Tây Thạnh, Tân Phú, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Lê Quế Trân",
+    "SDTNguoiNhan": "0868191908",
+    "DiaChiNguoiNhan": "22 Nguyễn Tất Thành, Phường 12, Quận 4, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Điện - điện tử",
+    "TrongLuong": 5.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 11.77,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "PhiCoc": 100000,
+    "VAT": 11000,
+    "TongPhi": 139540
+  },
+  "ThongTinShipper": {
+    "MaShipper": "SP00030",
+    "TenShipper": "Phạm Bá Thàn",
+    "SDTShipper": "0375833381"
+  },
+  "TrangThai": "Giao hàng thành công",
+  "NgayGiao": {
+    "$date": "2024-05-28T07:18:17.724Z"
   }
 },
 {
   "_id": {
-    "$oid": "66521a35b29e555133686ae1"
+    "$oid": "66557ea755d7a0765dacd733"
   },
-  "LoaiPhieuChi": "Chi phí xe",
-  "TongTien": 19100,
+  "MaVanDon": "VCNT00135",
   "ThoiGianLap": {
-    "$date": "2022-05-25T17:04:53.342Z"
+    "$date": "2024-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lê Thảo Nguyên",
+    "SDTNguoiGui": "0949339826",
+    "DiaChiNguoiGui": "33 Đ. Hoàng Diệu, Phường 12, Quận 4, Thành phố Hồ Chí Minh 700000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Nguyễn Hoàng Trọng Bảo",
+    "SDTNguoiNhan": "0339882065",
+    "DiaChiNguoiNhan": "289 Tây Thạnh, P. Phú Thuận, Tân Phú, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Hàng dễ vỡ",
+    "TenHang": "Gương",
+    "TrongLuong": 10.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 13.17,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 32340
+  },
+  "TrangThai": "Chờ xác nhận"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd734"
+  },
+  "MaVanDon": "VCNT00136",
+  "ThoiGianLap": {
+    "$date": "2024-04-03T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Lưu Thanh Hương",
+    "SDTNguoiGui": "0948321798",
+    "DiaChiNguoiGui": "Ngõ 30 Đường Phạm Văn Đồng, Mai Dịch, Bắc Từ Liêm, Hà Nội 10000, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Huỳnh Hoàng Tuấn",
+    "SDTNguoiNhan": "0363164666",
+    "DiaChiNguoiNhan": "Ngõ 234 Hoàng Quốc Việt, Cổ Nhuế, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 1.5,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1300,
+    "PhiKhac": 3000,
+    "TongPhi": 17300
+  },
+  "TrangThai": "Chờ giao"
+},
+{
+  "_id": {
+    "$oid": "66557ea755d7a0765dacd735"
+  },
+  "MaVanDon": "VCNT00137",
+  "ThoiGianLap": {
+    "$date": "2024-02-03T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người nhận",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Thủy Tiên",
+    "SDTNguoiGui": "0965670517",
+    "DiaChiNguoiGui": "167/4 Bùi Đình Tuý, Phường 24, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Hoàn Đại",
+    "SDTNguoiNhan": "0369940209",
+    "DiaChiNguoiNhan": "01 Công xã Paris, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thực phẩm",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
+  },
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 4.27,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 49740,
+    "ThuongShipper": 20000
+  },
+  "TrangThai": "Giao hàng thành công",
+  "ThongTinShipper": {
+    "MaShipper": "SP00030",
+    "SDTShipper": "0375833381",
+    "TenShipper": "Phạm Bá Thàn"
+  },
+  "NgayGiao": {
+    "$date": "2024-05-28T07:21:26.246Z"
   }
 },
 {
   "_id": {
-    "$oid": "66521a3cb29e555133686ae2"
+    "$oid": "66557ea755d7a0765dacd736"
   },
-  "LoaiPhieuChi": "Chi phí nhiên liệu",
-  "TongTien": 98000,
+  "MaVanDon": "VCNT00138",
   "ThoiGianLap": {
-    "$date": "2023-05-25T17:05:00.131Z"
-  }
+    "$date": "2024-05-02T17:00:00.000Z"
+  },
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Trương Thị Diễm Thy",
+    "SDTNguoiGui": "0382373512",
+    "DiaChiNguoiGui": "3 P. Chùa Một Cột, Điện Biên, Ba Đình, Hà Nội, Việt Nam"
+  },
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Lê Như Anh",
+    "SDTNguoiNhan": "0963666831",
+    "DiaChiNguoiNhan": "38 P. Khúc Thừa Dụ, Dịch Vọng, Cầu Giấy, Hà Nội, Việt Nam"
+  },
+  "ThongTinHangHoa": {
+    "LoaiHang": "Thư từ",
+    "TenHang": "Biên lai",
+    "TrongLuong": 1.1,
+    "SoLuong": 1
+  },
+  "Tinh": "Hà Nội",
+  "KhoangCach": 5.27,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 3000,
+    "PhiNang": 20000,
+    "TongPhi": 43540,
+    "ThuongShipper:": 20000
+  },
+  "TrangThai": "Đang giao"
 },
 {
   "_id": {
-    "$oid": "66521a42b29e555133686ae3"
+    "$oid": "66557ea755d7a0765dacd737"
   },
-  "LoaiPhieuChi": "Chi phí nhiên liệu",
-  "TongTien": 10000,
+  "MaVanDon": "VCNT00139",
   "ThoiGianLap": {
-    "$date": "2022-05-25T17:05:06.699Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "66521a49b29e555133686ae4"
+    "$date": "2024-05-12T17:00:00.000Z"
   },
-  "LoaiPhieuChi": "Chi phí nhiên liệu",
-  "TongTien": 126000,
-  "ThoiGianLap": {
-    "$date": "2024-05-25T17:05:13.758Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "66521a50b29e555133686ae5"
+  "LoaiVanChuyen": "Nội tỉnh",
+  "NguoiThanhToan": "Người gửi",
+  "ThongTinNguoiGui": {
+    "TenNguoiGui": "Nguyễn Thị Bích Nguyên",
+    "SDTNguoiGui": "0977531484",
+    "DiaChiNguoiGui": "217/57 Bùi Đình Tuý, Phường 24, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam"
   },
-  "LoaiPhieuChi": "Chi phí thiết bị",
-  "TongTien": 56600,
-  "ThoiGianLap": {
-    "$date": "2023-05-25T17:05:20.561Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "66521a57b29e555133686ae6"
+  "ThongTinNguoiNhan": {
+    "TenNguoiNhan": "Phan Thế Minh",
+    "SDTNguoiNhan": "0563043312",
+    "DiaChiNguoiNhan": "148 Ni Sư Huỳnh Liên, Phường 10, Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
   },
-  "LoaiPhieuChi": "Chi phí thiết bị",
-  "TongTien": 145200,
-  "ThoiGianLap": {
-    "$date": "2022-05-25T17:05:27.982Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "66521a5bb29e555133686ae7"
+  "ThongTinHangHoa": {
+    "LoaiHang": "Khác",
+    "TrongLuong": 50.1,
+    "SoLuong": 1
   },
-  "LoaiPhieuChi": "Chi phí thiết bị",
-  "TongTien": 14520,
-  "ThoiGianLap": {
-    "$date": "2022-05-25T17:05:31.792Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "66521a63b29e555133686ae8"
+  "Tinh": "TP Hồ Chí Minh",
+  "KhoangCach": 9.12,
+  "PhiVanChuyen": {
+    "PhiCoDinh": 10000,
+    "VAT": 1000,
+    "TongPhi": 39440
   },
-  "LoaiPhieuChi": "Chi phí thiết bị",
-  "TongTien": 149120,
-  "ThoiGianLap": {
-    "$date": "2024-05-25T17:05:39.012Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "665221bb0105a3650d1e07ad"
-  },
-  "LoaiPhieuChi": "Chi phí xe",
-  "TongTien": 126000,
-  "ThoiGianLap": {
-    "$date": "2023-05-25T17:36:59.030Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "665221c30105a3650d1e07ae"
-  },
-  "LoaiPhieuChi": "Chi phí xe",
-  "TongTien": 56000,
-  "ThoiGianLap": {
-    "$date": "2022-05-25T17:37:07.381Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "665221ca0105a3650d1e07af"
-  },
-  "LoaiPhieuChi": "Chi phí xe",
-  "TongTien": 16000,
-  "ThoiGianLap": {
-    "$date": "2023-05-25T17:37:14.363Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "665221d10105a3650d1e07b0"
-  },
-  "LoaiPhieuChi": "Chi phí nhiên liệu",
-  "TongTien": 22300,
-  "ThoiGianLap": {
-    "$date": "2023-05-25T17:37:21.964Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "665221dc0105a3650d1e07b1"
-  },
-  "LoaiPhieuChi": "Chi phí nhiên liệu",
-  "TongTien": 226000,
-  "ThoiGianLap": {
-    "$date": "2023-05-25T17:37:32.395Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "665221e30105a3650d1e07b2"
-  },
-  "LoaiPhieuChi": "Chi phí thiết bị",
-  "TongTien": 12000,
-  "ThoiGianLap": {
-    "$date": "2023-05-25T17:37:39.257Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "665221ef0105a3650d1e07b3"
-  },
-  "LoaiPhieuChi": "Chi phí thiết bị",
-  "TongTien": 56000,
-  "ThoiGianLap": {
-    "$date": "2022-05-25T17:37:51.795Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "665221f90105a3650d1e07b4"
-  },
-  "LoaiPhieuChi": "Chi phí thiết bị",
-  "TongTien": 560150,
-  "ThoiGianLap": {
-    "$date": "2023-05-25T17:38:01.734Z"
-  }
+  "TrangThai": "Đã hủy"
 }]

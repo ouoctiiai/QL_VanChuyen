@@ -227,13 +227,13 @@ public class TaiKhoanDAO {
         Integer thuong = 0;
         List<VanDonPOJO> ls = vd.lichSuDonCuaShipper(tk.getMaShipper());
         for (VanDonPOJO vd1 : ls) {
-            if (Objects.equals(vd1.getPhiVanChuyen(), "Giao hàng thành công")) {
+            if (Objects.equals(vd1.getTrangThai(), "Giao hàng thành công")) {
                 PhiVanChuyen p = vd1.getPhiVanChuyen();
-                thuong += p.getThuongShipper();
+                if(p.getThuongShipper() != null) {
+                    thuong += p.getThuongShipper();
+                }
             }
         }
-
-        thuong -= tinhTongTienDaNhanCuaShipper(tk);
         return thuong;
     }
 
