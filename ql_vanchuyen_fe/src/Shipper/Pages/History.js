@@ -64,7 +64,7 @@ const History = () => {
                   <tr>
                     <td>
                       <img src="https://ich.edu.vn/App_Files/Upload/2019/icon-thanh-cong.png" alt="" />
-                      <span class="user-link text-size17">{item.thoiGianLapToString}</span>
+                      <span class="user-link text-size17">{item.ngayGiao}</span>
                       <span className="user-subhead text-size17">{item.trangThai === 'Chờ giao' ? 'Đã hủy' : item.trangThai}</span>                    </td>
                     <td >
                       <span class="label label-default text-size17">{item.maVanDon}</span>

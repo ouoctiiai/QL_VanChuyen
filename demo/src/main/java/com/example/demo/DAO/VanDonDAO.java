@@ -73,6 +73,8 @@ public class VanDonDAO {
             dsVanDon.add(vd);
         }
 
+        dsVanDon.sort((vd1, vd2) -> vd2.getThoiGianLap().compareTo(vd1.getThoiGianLap()));
+
         return dsVanDon;
     }
 
@@ -86,7 +88,6 @@ public class VanDonDAO {
         for (Document doc : collection.find(query)) {
             VanDonPOJO vd = convertToVanDonPOJO(doc);
             dsVanDon.add(vd);
-            double totalShippingFee = tinhPhiVanChyen(vd);
         }
 
         return dsVanDon;
@@ -101,6 +102,9 @@ public class VanDonDAO {
                 dsVanDon.add(vd);
             }
         }
+
+        dsVanDon.sort((vd1, vd2) -> vd2.getThoiGianLap().compareTo(vd1.getThoiGianLap()));
+
         return  dsVanDon;
     }
 
@@ -121,18 +125,29 @@ public class VanDonDAO {
         return dsVanDon;
     }
 
-    public List<VanDonPOJO> lichSuDonCuaShipper(String id){
+    public List<VanDonPOJO> lichSuDonCuaShipper(String id) {
         List<VanDonPOJO> ds = new ArrayList<>();
         List<VanDonPOJO> dsVanDon = allVanDon();
-        for(VanDonPOJO vd : dsVanDon){
+        for (VanDonPOJO vd : dsVanDon) {
             ThongTinShipper tt = vd.getThongTinShipper();
-            if(tt != null){
-                if(java.util.Objects.equals(tt.getMaShipper(), id))
-                {
-                    ds.add(vd);
-                }
+            if (tt != null && java.util.Objects.equals(tt.getMaShipper(), id)) {
+                ds.add(vd);
             }
         }
+
+        ds.sort((vd1, vd2) -> {
+            Date ngayGiao1 = vd1.getNgayGiao();
+            Date ngayGiao2 = vd2.getNgayGiao();
+
+            if (ngayGiao1 == null) {
+                return -1;
+            } else if (ngayGiao2 == null) {
+                return 1;
+            } else {
+                return ngayGiao2.compareTo(ngayGiao1);
+            }
+        });
+
         return ds;
     }
 
@@ -486,12 +501,12 @@ public class VanDonDAO {
     public int tinhTongSoDonCuaShipperTrongThang(String id) {
         int s = 0;
         List<VanDonPOJO> dsVanDon = allVanDon();
-        LocalDate today = LocalDate.now(); // Use LocalDate for current date
+        LocalDate today = LocalDate.now();
 
         for (VanDonPOJO vd : dsVanDon) {
             ThongTinShipper tt = vd.getThongTinShipper();
-            if (tt != null && Objects.equals(tt.getMaShipper(), id)) {
-                LocalDate donDate = vd.getThoiGianLap().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            if (tt != null && java.util.Objects.equals(tt.getMaShipper(), id) && java.util.Objects.equals(vd.getTrangThai(), "Giao hàng thành công")) {
+                LocalDate donDate = vd.getNgayGiao().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 if (donDate.getMonth() == today.getMonth() && donDate.getYear() == today.getYear()) {
                     s++;
                 }
@@ -503,14 +518,13 @@ public class VanDonDAO {
     public int tinhTongSoDonCuaShipperTrongNgay(String id) {
         int s = 0;
         List<VanDonPOJO> dsVanDon = allVanDon();
-        LocalDate today = LocalDate.now(); // Get today's date
+        LocalDate today = LocalDate.now();
 
         for (VanDonPOJO vd : dsVanDon) {
             ThongTinShipper tt = vd.getThongTinShipper();
-            if (tt != null && Objects.equals(tt.getMaShipper(), id)) {
-                // Assuming 'getThoiGianLap' returns a date object
-                LocalDate donDate = vd.getThoiGianLap().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-                if (donDate.equals(today)) { // Check if delivery date matches today's date
+            if (tt != null && java.util.Objects.equals(tt.getMaShipper(), id) && java.util.Objects.equals(vd.getTrangThai(), "Giao hàng thành công")) {
+                LocalDate donDate = vd.getNgayGiao().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                if (donDate.equals(today)) {
                     s++;
                 }
             }
