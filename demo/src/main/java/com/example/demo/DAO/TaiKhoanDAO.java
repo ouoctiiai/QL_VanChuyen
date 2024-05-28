@@ -171,6 +171,19 @@ public class TaiKhoanDAO {
         return ds;
     }
 
+    public List<TaiKhoanPOJO> danhSachTaiKhoanLaKhachHang() throws ParseException {
+        List<TaiKhoanPOJO> ds = new ArrayList<>();
+        MongoCollection<Document> collection = connection.getCollection();
+        BasicDBObject query = new BasicDBObject("LoaiTaiKhoan", "Khách hàng");
+
+        for (Document doc : collection.find(query)) {
+            TaiKhoanPOJO vd = convertToTaiKhoanPOJO(doc);
+            ds.add(vd);
+        }
+
+        return ds;
+    }
+
     private TaiKhoanPOJO convertToTaiKhoanPOJO(Document doc) throws ParseException {
         TaiKhoanPOJO tk = new TaiKhoanPOJO();
         tk.setId(doc.getObjectId("_id").toString());

@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { create } from '@mui/material/styles/createTransitions';
-import { createAccountCustomer } from '../Api/DataTaiKhoan';
+import { createAccountCustomer, getDSKhachHang, listTaiKhoan } from '../Api/DataTaiKhoan';
 
 
 const Register = (props) => {
@@ -50,8 +50,37 @@ const Register = (props) => {
         setIsChecked(!isChecked);
     }
 
-    const handleSignIn = (event) => {
+    const checkIfAccountExists = async () => {
+        try {
+            const response = await getDSKhachHang();
+            const accounts = response.data;
+
+            const usernameExists = accounts.some(account => account.tenTaiKhoan === formState.namelogin);
+            const phoneExists = accounts.some(account => account.sdt === formState.phone);
+
+            if (usernameExists) {
+                setErrorMessage('Tên đăng nhập đã tồn tại. Vui lòng chọn tên đăng nhập khác.');
+                return true;
+            }
+            if (phoneExists) {
+                setErrorMessage('Số điện thoại đã được sử dụng. Vui lòng sử dụng số điện thoại khác.');
+                return true;
+            }
+            return false;
+        } catch (error) {
+            console.error("Có lỗi xảy ra khi kiểm tra tài khoản: ", error);
+            setErrorMessage('Có lỗi xảy ra khi kiểm tra tài khoản. Vui lòng thử lại sau.');
+            return true;
+        }
+    }
+
+    const handleSignIn = async(event) => {
         event.preventDefault();
+
+        const accountExists = await checkIfAccountExists();
+        if (accountExists) {
+            return;
+        }
 
         const taiKhoanMoi = {
             loaiTaiKhoan: "Khách hàng",
@@ -76,7 +105,7 @@ const Register = (props) => {
                 console.error("Có lỗi xảy ra: ", error);
                 alert("Tạo tài khoản thất bại!");
             });
-            // history.push('/login');
+            history.push('/login');
             setErrorMessage('');
         }
 
