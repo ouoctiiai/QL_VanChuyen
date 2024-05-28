@@ -121,8 +121,8 @@ public class Dijkstra {
     }
 
     public static void main(String[] args) {
-        System.out.println(findDistance("TP Hồ Chí Minh", "Lâm Đồng"));
-        System.out.println(findShortedPath("Lai Châu", "Long An"));
+        System.out.println(findDistance("Hà Nội", "Bình Định"));
+        System.out.println(findShortedPath("Hà Nội", "Bình Định"));
     }
 
     private static Node findNodeByName(List<Node> nodes, String name)

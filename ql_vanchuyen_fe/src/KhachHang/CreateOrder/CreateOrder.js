@@ -6,7 +6,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import './CreateOrder.scss';
 
 import { Button, Col, Form, FormLabel, Row } from 'react-bootstrap';
-import { listPhuongXaTheoQuanHuyen, listQuanHuyenTheoTinhThanh, listTinhThanh } from '../../Api/DataDiaChi';
+import { listPhuongXaTheoQuanHuyen, listQuanHuyenTheoTinhThanh, dsTinhDonNoiTinh } from '../../Api/DataDiaChi';
 import { createOrder, listVanDon, tinhPhiVat, tinhTongPhi } from '../../Api/DataVanDon';
 import Mapbox from '../../Shipper/Components/Mapbox';
 import { getTaiKhoanById } from '../../Api/DataTaiKhoan';
@@ -54,11 +54,11 @@ const CreateOrder = () => {
             listVanDon().then((Response) => {
                 setDanhSachDonHang(Response.data);
             })
-            listTinhThanh().then((Response) => {
+            dsTinhDonNoiTinh().then((Response) => {
                 setTinhNguoiGui(Response.data);
             });
 
-            listTinhThanh().then((Response) => {
+            dsTinhDonNoiTinh().then((Response) => {
                 setTinhNguoiNhan(Response.data);
             });
 
@@ -186,6 +186,27 @@ const CreateOrder = () => {
         }
     };
 
+    const formatTenTinh = (tenTinh) => {
+        if (tenTinh === "Thành phố Hồ Chí Minh") {
+            return tenTinh.replace("Thành phố", "TP")
+        }else if(tenTinh == "Thành phố Hà Nội" || tenTinh === "Thành phố Cần Thơ"){
+            return tenTinh.replace("Thành phố ", "");
+        } 
+        else {
+            return tenTinh.replace("Tỉnh ", "");
+        }
+    };
+
+    const getTinhNguoiGui = () => {
+        const selectedTinh = tinhNguoiGui.find(tinh => tinh.IdDiaChi === selectedTinhNguoiGui);
+        if(selectedTinh){
+            return formatTenTinh(selectedTinh.Name);
+        }
+        else{
+            return '';
+        }
+    };
+
     const getDiaChiNguoiNhan = () => {
         const selectedTinh = tinhNguoiNhan.find(tinh => tinh.IdDiaChi === selectedTinhNguoiNhan);
         const selectedQuan = quanNguoiNhan.find(quan => quan.MaQuanHuyen === selectedQuanNguoiNhan);
@@ -233,7 +254,8 @@ const CreateOrder = () => {
                 vat: parseInt(phiVAT),
                 thuongShipper: parseInt(e.target.elements.phiThuong.value),
                 tongPhi: parseInt(tongPhi)
-            }
+            },
+            tinh: getTinhNguoiGui()
         }; 
         console.log(vanDonMoi);
 

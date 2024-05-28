@@ -74,7 +74,7 @@ public class VanDonCotroller {
 
     @PostMapping("/create-order")
     public ResponseEntity<VanDonPOJO> createOrder(@RequestBody VanDonPOJO vanDonPOJO) {
-        VanDonPOJO newVanDon = vanDonService.themDonHang(vanDonPOJO);
+        VanDonPOJO newVanDon = vanDonService.themDonHang(vanDonPOJO, "Chờ xác nhận");
         return ResponseEntity.ok(newVanDon);
     }
 
@@ -93,7 +93,13 @@ public class VanDonCotroller {
     @GetMapping("/khoangCach/{dc1}/{dc2}")
     public ResponseEntity<Double> calculateDistance(@PathVariable String dc1, @PathVariable String dc2) {
         Double khoangCach = vanDonService.tinhKhoangCachDonLT(dc1, dc2);
-        return ResponseEntity.ok(khoangCach);
+        return new ResponseEntity<>(khoangCach, HttpStatus.OK);
+    }
+
+    @GetMapping("/duongDi/{dc1}/{dc2}")
+    public ResponseEntity<String> tinhKhoangCach(@PathVariable String dc1, @PathVariable String dc2) {
+        String khoangCach = vanDonService.timDuongDiNganNhatLT(dc1, dc2);
+        return new ResponseEntity<>(khoangCach, HttpStatus.OK);
     }
 
     @GetMapping("/tongTaiXe")
@@ -164,9 +170,10 @@ public class VanDonCotroller {
 
     @PostMapping("/themDonHang")
     public ResponseEntity<VanDonPOJO> themDonHang(@RequestBody VanDonPOJO vanDonPOJO) {
-        VanDonPOJO newVanDon = vanDonService.themDonHang(vanDonPOJO);
+        VanDonPOJO newVanDon = vanDonService.themDonHang(vanDonPOJO, "Chờ giao");
         return ResponseEntity.ok(newVanDon);
     }
+
 
     @GetMapping("/doanh-thu-theo-thang")
     public ResponseEntity<List<Map<String, Object>>> getDoanhThuTheoThang() {

@@ -572,6 +572,33 @@ public class VanDonDAO {
         return khoangCach;
     }
 
+
+    public String timDuongDiNganNhatLT(String dc1, String dc2){
+        String path = "";
+        KhoDAO khodao = new KhoDAO();
+        Dijkstra dijkstra = new Dijkstra();
+        KhoPOJO k1 = khodao.timKhoTheoTinh(dc1);
+        KhoPOJO k2 = khodao.timKhoTheoTinh(dc2);
+        if(!java.util.Objects.equals(k1.getKhuVuc(), k2.getKhuVuc())){
+            KhoPOJO kchinh1 = khodao.timKhoChinhTheoKhuVuc(k1.getKhuVuc());
+            KhoPOJO kchinh2 = khodao.timKhoChinhTheoKhuVuc(k2.getKhuVuc());
+            if(!java.util.Objects.equals(dc1, kchinh1.getTinh()))
+            {
+                path += dijkstra.findShortedPath(dc1, kchinh1.getTinh());
+            }
+            else path += dc2;
+            if(!java.util.Objects.equals(dc2, kchinh2.getTinh()))
+            {
+                path += ", " + dijkstra.findShortedPath(kchinh2.getTinh(), dc2);
+            }
+            else path += ", " + dc2;
+        }
+        else {
+            path += dijkstra.findShortedPath(dc1, dc2);
+        }
+        return path;
+    }
+
     public String timDuongDiNganNhat(VanDonPOJO vd){
         String path = "";
         KhoDAO khodao = new KhoDAO();
@@ -609,7 +636,7 @@ public class VanDonDAO {
         return maVanDon.toString();
     }
 
-    public VanDonPOJO themDonHang(VanDonPOJO vanDonPOJO) {
+    public VanDonPOJO themDonHang(VanDonPOJO vanDonPOJO, String trangThai) {
         try{
             String maVanDon = generateMaVanDon();
             vanDonPOJO.setMaVanDon(maVanDon);
@@ -617,7 +644,7 @@ public class VanDonDAO {
             Date thoiGianLap = new Date();
             vanDonPOJO.setThoiGianLap(thoiGianLap);
 
-            vanDonPOJO.setTrangThai("Chờ giao");
+            vanDonPOJO.setTrangThai(trangThai);
 
             Document thongTinHH = new Document()
                     .append("LoaiHang", vanDonPOJO.getThongTinHangHoa().getLoaiHang())
@@ -661,6 +688,14 @@ public class VanDonDAO {
 
             if (Optional.ofNullable(vanDonPOJO.getTinh()).isPresent()) {
                 document.append("Tinh", vanDonPOJO.getTinh());
+            }
+
+            if (Optional.ofNullable(vanDonPOJO.getNoiTiepNhan()).isPresent()) {
+                document.append("NoiTiepNhan", vanDonPOJO.getNoiTiepNhan());
+            }
+
+            if (Optional.ofNullable(vanDonPOJO.getNguoiThanhToan()).isPresent()) {
+                document.append("NguoiThanhToan", vanDonPOJO.getNguoiThanhToan());
             }
 
             if (Optional.ofNullable(vanDonPOJO.getDiemDen()).isPresent()) {

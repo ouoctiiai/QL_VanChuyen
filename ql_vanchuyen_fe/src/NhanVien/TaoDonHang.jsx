@@ -244,7 +244,7 @@ const TaoDonHang = () => {
         if (tenTinh === "Thành phố Hồ Chí Minh") {
             return tenTinh.replace("Thành phố", "TP")
         }else if(tenTinh == "Thành phố Hà Nội" || tenTinh === "Thành phố Cần Thơ"){
-            return tenTinh.replace("Thành phố", "");
+            return tenTinh.replace("Thành phố ", "");
         } 
         else {
             return tenTinh.replace("Tỉnh ", "");
