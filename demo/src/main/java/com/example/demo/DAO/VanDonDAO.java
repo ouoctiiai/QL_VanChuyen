@@ -709,16 +709,27 @@ public class VanDonDAO {
         }
     }
 
-    public VanDonPOJO updateTrangThaiGiaoThanhCong(ObjectId id){
+    public VanDonPOJO updateTrangThaiGiaoThanhCong(ObjectId id) throws Exception {
         try {
             MongoCollection<Document> collection = connection.getCollection();
-            collection.updateOne(
+
+            Document updateDoc = new Document();
+            updateDoc.append("$set", new Document()
+                    .append("TrangThai", "Giao hàng thành công")
+                    .append("NgayGiao", new Date())
+            );
+            UpdateResult updateResult = collection.updateOne(
                     Filters.eq("_id", id),
-                    Updates.set("TrangThai", "Giao hàng thành công"));
-            return new VanDonPOJO();
+                    updateDoc
+            );
+
+            if (updateResult.getModifiedCount() > 0) {
+                return new VanDonPOJO();
+            } else {
+                throw new Exception("Update failed for shipper ID: " + id);
+            }
         } catch (Exception ex) {
-            ex.printStackTrace();
-            return null;
+            throw ex;
         }
     }
 
@@ -823,6 +834,7 @@ public class VanDonDAO {
         vanDon.setKhoangCach(doc.getDouble("KhoangCach"));
         vanDon.setTinh(doc.getString("Tinh"));
         vanDon.setTrangThai(doc.getString("TrangThai"));
+        vanDon.setNgayGiao(doc.getDate("NgayGiao"));
 
         convertToThongTinNguoiGui(doc, vanDon);
         convertToThongTinNguoiNhan(doc, vanDon);

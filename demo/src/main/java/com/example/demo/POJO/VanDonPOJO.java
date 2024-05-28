@@ -36,12 +36,14 @@ public class VanDonPOJO {
     private ThongTinShipper thongTinShipper;
     private String trangThai;
     private String thoiGianLapToString;
+    private Date ngayGiao;
 
     public VanDonPOJO(VanDonPOJO vd)
     {
         this.id = vd.id;
         this.maVanDon = vd.maVanDon;
         this.thoiGianLap = vd.thoiGianLap;
+        this.ngayGiao = vd.ngayGiao;
         this.loaiVanChuyen = vd.loaiVanChuyen;
         this.noiTiepNhan = vd.noiTiepNhan;
         this.nguoiThanhToan = vd.nguoiThanhToan;
